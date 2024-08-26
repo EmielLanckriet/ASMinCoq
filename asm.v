@@ -1,6 +1,6 @@
 From Coq Require Import Eqdep_dec. (* Needed to prove decidable equality on Register *)
 From Coq Require Import ssreflect.
-From stdpp Require Import gmap fin_maps relations.
+From stdpp Require Import gmap fin_maps relations vector.
 From ASMinCoq Require Import CpdtTactics.
 
 Definition Register := nat.
@@ -28,6 +28,14 @@ Proof.
 Defined.
 
 Definition Word := nat.
+
+Locate vec.
+
+(** Different constructor for instructions that change the control flow, then for instructions that don't
+    TODO: I haven't worked this out yet further, because I don't have an idea of which general classes of instructions exist *)
+Inductive gen_instr : Type :=
+| CF (lr : list Register) (jump_result : list Register -> Register)
+| NCF (n : nat) (lr : list Register) (resultReg : vec Register n) (f_result : list Register -> vec Word n).
 
 Inductive instr : Type :=
 | Jmp (r: Register)
