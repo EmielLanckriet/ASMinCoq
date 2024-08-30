@@ -33,23 +33,16 @@ Definition Addr := nat.
 
 Locate vec.
 
+(** Different constructor for instructions that only mention the general categories in which instructions are introduced in Waterman's thesis *)
 Inductive instr : Type :=
-| Jmp (r: Register)
-| Jnz (r1 r2: Register)
-| Mov (dst: Register) (src: nat + Register)
-| Load (dst src: Register)
-| Store (dst: Register) (src : nat + Register)
-| Add (dst: Register) (r1 r2: nat + Register)
-| Sub (dst: Register) (r1 r2: nat + Register)
-| Fail
+(** Computational and control flow instructions can get their inputs from registers are words (called immediates) *)
+| Computation {n : nat} (inputs : vec (Word + Register) n)
+    (rres : Register) (f_result : vec Word n -> Word)
+| ControlFlow {n : nat} (inputs : vec (Word + Register) n)
+    (dst : Word + Register) (f_condition : vec Word n -> bool)
+| Load (rdst rsrc: Register)
+| Store (rdst : Register) (src : Word + Register)
 | Halt.
-
-(**
-
-| Lt (dst: Register) (r1 r2: nat + Register)
-| Add (dst: Register) (r1 r2: nat + Register)
-| Sub (dst: Register) (r1 r2: nat + Register)
-*)
 
 
 Global Instance addr_countable : Countable Addr.
@@ -74,7 +67,7 @@ Proof. intros r1 r2.
        + right. congruence.
 Defined.
 
-(** Memory and registers are gmaps which are partials maps, but because we don't want failure when something has not been initialized, we always use (!!!) in the other file which does generalised instructions sets which gives 0 as a default value. *)
+(** Memory and registers are gmaps which are partials maps, but because we don't want failure when something has not been initialized, we always use (!!!) which gives 0 as a default value. *)
 Definition Reg := gmap Register Word.
 Definition Mem := gmap Addr Word.
 
@@ -131,96 +124,42 @@ Definition addrreg_to_addr (rs : Reg) (input : Addr + Register) : Addr :=
 Definition inputs_from_inputnatregs {n : nat} (rs : Reg) (inputs : vec (Word + Register) n) := vmap (wordreg_to_word (rs : Reg)) inputs.
     
 
-Definition exec_instr (i : gen_instr) (φ : ExecConf) : Conf :=
+Definition exec_instr (i : instr) (φ : ExecConf) : Conf :=
     match i with
-    | HaltI => (Halted, φ)
-    | ComputationI inputs rres f_result =>
+    | Halt => (Halted, φ)
+    | Computation inputs rres f_result =>
         (NextI, incr_PC (
                 update_reg φ rres (
                     f_result (inputs_from_inputnatregs (reg φ) inputs))))
-    | ControlFlowI inputs dst f_condition =>
+    | ControlFlow inputs dst f_condition =>
         match (f_condition (inputs_from_inputnatregs (reg φ) inputs)) with
         | true => (NextI, update_PC φ (wordreg_to_word (reg φ) dst))
         | false => (NextI, incr_PC φ)
         end
-    | LoadI rres rsrc =>
+    | Load rres rsrc =>
         let wsrc := (reg φ) !!! rsrc in
         let asrc := (mem φ) !!! wsrc in
         (NextI, incr_PC (update_reg φ rres asrc))
-    | StoreI rdst src =>
+    | Store rdst src =>
         let wsrc := wordreg_to_word (reg φ) src in
         let wdst := (reg φ) !!! rdst in
         (NextI, incr_PC (update_mem φ wdst wsrc))
     end.
-
-Definition exec_instr_opt (i: instr) (φ: ExecConf) : option Conf :=
-    match i with
-    | Fail => Some (Failed, φ)
-    | Halt => Some (Halted, φ)
-    | Jmp r =>
-      wr ← (reg φ) !! r;
-      Some (NextI, update_PC φ wr)
-    | Jnz r1 r2 =>
-      wr2 ← (reg φ) !! r2;
-      wr1 ← (reg φ) !! r1;
-      if nonZero wr2 then
-        Some (NextI, update_PC φ wr1)
-      else Some (NextI, incr_PC φ)
-    | Load dst src =>
-      wsrc ← (reg φ) !! src;
-      asrc ← (mem φ) !! wsrc;
-      Some (NextI, incr_PC (update_reg φ dst asrc))
-    | Store dst ρ =>
-        wdst ← (reg φ) !! dst;
-        tostore ← word_from_argument φ ρ;
-        Some (NextI, incr_PC (update_mem φ wdst tostore))
-    | Mov dst ρ =>
-        wdst ← (reg φ) !! dst;
-        tomov ← word_from_argument φ ρ;
-        Some (NextI, incr_PC (update_reg φ wdst tomov))
-    | Add dst ρ1 ρ2 =>
-        n1 ← word_from_argument φ ρ1;
-        n2 ← word_from_argument φ ρ2;
-        Some (NextI, incr_PC (update_reg φ dst (n1 + n2)))
-    | Sub dst ρ1 ρ2 =>
-        n1 ← word_from_argument φ ρ1;
-        n2 ← word_from_argument φ ρ2;
-        Some (NextI, incr_PC (update_reg φ dst (n1 - n2)))
-    end.
-
-Definition exec_instr (i: instr) (φ: ExecConf) : Conf :=
-    match exec_instr_opt i φ with
-    | None => (Failed, φ)
-    | Some conf => conf
-    end.
-
-Lemma exec_instr_opt_exec_instr_some :
-    forall φ i c,
-      exec_instr_opt i φ = Some c →
-      exec_instr i φ = c.
-Proof. unfold exec_instr. by intros * ->. Qed.
-
-Lemma exec_instr_opt_exec_instr_none :
-    forall φ i,
-      exec_instr_opt i φ = None →
-      exec_instr i φ = (Failed, φ).
-  Proof. unfold exec_instr. by intros * ->. Qed.
 
 
 Definition emptyReg : Reg := empty.
 Definition emptyMem : Mem := empty.
 
 (** Contrary to Cerise programs are not part of the memory in this model *)
-Definition program : Type := Word -> option instr.
+Definition program : Type := Word -> instr.
 
 Definition list_prog_to_prog (li : list instr) : program :=
-    fun (w : Word) => nth_error li w.
+    fun (w : Word) => nth_default Halt li w.
 
 Definition exec_step_prog (prog : program) (φ : ExecConf) : Conf :=
-    match (prog (PC φ)) with
-    | None => (Failed, φ)
-    | Some i => exec_instr i φ
-    end.
+    let i := prog (PC φ) in exec_instr i φ.
+
+(** TODO: I stopped here on friday 30th of august *)
 
 Inductive step_prog (prog : program) : Conf -> Conf -> Prop :=
     | step_PC_fail (φ : ExecConf) (PC_invalid : prog (PC φ) = None) :
