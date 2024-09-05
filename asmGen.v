@@ -33,17 +33,6 @@ Definition Addr := nat.
 
 Locate vec.
 
-(** Different constructor for instructions that only mention the general categories in which instructions are introduced in Waterman's thesis *)
-Inductive instr : Type :=
-(** Computational and control flow instructions can get their inputs from registers are words (called immediates) *)
-| Computation {n : nat} (inputs : vec (Word + Register) n)
-    (rres : Register) (f_result : vec Word n -> Word)
-| ControlFlow {n : nat} (inputs : vec (Word + Register) n)
-    (dst : Word + Register) (f_condition : vec Word n -> bool)
-| Load (rdst rsrc: Register)
-| Store (rdst : Register) (src : Word + Register)
-| Halt.
-
 
 Global Instance addr_countable : Countable Addr.
 Proof.
@@ -121,6 +110,23 @@ Definition addrreg_to_addr (rs : Reg) (input : Addr + Register) : Addr :=
     | inr reg => rs !!! reg
     end.
 
+Inductive leak : Type :=
+| NoLeak
+| ControlFlowLeak (b : bool)
+| LoadLeak (a : Addr)
+| StoreLeak (a : Addr).
+
+(** Different constructor for instructions that only mention the general categories in which instructions are introduced in Waterman's thesis *)
+Inductive instr : Type :=
+(** Computational and control flow instructions can get their inputs from registers are words (called immediates) *)
+| Computation {n : nat} (inputs : vec (Word + Register) n)
+    (rres : Register) (f_result : vec Word n -> Word)
+| ControlFlow {n : nat} (inputs : vec (Word + Register) n)
+    (dst : Word + Register) (f_condition : vec Word n -> bool)
+| Load (rdst rsrc: Register)
+| Store (rdst : Register) (src : Word + Register)
+| Halt.
+
 Definition inputs_from_inputnatregs {n : nat} (rs : Reg) (inputs : vec (Word + Register) n) := vmap (wordreg_to_word (rs : Reg)) inputs.
     
 
@@ -146,26 +152,38 @@ Definition exec_instr (i : instr) (φ : ExecConf) : Conf :=
         (NextI, incr_PC (update_mem φ wdst wsrc))
     end.
 
+Definition leak_instr (i : instr) (φ : ExecConf) : leak :=
+    match i with
+    | Halt => NoLeak
+    | Computation inputs rres f_result => NoLeak
+    | ControlFlow inputs dst f_condition =>
+        ControlFlowLeak (f_condition (inputs_from_inputnatregs (reg φ) inputs))
+    | Load rres rsrc =>
+        let wsrc := (reg φ) !!! rsrc in LoadLeak wsrc
+    | Store rdst src =>
+        let wsrc := wordreg_to_word (reg φ) src in StoreLeak wsrc
+    end.
+
 
 Definition emptyReg : Reg := empty.
 Definition emptyMem : Mem := empty.
 
-(** Contrary to Cerise programs are not part of the memory in this model *)
+(** Contrary to Cerise, programs are not part of the memory in this model *)
 Definition program : Type := Word -> instr.
 
 Definition list_prog_to_prog (li : list instr) : program :=
     fun (w : Word) => nth_default Halt li w.
 
-Definition exec_step_prog (prog : program) (φ : ExecConf) : Conf :=
-    let i := prog (PC φ) in exec_instr i φ.
+Definition exec_step_prog (prog : program) (φ : ExecConf) : Conf * leak :=
+    let i := prog (PC φ) in (exec_instr i φ, leak_instr i φ).
 
 
-Inductive step_prog (prog : program) : Conf -> Conf -> Prop :=
-    | step_PC_i (φ : ExecConf) :
-        step_prog prog (NextI, φ) (exec_instr (prog (PC φ)) φ).
+Inductive step_prog (prog : program) : Conf * list leak -> Conf * list leak -> Prop :=
+    | step_PC_i (φ : ExecConf) (ll : list leak) :
+        step_prog prog (NextI, φ, ll) (exec_instr (prog (PC φ)) φ, leak_instr (prog (PC φ)) φ :: ll).
 
-Lemma estep_PC_i (prog : program) (φ : ExecConf) (c : Conf) (i : instr) (PC_i : prog (PC φ) = i) :
-    c = exec_instr i φ -> step_prog prog (NextI, φ) c.
+Lemma estep_PC_i (prog : program) (φ : ExecConf) (ll ll' : list leak) (c : Conf) (i : instr) (PC_i : prog (PC φ) = i) (result : Conf * list leak) :
+    c = exec_instr i φ -> ll' = leak_instr i φ :: ll -> result = (c, ll') -> step_prog prog (NextI, φ, ll) result.
 Proof.
     intros. subst. econstructor.
 Qed.
@@ -180,10 +198,10 @@ Lemma step_prog_deterministic (prog : program):
     intros * H1 H2; split; inversion H1; inversion H2; auto; try congruence.
   Qed.
 
-Definition steps_prog (prog : program) : relation Conf :=
+Definition steps_prog (prog : program) : relation (Conf * list leak) :=
     rtc (step_prog prog).
 
-Definition n_steps_prog (prog : program) : nat -> relation Conf :=
+Definition n_steps_prog (prog : program) : nat -> relation  (Conf * list leak) :=
     nsteps (step_prog prog).
 
 Inductive NilView : vec Word 0 -> Set :=
@@ -200,6 +218,14 @@ Definition view {n : nat} (v : vec Word n) :
    | [#] => nilView
    | (v ::: vs) => consView v vs
 end.
+
+Definition unaryOn1Vec {B : Type} (f_un : Word -> B) (v : vec Word 1) : B :=
+    match view v with
+    | consView w v' => 
+      match view v' with
+      | nilView => f_un w
+      end
+    end.
 
 Definition binaryOn2Vec {B : Type} (f_bin : Word -> Word -> B) (v : vec Word 2) : B :=
     match view v with
@@ -218,72 +244,138 @@ Definition add_vec_2 := binaryOn2Vec (fun x y => x + y).
 Definition Add (dst: Register) (r1 r2: Word + Register) : instr :=
     Computation [# r1; r2] dst add_vec_2.
 
-Lemma testExec_Prog : step_prog (list_prog_to_prog [Add 0 (inl 1) (inr 0)]) (NextI, (0, <[0:=0]>(emptyReg), emptyMem)) (NextI, (1, <[0:=1]>(emptyReg), emptyMem)).
+Lemma testExec_Prog : step_prog (list_prog_to_prog [Add 0 (inl 1) (inr 0)]) (NextI, (0, <[0:=0]>(emptyReg), emptyMem), []) (NextI, (1, <[0:=1]>(emptyReg), emptyMem), [NoLeak]).
 Proof.
-    eapply estep_PC_i.
-    { reflexivity. }
-    reflexivity.
+    eapply estep_PC_i; try reflexivity.
 Qed.
 
-(** Fixpoint exec_prog_output_time (prog : program) (φ : ExecConf) (time : nat) : Conf * {rest : nat | rest <= time}.
-    refine (
-        match time with
-        | 0 => ((NextI, φ) , exist _ 0 _)
-        | S time' => match (exec_step_prog prog φ) with
-                    | (NextI, φ') => let (x, rest') := exec_prog_output_time prog φ' time' in (x, exist _ (proj1_sig rest') _)
-                    | x => (x, exist _ time' _)
-                    end
-        end
-    ); try lia.
-    destruct rest'. simpl. apply Nat.le_le_succ_r. exact l.
-Defined.
-
-
-Definition exec_prog (prog : program) (φ : ExecConf) (time : nat) : Conf  :=
-    fst (exec_prog_output_time prog φ time).
-    *)
-
-Fixpoint exec_prog (prog : program) (φ : ExecConf) (time : nat) : Conf :=
+Fixpoint exec_prog_ll (prog : program) (φ : ExecConf) (ll : list leak) (time : nat) : Conf * list leak :=
     match time with
-        | 0 => (NextI, φ)
+        | 0 => (NextI, φ, ll)
         | S time' => match (exec_step_prog prog φ) with
-                    | (NextI, φ') => exec_prog prog φ' time'
-                    | x => x
+                    | (NextI, φ', l) => exec_prog_ll prog φ' (l :: ll) time'
+                    | (x, l) => (x, l :: ll)
                     end
-    end.  
+    end.
+
+Definition exec_prog (prog : program) (φ : ExecConf) (time : nat) : Conf * list leak :=
+    exec_prog_ll prog φ [] time.
 
 
-Lemma soundness_exec_step (prog : program) (φ : ExecConf) :
-    step_prog prog (NextI, φ) (exec_prog prog φ 1).
+Lemma soundness_exec_step (prog : program) (φ : ExecConf) (ll : list leak) :
+    step_prog prog (NextI, φ, []) (exec_prog prog φ 1).
 Proof.
-    eapply estep_PC_i.
-    { reflexivity. }
-    unfold exec_prog. simpl. unfold exec_step_prog.
+    eapply estep_PC_i; try reflexivity.
+    unfold exec_prog. unfold exec_prog_ll. simpl.
     destruct (prog (PC φ)) as [] eqn:HPC; try reflexivity.
     simpl.
     destruct (f_condition (inputs_from_inputnatregs (reg φ) inputs)); reflexivity.
 Qed.
 
-Lemma soundness_exec (prog : program) (φ : ExecConf) :
-    forall time c, c = exec_prog prog φ time ->
-    steps_prog prog (NextI, φ) c.
+Lemma soundness_exec_ll (prog : program) (φ : ExecConf) (ll : list leak) :
+    forall time c, c = exec_prog_ll prog φ ll time ->
+    steps_prog prog (NextI, φ, ll) c.
 Proof.
     intro time.
-    revert φ.    
+    revert φ ll.    
     induction time; intros φ.
     - simpl. intros. subst. constructor.
     - simpl. destruct (exec_step_prog prog φ) as [] eqn:Hexec. intros.
-      destruct c.
+      destruct c. destruct c.
       + subst.
         econstructor.
         * constructor.
-        * rewrite -Hexec. unfold exec_step_prog. constructor.
+        * unfold exec_step_prog in *. unfold exec_prog. simpl. injection Hexec as H0 H1. rewrite H0. rewrite H1. constructor.
       + subst.
         econstructor.
         * constructor.
-        * unfold exec_step_prog in Hexec. rewrite Hexec. apply IHtime. reflexivity.
+        * unfold exec_step_prog in Hexec. unfold exec_prog. simpl. injection Hexec as H0 H1. rewrite H0. rewrite H1. apply IHtime. reflexivity.
 Qed.
 
+Lemma soundness_exec (prog : program) (φ : ExecConf) :
+    forall time c, c = exec_prog prog φ time ->
+    steps_prog prog (NextI, φ, []) c.
+Proof.
+    unfold exec_prog. apply soundness_exec_ll.
+Qed.
+
+Definition notzero_vec_1 := unaryOn1Vec (fun x => negb (Nat.eqb x 0)).
+    
+Definition Jnz (cond dst : Word + Register) : instr :=
+    ControlFlow [# cond] dst notzero_vec_1.
+
+Lemma test_constant_time_cond_true : step_prog (list_prog_to_prog [Jnz (inr 0) (inl 2); Load 0 0]) (NextI, (0, <[0:=1]>(emptyReg), emptyMem), []) (NextI, (2, <[0:=1]>(emptyReg), emptyMem), [ControlFlowLeak true]).
+Proof.
+    eapply estep_PC_i; try reflexivity.
+Qed.
+    
+Lemma test_constant_time_cond_false : step_prog (list_prog_to_prog [Jnz (inr 0) (inl 2); Load 0 0]) (NextI, (0, <[0:=0]>(emptyReg), emptyMem), []) (NextI, (1, <[0:=0]>(emptyReg), emptyMem), [ControlFlowLeak false]).
+Proof.
+    eapply estep_PC_i; try reflexivity.
+Qed.
+
+Definition halts_with (prog : program) (φ : ExecConf) (ll : list leak) :=
+    steps_prog prog (NextI, (0, emptyReg, emptyMem), []) (Halted, φ, ll).
+
+Definition non_interferent (prog : nat -> program) :=
+    forall (n m : nat), ∃ φ1 φ2 ll, halts_with (prog n) φ1 ll ∧ halts_with (prog m) φ2 ll.
+
+Definition test_prog_constant_time (high_input : nat) :=
+    list_prog_to_prog [Add 0 (inl high_input) (inl high_input)].
+
+Hint Resolve estep_PC_i : core.
+Hint Constructors rtc : core.
+
+Lemma test_prog_constant_time_non_interferent : non_interferent test_prog_constant_time.
+Proof.
+    intros n m.
+    eexists. eexists. eexists.
+    split.
+    - econstructor.
+        + eapply estep_PC_i; try reflexivity.
+        + econstructor; try apply rtc_refl. simpl. eapply estep_PC_i; try reflexivity.
+    - econstructor.
+        + eapply estep_PC_i; try reflexivity.
+        + econstructor; try apply rtc_refl. simpl. eapply estep_PC_i; try reflexivity.
+Qed.
+
+Definition test_prog_not_constant_time (high_input : nat) :=
+    list_prog_to_prog [Add 0 (inl high_input) (inl high_input); Jnz (inr 0) (inl 2)].
+
+Lemma test_prog_not_constant_time_not_non_interferent : ¬ non_interferent test_prog_not_constant_time.
+Proof.
+    intro contra.
+    specialize (contra 0 1) as (φ1 & φ2 & ll & [Hinput0 Hinput1]).
+    (** Hypothesis with input 0 is inverted until we reach halt and hence can find the leakage trace *)
+    inversion Hinput0; subst; clear Hinput0.
+    inversion H; subst; clear H.
+    inversion H0; subst; clear H0.
+    inversion H; subst; clear H. simpl in H1.
+    assert (reg (incr_PC (update_reg (0, emptyReg, emptyMem) 0 (add_vec_2 [#0; 0]))) !!! 0 = 0) as Hrew. { reflexivity. }
+    rewrite Hrew in H1. clear Hrew.
+    assert (notzero_vec_1 [#0] = false) as Hrew. { reflexivity. }
+    rewrite Hrew in H1. clear Hrew.
+    inversion H1; subst; clear H1.
+    inversion H; subst; clear H.
+    simpl in H0.
+    inversion H0; subst; clear H0.
+    2: inversion H.
+    (** Now, we invert hypothesis with input 1 until we find that the wrong leakage trace is assumed. *)
+    inversion Hinput1; subst; clear Hinput1.
+    inversion H; subst; clear H.
+    inversion H0; subst; clear H0.
+    inversion H; subst; clear H. simpl in H1.
+    assert (reg (incr_PC (update_reg (0, emptyReg, emptyMem) 0 (add_vec_2 [#1; 1]))) !!! 0 = 2) as Hrew. { reflexivity. }
+    rewrite Hrew in H1. clear Hrew.
+    assert (notzero_vec_1 [#2] = true) as Hrew. { reflexivity. }
+    rewrite Hrew in H1. clear Hrew.
+    inversion H1; subst; clear H1.
+    inversion H; subst; clear H.
+    simpl in H0.
+    unfold add_vec_2 in H0. unfold binaryOn2Vec in H0. simpl in H0.
+    inversion H0; subst; clear H0.
+    inversion H; subst; clear H.
+Qed.
     
 
     
