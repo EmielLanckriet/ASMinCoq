@@ -188,27 +188,33 @@ Inductive step_prog : ConfFlag -> state * list leak -> ConfFlag -> state * list 
     | step_PC_i (prog : program) (φ : ExecConf) (ll : list leak) :
         step_prog NextI (prog, φ, ll) (confflag_instr (prog (PC φ)) φ) (prog, exec_instr (prog (PC φ)) φ, leak_instr (prog (PC φ)) φ :: ll).
 
-Lemma estep_PC_i (prog : program) (φ : ExecConf) (ll ll' : list leak) (c c' : ConfFlag) (i : instr) (PC_i : prog (PC φ) = i) (result : state * list leak) :
-    c' = exec_instr i φ -> ll' = leak_instr i φ :: ll -> result = (c, ll') -> step_prog prog (NextI, φ, ll) result.
+Lemma estep_PC_i (prog : program) (φ φ' : ExecConf) (ll ll' : list leak) (c' : ConfFlag) (i : instr) (PC_i : prog (PC φ) = i) (result : state * list leak) :
+    c' = confflag_instr i φ ->
+    φ' = exec_instr i φ  ->
+    ll' = leak_instr i φ :: ll ->
+    result = (prog, φ', ll') ->
+    step_prog NextI (prog, φ, ll) c' result.
 Proof.
     intros. subst. econstructor.
 Qed.
 
 
 Lemma step_prog_deterministic (prog : program):
-    forall c1 c2 c2' σ1 σ2 σ2',
-      step_prog prog (c1, σ1) (c2, σ2) →
-      step_prog prog (c1, σ1) (c2', σ2') →
-      c2 = c2' ∧ σ2 = σ2'.
+    forall f1 f1' f2 f2' c1 c2 c2' σ1 σ2 σ2',
+      step_prog f1 (c1, σ1) f2 (c2, σ2) →
+      step_prog f1' (c1, σ1) f2' (c2', σ2') →
+      f2 = f2' ∧ c2 = c2' ∧ σ2 = σ2'.
   Proof.
-    intros * H1 H2; split; inversion H1; inversion H2; auto; try congruence.
+    intros * H1 H2; split; try split; inversion H1; inversion H2; auto; try congruence.
   Qed.
 
-Definition steps_prog (prog : program) : relation (Conf * list leak) :=
-    rtc (step_prog prog).
+(*
+Definition steps_prog : relation (ConfFlag * state * list leak) :=
+    rtc step_prog.
 
 Definition n_steps_prog (prog : program) : nat -> relation  (Conf * list leak) :=
     nsteps (step_prog prog).
+*)
 
 Inductive NilView : vec Word 0 -> Set :=
   nilView : NilView [#].
@@ -250,11 +256,12 @@ Definition add_vec_2 := binaryOn2Vec (fun x y => x + y).
 Definition Add (dst: Register) (r1 r2: Word + Register) : instr :=
     Computation [# r1; r2] dst add_vec_2.
 
-Lemma testExec_Prog : step_prog (list_prog_to_prog [Add 0 (inl 1) (inr 0)]) (NextI, (0, <[0:=0]>(emptyReg), emptyMem), []) (NextI, (1, <[0:=1]>(emptyReg), emptyMem), [NoLeak]).
+Lemma testExec_Prog : step_prog NextI (list_prog_to_prog [Add 0 (inl 1) (inr 0)], (0, <[0:=0]>(emptyReg), emptyMem), []) NextI (list_prog_to_prog [Add 0 (inl 1) (inr 0)], (1, <[0:=1]>(emptyReg), emptyMem), [NoLeak]).
 Proof.
     eapply estep_PC_i; try reflexivity.
 Qed.
 
+(*
 Fixpoint exec_prog_ll (prog : program) (φ : ExecConf) (ll : list leak) (time : nat) : Conf * list leak :=
     match time with
         | 0 => (NextI, φ, ll)
@@ -304,24 +311,27 @@ Lemma soundness_exec (prog : program) (φ : ExecConf) :
 Proof.
     unfold exec_prog. apply soundness_exec_ll.
 Qed.
+*)
 
 Definition notzero_vec_1 := unaryOn1Vec (fun x => negb (Nat.eqb x 0)).
     
 Definition Jnz (cond dst : Word + Register) : instr :=
     ControlFlow [# cond] dst notzero_vec_1.
 
-Lemma test_constant_time_cond_true : step_prog (list_prog_to_prog [Jnz (inr 0) (inl 2); Load 0 0]) (NextI, (0, <[0:=1]>(emptyReg), emptyMem), []) (NextI, (2, <[0:=1]>(emptyReg), emptyMem), [ControlFlowLeak true]).
+Lemma test_constant_time_cond_true : step_prog NextI (list_prog_to_prog [Jnz (inr 0) (inl 2); Load 0 0], (0, <[0:=1]>(emptyReg), emptyMem), []) NextI (list_prog_to_prog [Jnz (inr 0) (inl 2); Load 0 0], (2, <[0:=1]>(emptyReg), emptyMem), [ControlFlowLeak true]).
 Proof.
     eapply estep_PC_i; try reflexivity.
 Qed.
     
-Lemma test_constant_time_cond_false : step_prog (list_prog_to_prog [Jnz (inr 0) (inl 2); Load 0 0]) (NextI, (0, <[0:=0]>(emptyReg), emptyMem), []) (NextI, (1, <[0:=0]>(emptyReg), emptyMem), [ControlFlowLeak false]).
+Lemma test_constant_time_cond_false : step_prog NextI (list_prog_to_prog [Jnz (inr 0) (inl 2); Load 0 0], (0, <[0:=0]>(emptyReg), emptyMem), []) NextI (list_prog_to_prog [Jnz (inr 0) (inl 2); Load 0 0], (1, <[0:=0]>(emptyReg), emptyMem), [ControlFlowLeak false]).
 Proof.
     eapply estep_PC_i; try reflexivity.
 Qed.
 
+(*
 Definition halts_with (prog : program) (φ : ExecConf) (ll : list leak) :=
     steps_prog prog (NextI, (0, emptyReg, emptyMem), []) (Halted, φ, ll).
+
 
 Definition non_interferent (prog : nat -> program) :=
     forall (n m : nat), ∃ φ1 φ2 ll, halts_with (prog n) φ1 ll ∧ halts_with (prog m) φ2 ll.
@@ -382,37 +392,27 @@ Proof.
     inversion H0; subst; clear H0.
     inversion H; subst; clear H.
 Qed.
+*)
 
 Inductive val : Type :=
-  | HaltedV : val
-  | NextIV : val.
+  | HaltedV : val.
 
-  (* TODO: change to co-inductive list in the Seq case *)
-Inductive expr : Type :=
-  | Instr (c : ConfFlag).
-
-Definition state : Type := ExecConf * list leak.
-
-Definition of_val (v: val): expr :=
+Definition of_val (v : val) : ConfFlag :=
     match v with
-    | HaltedV => Instr Halted
-    | NextIV => Instr NextI
+    | HaltedV => Halted
     end.
 
-Definition to_val (e: expr): option val :=
-    match e with
-    | Instr c =>
-      match c with
+Definition to_val (f : ConfFlag): option val :=
+    match f with
       | Halted => Some HaltedV
-      | NextI => Some NextIV
-      end
+      | NextI => None
     end.
 
 Lemma of_to_val:
     forall e v, to_val e = Some v →
            of_val v = e.
 Proof.
-    intros * HH. destruct e; try destruct c; simpl in HH; inversion HH; auto.
+    intros * HH. destruct v. destruct e;  simpl in HH; try inversion HH. reflexivity.
 Qed.
 
 Lemma to_of_val:
@@ -420,19 +420,20 @@ Lemma to_of_val:
 Proof. destruct v; reflexivity. Qed.
 
 
-Inductive prim_step: expr → state → list Empty_set → expr → state → list expr → Prop :=
-  | PS_instr σ ll e' σ' ll' :
-      step_prog (NextI, σ, ll) (e', σ', ll') → prim_step (Instr NextI) σ [] (Instr e') σ' []
-  | PS_halt σ : prim_step (Seq (Instr Halted)) σ [] (Instr Halted) σ [].
+Definition prim_step : ConfFlag → state * list leak → list Empty_set → ConfFlag → state * list leak → list ConfFlag → Prop :=
+    fun f1 s1 _ f2 s2 _ => step_prog f1 s1 f2 s2.
 
+Lemma val_stuck:
+    forall e σ o e' σ' efs,
+      prim_step e σ o e' σ' efs →
+      to_val e = None.
+  Proof. intros * HH. unfold prim_step in HH. inversion HH. reflexivity. Qed.
 
- Lemma asm_lang_mixin : EctxiLanguageMixin of_val to_val fill_item prim_step.
-  Proof.
+Lemma asm_lang_mixin : LanguageMixin of_val to_val prim_step.
+Proof.
     constructor;
-    apply _ || eauto using to_of_val, of_to_val, val_stuck,
-           fill_item_val, fill_item_no_val_inj, head_ctx_step_val.
-  Qed.
+    apply _ || eauto using to_of_val, of_to_val, val_stuck.
+Qed.
 
-Canonical Structure asm_ectxi_lang := EctxiLanguage asm_lang_mixin.
-Canonical Structure asm_ectx_lang := EctxLanguageOfEctxi cap_ectxi_lang.
-Canonical Structure asm_lang  := LanguageOfEctx cap_ectx_lang.
+Canonical Structure asm_lang := Language asm_lang_mixin.
+
