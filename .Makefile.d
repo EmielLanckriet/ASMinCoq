@@ -1,12 +1,9 @@
-AsmGen.vo AsmGen.glob AsmGen.v.beautified AsmGen.required_vo: AsmGen.v CpdtTactics.vo
-AsmGen.vio: AsmGen.v CpdtTactics.vio
-AsmGen.vos AsmGen.vok AsmGen.required_vos: AsmGen.v CpdtTactics.vos
-CpdtTactics.vo CpdtTactics.glob CpdtTactics.v.beautified CpdtTactics.required_vo: CpdtTactics.v 
-CpdtTactics.vio: CpdtTactics.v 
-CpdtTactics.vos CpdtTactics.vok CpdtTactics.required_vos: CpdtTactics.v 
-partial_map.vo partial_map.glob partial_map.v.beautified partial_map.required_vo: partial_map.v 
-partial_map.vio: partial_map.v 
-partial_map.vos partial_map.vok partial_map.required_vos: partial_map.v 
-progLog.vo progLog.glob progLog.v.beautified progLog.required_vo: progLog.v AsmGen.vo
-progLog.vio: progLog.v AsmGen.vio
-progLog.vos progLog.vok progLog.required_vos: progLog.v AsmGen.vos
+theories/AsmGen.vo theories/AsmGen.glob theories/AsmGen.v.beautified theories/AsmGen.required_vo: theories/AsmGen.v theories/CpdtTactics.vo
+theories/AsmGen.vio: theories/AsmGen.v theories/CpdtTactics.vio
+theories/AsmGen.vos theories/AsmGen.vok theories/AsmGen.required_vos: theories/AsmGen.v theories/CpdtTactics.vos
+theories/progLog.vo theories/progLog.glob theories/progLog.v.beautified theories/progLog.required_vo: theories/progLog.v theories/AsmGen.vo
+theories/progLog.vio: theories/progLog.v theories/AsmGen.vio
+theories/progLog.vos theories/progLog.vok theories/progLog.required_vos: theories/progLog.v theories/AsmGen.vos
+theories/CpdtTactics.vo theories/CpdtTactics.glob theories/CpdtTactics.v.beautified theories/CpdtTactics.required_vo: theories/CpdtTactics.v 
+theories/CpdtTactics.vio: theories/CpdtTactics.v 
+theories/CpdtTactics.vos theories/CpdtTactics.vok theories/CpdtTactics.required_vos: theories/CpdtTactics.v 

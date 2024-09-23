@@ -1,1 +1,4 @@
--Q . ASMinCoq
+-R theories ASMinCoq
+theories/AsmGen.v
+theories/progLog.v
+theories/CpdtTactics.v
