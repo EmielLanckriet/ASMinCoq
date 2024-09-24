@@ -219,13 +219,13 @@ R2724:2727 ASMinCoq.AsmGen <> Word def
 binder 2721:2721 <> w:27
 R2731:2734 Coq.Init.Datatypes <> bool ind
 R2743:2746 Coq.Init.Datatypes <> negb def
-R2749:2755 Coq.Arith.PeanoNat Nat eqb def
+R2749:2755 Coq.Numbers.Natural.Peano.NPeano Nat eqb def
 R2757:2757 ASMinCoq.AsmGen <> w:27 var
 def 2779:2782 <> zero
 R2789:2792 ASMinCoq.AsmGen <> Word def
 binder 2786:2786 <> w:28
 R2796:2799 Coq.Init.Datatypes <> bool ind
-R2808:2814 Coq.Arith.PeanoNat Nat eqb def
+R2808:2814 Coq.Numbers.Natural.Peano.NPeano Nat eqb def
 R2816:2816 ASMinCoq.AsmGen <> w:28 var
 def 2833:2850 <> word_from_argument
 R2857:2864 ASMinCoq.AsmGen <> ExecConf def
@@ -824,7 +824,7 @@ def 10353:10365 <> notzero_vec_1
 R10370:10380 ASMinCoq.AsmGen <> unaryOn1Vec def
 binder 10387:10387 <> x:124
 R10392:10395 Coq.Init.Datatypes <> negb def
-R10398:10404 Coq.Arith.PeanoNat Nat eqb def
+R10398:10404 Coq.Numbers.Natural.Peano.NPeano Nat eqb def
 R10406:10406 ASMinCoq.AsmGen <> x:124 var
 def 10429:10431 <> Jnz
 R10449:10451 Coq.Init.Datatypes <> ::type_scope:x_'+'_x not
