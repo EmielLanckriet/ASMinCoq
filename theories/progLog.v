@@ -2,16 +2,63 @@ From iris.proofmode Require Import proofmode.
 From iris.base_logic Require Export invariants gen_heap.
 From iris.program_logic Require Export weakestpre ectx_lifting.
 From iris.algebra Require Import frac auth gmap excl.
+
+Section wp'.
+  Context {Λ : language} `{!irisGS_gen hlc Λ Σ}.
+
+  Lemma wp_lift_atomic_step_fupd {s E1 E2 Φ} e1 :
+  to_val e1 = None →
+  (∀ σ1 ns κ κs nt, state_interp σ1 ns (κ ++ κs) nt ={E1}=∗
+    ⌜if s is NotStuck then reducible e1 σ1 else True⌝ ∗
+    ∀ e2 σ2 efs, ⌜prim_step e1 σ1 κ e2 σ2 efs⌝ -∗ £ 1 ={E1}[E2]▷=∗
+      state_interp σ2 (S ns) κs (length efs + nt) ∗
+      from_option Φ False (to_val e2) ∗
+      [∗ list] ef ∈ efs, WP ef @ s; ⊤ {{ fork_post }})
+  ⊢ WP e1 @ s; E1 {{ Φ }}.
+Proof.
+  iIntros (?) "H".
+  iApply (wp_lift_step_fupd s E1 _ e1)=>//; iIntros (σ1 ns κ κs nt) "Hσ1".
+  iMod ("H" $! σ1 with "Hσ1") as "[$ H]".
+  iApply fupd_mask_intro; first set_solver.
+  iIntros "Hclose" (e2 σ2 efs ?) "Hcred". iMod "Hclose" as "_".
+  iMod ("H" $! e2 σ2 efs with "[#] Hcred") as "H"; [done|].
+  iApply fupd_mask_intro; first set_solver. iIntros "Hclose !>".
+  iMod "Hclose" as "_". iMod "H" as "($ & HQ & $)".
+  destruct (to_val e2) eqn:?; last by iExFalso.
+  iApply wp_value; last done. by apply of_to_val.
+Qed.
+
+  Lemma wp_lift_atomic_step_no_fork_fupd {s E1 E2 Φ} e1 :
+    to_val e1 = None →
+    (∀ σ1 ns κ κs nt, state_interp σ1 ns (κ ++ κs) nt ={E1}=∗
+      ⌜if s is NotStuck then reducible e1 σ1 else True⌝ ∗
+      ∀ e2 σ2 efs, ⌜prim_step e1 σ1 κ e2 σ2 efs⌝ -∗ £ 1 ={E1}[E2]▷=∗
+        ⌜efs = []⌝ ∗ state_interp σ2 (S ns) κs nt ∗ from_option Φ False (to_val e2))
+    ⊢ WP e1 @ s; E1 {{ Φ }}.
+  Proof.
+    iIntros (?) "H". iApply wp_lift_atomic_step_fupd; [done|].
+    iIntros (σ1 ns κ κs nt) "Hσ1". iMod ("H" $! σ1 with "Hσ1") as "[$ H]"; iModIntro.
+    iIntros (v2 σ2 efs Hstep) "Hcred".
+    iMod ("H" $! v2 σ2 efs with "[# //] Hcred") as "H".
+    iIntros "!> !>". iMod "H" as "(-> & ? & ?) /=". by iFrame.
+  Qed.
+
+End wp'.
+
+
 From ASMinCoq Require Export AsmGen.
+
+
+(* CMRA for invariants *)
+Class invG Σ := InvG {
+  inv_invG : invGS Σ;}.
 
 (* CMRΑ for memory *)
 Class memG Σ := MemG {
-  mem_invG : invGS Σ;
   mem_gen_memG :: gen_heapGS Addr Word Σ}.
 
 (* CMRA for registers *)
 Class regG Σ := RegG {
-  reg_invG : invGS Σ;
   reg_gen_regG :: gen_heapGS Reg Word Σ; }.
 
 
@@ -215,10 +262,157 @@ Section S.
 End S.
 
 (* invariants for memory, and a state interpretation for (mem,reg) *)
-Global Instance memG_irisG `{!memG Σ, !regG Σ, !traceG (list leak) Σ, !pcG Σ, !programG Σ} : irisGS asm_lang Σ := {
-  iris_invGS := mem_invG;
-  state_interp σ _ κs _ := ((gen_heap_interp σ.1.2.1.2) ∗ (gen_heap_interp σ.1.2.2) ∗ tr_auth trace_name σ.2 ∗ pc_auth PC_name σ.1.2.1.1 ∗ program_auth Program_name σ.1.1)%I;
-  fork_post _ := True%I;
+Global Instance memG_irisG `{!invG Σ, !memG Σ, !regG Σ, !traceG (list leak) Σ, !pcG Σ, !programG Σ} : irisGS asm_lang Σ := {
+  iris_invGS := inv_invG;
+  state_interp σ _ κs _ := ((gen_heap_interp (reg σ.1.2)) ∗ (gen_heap_interp (mem σ.1.2)) ∗ tr_auth trace_name σ.2 ∗ pc_auth PC_name (PC σ.1.2) ∗ program_auth Program_name σ.1.1)%I;
+  fork_post _ := False%I;
   num_laters_per_step _ := 0;
   state_interp_mono _ _ _ _ := fupd_intro _ _
 }.
+
+Section asm_lang_rules.
+  Context `{!invG Σ, !memG Σ, !regG Σ, !traceG (list leak) Σ, !pcG Σ, !programG Σ}.
+  Context (γ ζ ξ : gname).
+(* Points to predicates for registers *)
+Notation "r ↦ᵣ{ q } w" := (mapsto (L:=Register) (V:=Word) r q w)
+  (at level 20, q at level 50, format "r  ↦ᵣ{ q }  w") : bi_scope.
+Notation "r ↦ᵣ w" := (mapsto (L:=Register) (V:=Word) r (DfracOwn 1) w) (at level 20) : bi_scope.
+
+(* Points to predicates for memory *)
+Notation "a ↦ₐ{ q } w" := (mapsto (L:=Addr) (V:=Word) a q w)
+  (at level 20, q at level 50, format "a  ↦ₐ{ q }  w") : bi_scope.
+Notation "a ↦ₐ w" := (mapsto (L:=Addr) (V:=Word) a (DfracOwn 1) w) (at level 20) : bi_scope.
+
+(* ------------------------- registers points-to --------------------------------- *)
+
+  Lemma register_dupl_false r w1 w2 :
+    r ↦ᵣ w1 -∗ r ↦ᵣ w2 -∗ False.
+  Proof.
+    iIntros "Hr1 Hr2".
+    iDestruct (mapsto_valid_2 with "Hr1 Hr2") as %H.
+    destruct H as [H1 H2]. eapply dfrac_full_exclusive in H1. auto.
+  Qed.
+
+  Lemma register_neq r1 r2 w1 w2 :
+    r1 ↦ᵣ w1 -∗ r2 ↦ᵣ w2 -∗ ⌜ r1 ≠ r2 ⌝.
+  Proof.
+    iIntros "H1 H2" (?). subst r1. iApply (register_dupl_false with "H1 H2").
+  Qed.
+
+  Lemma map_of_regs_1 (r1: Register) (w1: Word) :
+    r1 ↦ᵣ w1 -∗
+    ([∗ map] k↦y ∈ {[r1 := w1]}, k ↦ᵣ y).
+  Proof. rewrite big_sepM_singleton; auto. Qed.
+
+  Lemma regs_of_map_1 (r1: Register) (w1: Word) :
+    ([∗ map] k↦y ∈ {[r1 := w1]}, k ↦ᵣ y) -∗
+    r1 ↦ᵣ w1.
+  Proof. rewrite big_sepM_singleton; auto. Qed.
+
+  Lemma map_of_regs_2 (r1 r2: Register) (w1 w2: Word) :
+    r1 ↦ᵣ w1 -∗ r2 ↦ᵣ w2 -∗
+    ([∗ map] k↦y ∈ (<[r1:=w1]> (<[r2:=w2]> ∅)), k ↦ᵣ y) ∗ ⌜ r1 ≠ r2 ⌝.
+  Proof.
+    iIntros "H1 H2". iPoseProof (register_neq with "H1 H2") as "%".
+    rewrite !big_sepM_insert ?big_sepM_empty; eauto.
+    2: by apply lookup_insert_None; split; eauto.
+    iFrame. eauto.
+  Qed.
+
+  Lemma regs_of_map_2 (r1 r2: Register) (w1 w2: Word) :
+    r1 ≠ r2 →
+    ([∗ map] k↦y ∈ (<[r1:=w1]> (<[r2:=w2]> ∅)), k ↦ᵣ y) -∗
+    r1 ↦ᵣ w1 ∗ r2 ↦ᵣ w2.
+  Proof.
+    iIntros (?) "Hmap". rewrite !big_sepM_insert ?big_sepM_empty; eauto.
+    by iDestruct "Hmap" as "(? & ? & _)"; iFrame.
+    apply lookup_insert_None; split; eauto.
+  Qed.
+
+  Lemma map_of_regs_3 (r1 r2 r3: Register) (w1 w2 w3: Word) :
+    r1 ↦ᵣ w1 -∗ r2 ↦ᵣ w2 -∗ r3 ↦ᵣ w3 -∗
+    ([∗ map] k↦y ∈ (<[r1:=w1]> (<[r2:=w2]> (<[r3:=w3]> ∅))), k ↦ᵣ y) ∗
+     ⌜ r1 ≠ r2 ∧ r1 ≠ r3 ∧ r2 ≠ r3 ⌝.
+  Proof.
+    iIntros "H1 H2 H3".
+    iPoseProof (register_neq with "H1 H2") as "%".
+    iPoseProof (register_neq with "H1 H3") as "%".
+    iPoseProof (register_neq with "H2 H3") as "%".
+    rewrite !big_sepM_insert ?big_sepM_empty; simplify_map_eq; eauto.
+    iFrame. eauto.
+  Qed.
+
+  Lemma regs_of_map_3 (r1 r2 r3: Register) (w1 w2 w3: Word) :
+    r1 ≠ r2 → r1 ≠ r3 → r2 ≠ r3 →
+    ([∗ map] k↦y ∈ (<[r1:=w1]> (<[r2:=w2]> (<[r3:=w3]> ∅))), k ↦ᵣ y) -∗
+    r1 ↦ᵣ w1 ∗ r2 ↦ᵣ w2 ∗ r3 ↦ᵣ w3.
+  Proof.
+    iIntros (? ? ?) "Hmap". rewrite !big_sepM_insert ?big_sepM_empty; simplify_map_eq; eauto.
+    iDestruct "Hmap" as "(? & ? & ? & _)"; iFrame.
+  Qed.
+
+  Lemma map_of_regs_4 (r1 r2 r3 r4: Register) (w1 w2 w3 w4: Word) :
+    r1 ↦ᵣ w1 -∗ r2 ↦ᵣ w2 -∗ r3 ↦ᵣ w3 -∗ r4 ↦ᵣ w4 -∗
+    ([∗ map] k↦y ∈ (<[r1:=w1]> (<[r2:=w2]> (<[r3:=w3]> (<[r4:=w4]> ∅)))), k ↦ᵣ y) ∗
+     ⌜ r1 ≠ r2 ∧ r1 ≠ r3 ∧ r1 ≠ r4 ∧ r2 ≠ r3 ∧ r2 ≠ r4 ∧ r3 ≠ r4 ⌝.
+  Proof.
+    iIntros "H1 H2 H3 H4".
+    iPoseProof (register_neq with "H1 H2") as "%".
+    iPoseProof (register_neq with "H1 H3") as "%".
+    iPoseProof (register_neq with "H1 H4") as "%".
+    iPoseProof (register_neq with "H2 H3") as "%".
+    iPoseProof (register_neq with "H2 H4") as "%".
+    iPoseProof (register_neq with "H3 H4") as "%".
+    rewrite !big_sepM_insert ?big_sepM_empty; simplify_map_eq; eauto.
+    iFrame. eauto.
+  Qed.
+
+  Lemma regs_of_map_4 (r1 r2 r3 r4: Register) (w1 w2 w3 w4: Word) :
+    r1 ≠ r2 → r1 ≠ r3 → r1 ≠ r4 → r2 ≠ r3 → r2 ≠ r4 → r3 ≠ r4 →
+    ([∗ map] k↦y ∈ (<[r1:=w1]> (<[r2:=w2]> (<[r3:=w3]> (<[r4:=w4]> ∅)))), k ↦ᵣ y) -∗
+    r1 ↦ᵣ w1 ∗ r2 ↦ᵣ w2 ∗ r3 ↦ᵣ w3 ∗ r4 ↦ᵣ w4.
+  Proof.
+    intros. iIntros "Hmap". rewrite !big_sepM_insert ?big_sepM_empty; simplify_map_eq; eauto.
+    iDestruct "Hmap" as "(? & ? & ? & ? & _)"; iFrame.
+  Qed.
+
+  (* ------------------------- memory points-to --------------------------------- *)
+
+  Lemma addr_dupl_false a w1 w2 :
+    a ↦ₐ w1 -∗ a ↦ₐ w2 -∗ False.
+  Proof.
+    iIntros "Ha1 Ha2".
+    iDestruct (mapsto_valid_2 with "Ha1 Ha2") as %H.
+    destruct H as [H1 H2]. eapply dfrac_full_exclusive in H1.
+    auto.
+  Qed.
+
+  Lemma wp_halt pc prog ll E :
+    prog pc = Halt ->
+    {{{ program_frag Program_name prog ∗ pc_frag PC_name pc ∗ tr_frag trace_name ll }}}
+      NextI @ E
+    {{{ RET HaltedV; program_frag Program_name prog ∗ pc_frag PC_name pc ∗ tr_frag trace_name (NoLeak :: ll) }}}.
+  Proof.
+    iIntros (prpcHalt Φ) "(Hprog & Hpc & Hll) HΦ".
+    iApply wp_lift_atomic_step_fupd; auto.
+    iIntros (σ ns κ κs nt) "(Hauthreg & Hauthmem & Hauthtrace & Hauthpc & Hauthprog)".
+    destruct σ as [s ll'].
+    simpl.
+    iDestruct (@trace_full_frag_eq with "Hauthtrace Hll") as %?; subst; auto.
+    iDestruct (@pc_full_frag_eq with "Hauthpc Hpc") as %?; subst; auto.
+    iDestruct (@program_full_frag_eq with "Hauthprog Hprog") as %?; subst; auto.
+    iModIntro.
+    iSplitR.
+    - iPureIntro. apply normal_always_reducible.
+    - iIntros (e2 σ2 efs) "%steps test".
+      inversion steps; subst; simpl in *.
+      rewrite prpcHalt in steps. rewrite prpcHalt. simpl in *. iFrame.
+      iPoseProof (trace_update trace_name _ (NoLeak :: ll) with "[$Hauthtrace $Hll]") as "H".
+      iMod "H". iModIntro. iNext. iModIntro.
+      iDestruct "H" as "[Hauthll Hfragll]". iFrame.
+      iSplitR "test".
+      + iApply "HΦ". iFrame.
+      + 
+
+
+  End asm_lang_rules.

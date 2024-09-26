@@ -32,8 +32,20 @@ Definition Word := nat.
 
 Definition Addr := nat.
 
-Locate vec.
-
+Global Instance word_countable : Countable Word.
+Proof.
+    refine {| encode r := encode (match r with
+                               | n => n
+                               end );
+            decode n := match (decode n) with
+                        | Some n => Some n
+                        | _ => None
+                        end ;
+            decode_encode := _ |}.
+    intro r. destruct r; auto.
+    rewrite decode_encode.
+    reflexivity.
+Defined.
 
 Global Instance addr_countable : Countable Addr.
 Proof.
@@ -419,6 +431,11 @@ Lemma to_of_val:
     forall v, to_val (of_val v) = Some v.
 Proof. destruct v; reflexivity. Qed.
 
+(*
+Inductive prim_step : ConfFlag → state * list leak → list Empty_set → ConfFlag → state * list leak → list ConfFlag → Prop :=
+| PS_no_fork_instr σ cf σ' :
+        step_prog NextI σ cf σ' -> prim_step NextI σ [] cf σ' [].
+        *)
 
 Definition prim_step : ConfFlag → state * list leak → list Empty_set → ConfFlag → state * list leak → list ConfFlag → Prop :=
     fun f1 s1 _ f2 s2 _ => step_prog f1 s1 f2 s2.
@@ -427,7 +444,7 @@ Lemma val_stuck:
     forall e σ o e' σ' efs,
       prim_step e σ o e' σ' efs →
       to_val e = None.
-  Proof. intros * HH. unfold prim_step in HH. inversion HH. reflexivity. Qed.
+  Proof. intros * HH. inversion HH. reflexivity. Qed.
 
 Lemma asm_lang_mixin : LanguageMixin of_val to_val prim_step.
 Proof.
@@ -435,5 +452,37 @@ Proof.
     apply _ || eauto using to_of_val, of_to_val, val_stuck.
 Qed.
 
-Canonical Structure asm_lang := Language asm_lang_mixin.
+Canonical Structure asm_lang := Language asm_lang_mixin. 
 
+Lemma normal_always_step:
+    forall sll, exists cf sll', step_prog NextI sll cf sll'.
+  Proof.
+    destruct sll as [[prog φ] ll].
+    intros. destruct (prog (PC φ)) as [] eqn:H.
+    (* Resolve the Halt case *)
+    all: try solve [exists Halted; eexists; eapply estep_PC_i; auto; rewrite H; auto].
+    all: try (exists NextI; eexists; eapply estep_PC_i; auto; rewrite H; reflexivity).
+  Qed.
+
+(*
+Lemma reducible_from_step_prog σ1 f2 σ2 :
+  step_prog NextI σ1 f2 σ2 →
+  reducible (NextI) σ1.
+Proof. intros * HH. rewrite /reducible //=.
+       eexists [], f2, σ2, []. subst. constructor. assumption.
+Qed.
+*)
+
+Lemma reducible_from_step_prog σ1 f2 σ2 :
+  step_prog NextI σ1 f2 σ2 →
+  reducible (NextI) σ1.
+Proof. intros * HH. rewrite /reducible //=.
+       eexists [], f2, σ2, []. subst. unfold prim_step. assumption.
+Qed.
+
+Lemma normal_always_reducible σ :
+  reducible NextI σ.
+Proof.
+  generalize (normal_always_step σ); intros (?&?&?).
+  eapply reducible_from_step_prog. eauto.
+Qed.
