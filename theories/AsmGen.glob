@@ -1,4 +1,4 @@
-DIGEST 582f7cd762d7acc1a3f8263847923e2b
+DIGEST 8ef507bcfb77b044e90daf652da6f9f2
 FASMinCoq.AsmGen
 R24:32 Coq.Logic.Eqdep_dec <> <> lib
 R112:120 Coq.ssr.ssreflect <> <> lib
@@ -61,1115 +61,1327 @@ def 981:984 <> Word
 R989:991 Coq.Init.Datatypes <> nat ind
 def 1006:1009 <> Addr
 R1014:1016 Coq.Init.Datatypes <> nat ind
-inst 1036:1049 <> word_countable
-R1053:1061 stdpp.countable <> Countable class
-R1063:1066 ASMinCoq.AsmGen <> Word def
-R1090:1095 stdpp.countable <> encode meth
-R1090:1095 stdpp.countable <> encode meth
-R1090:1095 stdpp.countable <> encode meth
-R1213:1218 stdpp.countable <> decode meth
-R1213:1218 stdpp.countable <> decode meth
-R1368:1380 stdpp.countable <> decode_encode meth
-R1368:1380 stdpp.countable <> decode_encode meth
-binder 1097:1097 <> r:7
-R1102:1107 stdpp.countable <> encode meth
-R1116:1116 ASMinCoq.AsmGen <> r:7 var
-binder 1220:1220 <> n:9
-R1232:1237 stdpp.countable <> decode meth
-R1239:1239 ASMinCoq.AsmGen <> n:9 var
-R1273:1276 Coq.Init.Datatypes <> Some constr
-R1283:1286 Coq.Init.Datatypes <> Some constr
-R1288:1288 ASMinCoq.AsmGen <> n:9 var
-R1321:1324 Coq.Init.Datatypes <> None constr
-R1090:1095 stdpp.countable <> encode meth
-R1090:1095 stdpp.countable <> encode meth
-R1090:1095 stdpp.countable <> encode meth
-R1213:1218 stdpp.countable <> decode meth
-R1213:1218 stdpp.countable <> decode meth
-R1368:1380 stdpp.countable <> decode_encode meth
-R1368:1380 stdpp.countable <> decode_encode meth
-binder 1097:1097 <> r:10
-R1102:1107 stdpp.countable <> encode meth
-R1116:1116 ASMinCoq.AsmGen <> r:10 var
-binder 1220:1220 <> n:12
-R1232:1237 stdpp.countable <> decode meth
-R1239:1239 ASMinCoq.AsmGen <> n:12 var
-R1273:1276 Coq.Init.Datatypes <> Some constr
-R1283:1286 Coq.Init.Datatypes <> Some constr
-R1288:1288 ASMinCoq.AsmGen <> n:12 var
-R1321:1324 Coq.Init.Datatypes <> None constr
-R1434:1446 stdpp.countable <> decode_encode meth
-R1434:1446 stdpp.countable <> decode_encode meth
-R1434:1446 stdpp.countable <> decode_encode meth
-inst 1492:1505 <> addr_countable
-R1509:1517 stdpp.countable <> Countable class
-R1519:1522 ASMinCoq.AsmGen <> Addr def
-R1546:1551 stdpp.countable <> encode meth
-R1546:1551 stdpp.countable <> encode meth
-R1546:1551 stdpp.countable <> encode meth
-R1669:1674 stdpp.countable <> decode meth
-R1669:1674 stdpp.countable <> decode meth
-R1824:1836 stdpp.countable <> decode_encode meth
-R1824:1836 stdpp.countable <> decode_encode meth
-binder 1553:1553 <> r:13
-R1558:1563 stdpp.countable <> encode meth
-R1572:1572 ASMinCoq.AsmGen <> r:13 var
-binder 1676:1676 <> n:15
-R1688:1693 stdpp.countable <> decode meth
-R1695:1695 ASMinCoq.AsmGen <> n:15 var
-R1729:1732 Coq.Init.Datatypes <> Some constr
-R1739:1742 Coq.Init.Datatypes <> Some constr
-R1744:1744 ASMinCoq.AsmGen <> n:15 var
-R1777:1780 Coq.Init.Datatypes <> None constr
-R1546:1551 stdpp.countable <> encode meth
-R1546:1551 stdpp.countable <> encode meth
-R1546:1551 stdpp.countable <> encode meth
-R1669:1674 stdpp.countable <> decode meth
-R1669:1674 stdpp.countable <> decode meth
-R1824:1836 stdpp.countable <> decode_encode meth
-R1824:1836 stdpp.countable <> decode_encode meth
-binder 1553:1553 <> r:16
-R1558:1563 stdpp.countable <> encode meth
-R1572:1572 ASMinCoq.AsmGen <> r:16 var
-binder 1676:1676 <> n:18
-R1688:1693 stdpp.countable <> decode meth
-R1695:1695 ASMinCoq.AsmGen <> n:18 var
-R1729:1732 Coq.Init.Datatypes <> Some constr
-R1739:1742 Coq.Init.Datatypes <> Some constr
-R1744:1744 ASMinCoq.AsmGen <> n:18 var
-R1777:1780 Coq.Init.Datatypes <> None constr
-R1890:1902 stdpp.countable <> decode_encode meth
-R1890:1902 stdpp.countable <> decode_encode meth
-R1890:1902 stdpp.countable <> decode_encode meth
-inst 1948:1958 <> addr_eq_dec
-R1962:1971 stdpp.base <> EqDecision abbrev
-R1973:1976 ASMinCoq.AsmGen <> Addr def
-R2017:2026 stdpp.numbers Nat eq_dec inst
-R2017:2026 stdpp.numbers Nat eq_dec inst
-def 2312:2314 <> Reg
-R2319:2322 stdpp.gmap <> gmap rec
-R2333:2336 ASMinCoq.AsmGen <> Word def
-R2324:2331 ASMinCoq.AsmGen <> Register def
-def 2350:2352 <> Mem
-R2357:2360 stdpp.gmap <> gmap rec
-R2367:2370 ASMinCoq.AsmGen <> Word def
-R2362:2365 ASMinCoq.AsmGen <> Addr def
-def 2385:2392 <> ExecConf
-R2408:2410 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
-R2402:2404 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
-R2398:2401 ASMinCoq.AsmGen <> Word def
-R2405:2407 ASMinCoq.AsmGen <> Reg def
-R2411:2413 ASMinCoq.AsmGen <> Mem def
-ind 2433:2440 <> ConfFlag
-constr 2539:2544 <> Halted
-constr 2548:2552 <> NextI
-scheme 2433:2440 <> ConfFlag_rect
-scheme 2433:2440 <> ConfFlag_ind
-scheme 2433:2440 <> ConfFlag_rec
-scheme 2433:2440 <> ConfFlag_sind
-def 2620:2622 <> reg
-R2630:2637 ASMinCoq.AsmGen <> ExecConf def
-binder 2625:2626 <> ϕ:21
-R2643:2645 Coq.Init.Datatypes <> snd def
-R2648:2650 Coq.Init.Datatypes <> fst def
-R2652:2653 ASMinCoq.AsmGen <> ϕ:21 var
-def 2669:2671 <> mem
-R2679:2686 ASMinCoq.AsmGen <> ExecConf def
-binder 2674:2675 <> ϕ:22
-R2692:2694 Coq.Init.Datatypes <> snd def
-R2696:2697 ASMinCoq.AsmGen <> ϕ:22 var
-def 2712:2713 <> PC
-R2721:2728 ASMinCoq.AsmGen <> ExecConf def
-binder 2716:2717 <> φ:23
-R2734:2736 Coq.Init.Datatypes <> fst def
-R2739:2741 Coq.Init.Datatypes <> fst def
-R2743:2744 ASMinCoq.AsmGen <> φ:23 var
-def 2761:2770 <> update_reg
-R2778:2785 ASMinCoq.AsmGen <> ExecConf def
-binder 2773:2774 <> φ:24
-R2793:2800 ASMinCoq.AsmGen <> Register def
-binder 2789:2789 <> r:25
-R2808:2811 ASMinCoq.AsmGen <> Word def
-binder 2804:2804 <> w:26
-R2815:2822 ASMinCoq.AsmGen <> ExecConf def
-R2831:2831 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R2837:2837 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R2854:2854 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R2861:2861 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R2832:2833 ASMinCoq.AsmGen <> PC def
-R2835:2836 ASMinCoq.AsmGen <> φ:24 var
-R2838:2839 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
-R2841:2842 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
-R2844:2853 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
-R2840:2840 ASMinCoq.AsmGen <> r:25 var
-R2843:2843 ASMinCoq.AsmGen <> w:26 var
-R2847:2849 ASMinCoq.AsmGen <> reg def
-R2851:2852 ASMinCoq.AsmGen <> φ:24 var
-R2855:2857 ASMinCoq.AsmGen <> mem def
-R2859:2860 ASMinCoq.AsmGen <> φ:24 var
-def 2875:2884 <> update_mem
-R2892:2899 ASMinCoq.AsmGen <> ExecConf def
-binder 2887:2888 <> φ:27
-R2907:2910 ASMinCoq.AsmGen <> Addr def
-binder 2903:2903 <> a:28
-R2918:2921 ASMinCoq.AsmGen <> Word def
-binder 2914:2914 <> w:29
-R2925:2932 ASMinCoq.AsmGen <> ExecConf def
-R2941:2941 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R2947:2947 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R2954:2955 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R2972:2972 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R2942:2943 ASMinCoq.AsmGen <> PC def
-R2945:2946 ASMinCoq.AsmGen <> φ:27 var
-R2948:2950 ASMinCoq.AsmGen <> reg def
-R2952:2953 ASMinCoq.AsmGen <> φ:27 var
-R2956:2957 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
-R2959:2960 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
-R2962:2971 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
-R2958:2958 ASMinCoq.AsmGen <> a:28 var
-R2961:2961 ASMinCoq.AsmGen <> w:29 var
-R2965:2967 ASMinCoq.AsmGen <> mem def
-R2969:2970 ASMinCoq.AsmGen <> φ:27 var
-def 2986:2994 <> update_PC
-R3002:3009 ASMinCoq.AsmGen <> ExecConf def
-binder 2997:2998 <> φ:30
-R3017:3020 ASMinCoq.AsmGen <> Word def
-binder 3013:3013 <> w:31
-R3025:3032 ASMinCoq.AsmGen <> ExecConf def
-R3041:3041 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R3043:3044 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R3051:3052 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R3059:3059 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R3042:3042 ASMinCoq.AsmGen <> w:31 var
-R3045:3047 ASMinCoq.AsmGen <> reg def
-R3049:3050 ASMinCoq.AsmGen <> φ:30 var
-R3053:3055 ASMinCoq.AsmGen <> mem def
-R3057:3058 ASMinCoq.AsmGen <> φ:30 var
-def 3074:3080 <> incr_PC
-R3088:3095 ASMinCoq.AsmGen <> ExecConf def
-binder 3083:3084 <> φ:32
-R3100:3107 ASMinCoq.AsmGen <> ExecConf def
-R3116:3124 ASMinCoq.AsmGen <> update_PC def
-R3126:3127 ASMinCoq.AsmGen <> φ:32 var
-R3135:3137 Coq.Init.Peano <> ::nat_scope:x_'+'_x not
-R3130:3131 ASMinCoq.AsmGen <> PC def
-R3133:3134 ASMinCoq.AsmGen <> φ:32 var
-def 3154:3160 <> nonZero
-R3166:3169 ASMinCoq.AsmGen <> Word def
-binder 3163:3163 <> w:33
-R3173:3176 Coq.Init.Datatypes <> bool ind
-R3185:3188 Coq.Init.Datatypes <> negb def
-R3191:3197 Coq.Numbers.Natural.Peano.NPeano Nat eqb def
-R3199:3199 ASMinCoq.AsmGen <> w:33 var
-def 3221:3224 <> zero
-R3231:3234 ASMinCoq.AsmGen <> Word def
-binder 3228:3228 <> w:34
-R3238:3241 Coq.Init.Datatypes <> bool ind
-R3250:3256 Coq.Numbers.Natural.Peano.NPeano Nat eqb def
-R3258:3258 ASMinCoq.AsmGen <> w:34 var
-def 3275:3292 <> word_from_argument
-R3299:3306 ASMinCoq.AsmGen <> ExecConf def
-binder 3295:3296 <> φ:35
-R3319:3321 Coq.Init.Datatypes <> ::type_scope:x_'+'_x not
-R3316:3318 Coq.Init.Datatypes <> nat ind
-R3322:3329 ASMinCoq.AsmGen <> Register def
-binder 3310:3312 <> src:36
-R3334:3339 Coq.Init.Datatypes <> option ind
-R3341:3344 ASMinCoq.AsmGen <> Word def
-R3359:3361 ASMinCoq.AsmGen <> src:36 var
-R3374:3376 Coq.Init.Datatypes <> inl constr
-R3383:3386 Coq.Init.Datatypes <> Some constr
-R3396:3398 Coq.Init.Datatypes <> inr constr
-R3405:3405 stdpp.base <> ::stdpp_scope:x_'!!'_x not
-R3412:3416 stdpp.base <> ::stdpp_scope:x_'!!'_x not
-R3406:3408 ASMinCoq.AsmGen <> reg def
-R3410:3411 ASMinCoq.AsmGen <> φ:35 var
-def 3440:3454 <> wordreg_to_word
-R3462:3464 ASMinCoq.AsmGen <> Reg def
-binder 3457:3458 <> rs:38
-R3480:3482 Coq.Init.Datatypes <> ::type_scope:x_'+'_x not
-R3476:3479 ASMinCoq.AsmGen <> Word def
-R3483:3490 ASMinCoq.AsmGen <> Register def
-binder 3468:3472 <> input:39
-R3495:3498 ASMinCoq.AsmGen <> Word def
-R3513:3517 ASMinCoq.AsmGen <> input:39 var
-R3530:3532 Coq.Init.Datatypes <> inl constr
-R3553:3555 Coq.Init.Datatypes <> inr constr
-R3566:3570 stdpp.base <> ::stdpp_scope:x_'!!!'_x not
-R3564:3565 ASMinCoq.AsmGen <> rs:38 var
-def 3600:3614 <> addrreg_to_addr
-R3622:3624 ASMinCoq.AsmGen <> Reg def
-binder 3617:3618 <> rs:41
-R3640:3642 Coq.Init.Datatypes <> ::type_scope:x_'+'_x not
-R3636:3639 ASMinCoq.AsmGen <> Addr def
-R3643:3650 ASMinCoq.AsmGen <> Register def
-binder 3628:3632 <> input:42
-R3655:3658 ASMinCoq.AsmGen <> Addr def
-R3673:3677 ASMinCoq.AsmGen <> input:42 var
-R3690:3692 Coq.Init.Datatypes <> inl constr
-R3713:3715 Coq.Init.Datatypes <> inr constr
-R3726:3730 stdpp.base <> ::stdpp_scope:x_'!!!'_x not
-R3724:3725 ASMinCoq.AsmGen <> rs:41 var
-ind 3755:3758 <> leak
-constr 3772:3777 <> NoLeak
-constr 3781:3795 <> ControlFlowLeak
-constr 3810:3817 <> LoadLeak
-constr 3832:3840 <> StoreLeak
-R3802:3805 Coq.Init.Datatypes <> bool ind
-binder 3798:3798 <> b:46
-R3824:3827 ASMinCoq.AsmGen <> Addr def
-binder 3820:3820 <> a:47
-R3847:3850 ASMinCoq.AsmGen <> Addr def
-binder 3843:3843 <> a:48
-scheme 3755:3758 <> leak_rect
-scheme 3755:3758 <> leak_ind
-scheme 3755:3758 <> leak_rec
-scheme 3755:3758 <> leak_sind
-ind 4010:4014 <> instr
-constr 4145:4155 <> Computation
-constr 4258:4268 <> ControlFlow
-constr 4380:4383 <> Load
-constr 4409:4413 <> Store
-constr 4459:4462 <> Halt
-R4162:4164 Coq.Init.Datatypes <> nat ind
-binder 4158:4158 <> n:51
-R4177:4179 stdpp.vector <> vec abbrev
-R4186:4188 Coq.Init.Datatypes <> ::type_scope:x_'+'_x not
-R4182:4185 ASMinCoq.AsmGen <> Word def
-R4189:4196 ASMinCoq.AsmGen <> Register def
-R4199:4199 ASMinCoq.AsmGen <> n:51 var
-binder 4168:4173 <> inputs:52
-R4214:4221 ASMinCoq.AsmGen <> Register def
-binder 4207:4210 <> rres:53
-R4246:4249 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R4236:4238 stdpp.vector <> vec abbrev
-R4240:4243 ASMinCoq.AsmGen <> Word def
-R4245:4245 ASMinCoq.AsmGen <> n:51 var
-R4250:4253 ASMinCoq.AsmGen <> Word def
-binder 4225:4232 <> f_result:54
-R4275:4277 Coq.Init.Datatypes <> nat ind
-binder 4271:4271 <> n:55
-R4290:4292 stdpp.vector <> vec abbrev
-R4299:4301 Coq.Init.Datatypes <> ::type_scope:x_'+'_x not
-R4295:4298 ASMinCoq.AsmGen <> Word def
-R4302:4309 ASMinCoq.AsmGen <> Register def
-R4312:4312 ASMinCoq.AsmGen <> n:55 var
-binder 4281:4286 <> inputs:56
-R4330:4332 Coq.Init.Datatypes <> ::type_scope:x_'+'_x not
-R4326:4329 ASMinCoq.AsmGen <> Word def
-R4333:4340 ASMinCoq.AsmGen <> Register def
-binder 4320:4322 <> dst:57
-R4368:4371 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R4358:4360 stdpp.vector <> vec abbrev
-R4362:4365 ASMinCoq.AsmGen <> Word def
-R4367:4367 ASMinCoq.AsmGen <> n:55 var
-R4372:4375 Coq.Init.Datatypes <> bool ind
-binder 4344:4354 <> f_condition:58
-R4397:4404 ASMinCoq.AsmGen <> Register def
-binder 4386:4389 <> rdst:59
-binder 4391:4394 <> rsrc:60
-R4423:4430 ASMinCoq.AsmGen <> Register def
-binder 4416:4419 <> rdst:61
-R4444:4446 Coq.Init.Datatypes <> ::type_scope:x_'+'_x not
-R4440:4443 ASMinCoq.AsmGen <> Word def
-R4447:4454 ASMinCoq.AsmGen <> Register def
-binder 4434:4436 <> src:62
-scheme 4010:4014 <> instr_rect
-scheme 4010:4014 <> instr_ind
-scheme 4010:4014 <> instr_rec
-scheme 4010:4014 <> instr_sind
-def 4477:4500 <> inputs_from_inputnatregs
-R4507:4509 Coq.Init.Datatypes <> nat ind
-binder 4503:4503 <> n:63
-R4518:4520 ASMinCoq.AsmGen <> Reg def
-binder 4513:4514 <> rs:64
-R4533:4535 stdpp.vector <> vec abbrev
-R4542:4544 Coq.Init.Datatypes <> ::type_scope:x_'+'_x not
-R4538:4541 ASMinCoq.AsmGen <> Word def
-R4545:4552 ASMinCoq.AsmGen <> Register def
-R4555:4555 ASMinCoq.AsmGen <> n:63 var
-binder 4524:4529 <> inputs:65
-R4561:4564 stdpp.vector <> vmap abbrev
-R4595:4600 ASMinCoq.AsmGen <> inputs:65 var
-R4567:4581 ASMinCoq.AsmGen <> wordreg_to_word def
-R4586:4588 Coq.ssr.ssreflect <> ::core_scope:x_':'_x not
-R4589:4591 ASMinCoq.AsmGen <> Reg def
-R4584:4585 ASMinCoq.AsmGen <> rs:64 var
-def 4619:4632 <> confflag_instr
-R4639:4643 ASMinCoq.AsmGen <> instr ind
-binder 4635:4635 <> i:66
-R4652:4659 ASMinCoq.AsmGen <> ExecConf def
-binder 4647:4648 <> φ:67
-R4664:4671 ASMinCoq.AsmGen <> ConfFlag ind
-R4686:4686 ASMinCoq.AsmGen <> i:66 var
-R4699:4702 ASMinCoq.AsmGen <> Halt constr
-R4707:4712 ASMinCoq.AsmGen <> Halted constr
-R4725:4729 ASMinCoq.AsmGen <> NextI constr
-def 4752:4761 <> exec_instr
-R4768:4772 ASMinCoq.AsmGen <> instr ind
-binder 4764:4764 <> i:69
-R4781:4788 ASMinCoq.AsmGen <> ExecConf def
-binder 4776:4777 <> φ:70
-R4793:4800 ASMinCoq.AsmGen <> ExecConf def
-R4815:4815 ASMinCoq.AsmGen <> i:69 var
-R4828:4831 ASMinCoq.AsmGen <> Halt constr
-R4836:4837 ASMinCoq.AsmGen <> φ:70 var
-R4845:4855 ASMinCoq.AsmGen <> Computation constr
-R4889:4895 ASMinCoq.AsmGen <> incr_PC def
-R4915:4924 ASMinCoq.AsmGen <> update_reg def
-R4926:4927 ASMinCoq.AsmGen <> φ:70 var
-R4966:4989 ASMinCoq.AsmGen <> inputs_from_inputnatregs def
-R4992:4994 ASMinCoq.AsmGen <> reg def
-R4996:4997 ASMinCoq.AsmGen <> φ:70 var
-R5016:5026 ASMinCoq.AsmGen <> ControlFlow constr
-R5082:5105 ASMinCoq.AsmGen <> inputs_from_inputnatregs def
-R5108:5110 ASMinCoq.AsmGen <> reg def
-R5112:5113 ASMinCoq.AsmGen <> φ:70 var
-R5140:5143 Coq.Init.Datatypes <> true constr
-R5148:5156 ASMinCoq.AsmGen <> update_PC def
-R5158:5159 ASMinCoq.AsmGen <> φ:70 var
-R5162:5176 ASMinCoq.AsmGen <> wordreg_to_word def
-R5179:5181 ASMinCoq.AsmGen <> reg def
-R5183:5184 ASMinCoq.AsmGen <> φ:70 var
-R5202:5206 Coq.Init.Datatypes <> false constr
-R5211:5217 ASMinCoq.AsmGen <> incr_PC def
-R5219:5220 ASMinCoq.AsmGen <> φ:70 var
-R5240:5243 ASMinCoq.AsmGen <> Load constr
-R5278:5278 stdpp.base <> ::stdpp_scope:x_'!!!'_x not
-R5285:5290 stdpp.base <> ::stdpp_scope:x_'!!!'_x not
-R5279:5281 ASMinCoq.AsmGen <> reg def
-R5283:5284 ASMinCoq.AsmGen <> φ:70 var
-binder 5270:5273 <> wsrc:72
-R5319:5319 stdpp.base <> ::stdpp_scope:x_'!!!'_x not
-R5326:5331 stdpp.base <> ::stdpp_scope:x_'!!!'_x not
-R5332:5335 ASMinCoq.AsmGen <> wsrc:72 var
-R5320:5322 ASMinCoq.AsmGen <> mem def
-R5324:5325 ASMinCoq.AsmGen <> φ:70 var
-binder 5311:5314 <> asrc:73
-R5348:5354 ASMinCoq.AsmGen <> incr_PC def
-R5357:5366 ASMinCoq.AsmGen <> update_reg def
-R5368:5369 ASMinCoq.AsmGen <> φ:70 var
-R5376:5379 ASMinCoq.AsmGen <> asrc:73 var
-R5388:5392 ASMinCoq.AsmGen <> Store constr
-R5426:5440 ASMinCoq.AsmGen <> wordreg_to_word def
-R5443:5445 ASMinCoq.AsmGen <> reg def
-R5447:5448 ASMinCoq.AsmGen <> φ:70 var
-binder 5418:5421 <> wsrc:74
-R5478:5478 stdpp.base <> ::stdpp_scope:x_'!!!'_x not
-R5485:5490 stdpp.base <> ::stdpp_scope:x_'!!!'_x not
-R5479:5481 ASMinCoq.AsmGen <> reg def
-R5483:5484 ASMinCoq.AsmGen <> φ:70 var
-binder 5470:5473 <> wdst:75
-R5507:5513 ASMinCoq.AsmGen <> incr_PC def
-R5516:5525 ASMinCoq.AsmGen <> update_mem def
-R5527:5528 ASMinCoq.AsmGen <> φ:70 var
-R5530:5533 ASMinCoq.AsmGen <> wdst:75 var
-R5535:5538 ASMinCoq.AsmGen <> wsrc:74 var
-def 5562:5571 <> leak_instr
-R5578:5582 ASMinCoq.AsmGen <> instr ind
-binder 5574:5574 <> i:76
-R5591:5598 ASMinCoq.AsmGen <> ExecConf def
-binder 5586:5587 <> φ:77
-R5603:5606 ASMinCoq.AsmGen <> leak ind
-R5621:5621 ASMinCoq.AsmGen <> i:76 var
-R5634:5637 ASMinCoq.AsmGen <> Halt constr
-R5642:5647 ASMinCoq.AsmGen <> NoLeak constr
-R5655:5665 ASMinCoq.AsmGen <> Computation constr
-R5691:5696 ASMinCoq.AsmGen <> NoLeak constr
-R5704:5714 ASMinCoq.AsmGen <> ControlFlow constr
-R5750:5764 ASMinCoq.AsmGen <> ControlFlowLeak constr
-R5780:5803 ASMinCoq.AsmGen <> inputs_from_inputnatregs def
-R5806:5808 ASMinCoq.AsmGen <> reg def
-R5810:5811 ASMinCoq.AsmGen <> φ:77 var
-R5829:5832 ASMinCoq.AsmGen <> Load constr
-R5867:5867 stdpp.base <> ::stdpp_scope:x_'!!!'_x not
-R5874:5879 stdpp.base <> ::stdpp_scope:x_'!!!'_x not
-R5868:5870 ASMinCoq.AsmGen <> reg def
-R5872:5873 ASMinCoq.AsmGen <> φ:77 var
-binder 5859:5862 <> wsrc:79
-R5888:5895 ASMinCoq.AsmGen <> LoadLeak constr
-R5897:5900 ASMinCoq.AsmGen <> wsrc:79 var
-R5908:5912 ASMinCoq.AsmGen <> Store constr
-R5946:5960 ASMinCoq.AsmGen <> wordreg_to_word def
-R5963:5965 ASMinCoq.AsmGen <> reg def
-R5967:5968 ASMinCoq.AsmGen <> φ:77 var
-binder 5938:5941 <> wsrc:80
-R5978:5986 ASMinCoq.AsmGen <> StoreLeak constr
-R5988:5991 ASMinCoq.AsmGen <> wsrc:80 var
-def 6015:6022 <> emptyReg
-R6026:6028 ASMinCoq.AsmGen <> Reg def
-R6033:6037 stdpp.base <> empty def
-def 6051:6058 <> emptyMem
-R6062:6064 ASMinCoq.AsmGen <> Mem def
-R6069:6073 stdpp.base <> empty def
-def 6165:6171 <> program
-R6187:6190 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6183:6186 ASMinCoq.AsmGen <> Word def
-R6191:6195 ASMinCoq.AsmGen <> instr ind
-def 6210:6214 <> state
-R6233:6235 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
-R6226:6232 ASMinCoq.AsmGen <> program def
-R6236:6243 ASMinCoq.AsmGen <> ExecConf def
-def 6258:6274 <> list_prog_to_prog
-R6282:6285 Coq.Init.Datatypes <> list ind
-R6287:6291 ASMinCoq.AsmGen <> instr ind
-binder 6277:6278 <> li:81
-R6296:6302 ASMinCoq.AsmGen <> program def
-R6320:6323 ASMinCoq.AsmGen <> Word def
-binder 6316:6316 <> w:82
-R6329:6339 Coq.Lists.List <> nth_default def
-R6349:6349 ASMinCoq.AsmGen <> w:82 var
-R6346:6347 ASMinCoq.AsmGen <> li:81 var
-R6341:6344 ASMinCoq.AsmGen <> Halt constr
-ind 6365:6373 <> step_prog
-constr 6457:6465 <> step_PC_i
-R6385:6388 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6377:6384 ASMinCoq.AsmGen <> ConfFlag ind
-R6406:6409 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6394:6396 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
-R6389:6393 ASMinCoq.AsmGen <> state def
-R6397:6400 Coq.Init.Datatypes <> list ind
-R6402:6405 ASMinCoq.AsmGen <> leak ind
-R6418:6421 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6410:6417 ASMinCoq.AsmGen <> ConfFlag ind
-R6439:6442 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6427:6429 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
-R6422:6426 ASMinCoq.AsmGen <> state def
-R6430:6433 Coq.Init.Datatypes <> list ind
-R6435:6438 ASMinCoq.AsmGen <> leak ind
-R6475:6481 ASMinCoq.AsmGen <> program def
-binder 6468:6471 <> prog:85
-R6490:6497 ASMinCoq.AsmGen <> ExecConf def
-binder 6485:6486 <> φ:86
-R6506:6509 Coq.Init.Datatypes <> list ind
-R6511:6514 ASMinCoq.AsmGen <> leak ind
-binder 6501:6502 <> ll:87
-R6527:6535 ASMinCoq.AsmGen <> step_prog:83 ind
-R6593:6593 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R6598:6599 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R6628:6629 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R6664:6664 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R6594:6597 ASMinCoq.AsmGen <> prog:85 var
-R6600:6609 ASMinCoq.AsmGen <> exec_instr def
-R6612:6615 ASMinCoq.AsmGen <> prog:85 var
-R6618:6619 ASMinCoq.AsmGen <> PC def
-R6621:6622 ASMinCoq.AsmGen <> φ:86 var
-R6626:6627 ASMinCoq.AsmGen <> φ:86 var
-R6658:6661 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
-R6630:6639 ASMinCoq.AsmGen <> leak_instr def
-R6642:6645 ASMinCoq.AsmGen <> prog:85 var
-R6648:6649 ASMinCoq.AsmGen <> PC def
-R6651:6652 ASMinCoq.AsmGen <> φ:86 var
-R6656:6657 ASMinCoq.AsmGen <> φ:86 var
-R6662:6663 ASMinCoq.AsmGen <> ll:87 var
-R6559:6572 ASMinCoq.AsmGen <> confflag_instr def
-R6575:6578 ASMinCoq.AsmGen <> prog:85 var
-R6581:6582 ASMinCoq.AsmGen <> PC def
-R6584:6585 ASMinCoq.AsmGen <> φ:86 var
-R6589:6590 ASMinCoq.AsmGen <> φ:86 var
-R6543:6543 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R6548:6549 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R6552:6553 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R6556:6556 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R6544:6547 ASMinCoq.AsmGen <> prog:85 var
-R6550:6551 ASMinCoq.AsmGen <> φ:86 var
-R6554:6555 ASMinCoq.AsmGen <> ll:87 var
-R6537:6541 ASMinCoq.AsmGen <> NextI constr
-scheme 6365:6373 <> step_prog_ind
-scheme 6365:6373 <> step_prog_sind
-prf 6674:6683 <> estep_PC_i
-R6693:6699 ASMinCoq.AsmGen <> program def
-binder 6686:6689 <> prog:88
-R6712:6719 ASMinCoq.AsmGen <> ExecConf def
-binder 6703:6704 <> φ:89
-binder 6706:6708 <> φ':90
-R6732:6735 Coq.Init.Datatypes <> list ind
-R6737:6740 ASMinCoq.AsmGen <> leak ind
-binder 6723:6724 <> ll:91
-binder 6726:6728 <> ll':92
-R6749:6756 ASMinCoq.AsmGen <> ConfFlag ind
-binder 6744:6745 <> c':93
-R6764:6768 ASMinCoq.AsmGen <> instr ind
-binder 6760:6760 <> i:94
-R6791:6793 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R6779:6782 ASMinCoq.AsmGen <> prog:88 var
-R6785:6786 ASMinCoq.AsmGen <> PC def
-R6788:6789 ASMinCoq.AsmGen <> φ:89 var
-R6794:6794 ASMinCoq.AsmGen <> i:94 var
-binder 6772:6775 <> PC_i:95
-R6812:6814 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
-R6807:6811 ASMinCoq.AsmGen <> state def
-R6815:6818 Coq.Init.Datatypes <> list ind
-R6820:6823 ASMinCoq.AsmGen <> leak ind
-binder 6798:6803 <> result:96
-R6856:6863 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6834:6836 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R6832:6833 ASMinCoq.AsmGen <> c':93 var
-R6837:6850 ASMinCoq.AsmGen <> confflag_instr def
-R6852:6852 ASMinCoq.AsmGen <> i:94 var
-R6854:6855 ASMinCoq.AsmGen <> φ:89 var
-R6885:6893 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6867:6869 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R6864:6866 ASMinCoq.AsmGen <> φ':90 var
-R6870:6879 ASMinCoq.AsmGen <> exec_instr def
-R6881:6881 ASMinCoq.AsmGen <> i:94 var
-R6883:6884 ASMinCoq.AsmGen <> φ:89 var
-R6921:6928 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6897:6899 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R6894:6896 ASMinCoq.AsmGen <> ll':92 var
-R6915:6918 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
-R6900:6909 ASMinCoq.AsmGen <> leak_instr def
-R6911:6911 ASMinCoq.AsmGen <> i:94 var
-R6913:6914 ASMinCoq.AsmGen <> φ:89 var
-R6919:6920 ASMinCoq.AsmGen <> ll:91 var
-R6954:6961 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6935:6937 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R6929:6934 ASMinCoq.AsmGen <> result:96 var
-R6938:6938 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R6943:6944 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R6948:6949 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R6953:6953 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R6939:6942 ASMinCoq.AsmGen <> prog:88 var
-R6945:6947 ASMinCoq.AsmGen <> φ':90 var
-R6950:6952 ASMinCoq.AsmGen <> ll':92 var
-R6962:6970 ASMinCoq.AsmGen <> step_prog ind
-R6972:6976 ASMinCoq.AsmGen <> NextI constr
-R6978:6978 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R6983:6984 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R6987:6988 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R6991:6991 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R6979:6982 ASMinCoq.AsmGen <> prog:88 var
-R6985:6986 ASMinCoq.AsmGen <> φ:89 var
-R6989:6990 ASMinCoq.AsmGen <> ll:91 var
-R6993:6994 ASMinCoq.AsmGen <> c':93 var
-R6996:7001 ASMinCoq.AsmGen <> result:96 var
-prf 7057:7079 <> step_prog_deterministic
-R7089:7095 ASMinCoq.AsmGen <> program def
-binder 7082:7085 <> prog:97
-R7103:7109 stdpp.base <> ::type_scope:'forall'_x_'..'_x_','_x not
-R7146:7153 stdpp.base <> ::type_scope:'forall'_x_'..'_x_','_x not
-binder 7110:7111 <> f1:98
-binder 7113:7115 <> f1':99
-binder 7117:7118 <> f2:100
-binder 7120:7122 <> f2':101
-binder 7124:7125 <> c1:102
-binder 7127:7128 <> c2:103
-binder 7130:7132 <> c2':104
-binder 7134:7136 <> σ1:105
-binder 7138:7140 <> σ2:106
-binder 7142:7145 <> σ2':107
-R7189:7199 Coq.Unicode.Utf8_core <> ::type_scope:x_'→'_x not
-R7154:7162 ASMinCoq.AsmGen <> step_prog ind
-R7164:7165 ASMinCoq.AsmGen <> f1:98 var
-R7167:7167 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R7170:7171 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R7175:7175 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R7168:7169 ASMinCoq.AsmGen <> c1:102 var
-R7172:7174 ASMinCoq.AsmGen <> σ1:105 var
-R7177:7178 ASMinCoq.AsmGen <> f2:100 var
-R7180:7180 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R7183:7184 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R7188:7188 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R7181:7182 ASMinCoq.AsmGen <> c2:103 var
-R7185:7187 ASMinCoq.AsmGen <> σ2:106 var
-R7239:7249 Coq.Unicode.Utf8_core <> ::type_scope:x_'→'_x not
-R7200:7208 ASMinCoq.AsmGen <> step_prog ind
-R7210:7212 ASMinCoq.AsmGen <> f1':99 var
-R7214:7214 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R7217:7218 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R7222:7222 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R7215:7216 ASMinCoq.AsmGen <> c1:102 var
-R7219:7221 ASMinCoq.AsmGen <> σ1:105 var
-R7224:7226 ASMinCoq.AsmGen <> f2':101 var
-R7228:7228 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R7232:7233 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R7238:7238 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R7229:7231 ASMinCoq.AsmGen <> c2':104 var
-R7234:7237 ASMinCoq.AsmGen <> σ2':107 var
-R7258:7262 Coq.Unicode.Utf8_core <> ::type_scope:x_'∧'_x not
-R7252:7254 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R7250:7251 ASMinCoq.AsmGen <> f2:100 var
-R7255:7257 ASMinCoq.AsmGen <> f2':101 var
-R7271:7275 Coq.Unicode.Utf8_core <> ::type_scope:x_'∧'_x not
-R7265:7267 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R7263:7264 ASMinCoq.AsmGen <> c2:103 var
-R7268:7270 ASMinCoq.AsmGen <> c2':104 var
-R7279:7281 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R7276:7278 ASMinCoq.AsmGen <> σ2:106 var
-R7282:7285 ASMinCoq.AsmGen <> σ2':107 var
-ind 7608:7614 <> NilView
-constr 7641:7647 <> nilView
-R7628:7631 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R7618:7620 stdpp.vector <> vec abbrev
-R7622:7625 ASMinCoq.AsmGen <> Word def
-R7651:7657 ASMinCoq.AsmGen <> NilView:108 ind
-R7659:7661 stdpp.vector <> ::vector_scope:'[#'_']' not
-scheme 7608:7614 <> NilView_rect
-scheme 7608:7614 <> NilView_ind
-scheme 7608:7614 <> NilView_rec
-scheme 7608:7614 <> NilView_sind
-ind 7675:7682 <> ConsView
-constr 7725:7732 <> consView
-R7689:7691 Coq.Init.Datatypes <> nat ind
-binder 7685:7685 <> n:110
-R7696:7696 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R7711:7715 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R7697:7699 stdpp.vector <> vec abbrev
-R7701:7704 ASMinCoq.AsmGen <> Word def
-R7707:7707 Coq.Init.Datatypes <> S constr
-R7736:7743 stdpp.base <> ::type_scope:'forall'_x_'..'_x_','_x not
-R7769:7771 stdpp.base <> ::type_scope:'forall'_x_'..'_x_','_x not
-R7748:7751 ASMinCoq.AsmGen <> Word def
-binder 7744:7744 <> w:113
-R7759:7761 stdpp.vector <> vec abbrev
-R7763:7766 ASMinCoq.AsmGen <> Word def
-R7768:7768 ASMinCoq.AsmGen <> n:110 var
-binder 7755:7755 <> v:114
-R7772:7779 ASMinCoq.AsmGen <> ConsView:111 ind
-R7783:7787 stdpp.vector <> ::vector_scope:x_':::'_x not
-R7782:7782 ASMinCoq.AsmGen <> w:113 var
-R7788:7788 ASMinCoq.AsmGen <> v:114 var
-scheme 7675:7682 <> ConsView_rect
-scheme 7675:7682 <> ConsView_ind
-scheme 7675:7682 <> ConsView_rec
-scheme 7675:7682 <> ConsView_sind
-def 7804:7807 <> view
-R7814:7816 Coq.Init.Datatypes <> nat ind
-binder 7810:7810 <> n:115
-R7824:7826 stdpp.vector <> vec abbrev
-R7828:7831 ASMinCoq.AsmGen <> Word def
-R7833:7833 ASMinCoq.AsmGen <> n:115 var
-binder 7820:7820 <> v:116
-R7846:7846 ASMinCoq.AsmGen <> n:115 var
-R7863:7869 ASMinCoq.AsmGen <> NilView ind
-R7875:7875 Coq.Init.Datatypes <> S constr
-R7883:7890 ASMinCoq.AsmGen <> ConsView ind
-R7892:7892 ASMinCoq.AsmGen <> n:115 var
-R7900:7900 ASMinCoq.AsmGen <> v:116 var
-R7911:7911 ASMinCoq.AsmGen <> v:116 var
-R7923:7925 stdpp.vector <> ::vector_scope:'[#'_']' not
-R7930:7936 ASMinCoq.AsmGen <> nilView constr
-R7945:7949 stdpp.vector <> ::vector_scope:x_':::'_x not
-R7957:7964 ASMinCoq.AsmGen <> consView constr
-R7966:7966 ASMinCoq.AsmGen <> v:116 var
-def 7988:7998 <> unaryOn1Vec
-binder 8001:8001 <> B:119
-R8023:8026 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R8019:8022 ASMinCoq.AsmGen <> Word def
-R8027:8027 ASMinCoq.AsmGen <> B:119 var
-binder 8012:8015 <> f_un:120
-R8035:8037 stdpp.vector <> vec abbrev
-R8039:8042 ASMinCoq.AsmGen <> Word def
-binder 8031:8031 <> v:121
-R8049:8049 ASMinCoq.AsmGen <> B:119 var
-R8064:8067 ASMinCoq.AsmGen <> view def
-R8069:8069 ASMinCoq.AsmGen <> v:121 var
-R8082:8089 ASMinCoq.AsmGen <> consView constr
-R8112:8115 ASMinCoq.AsmGen <> view def
-R8133:8139 ASMinCoq.AsmGen <> nilView constr
-R8144:8147 ASMinCoq.AsmGen <> f_un:120 var
-def 8182:8193 <> binaryOn2Vec
-binder 8196:8196 <> B:122
-R8219:8222 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R8215:8218 ASMinCoq.AsmGen <> Word def
-R8227:8230 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R8223:8226 ASMinCoq.AsmGen <> Word def
-R8231:8231 ASMinCoq.AsmGen <> B:122 var
-binder 8207:8211 <> f_bin:123
-R8239:8241 stdpp.vector <> vec abbrev
-R8243:8246 ASMinCoq.AsmGen <> Word def
-binder 8235:8235 <> v:124
-R8253:8253 ASMinCoq.AsmGen <> B:122 var
-R8268:8271 ASMinCoq.AsmGen <> view def
-R8273:8273 ASMinCoq.AsmGen <> v:124 var
-R8286:8293 ASMinCoq.AsmGen <> consView constr
-R8317:8320 ASMinCoq.AsmGen <> view def
-R8338:8345 ASMinCoq.AsmGen <> consView constr
-R8371:8374 ASMinCoq.AsmGen <> view def
-R8395:8401 ASMinCoq.AsmGen <> nilView constr
-R8406:8410 ASMinCoq.AsmGen <> f_bin:123 var
-def 8465:8473 <> add_vec_2
-R8478:8489 ASMinCoq.AsmGen <> binaryOn2Vec def
-binder 8496:8496 <> x:125
-binder 8498:8498 <> y:126
-R8504:8506 Coq.Init.Peano <> ::nat_scope:x_'+'_x not
-R8503:8503 ASMinCoq.AsmGen <> x:125 var
-R8507:8507 ASMinCoq.AsmGen <> y:126 var
-def 8528:8530 <> Add
-R8538:8545 ASMinCoq.AsmGen <> Register def
-binder 8533:8535 <> dst:127
-R8560:8562 Coq.Init.Datatypes <> ::type_scope:x_'+'_x not
-R8556:8559 ASMinCoq.AsmGen <> Word def
-R8563:8570 ASMinCoq.AsmGen <> Register def
-binder 8549:8550 <> r1:128
-binder 8552:8553 <> r2:129
-R8575:8579 ASMinCoq.AsmGen <> instr ind
-R8588:8598 ASMinCoq.AsmGen <> Computation constr
-R8615:8623 ASMinCoq.AsmGen <> add_vec_2 def
-R8611:8613 ASMinCoq.AsmGen <> dst:127 var
-R8600:8602 stdpp.vector <> ::vector_scope:'[#'_x_';'_'..'_';'_x_']' not
-R8605:8606 stdpp.vector <> ::vector_scope:'[#'_x_';'_'..'_';'_x_']' not
-R8609:8609 stdpp.vector <> ::vector_scope:'[#'_x_';'_'..'_';'_x_']' not
-R8603:8604 ASMinCoq.AsmGen <> r1:128 var
-R8607:8608 ASMinCoq.AsmGen <> r2:129 var
-prf 8633:8645 <> testExec_Prog
-R8649:8657 ASMinCoq.AsmGen <> step_prog ind
-R8659:8663 ASMinCoq.AsmGen <> NextI constr
-R8665:8665 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R8707:8708 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R8742:8743 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R8746:8746 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R8666:8682 ASMinCoq.AsmGen <> list_prog_to_prog def
-R8684:8684 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
-R8706:8706 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
-R8685:8687 ASMinCoq.AsmGen <> Add def
-R8692:8694 Coq.Init.Datatypes <> inl constr
-R8700:8702 Coq.Init.Datatypes <> inr constr
-R8709:8709 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R8711:8712 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R8731:8732 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R8741:8741 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R8713:8714 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
-R8716:8717 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
-R8719:8730 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
-R8722:8729 ASMinCoq.AsmGen <> emptyReg def
-R8733:8740 ASMinCoq.AsmGen <> emptyMem def
-R8744:8745 Coq.Lists.List ListNotations ::list_scope:'['_']' not
-R8748:8752 ASMinCoq.AsmGen <> NextI constr
-R8754:8754 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R8796:8797 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R8831:8832 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R8841:8841 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R8755:8771 ASMinCoq.AsmGen <> list_prog_to_prog def
-R8773:8773 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
-R8795:8795 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
-R8774:8776 ASMinCoq.AsmGen <> Add def
-R8781:8783 Coq.Init.Datatypes <> inl constr
-R8789:8791 Coq.Init.Datatypes <> inr constr
-R8798:8798 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R8800:8801 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R8820:8821 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R8830:8830 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R8802:8803 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
-R8805:8806 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
-R8808:8819 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
-R8811:8818 ASMinCoq.AsmGen <> emptyReg def
-R8822:8829 ASMinCoq.AsmGen <> emptyMem def
-R8833:8833 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
-R8840:8840 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
-R8834:8839 ASMinCoq.AsmGen <> NoLeak constr
-R8862:8871 ASMinCoq.AsmGen <> estep_PC_i thm
-R8862:8871 ASMinCoq.AsmGen <> estep_PC_i thm
-def 10795:10807 <> notzero_vec_1
-R10812:10822 ASMinCoq.AsmGen <> unaryOn1Vec def
-binder 10829:10829 <> x:130
-R10834:10837 Coq.Init.Datatypes <> negb def
-R10840:10846 Coq.Numbers.Natural.Peano.NPeano Nat eqb def
-R10848:10848 ASMinCoq.AsmGen <> x:130 var
-def 10871:10873 <> Jnz
-R10891:10893 Coq.Init.Datatypes <> ::type_scope:x_'+'_x not
-R10887:10890 ASMinCoq.AsmGen <> Word def
-R10894:10901 ASMinCoq.AsmGen <> Register def
-binder 10876:10879 <> cond:131
-binder 10881:10883 <> dst:132
-R10906:10910 ASMinCoq.AsmGen <> instr ind
-R10919:10929 ASMinCoq.AsmGen <> ControlFlow constr
-R10944:10956 ASMinCoq.AsmGen <> notzero_vec_1 def
-R10940:10942 ASMinCoq.AsmGen <> dst:132 var
-R10931:10933 stdpp.vector <> ::vector_scope:'[#'_x_';'_'..'_';'_x_']' not
-R10938:10938 stdpp.vector <> ::vector_scope:'[#'_x_';'_'..'_';'_x_']' not
-R10934:10937 ASMinCoq.AsmGen <> cond:131 var
-prf 10966:10993 <> test_constant_time_cond_true
-R10997:11005 ASMinCoq.AsmGen <> step_prog ind
-R11007:11011 ASMinCoq.AsmGen <> NextI constr
-R11013:11013 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R11063:11064 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R11098:11099 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R11102:11102 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R11014:11030 ASMinCoq.AsmGen <> list_prog_to_prog def
-R11032:11032 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R11052:11053 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R11062:11062 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R11033:11035 ASMinCoq.AsmGen <> Jnz def
-R11038:11040 Coq.Init.Datatypes <> inr constr
-R11046:11048 Coq.Init.Datatypes <> inl constr
-R11054:11057 ASMinCoq.AsmGen <> Load constr
-R11065:11065 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R11067:11068 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R11087:11088 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R11097:11097 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R11069:11070 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
-R11072:11073 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
-R11075:11086 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
-R11078:11085 ASMinCoq.AsmGen <> emptyReg def
-R11089:11096 ASMinCoq.AsmGen <> emptyMem def
-R11100:11101 Coq.Lists.List ListNotations ::list_scope:'['_']' not
-R11104:11108 ASMinCoq.AsmGen <> NextI constr
-R11110:11110 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R11160:11161 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R11195:11196 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R11219:11219 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R11111:11127 ASMinCoq.AsmGen <> list_prog_to_prog def
-R11129:11129 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R11149:11150 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R11159:11159 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R11130:11132 ASMinCoq.AsmGen <> Jnz def
-R11135:11137 Coq.Init.Datatypes <> inr constr
-R11143:11145 Coq.Init.Datatypes <> inl constr
-R11151:11154 ASMinCoq.AsmGen <> Load constr
-R11162:11162 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R11164:11165 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R11184:11185 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R11194:11194 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R11166:11167 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
-R11169:11170 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
-R11172:11183 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
-R11175:11182 ASMinCoq.AsmGen <> emptyReg def
-R11186:11193 ASMinCoq.AsmGen <> emptyMem def
-R11197:11197 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
-R11218:11218 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
-R11198:11212 ASMinCoq.AsmGen <> ControlFlowLeak constr
-R11214:11217 Coq.Init.Datatypes <> true constr
-R11240:11249 ASMinCoq.AsmGen <> estep_PC_i thm
-R11240:11249 ASMinCoq.AsmGen <> estep_PC_i thm
-prf 11285:11313 <> test_constant_time_cond_false
-R11317:11325 ASMinCoq.AsmGen <> step_prog ind
-R11327:11331 ASMinCoq.AsmGen <> NextI constr
-R11333:11333 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R11383:11384 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R11418:11419 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R11422:11422 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R11334:11350 ASMinCoq.AsmGen <> list_prog_to_prog def
-R11352:11352 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R11372:11373 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R11382:11382 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R11353:11355 ASMinCoq.AsmGen <> Jnz def
-R11358:11360 Coq.Init.Datatypes <> inr constr
-R11366:11368 Coq.Init.Datatypes <> inl constr
-R11374:11377 ASMinCoq.AsmGen <> Load constr
-R11385:11385 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R11387:11388 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R11407:11408 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R11417:11417 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R11389:11390 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
-R11392:11393 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
-R11395:11406 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
-R11398:11405 ASMinCoq.AsmGen <> emptyReg def
-R11409:11416 ASMinCoq.AsmGen <> emptyMem def
-R11420:11421 Coq.Lists.List ListNotations ::list_scope:'['_']' not
-R11424:11428 ASMinCoq.AsmGen <> NextI constr
-R11430:11430 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R11480:11481 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R11515:11516 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R11540:11540 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R11431:11447 ASMinCoq.AsmGen <> list_prog_to_prog def
-R11449:11449 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R11469:11470 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R11479:11479 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R11450:11452 ASMinCoq.AsmGen <> Jnz def
-R11455:11457 Coq.Init.Datatypes <> inr constr
-R11463:11465 Coq.Init.Datatypes <> inl constr
-R11471:11474 ASMinCoq.AsmGen <> Load constr
-R11482:11482 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R11484:11485 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R11504:11505 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R11514:11514 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R11486:11487 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
-R11489:11490 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
-R11492:11503 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
-R11495:11502 ASMinCoq.AsmGen <> emptyReg def
-R11506:11513 ASMinCoq.AsmGen <> emptyMem def
-R11517:11517 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
-R11539:11539 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
-R11518:11532 ASMinCoq.AsmGen <> ControlFlowLeak constr
-R11534:11538 Coq.Init.Datatypes <> false constr
-R11561:11570 ASMinCoq.AsmGen <> estep_PC_i thm
-R11561:11570 ASMinCoq.AsmGen <> estep_PC_i thm
-ind 14329:14331 <> val
-constr 14347:14353 <> HaltedV
-R14357:14359 ASMinCoq.AsmGen <> val:133 ind
-scheme 14329:14331 <> val_rect
-scheme 14329:14331 <> val_ind
-scheme 14329:14331 <> val_rec
-scheme 14329:14331 <> val_sind
-def 14374:14379 <> of_val
-R14386:14388 ASMinCoq.AsmGen <> val ind
-binder 14382:14382 <> v:135
-R14393:14400 ASMinCoq.AsmGen <> ConfFlag ind
-R14415:14415 ASMinCoq.AsmGen <> v:135 var
-R14428:14434 ASMinCoq.AsmGen <> HaltedV constr
-R14439:14444 ASMinCoq.AsmGen <> Halted constr
-def 14467:14472 <> to_val
-R14479:14486 ASMinCoq.AsmGen <> ConfFlag ind
-binder 14475:14475 <> f:137
-R14490:14495 Coq.Init.Datatypes <> option ind
-R14497:14499 ASMinCoq.AsmGen <> val ind
-R14514:14514 ASMinCoq.AsmGen <> f:137 var
-R14529:14534 ASMinCoq.AsmGen <> Halted constr
-R14539:14542 Coq.Init.Datatypes <> Some constr
-R14544:14550 ASMinCoq.AsmGen <> HaltedV constr
-R14560:14564 ASMinCoq.AsmGen <> NextI constr
-R14569:14572 Coq.Init.Datatypes <> None constr
-prf 14590:14598 <> of_to_val
-R14605:14611 stdpp.base <> ::type_scope:'forall'_x_'..'_x_','_x not
-R14615:14616 stdpp.base <> ::type_scope:'forall'_x_'..'_x_','_x not
-binder 14612:14612 <> e:139
-binder 14614:14614 <> v:140
-R14634:14649 Coq.Unicode.Utf8_core <> ::type_scope:x_'→'_x not
-R14625:14627 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R14617:14622 ASMinCoq.AsmGen <> to_val def
-R14624:14624 ASMinCoq.AsmGen <> e:139 var
-R14628:14631 Coq.Init.Datatypes <> Some constr
-R14633:14633 ASMinCoq.AsmGen <> v:140 var
-R14658:14660 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R14650:14655 ASMinCoq.AsmGen <> of_val def
-R14657:14657 ASMinCoq.AsmGen <> v:140 var
-R14661:14661 ASMinCoq.AsmGen <> e:139 var
-prf 14769:14777 <> to_of_val
-R14784:14790 stdpp.base <> ::type_scope:'forall'_x_'..'_x_','_x not
-R14792:14793 stdpp.base <> ::type_scope:'forall'_x_'..'_x_','_x not
-binder 14791:14791 <> v:141
-R14811:14813 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R14794:14799 ASMinCoq.AsmGen <> to_val def
-R14802:14807 ASMinCoq.AsmGen <> of_val def
-R14809:14809 ASMinCoq.AsmGen <> v:141 var
-R14814:14817 Coq.Init.Datatypes <> Some constr
-R14819:14819 ASMinCoq.AsmGen <> v:141 var
-def 15124:15132 <> prim_step
-R15144:15148 Coq.Unicode.Utf8_core <> ::type_scope:x_'→'_x not
-R15136:15143 ASMinCoq.AsmGen <> ConfFlag ind
-R15166:15170 Coq.Unicode.Utf8_core <> ::type_scope:x_'→'_x not
-R15154:15156 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
-R15149:15153 ASMinCoq.AsmGen <> state def
-R15157:15160 Coq.Init.Datatypes <> list ind
-R15162:15165 ASMinCoq.AsmGen <> leak ind
-R15185:15189 Coq.Unicode.Utf8_core <> ::type_scope:x_'→'_x not
-R15171:15174 Coq.Init.Datatypes <> list ind
-R15176:15184 Coq.Init.Datatypes <> Empty_set ind
-R15198:15202 Coq.Unicode.Utf8_core <> ::type_scope:x_'→'_x not
-R15190:15197 ASMinCoq.AsmGen <> ConfFlag ind
-R15220:15224 Coq.Unicode.Utf8_core <> ::type_scope:x_'→'_x not
-R15208:15210 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
-R15203:15207 ASMinCoq.AsmGen <> state def
-R15211:15214 Coq.Init.Datatypes <> list ind
-R15216:15219 ASMinCoq.AsmGen <> leak ind
-R15238:15242 Coq.Unicode.Utf8_core <> ::type_scope:x_'→'_x not
-R15225:15228 Coq.Init.Datatypes <> list ind
-R15230:15237 ASMinCoq.AsmGen <> ConfFlag ind
-binder 15259:15260 <> f1:142
-binder 15262:15263 <> s1:143
-binder 15267:15268 <> f2:144
-binder 15270:15271 <> s2:145
-R15278:15286 ASMinCoq.AsmGen <> step_prog ind
-R15288:15289 ASMinCoq.AsmGen <> f1:142 var
-R15291:15292 ASMinCoq.AsmGen <> s1:143 var
-R15294:15295 ASMinCoq.AsmGen <> f2:144 var
-R15297:15298 ASMinCoq.AsmGen <> s2:145 var
-prf 15308:15316 <> val_stuck
-R15323:15329 stdpp.base <> ::type_scope:'forall'_x_'..'_x_','_x not
-R15347:15354 stdpp.base <> ::type_scope:'forall'_x_'..'_x_','_x not
-binder 15330:15330 <> e:146
-binder 15332:15333 <> σ:147
-binder 15335:15335 <> o:148
-binder 15337:15338 <> e':149
-binder 15340:15342 <> σ':150
-binder 15344:15346 <> efs:151
-R15382:15392 Coq.Unicode.Utf8_core <> ::type_scope:x_'→'_x not
-R15355:15363 ASMinCoq.AsmGen <> prim_step def
-R15365:15365 ASMinCoq.AsmGen <> e:146 var
-R15367:15368 ASMinCoq.AsmGen <> σ:147 var
-R15370:15370 ASMinCoq.AsmGen <> o:148 var
-R15372:15373 ASMinCoq.AsmGen <> e':149 var
-R15375:15377 ASMinCoq.AsmGen <> σ':150 var
-R15379:15381 ASMinCoq.AsmGen <> efs:151 var
-R15401:15403 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R15393:15398 ASMinCoq.AsmGen <> to_val def
-R15400:15400 ASMinCoq.AsmGen <> e:146 var
-R15404:15407 Coq.Init.Datatypes <> None constr
-prf 15471:15484 <> asm_lang_mixin
-R15488:15500 iris.program_logic.language <> LanguageMixin rec
-R15516:15524 ASMinCoq.AsmGen <> prim_step def
-R15509:15514 ASMinCoq.AsmGen <> to_val def
-R15502:15507 ASMinCoq.AsmGen <> of_val def
-R15578:15586 ASMinCoq.AsmGen <> to_of_val thm
-R15589:15597 ASMinCoq.AsmGen <> of_to_val thm
-R15600:15608 ASMinCoq.AsmGen <> val_stuck thm
-R15578:15586 ASMinCoq.AsmGen <> to_of_val thm
-R15589:15597 ASMinCoq.AsmGen <> of_to_val thm
-R15600:15608 ASMinCoq.AsmGen <> val_stuck thm
-R15578:15586 ASMinCoq.AsmGen <> to_of_val thm
-R15589:15597 ASMinCoq.AsmGen <> of_to_val thm
-R15600:15608 ASMinCoq.AsmGen <> val_stuck thm
-R15578:15586 ASMinCoq.AsmGen <> to_of_val thm
-R15589:15597 ASMinCoq.AsmGen <> of_to_val thm
-R15600:15608 ASMinCoq.AsmGen <> val_stuck thm
-def 15637:15644 <> asm_lang
-R15649:15656 iris.program_logic.language <> Language constr
-R15658:15671 ASMinCoq.AsmGen <> asm_lang_mixin thm
-prf 15682:15699 <> normal_always_step
-R15706:15712 stdpp.base <> ::type_scope:'forall'_x_'..'_x_','_x not
-R15716:15717 stdpp.base <> ::type_scope:'forall'_x_'..'_x_','_x not
-binder 15713:15715 <> sll:152
-R15718:15724 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
-R15732:15733 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
-binder 15725:15726 <> cf:153
-binder 15728:15731 <> sll':154
-R15734:15742 ASMinCoq.AsmGen <> step_prog ind
-R15744:15748 ASMinCoq.AsmGen <> NextI constr
-R15750:15752 ASMinCoq.AsmGen <> sll:152 var
-R15754:15755 ASMinCoq.AsmGen <> cf:153 var
-R15757:15760 ASMinCoq.AsmGen <> sll':154 var
-R15836:15837 ASMinCoq.AsmGen <> PC def
-R15836:15837 ASMinCoq.AsmGen <> PC def
-R15916:15921 ASMinCoq.AsmGen <> Halted constr
-R15940:15949 ASMinCoq.AsmGen <> estep_PC_i thm
-R15916:15921 ASMinCoq.AsmGen <> Halted constr
-R15940:15949 ASMinCoq.AsmGen <> estep_PC_i thm
-R15916:15921 ASMinCoq.AsmGen <> Halted constr
-R15940:15949 ASMinCoq.AsmGen <> estep_PC_i thm
-R15916:15921 ASMinCoq.AsmGen <> Halted constr
-R15940:15949 ASMinCoq.AsmGen <> estep_PC_i thm
-R15916:15921 ASMinCoq.AsmGen <> Halted constr
-R15940:15949 ASMinCoq.AsmGen <> estep_PC_i thm
-R15916:15921 ASMinCoq.AsmGen <> Halted constr
-R15940:15949 ASMinCoq.AsmGen <> estep_PC_i thm
-R15997:16001 ASMinCoq.AsmGen <> NextI constr
-R16020:16029 ASMinCoq.AsmGen <> estep_PC_i thm
-R15997:16001 ASMinCoq.AsmGen <> NextI constr
-R16020:16029 ASMinCoq.AsmGen <> estep_PC_i thm
-R15997:16001 ASMinCoq.AsmGen <> NextI constr
-R16020:16029 ASMinCoq.AsmGen <> estep_PC_i thm
-R15997:16001 ASMinCoq.AsmGen <> NextI constr
-R16020:16029 ASMinCoq.AsmGen <> estep_PC_i thm
-R15997:16001 ASMinCoq.AsmGen <> NextI constr
-R16020:16029 ASMinCoq.AsmGen <> estep_PC_i thm
-prf 16299:16322 <> reducible_from_step_prog
-binder 16324:16326 <> σ1:155
-binder 16328:16329 <> f2:156
-binder 16331:16333 <> σ2:157
-R16365:16371 Coq.Unicode.Utf8_core <> ::type_scope:x_'→'_x not
-R16339:16347 ASMinCoq.AsmGen <> step_prog ind
-R16349:16353 ASMinCoq.AsmGen <> NextI constr
-R16355:16357 ASMinCoq.AsmGen <> σ1:155 var
-R16359:16360 ASMinCoq.AsmGen <> f2:156 var
-R16362:16364 ASMinCoq.AsmGen <> σ2:157 var
-R16372:16380 iris.program_logic.language <> reducible def
-R16383:16387 ASMinCoq.AsmGen <> NextI constr
-R16390:16392 ASMinCoq.AsmGen <> σ1:155 var
-R16424:16432 iris.program_logic.language <> reducible def
-R16424:16432 iris.program_logic.language <> reducible def
-R16424:16432 iris.program_logic.language <> reducible def
-R16454:16455 Coq.Lists.List ListNotations ::list_scope:'['_']' not
-R16467:16468 Coq.Lists.List ListNotations ::list_scope:'['_']' not
-R16454:16455 Coq.Lists.List ListNotations ::list_scope:'['_']' not
-R16467:16468 Coq.Lists.List ListNotations ::list_scope:'['_']' not
-R16485:16493 ASMinCoq.AsmGen <> prim_step def
-prf 16520:16542 <> normal_always_reducible
-binder 16544:16545 <> σ:158
-R16551:16559 iris.program_logic.language <> reducible def
-R16561:16565 ASMinCoq.AsmGen <> NextI constr
-R16567:16568 ASMinCoq.AsmGen <> σ:158 var
-R16592:16609 ASMinCoq.AsmGen <> normal_always_step thm
-R16592:16609 ASMinCoq.AsmGen <> normal_always_step thm
-R16641:16664 ASMinCoq.AsmGen <> reducible_from_step_prog thm
-R16641:16664 ASMinCoq.AsmGen <> reducible_from_step_prog thm
+def 1031:1042 <> word_to_addr
+R1049:1052 ASMinCoq.AsmGen <> Word def
+binder 1045:1045 <> w:7
+R1057:1060 ASMinCoq.AsmGen <> Addr def
+R1065:1065 ASMinCoq.AsmGen <> w:7 var
+inst 1085:1098 <> word_countable
+R1102:1110 stdpp.countable <> Countable class
+R1112:1115 ASMinCoq.AsmGen <> Word def
+R1139:1144 stdpp.countable <> encode meth
+R1139:1144 stdpp.countable <> encode meth
+R1139:1144 stdpp.countable <> encode meth
+R1262:1267 stdpp.countable <> decode meth
+R1262:1267 stdpp.countable <> decode meth
+R1417:1429 stdpp.countable <> decode_encode meth
+R1417:1429 stdpp.countable <> decode_encode meth
+binder 1146:1146 <> r:8
+R1151:1156 stdpp.countable <> encode meth
+R1165:1165 ASMinCoq.AsmGen <> r:8 var
+binder 1269:1269 <> n:10
+R1281:1286 stdpp.countable <> decode meth
+R1288:1288 ASMinCoq.AsmGen <> n:10 var
+R1322:1325 Coq.Init.Datatypes <> Some constr
+R1332:1335 Coq.Init.Datatypes <> Some constr
+R1337:1337 ASMinCoq.AsmGen <> n:10 var
+R1370:1373 Coq.Init.Datatypes <> None constr
+R1139:1144 stdpp.countable <> encode meth
+R1139:1144 stdpp.countable <> encode meth
+R1139:1144 stdpp.countable <> encode meth
+R1262:1267 stdpp.countable <> decode meth
+R1262:1267 stdpp.countable <> decode meth
+R1417:1429 stdpp.countable <> decode_encode meth
+R1417:1429 stdpp.countable <> decode_encode meth
+binder 1146:1146 <> r:11
+R1151:1156 stdpp.countable <> encode meth
+R1165:1165 ASMinCoq.AsmGen <> r:11 var
+binder 1269:1269 <> n:13
+R1281:1286 stdpp.countable <> decode meth
+R1288:1288 ASMinCoq.AsmGen <> n:13 var
+R1322:1325 Coq.Init.Datatypes <> Some constr
+R1332:1335 Coq.Init.Datatypes <> Some constr
+R1337:1337 ASMinCoq.AsmGen <> n:13 var
+R1370:1373 Coq.Init.Datatypes <> None constr
+R1483:1495 stdpp.countable <> decode_encode meth
+R1483:1495 stdpp.countable <> decode_encode meth
+R1483:1495 stdpp.countable <> decode_encode meth
+inst 1541:1554 <> addr_countable
+R1558:1566 stdpp.countable <> Countable class
+R1568:1571 ASMinCoq.AsmGen <> Addr def
+R1595:1600 stdpp.countable <> encode meth
+R1595:1600 stdpp.countable <> encode meth
+R1595:1600 stdpp.countable <> encode meth
+R1718:1723 stdpp.countable <> decode meth
+R1718:1723 stdpp.countable <> decode meth
+R1873:1885 stdpp.countable <> decode_encode meth
+R1873:1885 stdpp.countable <> decode_encode meth
+binder 1602:1602 <> r:14
+R1607:1612 stdpp.countable <> encode meth
+R1621:1621 ASMinCoq.AsmGen <> r:14 var
+binder 1725:1725 <> n:16
+R1737:1742 stdpp.countable <> decode meth
+R1744:1744 ASMinCoq.AsmGen <> n:16 var
+R1778:1781 Coq.Init.Datatypes <> Some constr
+R1788:1791 Coq.Init.Datatypes <> Some constr
+R1793:1793 ASMinCoq.AsmGen <> n:16 var
+R1826:1829 Coq.Init.Datatypes <> None constr
+R1595:1600 stdpp.countable <> encode meth
+R1595:1600 stdpp.countable <> encode meth
+R1595:1600 stdpp.countable <> encode meth
+R1718:1723 stdpp.countable <> decode meth
+R1718:1723 stdpp.countable <> decode meth
+R1873:1885 stdpp.countable <> decode_encode meth
+R1873:1885 stdpp.countable <> decode_encode meth
+binder 1602:1602 <> r:17
+R1607:1612 stdpp.countable <> encode meth
+R1621:1621 ASMinCoq.AsmGen <> r:17 var
+binder 1725:1725 <> n:19
+R1737:1742 stdpp.countable <> decode meth
+R1744:1744 ASMinCoq.AsmGen <> n:19 var
+R1778:1781 Coq.Init.Datatypes <> Some constr
+R1788:1791 Coq.Init.Datatypes <> Some constr
+R1793:1793 ASMinCoq.AsmGen <> n:19 var
+R1826:1829 Coq.Init.Datatypes <> None constr
+R1939:1951 stdpp.countable <> decode_encode meth
+R1939:1951 stdpp.countable <> decode_encode meth
+R1939:1951 stdpp.countable <> decode_encode meth
+inst 1997:2007 <> addr_eq_dec
+R2011:2020 stdpp.base <> EqDecision abbrev
+R2022:2025 ASMinCoq.AsmGen <> Addr def
+R2066:2075 stdpp.numbers Nat eq_dec inst
+R2066:2075 stdpp.numbers Nat eq_dec inst
+def 2361:2363 <> Reg
+R2368:2371 stdpp.gmap <> gmap rec
+R2382:2385 ASMinCoq.AsmGen <> Word def
+R2373:2380 ASMinCoq.AsmGen <> Register def
+def 2399:2401 <> Mem
+R2406:2409 stdpp.gmap <> gmap rec
+R2416:2419 ASMinCoq.AsmGen <> Word def
+R2411:2414 ASMinCoq.AsmGen <> Addr def
+def 2434:2441 <> ExecConf
+R2457:2459 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R2451:2453 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R2447:2450 ASMinCoq.AsmGen <> Word def
+R2454:2456 ASMinCoq.AsmGen <> Reg def
+R2460:2462 ASMinCoq.AsmGen <> Mem def
+ind 2482:2489 <> ConfFlag
+constr 2588:2593 <> Halted
+constr 2597:2601 <> NextI
+constr 2605:2614 <> Executable
+scheme 2482:2489 <> ConfFlag_rect
+scheme 2482:2489 <> ConfFlag_ind
+scheme 2482:2489 <> ConfFlag_rec
+scheme 2482:2489 <> ConfFlag_sind
+def 2682:2684 <> reg
+R2692:2699 ASMinCoq.AsmGen <> ExecConf def
+binder 2687:2688 <> ϕ:22
+R2705:2707 Coq.Init.Datatypes <> snd def
+R2710:2712 Coq.Init.Datatypes <> fst def
+R2714:2715 ASMinCoq.AsmGen <> ϕ:22 var
+def 2731:2733 <> mem
+R2741:2748 ASMinCoq.AsmGen <> ExecConf def
+binder 2736:2737 <> ϕ:23
+R2754:2756 Coq.Init.Datatypes <> snd def
+R2758:2759 ASMinCoq.AsmGen <> ϕ:23 var
+def 2774:2775 <> PC
+R2783:2790 ASMinCoq.AsmGen <> ExecConf def
+binder 2778:2779 <> φ:24
+R2796:2798 Coq.Init.Datatypes <> fst def
+R2801:2803 Coq.Init.Datatypes <> fst def
+R2805:2806 ASMinCoq.AsmGen <> φ:24 var
+def 2823:2832 <> update_reg
+R2840:2847 ASMinCoq.AsmGen <> ExecConf def
+binder 2835:2836 <> φ:25
+R2855:2862 ASMinCoq.AsmGen <> Register def
+binder 2851:2851 <> r:26
+R2870:2873 ASMinCoq.AsmGen <> Word def
+binder 2866:2866 <> w:27
+R2877:2884 ASMinCoq.AsmGen <> ExecConf def
+R2893:2893 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2899:2899 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2916:2916 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2923:2923 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2894:2895 ASMinCoq.AsmGen <> PC def
+R2897:2898 ASMinCoq.AsmGen <> φ:25 var
+R2900:2901 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R2903:2904 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R2906:2915 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R2902:2902 ASMinCoq.AsmGen <> r:26 var
+R2905:2905 ASMinCoq.AsmGen <> w:27 var
+R2909:2911 ASMinCoq.AsmGen <> reg def
+R2913:2914 ASMinCoq.AsmGen <> φ:25 var
+R2917:2919 ASMinCoq.AsmGen <> mem def
+R2921:2922 ASMinCoq.AsmGen <> φ:25 var
+def 2937:2946 <> update_mem
+R2954:2961 ASMinCoq.AsmGen <> ExecConf def
+binder 2949:2950 <> φ:28
+R2969:2972 ASMinCoq.AsmGen <> Addr def
+binder 2965:2965 <> a:29
+R2980:2983 ASMinCoq.AsmGen <> Word def
+binder 2976:2976 <> w:30
+R2987:2994 ASMinCoq.AsmGen <> ExecConf def
+R3003:3003 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R3009:3009 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R3016:3017 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R3034:3034 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R3004:3005 ASMinCoq.AsmGen <> PC def
+R3007:3008 ASMinCoq.AsmGen <> φ:28 var
+R3010:3012 ASMinCoq.AsmGen <> reg def
+R3014:3015 ASMinCoq.AsmGen <> φ:28 var
+R3018:3019 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R3021:3022 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R3024:3033 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R3020:3020 ASMinCoq.AsmGen <> a:29 var
+R3023:3023 ASMinCoq.AsmGen <> w:30 var
+R3027:3029 ASMinCoq.AsmGen <> mem def
+R3031:3032 ASMinCoq.AsmGen <> φ:28 var
+def 3048:3056 <> update_PC
+R3064:3071 ASMinCoq.AsmGen <> ExecConf def
+binder 3059:3060 <> φ:31
+R3079:3082 ASMinCoq.AsmGen <> Word def
+binder 3075:3075 <> w:32
+R3087:3094 ASMinCoq.AsmGen <> ExecConf def
+R3103:3103 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R3105:3106 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R3113:3114 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R3121:3121 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R3104:3104 ASMinCoq.AsmGen <> w:32 var
+R3107:3109 ASMinCoq.AsmGen <> reg def
+R3111:3112 ASMinCoq.AsmGen <> φ:31 var
+R3115:3117 ASMinCoq.AsmGen <> mem def
+R3119:3120 ASMinCoq.AsmGen <> φ:31 var
+def 3136:3142 <> incr_PC
+R3150:3157 ASMinCoq.AsmGen <> ExecConf def
+binder 3145:3146 <> φ:33
+R3162:3169 ASMinCoq.AsmGen <> ExecConf def
+R3178:3186 ASMinCoq.AsmGen <> update_PC def
+R3188:3189 ASMinCoq.AsmGen <> φ:33 var
+R3197:3199 Coq.Init.Peano <> ::nat_scope:x_'+'_x not
+R3192:3193 ASMinCoq.AsmGen <> PC def
+R3195:3196 ASMinCoq.AsmGen <> φ:33 var
+prf 3280:3298 <> PC_is_updated_value
+R3306:3313 ASMinCoq.AsmGen <> ExecConf def
+binder 3301:3302 <> φ:34
+R3322:3325 ASMinCoq.AsmGen <> Word def
+binder 3317:3318 <> pc:35
+R3350:3352 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R3330:3331 ASMinCoq.AsmGen <> PC def
+R3334:3342 ASMinCoq.AsmGen <> update_PC def
+R3344:3345 ASMinCoq.AsmGen <> φ:34 var
+R3347:3348 ASMinCoq.AsmGen <> pc:35 var
+R3353:3354 ASMinCoq.AsmGen <> pc:35 var
+prf 3389:3398 <> PC_is_incr
+R3406:3413 ASMinCoq.AsmGen <> ExecConf def
+binder 3401:3402 <> φ:36
+R3433:3435 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R3418:3419 ASMinCoq.AsmGen <> PC def
+R3422:3428 ASMinCoq.AsmGen <> incr_PC def
+R3430:3431 ASMinCoq.AsmGen <> φ:36 var
+R3436:3436 Coq.Init.Peano <> ::nat_scope:x_'+'_x not
+R3442:3445 Coq.Init.Peano <> ::nat_scope:x_'+'_x not
+R3437:3438 ASMinCoq.AsmGen <> PC def
+R3440:3441 ASMinCoq.AsmGen <> φ:36 var
+prf 3481:3500 <> reg_is_updated_value
+R3508:3515 ASMinCoq.AsmGen <> ExecConf def
+binder 3503:3504 <> φ:37
+R3523:3530 ASMinCoq.AsmGen <> Register def
+binder 3519:3519 <> r:38
+R3538:3541 ASMinCoq.AsmGen <> Word def
+binder 3534:3534 <> w:39
+R3573:3575 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R3550:3552 ASMinCoq.AsmGen <> reg def
+R3555:3564 ASMinCoq.AsmGen <> update_reg def
+R3566:3567 ASMinCoq.AsmGen <> φ:37 var
+R3569:3569 ASMinCoq.AsmGen <> r:38 var
+R3571:3571 ASMinCoq.AsmGen <> w:39 var
+R3576:3577 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R3579:3580 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R3582:3591 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R3578:3578 ASMinCoq.AsmGen <> r:38 var
+R3581:3581 ASMinCoq.AsmGen <> w:39 var
+R3585:3587 ASMinCoq.AsmGen <> reg def
+R3589:3590 ASMinCoq.AsmGen <> φ:37 var
+prf 3626:3645 <> mem_is_updated_value
+R3653:3660 ASMinCoq.AsmGen <> ExecConf def
+binder 3648:3649 <> φ:40
+R3668:3671 ASMinCoq.AsmGen <> Addr def
+binder 3664:3664 <> a:41
+R3679:3682 ASMinCoq.AsmGen <> Word def
+binder 3675:3675 <> w:42
+R3714:3716 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R3691:3693 ASMinCoq.AsmGen <> mem def
+R3696:3705 ASMinCoq.AsmGen <> update_mem def
+R3707:3708 ASMinCoq.AsmGen <> φ:40 var
+R3710:3710 ASMinCoq.AsmGen <> a:41 var
+R3712:3712 ASMinCoq.AsmGen <> w:42 var
+R3717:3718 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R3720:3721 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R3723:3732 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R3719:3719 ASMinCoq.AsmGen <> a:41 var
+R3722:3722 ASMinCoq.AsmGen <> w:42 var
+R3726:3728 ASMinCoq.AsmGen <> mem def
+R3730:3731 ASMinCoq.AsmGen <> φ:40 var
+prf 3767:3789 <> update_reg_no_change_pc
+R3797:3804 ASMinCoq.AsmGen <> ExecConf def
+binder 3792:3793 <> φ:43
+R3812:3819 ASMinCoq.AsmGen <> Register def
+binder 3808:3808 <> r:44
+R3827:3830 ASMinCoq.AsmGen <> Word def
+binder 3823:3823 <> w:45
+R3844:3846 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R3839:3840 ASMinCoq.AsmGen <> PC def
+R3842:3843 ASMinCoq.AsmGen <> φ:43 var
+R3847:3848 ASMinCoq.AsmGen <> PC def
+R3851:3860 ASMinCoq.AsmGen <> update_reg def
+R3862:3863 ASMinCoq.AsmGen <> φ:43 var
+R3865:3865 ASMinCoq.AsmGen <> r:44 var
+R3867:3867 ASMinCoq.AsmGen <> w:45 var
+prf 3903:3926 <> update_reg_no_change_mem
+R3934:3941 ASMinCoq.AsmGen <> ExecConf def
+binder 3929:3930 <> φ:46
+R3949:3956 ASMinCoq.AsmGen <> Register def
+binder 3945:3945 <> r:47
+R3964:3967 ASMinCoq.AsmGen <> Word def
+binder 3960:3960 <> w:48
+R3982:3984 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R3976:3978 ASMinCoq.AsmGen <> mem def
+R3980:3981 ASMinCoq.AsmGen <> φ:46 var
+R3985:3987 ASMinCoq.AsmGen <> mem def
+R3990:3999 ASMinCoq.AsmGen <> update_reg def
+R4001:4002 ASMinCoq.AsmGen <> φ:46 var
+R4004:4004 ASMinCoq.AsmGen <> r:47 var
+R4006:4006 ASMinCoq.AsmGen <> w:48 var
+prf 4042:4064 <> update_pc_no_change_reg
+R4072:4079 ASMinCoq.AsmGen <> ExecConf def
+binder 4067:4068 <> φ:49
+R4087:4090 ASMinCoq.AsmGen <> Word def
+binder 4083:4083 <> w:50
+R4105:4107 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4099:4101 ASMinCoq.AsmGen <> reg def
+R4103:4104 ASMinCoq.AsmGen <> φ:49 var
+R4108:4110 ASMinCoq.AsmGen <> reg def
+R4113:4121 ASMinCoq.AsmGen <> update_PC def
+R4123:4124 ASMinCoq.AsmGen <> φ:49 var
+R4126:4126 ASMinCoq.AsmGen <> w:50 var
+prf 4162:4184 <> update_pc_no_change_mem
+R4192:4199 ASMinCoq.AsmGen <> ExecConf def
+binder 4187:4188 <> φ:51
+R4207:4210 ASMinCoq.AsmGen <> Word def
+binder 4203:4203 <> w:52
+R4225:4227 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4219:4221 ASMinCoq.AsmGen <> mem def
+R4223:4224 ASMinCoq.AsmGen <> φ:51 var
+R4228:4230 ASMinCoq.AsmGen <> mem def
+R4233:4241 ASMinCoq.AsmGen <> update_PC def
+R4243:4244 ASMinCoq.AsmGen <> φ:51 var
+R4246:4246 ASMinCoq.AsmGen <> w:52 var
+prf 4282:4304 <> update_mem_no_change_pc
+R4312:4319 ASMinCoq.AsmGen <> ExecConf def
+binder 4307:4308 <> φ:53
+R4327:4330 ASMinCoq.AsmGen <> Addr def
+binder 4323:4323 <> a:54
+R4338:4341 ASMinCoq.AsmGen <> Word def
+binder 4334:4334 <> w:55
+R4355:4357 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4350:4351 ASMinCoq.AsmGen <> PC def
+R4353:4354 ASMinCoq.AsmGen <> φ:53 var
+R4358:4359 ASMinCoq.AsmGen <> PC def
+R4362:4371 ASMinCoq.AsmGen <> update_mem def
+R4373:4374 ASMinCoq.AsmGen <> φ:53 var
+R4376:4376 ASMinCoq.AsmGen <> a:54 var
+R4378:4378 ASMinCoq.AsmGen <> w:55 var
+prf 4414:4437 <> update_mem_no_change_reg
+R4445:4452 ASMinCoq.AsmGen <> ExecConf def
+binder 4440:4441 <> φ:56
+R4460:4463 ASMinCoq.AsmGen <> Addr def
+binder 4456:4456 <> a:57
+R4471:4474 ASMinCoq.AsmGen <> Word def
+binder 4467:4467 <> w:58
+R4489:4491 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4483:4485 ASMinCoq.AsmGen <> reg def
+R4487:4488 ASMinCoq.AsmGen <> φ:56 var
+R4492:4494 ASMinCoq.AsmGen <> reg def
+R4497:4506 ASMinCoq.AsmGen <> update_mem def
+R4508:4509 ASMinCoq.AsmGen <> φ:56 var
+R4511:4511 ASMinCoq.AsmGen <> a:57 var
+R4513:4513 ASMinCoq.AsmGen <> w:58 var
+def 4554:4560 <> nonZero
+R4566:4569 ASMinCoq.AsmGen <> Word def
+binder 4563:4563 <> w:59
+R4573:4576 Coq.Init.Datatypes <> bool ind
+R4585:4588 Coq.Init.Datatypes <> negb def
+R4591:4597 Coq.Numbers.Natural.Peano.NPeano Nat eqb def
+R4599:4599 ASMinCoq.AsmGen <> w:59 var
+def 4621:4624 <> zero
+R4631:4634 ASMinCoq.AsmGen <> Word def
+binder 4628:4628 <> w:60
+R4638:4641 Coq.Init.Datatypes <> bool ind
+R4650:4656 Coq.Numbers.Natural.Peano.NPeano Nat eqb def
+R4658:4658 ASMinCoq.AsmGen <> w:60 var
+def 4675:4692 <> word_from_argument
+R4699:4706 ASMinCoq.AsmGen <> ExecConf def
+binder 4695:4696 <> φ:61
+R4719:4721 Coq.Init.Datatypes <> ::type_scope:x_'+'_x not
+R4716:4718 Coq.Init.Datatypes <> nat ind
+R4722:4729 ASMinCoq.AsmGen <> Register def
+binder 4710:4712 <> src:62
+R4734:4739 Coq.Init.Datatypes <> option ind
+R4741:4744 ASMinCoq.AsmGen <> Word def
+R4759:4761 ASMinCoq.AsmGen <> src:62 var
+R4774:4776 Coq.Init.Datatypes <> inl constr
+R4783:4786 Coq.Init.Datatypes <> Some constr
+R4796:4798 Coq.Init.Datatypes <> inr constr
+R4805:4805 stdpp.base <> ::stdpp_scope:x_'!!'_x not
+R4812:4816 stdpp.base <> ::stdpp_scope:x_'!!'_x not
+R4806:4808 ASMinCoq.AsmGen <> reg def
+R4810:4811 ASMinCoq.AsmGen <> φ:61 var
+def 4840:4854 <> wordreg_to_word
+R4862:4864 ASMinCoq.AsmGen <> Reg def
+binder 4857:4858 <> rs:64
+R4880:4882 Coq.Init.Datatypes <> ::type_scope:x_'+'_x not
+R4876:4879 ASMinCoq.AsmGen <> Word def
+R4883:4890 ASMinCoq.AsmGen <> Register def
+binder 4868:4872 <> input:65
+R4895:4898 ASMinCoq.AsmGen <> Word def
+R4913:4917 ASMinCoq.AsmGen <> input:65 var
+R4930:4932 Coq.Init.Datatypes <> inl constr
+R4953:4955 Coq.Init.Datatypes <> inr constr
+R4966:4970 stdpp.base <> ::stdpp_scope:x_'!!!'_x not
+R4964:4965 ASMinCoq.AsmGen <> rs:64 var
+def 5000:5014 <> addrreg_to_addr
+R5022:5024 ASMinCoq.AsmGen <> Reg def
+binder 5017:5018 <> rs:67
+R5040:5042 Coq.Init.Datatypes <> ::type_scope:x_'+'_x not
+R5036:5039 ASMinCoq.AsmGen <> Addr def
+R5043:5050 ASMinCoq.AsmGen <> Register def
+binder 5028:5032 <> input:68
+R5055:5058 ASMinCoq.AsmGen <> Addr def
+R5073:5077 ASMinCoq.AsmGen <> input:68 var
+R5090:5092 Coq.Init.Datatypes <> inl constr
+R5113:5115 Coq.Init.Datatypes <> inr constr
+R5126:5130 stdpp.base <> ::stdpp_scope:x_'!!!'_x not
+R5124:5125 ASMinCoq.AsmGen <> rs:67 var
+ind 5155:5158 <> leak
+constr 5172:5177 <> NoLeak
+constr 5181:5195 <> ControlFlowLeak
+constr 5210:5217 <> LoadLeak
+constr 5232:5240 <> StoreLeak
+R5202:5205 Coq.Init.Datatypes <> bool ind
+binder 5198:5198 <> b:72
+R5224:5227 ASMinCoq.AsmGen <> Addr def
+binder 5220:5220 <> a:73
+R5247:5250 ASMinCoq.AsmGen <> Addr def
+binder 5243:5243 <> a:74
+scheme 5155:5158 <> leak_rect
+scheme 5155:5158 <> leak_ind
+scheme 5155:5158 <> leak_rec
+scheme 5155:5158 <> leak_sind
+ind 5410:5414 <> instr
+constr 5545:5555 <> Computation
+constr 5658:5668 <> ControlFlow
+constr 5780:5783 <> Load
+constr 5809:5813 <> Store
+constr 5859:5862 <> Halt
+R5562:5564 Coq.Init.Datatypes <> nat ind
+binder 5558:5558 <> n:77
+R5577:5579 stdpp.vector <> vec abbrev
+R5586:5588 Coq.Init.Datatypes <> ::type_scope:x_'+'_x not
+R5582:5585 ASMinCoq.AsmGen <> Word def
+R5589:5596 ASMinCoq.AsmGen <> Register def
+R5599:5599 ASMinCoq.AsmGen <> n:77 var
+binder 5568:5573 <> inputs:78
+R5614:5621 ASMinCoq.AsmGen <> Register def
+binder 5607:5610 <> rres:79
+R5646:5649 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R5636:5638 stdpp.vector <> vec abbrev
+R5640:5643 ASMinCoq.AsmGen <> Word def
+R5645:5645 ASMinCoq.AsmGen <> n:77 var
+R5650:5653 ASMinCoq.AsmGen <> Word def
+binder 5625:5632 <> f_result:80
+R5675:5677 Coq.Init.Datatypes <> nat ind
+binder 5671:5671 <> n:81
+R5690:5692 stdpp.vector <> vec abbrev
+R5699:5701 Coq.Init.Datatypes <> ::type_scope:x_'+'_x not
+R5695:5698 ASMinCoq.AsmGen <> Word def
+R5702:5709 ASMinCoq.AsmGen <> Register def
+R5712:5712 ASMinCoq.AsmGen <> n:81 var
+binder 5681:5686 <> inputs:82
+R5730:5732 Coq.Init.Datatypes <> ::type_scope:x_'+'_x not
+R5726:5729 ASMinCoq.AsmGen <> Word def
+R5733:5740 ASMinCoq.AsmGen <> Register def
+binder 5720:5722 <> dst:83
+R5768:5771 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R5758:5760 stdpp.vector <> vec abbrev
+R5762:5765 ASMinCoq.AsmGen <> Word def
+R5767:5767 ASMinCoq.AsmGen <> n:81 var
+R5772:5775 Coq.Init.Datatypes <> bool ind
+binder 5744:5754 <> f_condition:84
+R5797:5804 ASMinCoq.AsmGen <> Register def
+binder 5786:5789 <> rdst:85
+binder 5791:5794 <> rsrc:86
+R5823:5830 ASMinCoq.AsmGen <> Register def
+binder 5816:5819 <> rdst:87
+R5844:5846 Coq.Init.Datatypes <> ::type_scope:x_'+'_x not
+R5840:5843 ASMinCoq.AsmGen <> Word def
+R5847:5854 ASMinCoq.AsmGen <> Register def
+binder 5834:5836 <> src:88
+scheme 5410:5414 <> instr_rect
+scheme 5410:5414 <> instr_ind
+scheme 5410:5414 <> instr_rec
+scheme 5410:5414 <> instr_sind
+def 5877:5900 <> inputs_from_inputnatregs
+R5907:5909 Coq.Init.Datatypes <> nat ind
+binder 5903:5903 <> n:89
+R5918:5920 ASMinCoq.AsmGen <> Reg def
+binder 5913:5914 <> rs:90
+R5933:5935 stdpp.vector <> vec abbrev
+R5942:5944 Coq.Init.Datatypes <> ::type_scope:x_'+'_x not
+R5938:5941 ASMinCoq.AsmGen <> Word def
+R5945:5952 ASMinCoq.AsmGen <> Register def
+R5955:5955 ASMinCoq.AsmGen <> n:89 var
+binder 5924:5929 <> inputs:91
+R5965:5968 stdpp.vector <> vmap abbrev
+R5999:6004 ASMinCoq.AsmGen <> inputs:91 var
+R5971:5985 ASMinCoq.AsmGen <> wordreg_to_word def
+R5990:5992 Coq.ssr.ssreflect <> ::core_scope:x_':'_x not
+R5993:5995 ASMinCoq.AsmGen <> Reg def
+R5988:5989 ASMinCoq.AsmGen <> rs:90 var
+def 6023:6036 <> confflag_instr
+R6043:6047 ASMinCoq.AsmGen <> instr ind
+binder 6039:6039 <> i:92
+R6056:6063 ASMinCoq.AsmGen <> ExecConf def
+binder 6051:6052 <> φ:93
+R6068:6075 ASMinCoq.AsmGen <> ConfFlag ind
+R6090:6090 ASMinCoq.AsmGen <> i:92 var
+R6103:6106 ASMinCoq.AsmGen <> Halt constr
+R6111:6116 ASMinCoq.AsmGen <> Halted constr
+R6129:6133 ASMinCoq.AsmGen <> NextI constr
+def 6156:6165 <> exec_instr
+R6172:6176 ASMinCoq.AsmGen <> instr ind
+binder 6168:6168 <> i:95
+R6185:6192 ASMinCoq.AsmGen <> ExecConf def
+binder 6180:6181 <> φ:96
+R6197:6204 ASMinCoq.AsmGen <> ExecConf def
+R6219:6219 ASMinCoq.AsmGen <> i:95 var
+R6232:6235 ASMinCoq.AsmGen <> Halt constr
+R6240:6241 ASMinCoq.AsmGen <> φ:96 var
+R6249:6259 ASMinCoq.AsmGen <> Computation constr
+R6293:6299 ASMinCoq.AsmGen <> incr_PC def
+R6319:6328 ASMinCoq.AsmGen <> update_reg def
+R6330:6331 ASMinCoq.AsmGen <> φ:96 var
+R6370:6393 ASMinCoq.AsmGen <> inputs_from_inputnatregs def
+R6396:6398 ASMinCoq.AsmGen <> reg def
+R6400:6401 ASMinCoq.AsmGen <> φ:96 var
+R6420:6430 ASMinCoq.AsmGen <> ControlFlow constr
+R6486:6509 ASMinCoq.AsmGen <> inputs_from_inputnatregs def
+R6512:6514 ASMinCoq.AsmGen <> reg def
+R6516:6517 ASMinCoq.AsmGen <> φ:96 var
+R6544:6547 Coq.Init.Datatypes <> true constr
+R6552:6560 ASMinCoq.AsmGen <> update_PC def
+R6562:6563 ASMinCoq.AsmGen <> φ:96 var
+R6566:6580 ASMinCoq.AsmGen <> wordreg_to_word def
+R6583:6585 ASMinCoq.AsmGen <> reg def
+R6587:6588 ASMinCoq.AsmGen <> φ:96 var
+R6606:6610 Coq.Init.Datatypes <> false constr
+R6615:6621 ASMinCoq.AsmGen <> incr_PC def
+R6623:6624 ASMinCoq.AsmGen <> φ:96 var
+R6644:6647 ASMinCoq.AsmGen <> Load constr
+R6682:6682 stdpp.base <> ::stdpp_scope:x_'!!!'_x not
+R6689:6694 stdpp.base <> ::stdpp_scope:x_'!!!'_x not
+R6683:6685 ASMinCoq.AsmGen <> reg def
+R6687:6688 ASMinCoq.AsmGen <> φ:96 var
+binder 6674:6677 <> wsrc:98
+R6723:6723 stdpp.base <> ::stdpp_scope:x_'!!!'_x not
+R6730:6735 stdpp.base <> ::stdpp_scope:x_'!!!'_x not
+R6736:6739 ASMinCoq.AsmGen <> wsrc:98 var
+R6724:6726 ASMinCoq.AsmGen <> mem def
+R6728:6729 ASMinCoq.AsmGen <> φ:96 var
+binder 6715:6718 <> asrc:99
+R6752:6758 ASMinCoq.AsmGen <> incr_PC def
+R6761:6770 ASMinCoq.AsmGen <> update_reg def
+R6772:6773 ASMinCoq.AsmGen <> φ:96 var
+R6780:6783 ASMinCoq.AsmGen <> asrc:99 var
+R6792:6796 ASMinCoq.AsmGen <> Store constr
+R6830:6844 ASMinCoq.AsmGen <> wordreg_to_word def
+R6847:6849 ASMinCoq.AsmGen <> reg def
+R6851:6852 ASMinCoq.AsmGen <> φ:96 var
+binder 6822:6825 <> wsrc:100
+R6882:6882 stdpp.base <> ::stdpp_scope:x_'!!!'_x not
+R6889:6894 stdpp.base <> ::stdpp_scope:x_'!!!'_x not
+R6883:6885 ASMinCoq.AsmGen <> reg def
+R6887:6888 ASMinCoq.AsmGen <> φ:96 var
+binder 6874:6877 <> wdst:101
+R6911:6917 ASMinCoq.AsmGen <> incr_PC def
+R6920:6929 ASMinCoq.AsmGen <> update_mem def
+R6931:6932 ASMinCoq.AsmGen <> φ:96 var
+R6934:6937 ASMinCoq.AsmGen <> wdst:101 var
+R6939:6942 ASMinCoq.AsmGen <> wsrc:100 var
+def 6966:6975 <> leak_instr
+R6982:6986 ASMinCoq.AsmGen <> instr ind
+binder 6978:6978 <> i:102
+R6995:7002 ASMinCoq.AsmGen <> ExecConf def
+binder 6990:6991 <> φ:103
+R7007:7010 ASMinCoq.AsmGen <> leak ind
+R7025:7025 ASMinCoq.AsmGen <> i:102 var
+R7038:7041 ASMinCoq.AsmGen <> Halt constr
+R7046:7051 ASMinCoq.AsmGen <> NoLeak constr
+R7059:7069 ASMinCoq.AsmGen <> Computation constr
+R7095:7100 ASMinCoq.AsmGen <> NoLeak constr
+R7108:7118 ASMinCoq.AsmGen <> ControlFlow constr
+R7154:7168 ASMinCoq.AsmGen <> ControlFlowLeak constr
+R7184:7207 ASMinCoq.AsmGen <> inputs_from_inputnatregs def
+R7210:7212 ASMinCoq.AsmGen <> reg def
+R7214:7215 ASMinCoq.AsmGen <> φ:103 var
+R7233:7236 ASMinCoq.AsmGen <> Load constr
+R7271:7271 stdpp.base <> ::stdpp_scope:x_'!!!'_x not
+R7278:7283 stdpp.base <> ::stdpp_scope:x_'!!!'_x not
+R7272:7274 ASMinCoq.AsmGen <> reg def
+R7276:7277 ASMinCoq.AsmGen <> φ:103 var
+binder 7263:7266 <> wsrc:105
+R7292:7299 ASMinCoq.AsmGen <> LoadLeak constr
+R7301:7304 ASMinCoq.AsmGen <> wsrc:105 var
+R7312:7316 ASMinCoq.AsmGen <> Store constr
+R7350:7364 ASMinCoq.AsmGen <> wordreg_to_word def
+R7367:7369 ASMinCoq.AsmGen <> reg def
+R7371:7372 ASMinCoq.AsmGen <> φ:103 var
+binder 7342:7345 <> wsrc:106
+R7382:7390 ASMinCoq.AsmGen <> StoreLeak constr
+R7392:7395 ASMinCoq.AsmGen <> wsrc:106 var
+def 7419:7426 <> emptyReg
+R7430:7432 ASMinCoq.AsmGen <> Reg def
+R7437:7441 stdpp.base <> empty def
+def 7455:7462 <> emptyMem
+R7466:7468 ASMinCoq.AsmGen <> Mem def
+R7473:7477 stdpp.base <> empty def
+def 7569:7575 <> program
+R7591:7594 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R7587:7590 ASMinCoq.AsmGen <> Word def
+R7595:7599 ASMinCoq.AsmGen <> instr ind
+def 7614:7618 <> state
+R7637:7639 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R7630:7636 ASMinCoq.AsmGen <> program def
+R7640:7647 ASMinCoq.AsmGen <> ExecConf def
+def 7662:7678 <> list_prog_to_prog
+R7686:7689 Coq.Init.Datatypes <> list ind
+R7691:7695 ASMinCoq.AsmGen <> instr ind
+binder 7681:7682 <> li:107
+R7700:7706 ASMinCoq.AsmGen <> program def
+R7724:7727 ASMinCoq.AsmGen <> Word def
+binder 7720:7720 <> w:108
+R7733:7743 Coq.Lists.List <> nth_default def
+R7753:7753 ASMinCoq.AsmGen <> w:108 var
+R7750:7751 ASMinCoq.AsmGen <> li:107 var
+R7745:7748 ASMinCoq.AsmGen <> Halt constr
+ind 7769:7777 <> step_prog
+constr 7861:7869 <> step_PC_i
+R7789:7792 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R7781:7788 ASMinCoq.AsmGen <> ConfFlag ind
+R7810:7813 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R7798:7800 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R7793:7797 ASMinCoq.AsmGen <> state def
+R7801:7804 Coq.Init.Datatypes <> list ind
+R7806:7809 ASMinCoq.AsmGen <> leak ind
+R7822:7825 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R7814:7821 ASMinCoq.AsmGen <> ConfFlag ind
+R7843:7846 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R7831:7833 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R7826:7830 ASMinCoq.AsmGen <> state def
+R7834:7837 Coq.Init.Datatypes <> list ind
+R7839:7842 ASMinCoq.AsmGen <> leak ind
+R7879:7885 ASMinCoq.AsmGen <> program def
+binder 7872:7875 <> prog:111
+R7894:7901 ASMinCoq.AsmGen <> ExecConf def
+binder 7889:7890 <> φ:112
+R7910:7913 Coq.Init.Datatypes <> list ind
+R7915:7918 ASMinCoq.AsmGen <> leak ind
+binder 7905:7906 <> ll:113
+R7931:7939 ASMinCoq.AsmGen <> step_prog:109 ind
+R8002:8002 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R8007:8008 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R8037:8038 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R8073:8073 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R8003:8006 ASMinCoq.AsmGen <> prog:111 var
+R8009:8018 ASMinCoq.AsmGen <> exec_instr def
+R8021:8024 ASMinCoq.AsmGen <> prog:111 var
+R8027:8028 ASMinCoq.AsmGen <> PC def
+R8030:8031 ASMinCoq.AsmGen <> φ:112 var
+R8035:8036 ASMinCoq.AsmGen <> φ:112 var
+R8067:8070 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8039:8048 ASMinCoq.AsmGen <> leak_instr def
+R8051:8054 ASMinCoq.AsmGen <> prog:111 var
+R8057:8058 ASMinCoq.AsmGen <> PC def
+R8060:8061 ASMinCoq.AsmGen <> φ:112 var
+R8065:8066 ASMinCoq.AsmGen <> φ:112 var
+R8071:8072 ASMinCoq.AsmGen <> ll:113 var
+R7968:7981 ASMinCoq.AsmGen <> confflag_instr def
+R7984:7987 ASMinCoq.AsmGen <> prog:111 var
+R7990:7991 ASMinCoq.AsmGen <> PC def
+R7993:7994 ASMinCoq.AsmGen <> φ:112 var
+R7998:7999 ASMinCoq.AsmGen <> φ:112 var
+R7952:7952 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R7957:7958 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R7961:7962 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R7965:7965 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R7953:7956 ASMinCoq.AsmGen <> prog:111 var
+R7959:7960 ASMinCoq.AsmGen <> φ:112 var
+R7963:7964 ASMinCoq.AsmGen <> ll:113 var
+R7941:7950 ASMinCoq.AsmGen <> Executable constr
+scheme 7769:7777 <> step_prog_ind
+scheme 7769:7777 <> step_prog_sind
+prf 8083:8092 <> estep_PC_i
+R8102:8108 ASMinCoq.AsmGen <> program def
+binder 8095:8098 <> prog:114
+R8121:8128 ASMinCoq.AsmGen <> ExecConf def
+binder 8112:8113 <> φ:115
+binder 8115:8117 <> φ':116
+R8141:8144 Coq.Init.Datatypes <> list ind
+R8146:8149 ASMinCoq.AsmGen <> leak ind
+binder 8132:8133 <> ll:117
+binder 8135:8137 <> ll':118
+R8158:8165 ASMinCoq.AsmGen <> ConfFlag ind
+binder 8153:8154 <> c':119
+R8173:8177 ASMinCoq.AsmGen <> instr ind
+binder 8169:8169 <> i:120
+R8200:8202 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R8188:8191 ASMinCoq.AsmGen <> prog:114 var
+R8194:8195 ASMinCoq.AsmGen <> PC def
+R8197:8198 ASMinCoq.AsmGen <> φ:115 var
+R8203:8203 ASMinCoq.AsmGen <> i:120 var
+binder 8181:8184 <> PC_i:121
+R8221:8223 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R8216:8220 ASMinCoq.AsmGen <> state def
+R8224:8227 Coq.Init.Datatypes <> list ind
+R8229:8232 ASMinCoq.AsmGen <> leak ind
+binder 8207:8212 <> result:122
+R8265:8272 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R8243:8245 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R8241:8242 ASMinCoq.AsmGen <> c':119 var
+R8246:8259 ASMinCoq.AsmGen <> confflag_instr def
+R8261:8261 ASMinCoq.AsmGen <> i:120 var
+R8263:8264 ASMinCoq.AsmGen <> φ:115 var
+R8294:8302 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R8276:8278 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R8273:8275 ASMinCoq.AsmGen <> φ':116 var
+R8279:8288 ASMinCoq.AsmGen <> exec_instr def
+R8290:8290 ASMinCoq.AsmGen <> i:120 var
+R8292:8293 ASMinCoq.AsmGen <> φ:115 var
+R8330:8337 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R8306:8308 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R8303:8305 ASMinCoq.AsmGen <> ll':118 var
+R8324:8327 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R8309:8318 ASMinCoq.AsmGen <> leak_instr def
+R8320:8320 ASMinCoq.AsmGen <> i:120 var
+R8322:8323 ASMinCoq.AsmGen <> φ:115 var
+R8328:8329 ASMinCoq.AsmGen <> ll:117 var
+R8363:8370 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R8344:8346 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R8338:8343 ASMinCoq.AsmGen <> result:122 var
+R8347:8347 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R8352:8353 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R8357:8358 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R8362:8362 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R8348:8351 ASMinCoq.AsmGen <> prog:114 var
+R8354:8356 ASMinCoq.AsmGen <> φ':116 var
+R8359:8361 ASMinCoq.AsmGen <> ll':118 var
+R8371:8379 ASMinCoq.AsmGen <> step_prog ind
+R8381:8390 ASMinCoq.AsmGen <> Executable constr
+R8392:8392 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R8397:8398 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R8401:8402 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R8405:8405 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R8393:8396 ASMinCoq.AsmGen <> prog:114 var
+R8399:8400 ASMinCoq.AsmGen <> φ:115 var
+R8403:8404 ASMinCoq.AsmGen <> ll:117 var
+R8407:8408 ASMinCoq.AsmGen <> c':119 var
+R8410:8415 ASMinCoq.AsmGen <> result:122 var
+prf 8471:8493 <> step_prog_deterministic
+R8503:8509 ASMinCoq.AsmGen <> program def
+binder 8496:8499 <> prog:123
+R8517:8523 stdpp.base <> ::type_scope:'forall'_x_'..'_x_','_x not
+R8560:8567 stdpp.base <> ::type_scope:'forall'_x_'..'_x_','_x not
+binder 8524:8525 <> f1:124
+binder 8527:8529 <> f1':125
+binder 8531:8532 <> f2:126
+binder 8534:8536 <> f2':127
+binder 8538:8539 <> c1:128
+binder 8541:8542 <> c2:129
+binder 8544:8546 <> c2':130
+binder 8548:8550 <> σ1:131
+binder 8552:8554 <> σ2:132
+binder 8556:8559 <> σ2':133
+R8603:8613 Coq.Unicode.Utf8_core <> ::type_scope:x_'→'_x not
+R8568:8576 ASMinCoq.AsmGen <> step_prog ind
+R8578:8579 ASMinCoq.AsmGen <> f1:124 var
+R8581:8581 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R8584:8585 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R8589:8589 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R8582:8583 ASMinCoq.AsmGen <> c1:128 var
+R8586:8588 ASMinCoq.AsmGen <> σ1:131 var
+R8591:8592 ASMinCoq.AsmGen <> f2:126 var
+R8594:8594 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R8597:8598 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R8602:8602 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R8595:8596 ASMinCoq.AsmGen <> c2:129 var
+R8599:8601 ASMinCoq.AsmGen <> σ2:132 var
+R8653:8663 Coq.Unicode.Utf8_core <> ::type_scope:x_'→'_x not
+R8614:8622 ASMinCoq.AsmGen <> step_prog ind
+R8624:8626 ASMinCoq.AsmGen <> f1':125 var
+R8628:8628 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R8631:8632 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R8636:8636 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R8629:8630 ASMinCoq.AsmGen <> c1:128 var
+R8633:8635 ASMinCoq.AsmGen <> σ1:131 var
+R8638:8640 ASMinCoq.AsmGen <> f2':127 var
+R8642:8642 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R8646:8647 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R8652:8652 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R8643:8645 ASMinCoq.AsmGen <> c2':130 var
+R8648:8651 ASMinCoq.AsmGen <> σ2':133 var
+R8672:8676 Coq.Unicode.Utf8_core <> ::type_scope:x_'∧'_x not
+R8666:8668 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R8664:8665 ASMinCoq.AsmGen <> f2:126 var
+R8669:8671 ASMinCoq.AsmGen <> f2':127 var
+R8685:8689 Coq.Unicode.Utf8_core <> ::type_scope:x_'∧'_x not
+R8679:8681 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R8677:8678 ASMinCoq.AsmGen <> c2:129 var
+R8682:8684 ASMinCoq.AsmGen <> c2':130 var
+R8693:8695 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R8690:8692 ASMinCoq.AsmGen <> σ2:132 var
+R8696:8699 ASMinCoq.AsmGen <> σ2':133 var
+ind 9022:9028 <> NilView
+constr 9055:9061 <> nilView
+R9042:9045 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R9032:9034 stdpp.vector <> vec abbrev
+R9036:9039 ASMinCoq.AsmGen <> Word def
+R9065:9071 ASMinCoq.AsmGen <> NilView:134 ind
+R9073:9075 stdpp.vector <> ::vector_scope:'[#'_']' not
+scheme 9022:9028 <> NilView_rect
+scheme 9022:9028 <> NilView_ind
+scheme 9022:9028 <> NilView_rec
+scheme 9022:9028 <> NilView_sind
+ind 9089:9096 <> ConsView
+constr 9139:9146 <> consView
+R9103:9105 Coq.Init.Datatypes <> nat ind
+binder 9099:9099 <> n:136
+R9110:9110 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R9125:9129 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R9111:9113 stdpp.vector <> vec abbrev
+R9115:9118 ASMinCoq.AsmGen <> Word def
+R9121:9121 Coq.Init.Datatypes <> S constr
+R9150:9157 stdpp.base <> ::type_scope:'forall'_x_'..'_x_','_x not
+R9183:9185 stdpp.base <> ::type_scope:'forall'_x_'..'_x_','_x not
+R9162:9165 ASMinCoq.AsmGen <> Word def
+binder 9158:9158 <> w:139
+R9173:9175 stdpp.vector <> vec abbrev
+R9177:9180 ASMinCoq.AsmGen <> Word def
+R9182:9182 ASMinCoq.AsmGen <> n:136 var
+binder 9169:9169 <> v:140
+R9186:9193 ASMinCoq.AsmGen <> ConsView:137 ind
+R9197:9201 stdpp.vector <> ::vector_scope:x_':::'_x not
+R9196:9196 ASMinCoq.AsmGen <> w:139 var
+R9202:9202 ASMinCoq.AsmGen <> v:140 var
+scheme 9089:9096 <> ConsView_rect
+scheme 9089:9096 <> ConsView_ind
+scheme 9089:9096 <> ConsView_rec
+scheme 9089:9096 <> ConsView_sind
+def 9218:9221 <> view
+R9228:9230 Coq.Init.Datatypes <> nat ind
+binder 9224:9224 <> n:141
+R9238:9240 stdpp.vector <> vec abbrev
+R9242:9245 ASMinCoq.AsmGen <> Word def
+R9247:9247 ASMinCoq.AsmGen <> n:141 var
+binder 9234:9234 <> v:142
+R9260:9260 ASMinCoq.AsmGen <> n:141 var
+R9277:9283 ASMinCoq.AsmGen <> NilView ind
+R9289:9289 Coq.Init.Datatypes <> S constr
+R9297:9304 ASMinCoq.AsmGen <> ConsView ind
+R9306:9306 ASMinCoq.AsmGen <> n:141 var
+R9314:9314 ASMinCoq.AsmGen <> v:142 var
+R9325:9325 ASMinCoq.AsmGen <> v:142 var
+R9337:9339 stdpp.vector <> ::vector_scope:'[#'_']' not
+R9344:9350 ASMinCoq.AsmGen <> nilView constr
+R9359:9363 stdpp.vector <> ::vector_scope:x_':::'_x not
+R9371:9378 ASMinCoq.AsmGen <> consView constr
+R9380:9380 ASMinCoq.AsmGen <> v:142 var
+def 9402:9412 <> unaryOn1Vec
+binder 9415:9415 <> B:145
+R9437:9440 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R9433:9436 ASMinCoq.AsmGen <> Word def
+R9441:9441 ASMinCoq.AsmGen <> B:145 var
+binder 9426:9429 <> f_un:146
+R9449:9451 stdpp.vector <> vec abbrev
+R9453:9456 ASMinCoq.AsmGen <> Word def
+binder 9445:9445 <> v:147
+R9463:9463 ASMinCoq.AsmGen <> B:145 var
+R9478:9481 ASMinCoq.AsmGen <> view def
+R9483:9483 ASMinCoq.AsmGen <> v:147 var
+R9496:9503 ASMinCoq.AsmGen <> consView constr
+R9526:9529 ASMinCoq.AsmGen <> view def
+R9547:9553 ASMinCoq.AsmGen <> nilView constr
+R9558:9561 ASMinCoq.AsmGen <> f_un:146 var
+def 9596:9607 <> binaryOn2Vec
+binder 9610:9610 <> B:148
+R9633:9636 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R9629:9632 ASMinCoq.AsmGen <> Word def
+R9641:9644 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R9637:9640 ASMinCoq.AsmGen <> Word def
+R9645:9645 ASMinCoq.AsmGen <> B:148 var
+binder 9621:9625 <> f_bin:149
+R9653:9655 stdpp.vector <> vec abbrev
+R9657:9660 ASMinCoq.AsmGen <> Word def
+binder 9649:9649 <> v:150
+R9667:9667 ASMinCoq.AsmGen <> B:148 var
+R9682:9685 ASMinCoq.AsmGen <> view def
+R9687:9687 ASMinCoq.AsmGen <> v:150 var
+R9700:9707 ASMinCoq.AsmGen <> consView constr
+R9731:9734 ASMinCoq.AsmGen <> view def
+R9752:9759 ASMinCoq.AsmGen <> consView constr
+R9785:9788 ASMinCoq.AsmGen <> view def
+R9809:9815 ASMinCoq.AsmGen <> nilView constr
+R9820:9824 ASMinCoq.AsmGen <> f_bin:149 var
+def 9879:9887 <> add_vec_2
+R9892:9903 ASMinCoq.AsmGen <> binaryOn2Vec def
+binder 9910:9910 <> x:151
+binder 9912:9912 <> y:152
+R9918:9920 Coq.Init.Peano <> ::nat_scope:x_'+'_x not
+R9917:9917 ASMinCoq.AsmGen <> x:151 var
+R9921:9921 ASMinCoq.AsmGen <> y:152 var
+def 9942:9944 <> Add
+R9952:9959 ASMinCoq.AsmGen <> Register def
+binder 9947:9949 <> dst:153
+R9974:9976 Coq.Init.Datatypes <> ::type_scope:x_'+'_x not
+R9970:9973 ASMinCoq.AsmGen <> Word def
+R9977:9984 ASMinCoq.AsmGen <> Register def
+binder 9963:9964 <> r1:154
+binder 9966:9967 <> r2:155
+R9989:9993 ASMinCoq.AsmGen <> instr ind
+R10002:10012 ASMinCoq.AsmGen <> Computation constr
+R10029:10037 ASMinCoq.AsmGen <> add_vec_2 def
+R10025:10027 ASMinCoq.AsmGen <> dst:153 var
+R10014:10016 stdpp.vector <> ::vector_scope:'[#'_x_';'_'..'_';'_x_']' not
+R10019:10020 stdpp.vector <> ::vector_scope:'[#'_x_';'_'..'_';'_x_']' not
+R10023:10023 stdpp.vector <> ::vector_scope:'[#'_x_';'_'..'_';'_x_']' not
+R10017:10018 ASMinCoq.AsmGen <> r1:154 var
+R10021:10022 ASMinCoq.AsmGen <> r2:155 var
+prf 10047:10059 <> testExec_Prog
+R10063:10071 ASMinCoq.AsmGen <> step_prog ind
+R10073:10082 ASMinCoq.AsmGen <> Executable constr
+R10084:10084 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R10126:10127 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R10161:10162 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R10165:10165 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R10085:10101 ASMinCoq.AsmGen <> list_prog_to_prog def
+R10103:10103 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R10125:10125 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R10104:10106 ASMinCoq.AsmGen <> Add def
+R10111:10113 Coq.Init.Datatypes <> inl constr
+R10119:10121 Coq.Init.Datatypes <> inr constr
+R10128:10128 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R10130:10131 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R10150:10151 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R10160:10160 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R10132:10133 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R10135:10136 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R10138:10149 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R10141:10148 ASMinCoq.AsmGen <> emptyReg def
+R10152:10159 ASMinCoq.AsmGen <> emptyMem def
+R10163:10164 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R10167:10171 ASMinCoq.AsmGen <> NextI constr
+R10173:10173 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R10215:10216 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R10250:10251 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R10260:10260 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R10174:10190 ASMinCoq.AsmGen <> list_prog_to_prog def
+R10192:10192 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R10214:10214 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R10193:10195 ASMinCoq.AsmGen <> Add def
+R10200:10202 Coq.Init.Datatypes <> inl constr
+R10208:10210 Coq.Init.Datatypes <> inr constr
+R10217:10217 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R10219:10220 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R10239:10240 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R10249:10249 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R10221:10222 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R10224:10225 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R10227:10238 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R10230:10237 ASMinCoq.AsmGen <> emptyReg def
+R10241:10248 ASMinCoq.AsmGen <> emptyMem def
+R10252:10252 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R10259:10259 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R10253:10258 ASMinCoq.AsmGen <> NoLeak constr
+R10281:10290 ASMinCoq.AsmGen <> estep_PC_i thm
+R10281:10290 ASMinCoq.AsmGen <> estep_PC_i thm
+def 12214:12226 <> notzero_vec_1
+R12231:12241 ASMinCoq.AsmGen <> unaryOn1Vec def
+binder 12248:12248 <> x:156
+R12253:12256 Coq.Init.Datatypes <> negb def
+R12259:12265 Coq.Numbers.Natural.Peano.NPeano Nat eqb def
+R12267:12267 ASMinCoq.AsmGen <> x:156 var
+def 12290:12292 <> Jnz
+R12310:12312 Coq.Init.Datatypes <> ::type_scope:x_'+'_x not
+R12306:12309 ASMinCoq.AsmGen <> Word def
+R12313:12320 ASMinCoq.AsmGen <> Register def
+binder 12295:12298 <> cond:157
+binder 12300:12302 <> dst:158
+R12325:12329 ASMinCoq.AsmGen <> instr ind
+R12338:12348 ASMinCoq.AsmGen <> ControlFlow constr
+R12363:12375 ASMinCoq.AsmGen <> notzero_vec_1 def
+R12359:12361 ASMinCoq.AsmGen <> dst:158 var
+R12350:12352 stdpp.vector <> ::vector_scope:'[#'_x_';'_'..'_';'_x_']' not
+R12357:12357 stdpp.vector <> ::vector_scope:'[#'_x_';'_'..'_';'_x_']' not
+R12353:12356 ASMinCoq.AsmGen <> cond:157 var
+prf 12385:12412 <> test_constant_time_cond_true
+R12420:12428 ASMinCoq.AsmGen <> step_prog ind
+R12430:12439 ASMinCoq.AsmGen <> Executable constr
+R12445:12445 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12495:12500 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12534:12539 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12542:12542 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12446:12462 ASMinCoq.AsmGen <> list_prog_to_prog def
+R12464:12464 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R12484:12485 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R12494:12494 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R12465:12467 ASMinCoq.AsmGen <> Jnz def
+R12470:12472 Coq.Init.Datatypes <> inr constr
+R12478:12480 Coq.Init.Datatypes <> inl constr
+R12486:12489 ASMinCoq.AsmGen <> Load constr
+R12501:12501 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12503:12504 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12523:12524 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12533:12533 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12505:12506 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R12508:12509 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R12511:12522 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R12514:12521 ASMinCoq.AsmGen <> emptyReg def
+R12525:12532 ASMinCoq.AsmGen <> emptyMem def
+R12540:12541 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R12548:12552 ASMinCoq.AsmGen <> NextI constr
+R12558:12558 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12608:12613 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12647:12652 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12675:12675 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12559:12575 ASMinCoq.AsmGen <> list_prog_to_prog def
+R12577:12577 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R12597:12598 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R12607:12607 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R12578:12580 ASMinCoq.AsmGen <> Jnz def
+R12583:12585 Coq.Init.Datatypes <> inr constr
+R12591:12593 Coq.Init.Datatypes <> inl constr
+R12599:12602 ASMinCoq.AsmGen <> Load constr
+R12614:12614 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12616:12617 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12636:12637 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12646:12646 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12618:12619 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R12621:12622 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R12624:12635 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R12627:12634 ASMinCoq.AsmGen <> emptyReg def
+R12638:12645 ASMinCoq.AsmGen <> emptyMem def
+R12653:12653 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R12674:12674 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R12654:12668 ASMinCoq.AsmGen <> ControlFlowLeak constr
+R12670:12673 Coq.Init.Datatypes <> true constr
+R12696:12705 ASMinCoq.AsmGen <> estep_PC_i thm
+R12696:12705 ASMinCoq.AsmGen <> estep_PC_i thm
+prf 12741:12769 <> test_constant_time_cond_false
+R12777:12785 ASMinCoq.AsmGen <> step_prog ind
+R12787:12796 ASMinCoq.AsmGen <> Executable constr
+R12802:12802 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12852:12857 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12891:12896 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12899:12899 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12803:12819 ASMinCoq.AsmGen <> list_prog_to_prog def
+R12821:12821 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R12841:12842 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R12851:12851 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R12822:12824 ASMinCoq.AsmGen <> Jnz def
+R12827:12829 Coq.Init.Datatypes <> inr constr
+R12835:12837 Coq.Init.Datatypes <> inl constr
+R12843:12846 ASMinCoq.AsmGen <> Load constr
+R12858:12858 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12860:12861 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12880:12881 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12890:12890 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12862:12863 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R12865:12866 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R12868:12879 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R12871:12878 ASMinCoq.AsmGen <> emptyReg def
+R12882:12889 ASMinCoq.AsmGen <> emptyMem def
+R12897:12898 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R12905:12909 ASMinCoq.AsmGen <> NextI constr
+R12915:12915 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12965:12970 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R13004:13009 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R13033:13033 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12916:12932 ASMinCoq.AsmGen <> list_prog_to_prog def
+R12934:12934 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R12954:12955 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R12964:12964 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R12935:12937 ASMinCoq.AsmGen <> Jnz def
+R12940:12942 Coq.Init.Datatypes <> inr constr
+R12948:12950 Coq.Init.Datatypes <> inl constr
+R12956:12959 ASMinCoq.AsmGen <> Load constr
+R12971:12971 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12973:12974 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12993:12994 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R13003:13003 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12975:12976 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R12978:12979 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R12981:12992 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R12984:12991 ASMinCoq.AsmGen <> emptyReg def
+R12995:13002 ASMinCoq.AsmGen <> emptyMem def
+R13010:13010 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R13032:13032 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R13011:13025 ASMinCoq.AsmGen <> ControlFlowLeak constr
+R13027:13031 Coq.Init.Datatypes <> false constr
+R13054:13063 ASMinCoq.AsmGen <> estep_PC_i thm
+R13054:13063 ASMinCoq.AsmGen <> estep_PC_i thm
+ind 15822:15824 <> val
+constr 15840:15846 <> HaltedV
+constr 15858:15863 <> NextIV
+R15850:15852 ASMinCoq.AsmGen <> val:159 ind
+R15867:15869 ASMinCoq.AsmGen <> val:159 ind
+scheme 15822:15824 <> val_rect
+scheme 15822:15824 <> val_ind
+scheme 15822:15824 <> val_rec
+scheme 15822:15824 <> val_sind
+ind 15883:15886 <> expr
+constr 15902:15906 <> Instr
+constr 15927:15930 <> Loop
+R15913:15920 ASMinCoq.AsmGen <> ConfFlag ind
+binder 15909:15909 <> c:163
+R15937:15944 ASMinCoq.AsmGen <> ConfFlag ind
+binder 15933:15933 <> c:164
+scheme 15883:15886 <> expr_rect
+scheme 15883:15886 <> expr_ind
+scheme 15883:15886 <> expr_rec
+scheme 15883:15886 <> expr_sind
+def 15960:15965 <> of_val
+R15972:15974 ASMinCoq.AsmGen <> val ind
+binder 15968:15968 <> v:165
+R15979:15982 ASMinCoq.AsmGen <> expr ind
+R15997:15997 ASMinCoq.AsmGen <> v:165 var
+R16010:16016 ASMinCoq.AsmGen <> HaltedV constr
+R16021:16025 ASMinCoq.AsmGen <> Instr constr
+R16027:16032 ASMinCoq.AsmGen <> Halted constr
+R16040:16045 ASMinCoq.AsmGen <> NextIV constr
+R16050:16054 ASMinCoq.AsmGen <> Instr constr
+R16056:16060 ASMinCoq.AsmGen <> NextI constr
+def 16083:16088 <> to_val
+R16095:16098 ASMinCoq.AsmGen <> expr ind
+binder 16091:16091 <> e:167
+R16102:16107 Coq.Init.Datatypes <> option ind
+R16109:16111 ASMinCoq.AsmGen <> val ind
+R16126:16126 ASMinCoq.AsmGen <> e:167 var
+R16143:16147 ASMinCoq.AsmGen <> Instr constr
+R16189:16194 ASMinCoq.AsmGen <> Halted constr
+R16199:16202 Coq.Init.Datatypes <> Some constr
+R16204:16210 ASMinCoq.AsmGen <> HaltedV constr
+R16234:16238 ASMinCoq.AsmGen <> NextI constr
+R16243:16246 Coq.Init.Datatypes <> Some constr
+R16248:16253 ASMinCoq.AsmGen <> NextIV constr
+R16277:16286 ASMinCoq.AsmGen <> Executable constr
+R16291:16294 Coq.Init.Datatypes <> None constr
+R16328:16331 ASMinCoq.AsmGen <> Loop constr
+R16338:16341 Coq.Init.Datatypes <> None constr
+prf 16359:16367 <> of_to_val
+R16374:16380 stdpp.base <> ::type_scope:'forall'_x_'..'_x_','_x not
+R16384:16385 stdpp.base <> ::type_scope:'forall'_x_'..'_x_','_x not
+binder 16381:16381 <> e:170
+binder 16383:16383 <> v:171
+R16403:16418 Coq.Unicode.Utf8_core <> ::type_scope:x_'→'_x not
+R16394:16396 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R16386:16391 ASMinCoq.AsmGen <> to_val def
+R16393:16393 ASMinCoq.AsmGen <> e:170 var
+R16397:16400 Coq.Init.Datatypes <> Some constr
+R16402:16402 ASMinCoq.AsmGen <> v:171 var
+R16427:16429 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R16419:16424 ASMinCoq.AsmGen <> of_val def
+R16426:16426 ASMinCoq.AsmGen <> v:171 var
+R16430:16430 ASMinCoq.AsmGen <> e:170 var
+prf 16530:16538 <> to_of_val
+R16545:16551 stdpp.base <> ::type_scope:'forall'_x_'..'_x_','_x not
+R16553:16554 stdpp.base <> ::type_scope:'forall'_x_'..'_x_','_x not
+binder 16552:16552 <> v:172
+R16572:16574 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R16555:16560 ASMinCoq.AsmGen <> to_val def
+R16563:16568 ASMinCoq.AsmGen <> of_val def
+R16570:16570 ASMinCoq.AsmGen <> v:172 var
+R16575:16578 Coq.Init.Datatypes <> Some constr
+R16580:16580 ASMinCoq.AsmGen <> v:172 var
+ind 16631:16639 <> prim_step
+constr 16748:16763 <> PS_no_fork_instr
+constr 16874:16888 <> PS_no_fork_loop
+constr 16950:16964 <> PS_no_fork_halt
+R16647:16651 Coq.Unicode.Utf8_core <> ::type_scope:x_'→'_x not
+R16643:16646 ASMinCoq.AsmGen <> expr ind
+R16669:16673 Coq.Unicode.Utf8_core <> ::type_scope:x_'→'_x not
+R16657:16659 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R16652:16656 ASMinCoq.AsmGen <> state def
+R16660:16663 Coq.Init.Datatypes <> list ind
+R16665:16668 ASMinCoq.AsmGen <> leak ind
+R16688:16692 Coq.Unicode.Utf8_core <> ::type_scope:x_'→'_x not
+R16674:16677 Coq.Init.Datatypes <> list ind
+R16679:16687 Coq.Init.Datatypes <> Empty_set ind
+R16697:16701 Coq.Unicode.Utf8_core <> ::type_scope:x_'→'_x not
+R16693:16696 ASMinCoq.AsmGen <> expr ind
+R16719:16723 Coq.Unicode.Utf8_core <> ::type_scope:x_'→'_x not
+R16707:16709 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R16702:16706 ASMinCoq.AsmGen <> state def
+R16710:16713 Coq.Init.Datatypes <> list ind
+R16715:16718 ASMinCoq.AsmGen <> leak ind
+R16733:16737 Coq.Unicode.Utf8_core <> ::type_scope:x_'→'_x not
+R16724:16727 Coq.Init.Datatypes <> list ind
+R16729:16732 ASMinCoq.AsmGen <> expr ind
+binder 16765:16766 <> σ:175
+binder 16768:16769 <> cf:176
+binder 16771:16773 <> σ':177
+R16815:16818 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R16785:16793 ASMinCoq.AsmGen <> step_prog ind
+R16795:16804 ASMinCoq.AsmGen <> Executable constr
+R16806:16807 ASMinCoq.AsmGen <> σ:175 var
+R16809:16810 ASMinCoq.AsmGen <> cf:176 var
+R16812:16814 ASMinCoq.AsmGen <> σ':177 var
+R16819:16827 ASMinCoq.AsmGen <> prim_step:173 ind
+R16869:16870 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R16865:16867 ASMinCoq.AsmGen <> σ':177 var
+R16855:16859 ASMinCoq.AsmGen <> Instr constr
+R16861:16862 ASMinCoq.AsmGen <> cf:176 var
+R16851:16852 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R16848:16849 ASMinCoq.AsmGen <> σ:175 var
+R16830:16834 ASMinCoq.AsmGen <> Instr constr
+R16836:16845 ASMinCoq.AsmGen <> Executable constr
+binder 16890:16891 <> σ:178
+R16895:16903 ASMinCoq.AsmGen <> prim_step:173 ind
+R16945:16946 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R16942:16943 ASMinCoq.AsmGen <> σ:178 var
+R16925:16928 ASMinCoq.AsmGen <> Loop constr
+R16930:16939 ASMinCoq.AsmGen <> Executable constr
+R16921:16922 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R16918:16919 ASMinCoq.AsmGen <> σ:178 var
+R16906:16909 ASMinCoq.AsmGen <> Loop constr
+R16911:16915 ASMinCoq.AsmGen <> NextI constr
+binder 16966:16967 <> σ:179
+R16971:16979 ASMinCoq.AsmGen <> prim_step:173 ind
+R17019:17020 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R17016:17017 ASMinCoq.AsmGen <> σ:179 var
+R17002:17006 ASMinCoq.AsmGen <> Instr constr
+R17008:17013 ASMinCoq.AsmGen <> Halted constr
+R16998:16999 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R16995:16996 ASMinCoq.AsmGen <> σ:179 var
+R16982:16985 ASMinCoq.AsmGen <> Loop constr
+R16987:16992 ASMinCoq.AsmGen <> Halted constr
+scheme 16631:16639 <> prim_step_ind
+scheme 16631:16639 <> prim_step_sind
+prf 17031:17039 <> val_stuck
+R17046:17052 stdpp.base <> ::type_scope:'forall'_x_'..'_x_','_x not
+R17070:17077 stdpp.base <> ::type_scope:'forall'_x_'..'_x_','_x not
+binder 17053:17053 <> e:180
+binder 17055:17056 <> σ:181
+binder 17058:17058 <> o:182
+binder 17060:17061 <> e':183
+binder 17063:17065 <> σ':184
+binder 17067:17069 <> efs:185
+R17105:17115 Coq.Unicode.Utf8_core <> ::type_scope:x_'→'_x not
+R17078:17086 ASMinCoq.AsmGen <> prim_step ind
+R17088:17088 ASMinCoq.AsmGen <> e:180 var
+R17090:17091 ASMinCoq.AsmGen <> σ:181 var
+R17093:17093 ASMinCoq.AsmGen <> o:182 var
+R17095:17096 ASMinCoq.AsmGen <> e':183 var
+R17098:17100 ASMinCoq.AsmGen <> σ':184 var
+R17102:17104 ASMinCoq.AsmGen <> efs:185 var
+R17124:17126 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R17116:17121 ASMinCoq.AsmGen <> to_val def
+R17123:17123 ASMinCoq.AsmGen <> e:180 var
+R17127:17130 Coq.Init.Datatypes <> None constr
+prf 17184:17197 <> asm_lang_mixin
+R17201:17213 iris.program_logic.language <> LanguageMixin rec
+R17229:17237 ASMinCoq.AsmGen <> prim_step ind
+R17222:17227 ASMinCoq.AsmGen <> to_val def
+R17215:17220 ASMinCoq.AsmGen <> of_val def
+R17291:17299 ASMinCoq.AsmGen <> to_of_val thm
+R17302:17310 ASMinCoq.AsmGen <> of_to_val thm
+R17313:17321 ASMinCoq.AsmGen <> val_stuck thm
+R17291:17299 ASMinCoq.AsmGen <> to_of_val thm
+R17302:17310 ASMinCoq.AsmGen <> of_to_val thm
+R17313:17321 ASMinCoq.AsmGen <> val_stuck thm
+R17291:17299 ASMinCoq.AsmGen <> to_of_val thm
+R17302:17310 ASMinCoq.AsmGen <> of_to_val thm
+R17313:17321 ASMinCoq.AsmGen <> val_stuck thm
+R17291:17299 ASMinCoq.AsmGen <> to_of_val thm
+R17302:17310 ASMinCoq.AsmGen <> of_to_val thm
+R17313:17321 ASMinCoq.AsmGen <> val_stuck thm
+def 17350:17357 <> asm_lang
+R17362:17369 iris.program_logic.language <> Language constr
+R17371:17384 ASMinCoq.AsmGen <> asm_lang_mixin thm
+prf 17395:17412 <> normal_always_step
+R17419:17425 stdpp.base <> ::type_scope:'forall'_x_'..'_x_','_x not
+R17429:17430 stdpp.base <> ::type_scope:'forall'_x_'..'_x_','_x not
+binder 17426:17428 <> sll:186
+R17431:17437 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R17445:17446 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 17438:17439 <> cf:187
+binder 17441:17444 <> sll':188
+R17447:17455 ASMinCoq.AsmGen <> step_prog ind
+R17457:17466 ASMinCoq.AsmGen <> Executable constr
+R17468:17470 ASMinCoq.AsmGen <> sll:186 var
+R17472:17473 ASMinCoq.AsmGen <> cf:187 var
+R17475:17478 ASMinCoq.AsmGen <> sll':188 var
+R17554:17555 ASMinCoq.AsmGen <> PC def
+R17554:17555 ASMinCoq.AsmGen <> PC def
+R17634:17639 ASMinCoq.AsmGen <> Halted constr
+R17658:17667 ASMinCoq.AsmGen <> estep_PC_i thm
+R17634:17639 ASMinCoq.AsmGen <> Halted constr
+R17658:17667 ASMinCoq.AsmGen <> estep_PC_i thm
+R17634:17639 ASMinCoq.AsmGen <> Halted constr
+R17658:17667 ASMinCoq.AsmGen <> estep_PC_i thm
+R17634:17639 ASMinCoq.AsmGen <> Halted constr
+R17658:17667 ASMinCoq.AsmGen <> estep_PC_i thm
+R17634:17639 ASMinCoq.AsmGen <> Halted constr
+R17658:17667 ASMinCoq.AsmGen <> estep_PC_i thm
+R17634:17639 ASMinCoq.AsmGen <> Halted constr
+R17658:17667 ASMinCoq.AsmGen <> estep_PC_i thm
+R17715:17719 ASMinCoq.AsmGen <> NextI constr
+R17738:17747 ASMinCoq.AsmGen <> estep_PC_i thm
+R17715:17719 ASMinCoq.AsmGen <> NextI constr
+R17738:17747 ASMinCoq.AsmGen <> estep_PC_i thm
+R17715:17719 ASMinCoq.AsmGen <> NextI constr
+R17738:17747 ASMinCoq.AsmGen <> estep_PC_i thm
+R17715:17719 ASMinCoq.AsmGen <> NextI constr
+R17738:17747 ASMinCoq.AsmGen <> estep_PC_i thm
+R17715:17719 ASMinCoq.AsmGen <> NextI constr
+R17738:17747 ASMinCoq.AsmGen <> estep_PC_i thm
+prf 17796:17819 <> reducible_from_step_prog
+binder 17821:17823 <> σ1:189
+binder 17825:17826 <> f2:190
+binder 17828:17830 <> σ2:191
+R17867:17873 Coq.Unicode.Utf8_core <> ::type_scope:x_'→'_x not
+R17836:17844 ASMinCoq.AsmGen <> step_prog ind
+R17846:17855 ASMinCoq.AsmGen <> Executable constr
+R17857:17859 ASMinCoq.AsmGen <> σ1:189 var
+R17861:17862 ASMinCoq.AsmGen <> f2:190 var
+R17864:17866 ASMinCoq.AsmGen <> σ2:191 var
+R17874:17882 iris.program_logic.language <> reducible def
+R17885:17889 ASMinCoq.AsmGen <> Instr constr
+R17891:17900 ASMinCoq.AsmGen <> Executable constr
+R17903:17905 ASMinCoq.AsmGen <> σ1:189 var
+R17937:17945 iris.program_logic.language <> reducible def
+R17937:17945 iris.program_logic.language <> reducible def
+R17937:17945 iris.program_logic.language <> reducible def
+R17967:17968 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R17972:17976 ASMinCoq.AsmGen <> Instr constr
+R17987:17988 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R17967:17968 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R17972:17976 ASMinCoq.AsmGen <> Instr constr
+R17987:17988 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+prf 18019:18041 <> normal_always_reducible
+binder 18043:18044 <> σ:192
+R18050:18058 iris.program_logic.language <> reducible def
+R18061:18065 ASMinCoq.AsmGen <> Instr constr
+R18067:18076 ASMinCoq.AsmGen <> Executable constr
+R18079:18080 ASMinCoq.AsmGen <> σ:192 var
+R18104:18121 ASMinCoq.AsmGen <> normal_always_step thm
+R18104:18121 ASMinCoq.AsmGen <> normal_always_step thm
+R18153:18176 ASMinCoq.AsmGen <> reducible_from_step_prog thm
+R18153:18176 ASMinCoq.AsmGen <> reducible_from_step_prog thm
