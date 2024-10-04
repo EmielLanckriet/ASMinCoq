@@ -1,0 +1,2791 @@
+DIGEST 780e0590c5a38148ecf03401b4269b80
+FASMinCoq.progLog
+R35:43 iris.proofmode.proofmode <> <> lib
+R82:91 iris.base_logic.lib.invariants <> <> lib
+R93:100 iris.base_logic.lib.gen_heap <> <> lib
+R142:151 iris.program_logic.weakestpre <> <> lib
+R153:164 iris.program_logic.ectx_lifting <> <> lib
+R200:203 iris.algebra.frac <> <> lib
+R205:208 iris.algebra.auth <> <> lib
+R210:213 iris.algebra.gmap <> <> lib
+R215:218 iris.algebra.excl <> <> lib
+R251:254 Coq.Lists.List <> <> lib
+R286:296 ASMinCoq.CpdtTactics <> <> lib
+sec 308:310 <> wp'
+R329:336 iris.program_logic.language <> language rec
+binder 324:325 <> Λ:1
+R342:351 iris.program_logic.weakestpre <> irisGS_gen class
+R357:358 ASMinCoq.progLog <> Λ:1 var
+binder 353:355 <> hlc:2
+binder 360:361 <> Σ:3
+binder 341:361 <> irisGS_gen0:4
+prf 374:405 <> wp_lift_atomic_step_no_fork_fupd
+binder 408:408 <> s:5
+binder 410:411 <> E1:6
+binder 413:414 <> E2:7
+binder 416:417 <> Φ:8
+binder 420:421 <> e1:9
+R445:453 Coq.Unicode.Utf8_core <> ::type_scope:x_'→'_x not
+R438:440 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R429:434 iris.program_logic.language <> to_val proj
+R436:437 ASMinCoq.progLog <> e1:9 var
+R441:444 Coq.Init.Datatypes <> None constr
+R454:454 iris.bi.interface <> ::stdpp_scope:x_'⊢'_x not
+R767:776 iris.bi.interface <> ::stdpp_scope:x_'⊢'_x not
+R455:458 iris.bi.interface <> ::bi_scope:'∀'_x_'..'_x_','_x not
+R475:476 iris.bi.interface <> ::bi_scope:'∀'_x_'..'_x_','_x not
+binder 459:461 <> σ1:10
+binder 463:464 <> ns:11
+binder 466:467 <> κ:12
+binder 469:471 <> κs:13
+binder 473:474 <> nt:14
+R511:513 iris.bi.updates <> ::bi_scope:x_'={'_x_'}=∗'_x not
+R516:527 iris.bi.updates <> ::bi_scope:x_'={'_x_'}=∗'_x not
+R477:488 iris.program_logic.weakestpre <> state_interp meth
+R509:510 ASMinCoq.progLog <> nt:14 var
+R500:503 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R498:499 ASMinCoq.progLog <> κ:12 var
+R504:506 ASMinCoq.progLog <> κs:13 var
+R494:495 ASMinCoq.progLog <> ns:11 var
+R490:492 ASMinCoq.progLog <> σ1:10 var
+R514:515 ASMinCoq.progLog <> E1:6 var
+R514:515 ASMinCoq.progLog <> E1:6 var
+R582:592 iris.bi.interface <> ::bi_scope:x_'∗'_x not
+R528:530 iris.bi.interface <> ::bi_scope:'⌜'_x_'⌝' not
+R579:581 iris.bi.interface <> ::bi_scope:'⌜'_x_'⌝' not
+R534:534 ASMinCoq.progLog <> s:5 var
+R539:546 iris.bi.weakestpre <> NotStuck constr
+R553:561 iris.program_logic.language <> reducible def
+R563:564 ASMinCoq.progLog <> e1:9 var
+R566:568 ASMinCoq.progLog <> σ1:10 var
+R575:578 stdpp.base <> ::type_scope:'True' not
+R593:596 iris.bi.interface <> ::bi_scope:'∀'_x_'..'_x_','_x not
+R607:608 iris.bi.interface <> ::bi_scope:'∀'_x_'..'_x_','_x not
+binder 597:598 <> e2:16
+binder 600:602 <> σ2:17
+binder 604:606 <> efs:18
+R645:650 iris.bi.interface <> ::bi_scope:x_'-∗'_x not
+R609:611 iris.bi.interface <> ::bi_scope:'⌜'_x_'⌝' not
+R642:644 iris.bi.interface <> ::bi_scope:'⌜'_x_'⌝' not
+R612:620 iris.program_logic.language <> prim_step proj
+R639:641 ASMinCoq.progLog <> efs:18 var
+R635:637 ASMinCoq.progLog <> σ2:17 var
+R632:633 ASMinCoq.progLog <> e2:16 var
+R629:630 ASMinCoq.progLog <> κ:12 var
+R625:627 ASMinCoq.progLog <> σ1:10 var
+R622:623 ASMinCoq.progLog <> e1:9 var
+R655:657 iris.bi.updates <> ::bi_scope:x_'={'_x_'}'_'['_x_']▷=∗'_x not
+R660:661 iris.bi.updates <> ::bi_scope:x_'={'_x_'}'_'['_x_']▷=∗'_x not
+R664:680 iris.bi.updates <> ::bi_scope:x_'={'_x_'}'_'['_x_']▷=∗'_x not
+R651:653 iris.base_logic.lib.later_credits <> :::'£'_x not
+R658:659 ASMinCoq.progLog <> E1:6 var
+R662:663 ASMinCoq.progLog <> E2:7 var
+R662:663 ASMinCoq.progLog <> E2:7 var
+R658:659 ASMinCoq.progLog <> E1:6 var
+R695:699 iris.bi.interface <> ::bi_scope:x_'∗'_x not
+R681:683 iris.bi.interface <> ::bi_scope:'⌜'_x_'⌝' not
+R692:694 iris.bi.interface <> ::bi_scope:'⌜'_x_'⌝' not
+R687:689 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R684:686 ASMinCoq.progLog <> efs:18 var
+R690:691 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R730:734 iris.bi.interface <> ::bi_scope:x_'∗'_x not
+R700:711 iris.program_logic.weakestpre <> state_interp meth
+R728:729 ASMinCoq.progLog <> nt:14 var
+R724:726 ASMinCoq.progLog <> κs:13 var
+R718:718 Coq.Init.Datatypes <> S constr
+R720:721 ASMinCoq.progLog <> ns:11 var
+R713:715 ASMinCoq.progLog <> σ2:17 var
+R735:745 stdpp.option <> from_option def
+R757:762 iris.program_logic.language <> to_val proj
+R764:765 ASMinCoq.progLog <> e2:16 var
+R750:754 iris.bi.interface <> ::bi_scope:'False' not
+R747:748 ASMinCoq.progLog <> Φ:8 var
+R777:779 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_';'_x_'{{'_x_'}'_'}' not
+R782:784 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_';'_x_'{{'_x_'}'_'}' not
+R786:787 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_';'_x_'{{'_x_'}'_'}' not
+R790:793 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_';'_x_'{{'_x_'}'_'}' not
+R796:798 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_';'_x_'{{'_x_'}'_'}' not
+R785:785 ASMinCoq.progLog <> s:5 var
+R788:789 ASMinCoq.progLog <> E1:6 var
+R780:781 ASMinCoq.progLog <> e1:9 var
+R794:795 ASMinCoq.progLog <> Φ:8 var
+R838:861 iris.program_logic.lifting <> wp_lift_atomic_step_fupd thm
+R838:861 iris.program_logic.lifting <> wp_lift_atomic_step_fupd thm
+R917:917 iris.proofmode.ltac_tactics <> :::'('_x_'$!'_x_'..'_x_'with'_x_')' not
+R921:924 iris.proofmode.ltac_tactics <> :::'('_x_'$!'_x_'..'_x_'with'_x_')' not
+R928:933 iris.proofmode.ltac_tactics <> :::'('_x_'$!'_x_'..'_x_'with'_x_')' not
+R940:940 iris.proofmode.ltac_tactics <> :::'('_x_'$!'_x_'..'_x_'with'_x_')' not
+R917:917 iris.proofmode.ltac_tactics <> :::'('_x_'$!'_x_'..'_x_'with'_x_')' not
+R921:924 iris.proofmode.ltac_tactics <> :::'('_x_'$!'_x_'..'_x_'with'_x_')' not
+R928:933 iris.proofmode.ltac_tactics <> :::'('_x_'$!'_x_'..'_x_'with'_x_')' not
+R940:940 iris.proofmode.ltac_tactics <> :::'('_x_'$!'_x_'..'_x_'with'_x_')' not
+R1014:1014 iris.proofmode.ltac_tactics <> :::'('_x_'$!'_x_'..'_x_'with'_x_')' not
+R1018:1021 iris.proofmode.ltac_tactics <> :::'('_x_'$!'_x_'..'_x_'with'_x_')' not
+R1024:1024 iris.proofmode.ltac_tactics <> :::'('_x_'$!'_x_'..'_x_'with'_x_')' not
+R1028:1028 iris.proofmode.ltac_tactics <> :::'('_x_'$!'_x_'..'_x_'with'_x_')' not
+R1032:1037 iris.proofmode.ltac_tactics <> :::'('_x_'$!'_x_'..'_x_'with'_x_')' not
+R1052:1052 iris.proofmode.ltac_tactics <> :::'('_x_'$!'_x_'..'_x_'with'_x_')' not
+R1014:1014 iris.proofmode.ltac_tactics <> :::'('_x_'$!'_x_'..'_x_'with'_x_')' not
+R1018:1021 iris.proofmode.ltac_tactics <> :::'('_x_'$!'_x_'..'_x_'with'_x_')' not
+R1024:1024 iris.proofmode.ltac_tactics <> :::'('_x_'$!'_x_'..'_x_'with'_x_')' not
+R1028:1028 iris.proofmode.ltac_tactics <> :::'('_x_'$!'_x_'..'_x_'with'_x_')' not
+R1032:1037 iris.proofmode.ltac_tactics <> :::'('_x_'$!'_x_'..'_x_'with'_x_')' not
+R1052:1052 iris.proofmode.ltac_tactics <> :::'('_x_'$!'_x_'..'_x_'with'_x_')' not
+R1138:1140 ASMinCoq.progLog wp' <> sec
+R1174:1179 ASMinCoq.AsmGen <> <> lib
+rec 1216:1219 <> invG
+proj 1236:1243 <> inv_invG
+binder 1221:1222 <> Σ:19
+R1247:1251 iris.base_logic.lib.fancy_updates <> invGS abbrev
+R1253:1254 ASMinCoq.progLog <> Σ:19 var
+rec 1289:1292 <> memG
+proj 1309:1320 <> mem_gen_memG
+binder 1294:1295 <> Σ:22
+R1325:1334 iris.base_logic.lib.gen_heap <> gen_heapGS class
+R1346:1347 ASMinCoq.progLog <> Σ:22 var
+R1341:1344 ASMinCoq.AsmGen <> Word def
+R1336:1339 ASMinCoq.AsmGen <> Addr def
+rec 1383:1386 <> regG
+proj 1403:1414 <> reg_gen_regG
+binder 1388:1389 <> Σ:25
+R1419:1428 iris.base_logic.lib.gen_heap <> gen_heapGS class
+R1439:1440 ASMinCoq.progLog <> Σ:25 var
+R1434:1437 ASMinCoq.AsmGen <> Word def
+R1430:1432 ASMinCoq.AsmGen <> Reg def
+rec 1502:1507 <> traceG
+proj 1543:1551 <> trace_inG
+proj 1612:1621 <> trace_name
+binder 1510:1514 <> Trace:28
+binder 1524:1525 <> Σ:29
+R1556:1558 iris.base_logic.lib.own <> inG class
+R1560:1561 ASMinCoq.progLog <> Σ:29 var
+R1564:1568 iris.algebra.auth <> authR def
+R1571:1578 iris.algebra.cmra <> optionUR canonstruc
+R1581:1585 iris.algebra.excl <> exclR canonstruc
+R1588:1595 iris.algebra.ofe <> leibnizO abbrev
+R1597:1601 ASMinCoq.progLog <> Trace:28 var
+R1625:1629 iris.base_logic.lib.iprop <> gname def
+def 1646:1655 <> tracePreΣ
+binder 1658:1662 <> Trace:33
+R1674:1682 iris.base_logic.lib.iprop <> gFunctors rec
+R1687:1688 iris.base_logic.lib.iprop <> :::'#['_x_';'_'..'_';'_x_']' not
+R1741:1741 iris.base_logic.lib.iprop <> :::'#['_x_';'_'..'_';'_x_']' not
+R1689:1696 iris.base_logic.lib.iprop <> GFunctor constr
+R1699:1703 iris.algebra.auth <> authR def
+R1706:1713 iris.algebra.cmra <> optionUR canonstruc
+R1716:1720 iris.algebra.excl <> exclR canonstruc
+R1723:1730 iris.algebra.ofe <> leibnizO abbrev
+R1732:1736 ASMinCoq.progLog <> Trace:33 var
+rec 1751:1760 <> trace_preG
+proj 1787:1800 <> trace_preG_inG
+binder 1763:1767 <> Trace:34
+binder 1777:1778 <> Σ:35
+R1805:1807 iris.base_logic.lib.own <> inG class
+R1809:1810 ASMinCoq.progLog <> Σ:35 var
+R1813:1817 iris.algebra.auth <> authR def
+R1820:1827 iris.algebra.cmra <> optionUR canonstruc
+R1830:1834 iris.algebra.excl <> exclR canonstruc
+R1837:1844 iris.algebra.ofe <> leibnizO abbrev
+R1846:1850 ASMinCoq.progLog <> Trace:34 var
+inst 1880:1890 <> traceG_preG
+R1894:1899 ASMinCoq.progLog <> traceG class
+binder 1901:1901 <> T:38
+binder 1903:1904 <> Σ:39
+binder 1894:1904 <> H:40
+R1909:1918 ASMinCoq.progLog <> trace_preG class
+R1920:1920 ASMinCoq.progLog <> T:38 var
+R1922:1923 ASMinCoq.progLog <> Σ:39 var
+inst 1994:2008 <> subG_tracePreΣ
+binder 2011:2012 <> Σ:41
+binder 2014:2014 <> T:42
+R2042:2048 Coq.Unicode.Utf8_core <> ::type_scope:x_'→'_x not
+R2020:2023 iris.base_logic.lib.iprop <> subG class
+R2040:2041 ASMinCoq.progLog <> Σ:41 var
+R2026:2035 ASMinCoq.progLog <> tracePreΣ def
+R2037:2037 ASMinCoq.progLog <> T:42 var
+R2049:2058 ASMinCoq.progLog <> trace_preG class
+R2060:2060 ASMinCoq.progLog <> T:42 var
+R2062:2063 ASMinCoq.progLog <> Σ:41 var
+sec 2098:2098 <> S
+R2114:2119 ASMinCoq.progLog <> traceG class
+binder 2121:2121 <> T:43
+binder 2123:2124 <> Σ:44
+binder 2113:2124 <> traceG0:45
+def 2180:2186 <> tr_auth
+R2192:2192 ASMinCoq.progLog <> S.T var
+binder 2189:2189 <> t:46
+R2197:2201 iris.base_logic.lib.iprop iProp_solution iProp abbrev
+R2203:2204 ASMinCoq.progLog <> S.Σ var
+R2209:2211 iris.base_logic.lib.own <> own def
+R2225:2227 iris.algebra.auth <> :::'●'_x_x not
+R2228:2229 iris.algebra.auth <> :::'●'_x_x not
+R2257:2257 iris.algebra.auth <> :::'●'_x_x not
+R2230:2233 Coq.Init.Datatypes <> Some constr
+R2236:2239 iris.algebra.excl <> Excl constr
+R2243:2244 Coq.ssr.ssreflect <> ::core_scope:x_':'_x not
+R2245:2252 iris.algebra.ofe <> leibnizO abbrev
+R2254:2254 ASMinCoq.progLog <> S.T var
+R2242:2242 ASMinCoq.progLog <> t:46 var
+R2213:2222 ASMinCoq.progLog <> trace_name meth
+def 2274:2280 <> tr_frag
+R2286:2286 ASMinCoq.progLog <> S.T var
+binder 2283:2283 <> t:47
+R2291:2295 iris.base_logic.lib.iprop iProp_solution iProp abbrev
+R2297:2298 ASMinCoq.progLog <> S.Σ var
+R2303:2305 iris.base_logic.lib.own <> own def
+R2319:2323 iris.algebra.auth <> :::'◯'_x not
+R2351:2351 iris.algebra.auth <> :::'◯'_x not
+R2324:2327 Coq.Init.Datatypes <> Some constr
+R2330:2333 iris.algebra.excl <> Excl constr
+R2337:2338 Coq.ssr.ssreflect <> ::core_scope:x_':'_x not
+R2339:2346 iris.algebra.ofe <> leibnizO abbrev
+R2348:2348 ASMinCoq.progLog <> S.T var
+R2336:2336 ASMinCoq.progLog <> t:47 var
+R2307:2316 ASMinCoq.progLog <> trace_name meth
+prf 2364:2381 <> trace_full_frag_eq
+binder 2383:2383 <> t:48
+binder 2385:2386 <> t':49
+R2402:2407 iris.bi.interface <> ::stdpp_scope:x_'-∗'_x not
+R2393:2399 ASMinCoq.progLog <> tr_auth def
+R2401:2401 ASMinCoq.progLog <> t:48 var
+R2418:2427 iris.bi.interface <> ::bi_scope:x_'-∗'_x not
+R2408:2414 ASMinCoq.progLog <> tr_frag def
+R2416:2417 ASMinCoq.progLog <> t':49 var
+R2428:2431 iris.bi.interface <> ::bi_scope:'⌜'_x_'⌝' not
+R2438:2441 iris.bi.interface <> ::bi_scope:'⌜'_x_'⌝' not
+R2433:2435 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R2432:2432 ASMinCoq.progLog <> t:48 var
+R2436:2437 ASMinCoq.progLog <> t':49 var
+R2488:2488 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R2500:2505 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R2513:2513 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R2489:2499 iris.base_logic.lib.own <> own_valid_2 thm
+R2527:2550 iris.algebra.auth <> auth_both_valid_discrete thm
+R2488:2488 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R2500:2505 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R2513:2513 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R2489:2499 iris.base_logic.lib.own <> own_valid_2 thm
+R2527:2550 iris.algebra.auth <> auth_both_valid_discrete thm
+R2565:2577 iris.algebra.excl <> Excl_included thm
+R2565:2577 iris.algebra.excl <> Excl_included thm
+R2565:2577 iris.algebra.excl <> Excl_included thm
+R2593:2605 stdpp.base <> leibniz_equiv def
+R2593:2605 stdpp.base <> leibniz_equiv def
+prf 2643:2654 <> tr_frag_excl
+binder 2656:2656 <> t:50
+binder 2658:2659 <> t':51
+R2676:2681 iris.bi.interface <> ::stdpp_scope:x_'-∗'_x not
+R2667:2673 ASMinCoq.progLog <> tr_frag def
+R2675:2675 ASMinCoq.progLog <> t:50 var
+R2692:2697 iris.bi.interface <> ::bi_scope:x_'-∗'_x not
+R2682:2688 ASMinCoq.progLog <> tr_frag def
+R2690:2691 ASMinCoq.progLog <> t':51 var
+R2698:2701 iris.bi.interface <> ::bi_scope:'⌜'_x_'⌝' not
+R2707:2710 iris.bi.interface <> ::bi_scope:'⌜'_x_'⌝' not
+R2702:2706 stdpp.base <> ::type_scope:'False' not
+R2753:2753 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R2765:2770 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R2778:2778 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R2754:2764 iris.base_logic.lib.own <> own_valid_2 thm
+R2753:2753 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R2765:2770 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R2778:2778 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R2754:2764 iris.base_logic.lib.own <> own_valid_2 thm
+R2802:2834 iris.algebra.lib.excl_auth <> excl_auth_frag_op_valid thm
+R2802:2834 iris.algebra.lib.excl_auth <> excl_auth_frag_op_valid thm
+prf 2859:2870 <> trace_update
+binder 2872:2872 <> t:52
+binder 2874:2875 <> t':53
+R2906:2916 iris.bi.updates <> ::stdpp_scope:x_'==∗'_x not
+R2892:2896 iris.bi.interface <> ::bi_scope:x_'∗'_x not
+R2883:2889 ASMinCoq.progLog <> tr_auth def
+R2891:2891 ASMinCoq.progLog <> t:52 var
+R2897:2903 ASMinCoq.progLog <> tr_frag def
+R2905:2905 ASMinCoq.progLog <> t:52 var
+R2927:2931 iris.bi.interface <> ::bi_scope:x_'∗'_x not
+R2917:2923 ASMinCoq.progLog <> tr_auth def
+R2925:2926 ASMinCoq.progLog <> t':53 var
+R2932:2938 ASMinCoq.progLog <> tr_frag def
+R2940:2941 ASMinCoq.progLog <> t':53 var
+R2966:2972 ASMinCoq.progLog <> tr_auth def
+R2975:2981 ASMinCoq.progLog <> tr_frag def
+R2966:2972 ASMinCoq.progLog <> tr_auth def
+R2966:2972 ASMinCoq.progLog <> tr_auth def
+R2975:2981 ASMinCoq.progLog <> tr_frag def
+R2975:2981 ASMinCoq.progLog <> tr_frag def
+R2994:2999 iris.base_logic.lib.own <> own_op thm
+R2994:2999 iris.base_logic.lib.own <> own_op thm
+R2994:2999 iris.base_logic.lib.own <> own_op thm
+R2994:2999 iris.base_logic.lib.own <> own_op thm
+R2994:2999 iris.base_logic.lib.own <> own_op thm
+R3013:3022 iris.base_logic.lib.own <> own_update thm
+R3013:3022 iris.base_logic.lib.own <> own_update thm
+R3031:3041 iris.algebra.auth <> auth_update thm
+R3031:3041 iris.algebra.auth <> auth_update thm
+R3054:3072 iris.algebra.local_updates <> option_local_update thm
+R3054:3072 iris.algebra.local_updates <> option_local_update thm
+R3085:3106 iris.algebra.local_updates <> exclusive_local_update thm
+R3085:3106 iris.algebra.local_updates <> exclusive_local_update thm
+inst 3296:3311 <> tr_auth_Timeless
+binder 3313:3313 <> t:54
+R3317:3324 iris.bi.derived_connectives <> Timeless class
+R3327:3333 ASMinCoq.progLog <> tr_auth def
+R3335:3335 ASMinCoq.progLog <> t:54 var
+inst 3398:3413 <> tr_frag_Timeless
+binder 3415:3415 <> t:55
+R3419:3426 iris.bi.derived_connectives <> Timeless class
+R3429:3435 ASMinCoq.progLog <> tr_frag def
+R3437:3437 ASMinCoq.progLog <> t:55 var
+R3482:3482 ASMinCoq.progLog S <> sec
+rec 3515:3517 <> pcG
+proj 3535:3540 <> pc_inG
+proj 3600:3606 <> pc_name
+binder 3519:3520 <> Σ:56
+R3545:3547 iris.base_logic.lib.own <> inG class
+R3549:3550 ASMinCoq.progLog <> Σ:56 var
+R3553:3557 iris.algebra.auth <> authR def
+R3560:3567 iris.algebra.cmra <> optionUR canonstruc
+R3570:3574 iris.algebra.excl <> exclR canonstruc
+R3577:3584 iris.algebra.ofe <> leibnizO abbrev
+R3586:3589 ASMinCoq.AsmGen <> Word def
+R3610:3614 iris.base_logic.lib.iprop <> gname def
+def 3631:3637 <> PcPreΣ
+R3641:3649 iris.base_logic.lib.iprop <> gFunctors rec
+R3654:3655 iris.base_logic.lib.iprop <> :::'#['_x_';'_'..'_';'_x_']' not
+R3708:3708 iris.base_logic.lib.iprop <> :::'#['_x_';'_'..'_';'_x_']' not
+R3656:3663 iris.base_logic.lib.iprop <> GFunctor constr
+R3666:3670 iris.algebra.auth <> authR def
+R3673:3680 iris.algebra.cmra <> optionUR canonstruc
+R3683:3687 iris.algebra.excl <> exclR canonstruc
+R3690:3697 iris.algebra.ofe <> leibnizO abbrev
+R3700:3703 ASMinCoq.AsmGen <> Word def
+rec 3718:3724 <> PC_preG
+proj 3736:3746 <> PC_preG_inG
+binder 3726:3727 <> Σ:60
+R3751:3753 iris.base_logic.lib.own <> inG class
+R3755:3756 ASMinCoq.progLog <> Σ:60 var
+R3759:3763 iris.algebra.auth <> authR def
+R3766:3773 iris.algebra.cmra <> optionUR canonstruc
+R3776:3780 iris.algebra.excl <> exclR canonstruc
+R3783:3790 iris.algebra.ofe <> leibnizO abbrev
+R3792:3795 ASMinCoq.AsmGen <> Word def
+inst 3825:3832 <> PcG_preG
+R3836:3838 ASMinCoq.progLog <> pcG class
+binder 3840:3841 <> Σ:63
+binder 3836:3841 <> H:64
+R3846:3852 ASMinCoq.progLog <> PC_preG class
+R3854:3855 ASMinCoq.progLog <> Σ:63 var
+inst 3926:3937 <> subG_PcPreΣ
+binder 3940:3941 <> Σ:65
+R3962:3968 Coq.Unicode.Utf8_core <> ::type_scope:x_'→'_x not
+R3947:3950 iris.base_logic.lib.iprop <> subG class
+R3960:3961 ASMinCoq.progLog <> Σ:65 var
+R3952:3958 ASMinCoq.progLog <> PcPreΣ def
+R3969:3975 ASMinCoq.progLog <> PC_preG class
+R3977:3978 ASMinCoq.progLog <> Σ:65 var
+sec 4013:4013 <> S
+R4029:4031 ASMinCoq.progLog <> pcG class
+binder 4033:4034 <> Σ:66
+binder 4028:4034 <> pcG0:67
+def 4052:4058 <> pc_auth
+R4065:4068 ASMinCoq.AsmGen <> Word def
+binder 4061:4061 <> w:68
+R4073:4077 iris.base_logic.lib.iprop iProp_solution iProp abbrev
+R4079:4080 ASMinCoq.progLog <> S.Σ var
+R4085:4087 iris.base_logic.lib.own <> own def
+R4098:4100 iris.algebra.auth <> :::'●'_x_x not
+R4101:4102 iris.algebra.auth <> :::'●'_x_x not
+R4134:4134 iris.algebra.auth <> :::'●'_x_x not
+R4103:4106 Coq.Init.Datatypes <> Some constr
+R4109:4112 iris.algebra.excl <> Excl constr
+R4116:4118 Coq.ssr.ssreflect <> ::core_scope:x_':'_x not
+R4119:4126 iris.algebra.ofe <> leibnizO abbrev
+R4128:4131 ASMinCoq.AsmGen <> Word def
+R4115:4115 ASMinCoq.progLog <> w:68 var
+R4089:4095 ASMinCoq.progLog <> pc_name meth
+def 4151:4157 <> pc_frag
+R4164:4167 ASMinCoq.AsmGen <> Word def
+binder 4160:4160 <> w:69
+R4172:4176 iris.base_logic.lib.iprop iProp_solution iProp abbrev
+R4178:4179 ASMinCoq.progLog <> S.Σ var
+R4184:4186 iris.base_logic.lib.own <> own def
+R4197:4201 iris.algebra.auth <> :::'◯'_x not
+R4233:4233 iris.algebra.auth <> :::'◯'_x not
+R4202:4205 Coq.Init.Datatypes <> Some constr
+R4208:4211 iris.algebra.excl <> Excl constr
+R4215:4217 Coq.ssr.ssreflect <> ::core_scope:x_':'_x not
+R4218:4225 iris.algebra.ofe <> leibnizO abbrev
+R4227:4230 ASMinCoq.AsmGen <> Word def
+R4214:4214 ASMinCoq.progLog <> w:69 var
+R4188:4194 ASMinCoq.progLog <> pc_name meth
+prf 4246:4260 <> pc_full_frag_eq
+binder 4262:4262 <> t:70
+binder 4264:4265 <> t':71
+R4281:4286 iris.bi.interface <> ::stdpp_scope:x_'-∗'_x not
+R4272:4278 ASMinCoq.progLog <> pc_auth def
+R4280:4280 ASMinCoq.progLog <> t:70 var
+R4297:4306 iris.bi.interface <> ::bi_scope:x_'-∗'_x not
+R4287:4293 ASMinCoq.progLog <> pc_frag def
+R4295:4296 ASMinCoq.progLog <> t':71 var
+R4307:4310 iris.bi.interface <> ::bi_scope:'⌜'_x_'⌝' not
+R4317:4320 iris.bi.interface <> ::bi_scope:'⌜'_x_'⌝' not
+R4312:4314 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4311:4311 ASMinCoq.progLog <> t:70 var
+R4315:4316 ASMinCoq.progLog <> t':71 var
+R4367:4367 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R4379:4384 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R4392:4392 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R4368:4378 iris.base_logic.lib.own <> own_valid_2 thm
+R4406:4429 iris.algebra.auth <> auth_both_valid_discrete thm
+R4367:4367 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R4379:4384 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R4392:4392 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R4368:4378 iris.base_logic.lib.own <> own_valid_2 thm
+R4406:4429 iris.algebra.auth <> auth_both_valid_discrete thm
+R4444:4456 iris.algebra.excl <> Excl_included thm
+R4444:4456 iris.algebra.excl <> Excl_included thm
+R4444:4456 iris.algebra.excl <> Excl_included thm
+R4471:4483 stdpp.base <> leibniz_equiv def
+R4471:4483 stdpp.base <> leibniz_equiv def
+prf 4521:4532 <> pc_frag_excl
+binder 4534:4534 <> t:72
+binder 4536:4537 <> t':73
+R4554:4559 iris.bi.interface <> ::stdpp_scope:x_'-∗'_x not
+R4545:4551 ASMinCoq.progLog <> pc_frag def
+R4553:4553 ASMinCoq.progLog <> t:72 var
+R4570:4575 iris.bi.interface <> ::bi_scope:x_'-∗'_x not
+R4560:4566 ASMinCoq.progLog <> pc_frag def
+R4568:4569 ASMinCoq.progLog <> t':73 var
+R4576:4579 iris.bi.interface <> ::bi_scope:'⌜'_x_'⌝' not
+R4585:4588 iris.bi.interface <> ::bi_scope:'⌜'_x_'⌝' not
+R4580:4584 stdpp.base <> ::type_scope:'False' not
+R4631:4631 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R4643:4648 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R4656:4656 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R4632:4642 iris.base_logic.lib.own <> own_valid_2 thm
+R4631:4631 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R4643:4648 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R4656:4656 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R4632:4642 iris.base_logic.lib.own <> own_valid_2 thm
+R4680:4712 iris.algebra.lib.excl_auth <> excl_auth_frag_op_valid thm
+R4680:4712 iris.algebra.lib.excl_auth <> excl_auth_frag_op_valid thm
+prf 4737:4745 <> pc_update
+binder 4747:4747 <> t:74
+binder 4749:4750 <> t':75
+R4781:4791 iris.bi.updates <> ::stdpp_scope:x_'==∗'_x not
+R4767:4771 iris.bi.interface <> ::bi_scope:x_'∗'_x not
+R4758:4764 ASMinCoq.progLog <> pc_auth def
+R4766:4766 ASMinCoq.progLog <> t:74 var
+R4772:4778 ASMinCoq.progLog <> pc_frag def
+R4780:4780 ASMinCoq.progLog <> t:74 var
+R4802:4806 iris.bi.interface <> ::bi_scope:x_'∗'_x not
+R4792:4798 ASMinCoq.progLog <> pc_auth def
+R4800:4801 ASMinCoq.progLog <> t':75 var
+R4807:4813 ASMinCoq.progLog <> pc_frag def
+R4815:4816 ASMinCoq.progLog <> t':75 var
+R4841:4847 ASMinCoq.progLog <> pc_auth def
+R4850:4856 ASMinCoq.progLog <> pc_frag def
+R4841:4847 ASMinCoq.progLog <> pc_auth def
+R4841:4847 ASMinCoq.progLog <> pc_auth def
+R4850:4856 ASMinCoq.progLog <> pc_frag def
+R4850:4856 ASMinCoq.progLog <> pc_frag def
+R4869:4874 iris.base_logic.lib.own <> own_op thm
+R4869:4874 iris.base_logic.lib.own <> own_op thm
+R4869:4874 iris.base_logic.lib.own <> own_op thm
+R4869:4874 iris.base_logic.lib.own <> own_op thm
+R4869:4874 iris.base_logic.lib.own <> own_op thm
+R4888:4897 iris.base_logic.lib.own <> own_update thm
+R4888:4897 iris.base_logic.lib.own <> own_update thm
+R4906:4916 iris.algebra.auth <> auth_update thm
+R4906:4916 iris.algebra.auth <> auth_update thm
+R4929:4947 iris.algebra.local_updates <> option_local_update thm
+R4929:4947 iris.algebra.local_updates <> option_local_update thm
+R4960:4981 iris.algebra.local_updates <> exclusive_local_update thm
+R4960:4981 iris.algebra.local_updates <> exclusive_local_update thm
+inst 5171:5186 <> pc_auth_Timeless
+binder 5188:5188 <> t:76
+R5192:5199 iris.bi.derived_connectives <> Timeless class
+R5202:5208 ASMinCoq.progLog <> pc_auth def
+R5210:5210 ASMinCoq.progLog <> t:76 var
+inst 5273:5288 <> pc_frag_Timeless
+binder 5290:5290 <> t:77
+R5294:5301 iris.bi.derived_connectives <> Timeless class
+R5304:5310 ASMinCoq.progLog <> pc_frag def
+R5312:5312 ASMinCoq.progLog <> t:77 var
+R5357:5357 ASMinCoq.progLog S <> sec
+rec 5392:5399 <> programG
+proj 5422:5432 <> program_inG
+proj 5495:5506 <> program_name
+binder 5401:5402 <> Σ:78
+R5437:5439 iris.base_logic.lib.own <> inG class
+R5441:5442 ASMinCoq.progLog <> Σ:78 var
+R5445:5449 iris.algebra.auth <> authR def
+R5452:5459 iris.algebra.cmra <> optionUR canonstruc
+R5462:5466 iris.algebra.excl <> exclR canonstruc
+R5469:5476 iris.algebra.ofe <> leibnizO abbrev
+R5478:5484 ASMinCoq.AsmGen <> program def
+R5510:5514 iris.base_logic.lib.iprop <> gname def
+def 5531:5542 <> ProgramPreΣ
+R5546:5554 iris.base_logic.lib.iprop <> gFunctors rec
+R5559:5560 iris.base_logic.lib.iprop <> :::'#['_x_';'_'..'_';'_x_']' not
+R5615:5615 iris.base_logic.lib.iprop <> :::'#['_x_';'_'..'_';'_x_']' not
+R5561:5568 iris.base_logic.lib.iprop <> GFunctor constr
+R5571:5575 iris.algebra.auth <> authR def
+R5578:5585 iris.algebra.cmra <> optionUR canonstruc
+R5588:5592 iris.algebra.excl <> exclR canonstruc
+R5595:5602 iris.algebra.ofe <> leibnizO abbrev
+R5604:5610 ASMinCoq.AsmGen <> program def
+rec 5625:5636 <> Program_preG
+proj 5648:5663 <> Program_preG_inG
+binder 5638:5639 <> Σ:82
+R5668:5670 iris.base_logic.lib.own <> inG class
+R5672:5673 ASMinCoq.progLog <> Σ:82 var
+R5676:5680 iris.algebra.auth <> authR def
+R5683:5690 iris.algebra.cmra <> optionUR canonstruc
+R5693:5697 iris.algebra.excl <> exclR canonstruc
+R5700:5707 iris.algebra.ofe <> leibnizO abbrev
+R5709:5715 ASMinCoq.AsmGen <> program def
+inst 5745:5757 <> ProgramG_preG
+R5761:5768 ASMinCoq.progLog <> programG class
+binder 5770:5771 <> Σ:85
+binder 5761:5771 <> H:86
+R5776:5787 ASMinCoq.progLog <> Program_preG class
+R5789:5790 ASMinCoq.progLog <> Σ:85 var
+inst 5861:5877 <> subG_ProgramPreΣ
+binder 5880:5881 <> Σ:87
+R5907:5913 Coq.Unicode.Utf8_core <> ::type_scope:x_'→'_x not
+R5887:5890 iris.base_logic.lib.iprop <> subG class
+R5905:5906 ASMinCoq.progLog <> Σ:87 var
+R5892:5903 ASMinCoq.progLog <> ProgramPreΣ def
+R5914:5925 ASMinCoq.progLog <> Program_preG class
+R5927:5928 ASMinCoq.progLog <> Σ:87 var
+sec 5963:5963 <> S
+R5979:5986 ASMinCoq.progLog <> programG class
+binder 5988:5989 <> Σ:88
+binder 5978:5989 <> programG0:89
+def 6007:6018 <> program_auth
+R6025:6031 ASMinCoq.AsmGen <> program def
+binder 6021:6021 <> p:90
+R6036:6040 iris.base_logic.lib.iprop iProp_solution iProp abbrev
+R6042:6043 ASMinCoq.progLog <> S.Σ var
+R6048:6050 iris.base_logic.lib.own <> own def
+R6066:6068 iris.algebra.auth <> :::'●'_x_x not
+R6069:6070 iris.algebra.auth <> :::'●'_x_x not
+R6105:6105 iris.algebra.auth <> :::'●'_x_x not
+R6071:6074 Coq.Init.Datatypes <> Some constr
+R6077:6080 iris.algebra.excl <> Excl constr
+R6084:6086 Coq.ssr.ssreflect <> ::core_scope:x_':'_x not
+R6087:6094 iris.algebra.ofe <> leibnizO abbrev
+R6096:6102 ASMinCoq.AsmGen <> program def
+R6083:6083 ASMinCoq.progLog <> p:90 var
+R6052:6063 ASMinCoq.progLog <> program_name meth
+def 6122:6133 <> program_frag
+R6140:6146 ASMinCoq.AsmGen <> program def
+binder 6136:6136 <> p:91
+R6151:6155 iris.base_logic.lib.iprop iProp_solution iProp abbrev
+R6157:6158 ASMinCoq.progLog <> S.Σ var
+R6163:6165 iris.base_logic.lib.own <> own def
+R6181:6185 iris.algebra.auth <> :::'◯'_x not
+R6220:6220 iris.algebra.auth <> :::'◯'_x not
+R6186:6189 Coq.Init.Datatypes <> Some constr
+R6192:6195 iris.algebra.excl <> Excl constr
+R6199:6201 Coq.ssr.ssreflect <> ::core_scope:x_':'_x not
+R6202:6209 iris.algebra.ofe <> leibnizO abbrev
+R6211:6217 ASMinCoq.AsmGen <> program def
+R6198:6198 ASMinCoq.progLog <> p:91 var
+R6167:6178 ASMinCoq.progLog <> program_name meth
+prf 6233:6252 <> program_full_frag_eq
+binder 6254:6254 <> t:92
+binder 6256:6257 <> t':93
+R6278:6283 iris.bi.interface <> ::stdpp_scope:x_'-∗'_x not
+R6264:6275 ASMinCoq.progLog <> program_auth def
+R6277:6277 ASMinCoq.progLog <> t:92 var
+R6299:6308 iris.bi.interface <> ::bi_scope:x_'-∗'_x not
+R6284:6295 ASMinCoq.progLog <> program_frag def
+R6297:6298 ASMinCoq.progLog <> t':93 var
+R6309:6312 iris.bi.interface <> ::bi_scope:'⌜'_x_'⌝' not
+R6319:6322 iris.bi.interface <> ::bi_scope:'⌜'_x_'⌝' not
+R6314:6316 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R6313:6313 ASMinCoq.progLog <> t:92 var
+R6317:6318 ASMinCoq.progLog <> t':93 var
+R6369:6369 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R6381:6386 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R6394:6394 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R6370:6380 iris.base_logic.lib.own <> own_valid_2 thm
+R6408:6431 iris.algebra.auth <> auth_both_valid_discrete thm
+R6369:6369 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R6381:6386 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R6394:6394 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R6370:6380 iris.base_logic.lib.own <> own_valid_2 thm
+R6408:6431 iris.algebra.auth <> auth_both_valid_discrete thm
+R6446:6458 iris.algebra.excl <> Excl_included thm
+R6446:6458 iris.algebra.excl <> Excl_included thm
+R6446:6458 iris.algebra.excl <> Excl_included thm
+R6473:6485 stdpp.base <> leibniz_equiv def
+R6473:6485 stdpp.base <> leibniz_equiv def
+prf 6523:6539 <> program_frag_excl
+binder 6541:6541 <> t:94
+binder 6543:6544 <> t':95
+R6566:6571 iris.bi.interface <> ::stdpp_scope:x_'-∗'_x not
+R6552:6563 ASMinCoq.progLog <> program_frag def
+R6565:6565 ASMinCoq.progLog <> t:94 var
+R6587:6592 iris.bi.interface <> ::bi_scope:x_'-∗'_x not
+R6572:6583 ASMinCoq.progLog <> program_frag def
+R6585:6586 ASMinCoq.progLog <> t':95 var
+R6593:6596 iris.bi.interface <> ::bi_scope:'⌜'_x_'⌝' not
+R6602:6605 iris.bi.interface <> ::bi_scope:'⌜'_x_'⌝' not
+R6597:6601 stdpp.base <> ::type_scope:'False' not
+R6648:6648 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R6660:6665 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R6673:6673 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R6649:6659 iris.base_logic.lib.own <> own_valid_2 thm
+R6648:6648 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R6660:6665 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R6673:6673 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R6649:6659 iris.base_logic.lib.own <> own_valid_2 thm
+R6697:6729 iris.algebra.lib.excl_auth <> excl_auth_frag_op_valid thm
+R6697:6729 iris.algebra.lib.excl_auth <> excl_auth_frag_op_valid thm
+prf 6754:6767 <> program_update
+binder 6769:6769 <> t:96
+binder 6771:6772 <> t':97
+R6813:6823 iris.bi.updates <> ::stdpp_scope:x_'==∗'_x not
+R6794:6798 iris.bi.interface <> ::bi_scope:x_'∗'_x not
+R6780:6791 ASMinCoq.progLog <> program_auth def
+R6793:6793 ASMinCoq.progLog <> t:96 var
+R6799:6810 ASMinCoq.progLog <> program_frag def
+R6812:6812 ASMinCoq.progLog <> t:96 var
+R6839:6843 iris.bi.interface <> ::bi_scope:x_'∗'_x not
+R6824:6835 ASMinCoq.progLog <> program_auth def
+R6837:6838 ASMinCoq.progLog <> t':97 var
+R6844:6855 ASMinCoq.progLog <> program_frag def
+R6857:6858 ASMinCoq.progLog <> t':97 var
+R6883:6894 ASMinCoq.progLog <> program_auth def
+R6897:6908 ASMinCoq.progLog <> program_frag def
+R6883:6894 ASMinCoq.progLog <> program_auth def
+R6883:6894 ASMinCoq.progLog <> program_auth def
+R6897:6908 ASMinCoq.progLog <> program_frag def
+R6897:6908 ASMinCoq.progLog <> program_frag def
+R6921:6926 iris.base_logic.lib.own <> own_op thm
+R6921:6926 iris.base_logic.lib.own <> own_op thm
+R6921:6926 iris.base_logic.lib.own <> own_op thm
+R6921:6926 iris.base_logic.lib.own <> own_op thm
+R6921:6926 iris.base_logic.lib.own <> own_op thm
+R6940:6949 iris.base_logic.lib.own <> own_update thm
+R6940:6949 iris.base_logic.lib.own <> own_update thm
+R6958:6968 iris.algebra.auth <> auth_update thm
+R6958:6968 iris.algebra.auth <> auth_update thm
+R6981:6999 iris.algebra.local_updates <> option_local_update thm
+R6981:6999 iris.algebra.local_updates <> option_local_update thm
+R7012:7033 iris.algebra.local_updates <> exclusive_local_update thm
+R7012:7033 iris.algebra.local_updates <> exclusive_local_update thm
+inst 7223:7243 <> program_auth_Timeless
+binder 7245:7245 <> t:98
+R7249:7256 iris.bi.derived_connectives <> Timeless class
+R7259:7270 ASMinCoq.progLog <> program_auth def
+R7272:7272 ASMinCoq.progLog <> t:98 var
+inst 7335:7355 <> program_frag_Timeless
+binder 7357:7357 <> t:99
+R7361:7368 iris.bi.derived_connectives <> Timeless class
+R7371:7382 ASMinCoq.progLog <> program_frag def
+R7384:7384 ASMinCoq.progLog <> t:99 var
+R7429:7429 ASMinCoq.progLog S <> sec
+inst 7519:7528 <> memG_irisG
+R7533:7536 ASMinCoq.progLog <> invG class
+binder 7538:7539 <> Σ:100
+binder 7532:7539 <> invG0:101
+R7543:7546 ASMinCoq.progLog <> memG class
+R7548:7549 ASMinCoq.progLog <> Σ:100 var
+binder 7542:7549 <> memG0:102
+R7553:7556 ASMinCoq.progLog <> regG class
+R7558:7559 ASMinCoq.progLog <> Σ:100 var
+binder 7552:7559 <> regG0:103
+R7563:7568 ASMinCoq.progLog <> traceG class
+R7571:7574 Coq.Init.Datatypes <> list ind
+R7576:7579 ASMinCoq.AsmGen <> leak ind
+R7582:7583 ASMinCoq.progLog <> Σ:100 var
+binder 7562:7583 <> traceG0:104
+R7587:7589 ASMinCoq.progLog <> pcG class
+R7591:7592 ASMinCoq.progLog <> Σ:100 var
+binder 7586:7592 <> pcG0:105
+R7596:7603 ASMinCoq.progLog <> programG class
+R7605:7606 ASMinCoq.progLog <> Σ:100 var
+binder 7595:7606 <> programG0:106
+R7611:7616 iris.program_logic.weakestpre <> irisGS abbrev
+R7618:7625 ASMinCoq.AsmGen <> asm_lang canonstruc
+R7627:7628 ASMinCoq.progLog <> Σ:100 var
+R7888:7904 iris.program_logic.weakestpre <> state_interp_mono meth
+R7858:7876 iris.program_logic.weakestpre <> num_laters_per_step meth
+R7832:7840 iris.program_logic.weakestpre <> fork_post meth
+R7663:7674 iris.program_logic.weakestpre <> state_interp meth
+R7637:7646 iris.program_logic.weakestpre <> iris_invGS meth
+R7651:7658 ASMinCoq.progLog <> inv_invG meth
+binder 7676:7677 <> σ:107
+binder 7681:7683 <> κs:108
+R7691:7691 iris.bi.interface <> ::bi_scope:x_'∗'_x not
+R7720:7725 iris.bi.interface <> ::bi_scope:x_'∗'_x not
+R7692:7706 iris.base_logic.lib.gen_heap <> gen_heap_interp def
+R7709:7711 ASMinCoq.AsmGen <> reg def
+R7717:7718 stdpp.base <> :::x_'.2' not
+R7715:7716 stdpp.base <> :::x_'.1' not
+R7713:7714 ASMinCoq.progLog <> σ:107 var
+R7726:7726 iris.bi.interface <> ::bi_scope:x_'∗'_x not
+R7755:7764 iris.bi.interface <> ::bi_scope:x_'∗'_x not
+R7727:7741 iris.base_logic.lib.gen_heap <> gen_heap_interp def
+R7744:7746 ASMinCoq.AsmGen <> mem def
+R7752:7753 stdpp.base <> :::x_'.2' not
+R7750:7751 stdpp.base <> :::x_'.1' not
+R7748:7749 ASMinCoq.progLog <> σ:107 var
+R7777:7781 iris.bi.interface <> ::bi_scope:x_'∗'_x not
+R7765:7771 ASMinCoq.progLog <> tr_auth def
+R7775:7776 stdpp.base <> :::x_'.2' not
+R7773:7774 ASMinCoq.progLog <> σ:107 var
+R7801:7805 iris.bi.interface <> ::bi_scope:x_'∗'_x not
+R7782:7788 ASMinCoq.progLog <> pc_auth def
+R7791:7792 ASMinCoq.AsmGen <> PC def
+R7798:7799 stdpp.base <> :::x_'.2' not
+R7796:7797 stdpp.base <> :::x_'.1' not
+R7794:7795 ASMinCoq.progLog <> σ:107 var
+R7806:7817 ASMinCoq.progLog <> program_auth def
+R7823:7824 stdpp.base <> :::x_'.1' not
+R7821:7822 stdpp.base <> :::x_'.1' not
+R7819:7820 ASMinCoq.progLog <> σ:107 var
+R7847:7851 iris.bi.interface <> ::bi_scope:'False' not
+R7917:7926 iris.bi.updates <> fupd_intro thm
+sec 7944:7957 <> asm_lang_rules
+R7973:7976 ASMinCoq.progLog <> invG class
+binder 7978:7979 <> Σ:109
+binder 7972:7979 <> invG0:110
+R7983:7986 ASMinCoq.progLog <> memG class
+R7988:7989 ASMinCoq.progLog <> Σ:109 var
+binder 7982:7989 <> memG0:111
+R7993:7996 ASMinCoq.progLog <> regG class
+R7998:7999 ASMinCoq.progLog <> Σ:109 var
+binder 7992:7999 <> regG0:112
+R8003:8008 ASMinCoq.progLog <> traceG class
+R8011:8014 Coq.Init.Datatypes <> list ind
+R8016:8019 ASMinCoq.AsmGen <> leak ind
+R8022:8023 ASMinCoq.progLog <> Σ:109 var
+binder 8002:8023 <> traceG0:113
+R8027:8029 ASMinCoq.progLog <> pcG class
+R8031:8032 ASMinCoq.progLog <> Σ:109 var
+binder 8026:8032 <> pcG0:114
+R8036:8043 ASMinCoq.progLog <> programG class
+R8045:8046 ASMinCoq.progLog <> Σ:109 var
+binder 8035:8046 <> programG0:115
+R8072:8076 iris.base_logic.lib.iprop <> gname def
+binder 8061:8062 <> γ:116
+binder 8064:8065 <> ζ:117
+binder 8067:8068 <> ξ:118
+R8152:8157 iris.base_logic.lib.gen_heap <> mapsto def
+R8177:8180 ASMinCoq.AsmGen <> Word def
+R8163:8170 ASMinCoq.AsmGen <> Register def
+not 8130:8130 asm_lang_rules ::bi_scope:x_'↦ᵣ{'_x_'}'_x
+R8287:8292 iris.base_logic.lib.gen_heap <> mapsto def
+R8321:8328 iris.algebra.dfrac <> DfracOwn constr
+R8312:8315 ASMinCoq.AsmGen <> Word def
+R8298:8305 ASMinCoq.AsmGen <> Register def
+not 8270:8270 asm_lang_rules ::bi_scope:x_'↦ᵣ'_x
+R8432:8437 iris.base_logic.lib.gen_heap <> mapsto def
+R8453:8456 ASMinCoq.AsmGen <> Word def
+R8443:8446 ASMinCoq.AsmGen <> Addr def
+not 8410:8410 asm_lang_rules ::bi_scope:x_'↦ₐ{'_x_'}'_x
+R8563:8568 iris.base_logic.lib.gen_heap <> mapsto def
+R8593:8600 iris.algebra.dfrac <> DfracOwn constr
+R8584:8587 ASMinCoq.AsmGen <> Word def
+R8574:8577 ASMinCoq.AsmGen <> Addr def
+not 8546:8546 asm_lang_rules ::bi_scope:x_'↦ₐ'_x
+prf 8730:8748 <> register_dupl_false
+binder 8750:8750 <> r:119
+binder 8752:8753 <> w1:120
+binder 8755:8756 <> w2:121
+R8775:8780 iris.bi.interface <> ::stdpp_scope:x_'-∗'_x not
+R8765:8772 ASMinCoq.progLog asm_lang_rules ::bi_scope:x_'↦ᵣ'_x not
+R8764:8764 ASMinCoq.progLog <> r:119 var
+R8773:8774 ASMinCoq.progLog <> w1:120 var
+R8792:8797 iris.bi.interface <> ::bi_scope:x_'-∗'_x not
+R8782:8789 ASMinCoq.progLog asm_lang_rules ::bi_scope:x_'↦ᵣ'_x not
+R8781:8781 ASMinCoq.progLog <> r:119 var
+R8790:8791 ASMinCoq.progLog <> w2:121 var
+R8798:8802 iris.bi.interface <> ::bi_scope:'False' not
+R8851:8851 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R8866:8871 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R8881:8881 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R8852:8865 iris.base_logic.lib.gen_heap <> mapsto_valid_2 thm
+R8851:8851 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R8866:8871 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R8881:8881 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R8852:8865 iris.base_logic.lib.gen_heap <> mapsto_valid_2 thm
+R8924:8943 iris.algebra.dfrac <> dfrac_full_exclusive inst
+R8924:8943 iris.algebra.dfrac <> dfrac_full_exclusive inst
+prf 8974:8985 <> register_neq
+binder 8987:8988 <> r1:122
+binder 8990:8991 <> r2:123
+binder 8993:8994 <> w1:124
+binder 8996:8997 <> w2:125
+R9017:9022 iris.bi.interface <> ::stdpp_scope:x_'-∗'_x not
+R9007:9014 ASMinCoq.progLog asm_lang_rules ::bi_scope:x_'↦ᵣ'_x not
+R9005:9006 ASMinCoq.progLog <> r1:122 var
+R9015:9016 ASMinCoq.progLog <> w1:124 var
+R9035:9040 iris.bi.interface <> ::bi_scope:x_'-∗'_x not
+R9025:9032 ASMinCoq.progLog asm_lang_rules ::bi_scope:x_'↦ᵣ'_x not
+R9023:9024 ASMinCoq.progLog <> r2:123 var
+R9033:9034 ASMinCoq.progLog <> w2:125 var
+R9041:9044 iris.bi.interface <> ::bi_scope:'⌜'_x_'⌝' not
+R9054:9057 iris.bi.interface <> ::bi_scope:'⌜'_x_'⌝' not
+R9047:9051 Coq.Unicode.Utf8_core <> ::type_scope:x_'≠'_x not
+R9045:9046 ASMinCoq.progLog <> r1:122 var
+R9052:9053 ASMinCoq.progLog <> r2:123 var
+R9111:9111 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R9131:9136 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R9144:9144 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R9112:9130 ASMinCoq.progLog <> register_dupl_false thm
+R9111:9111 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R9131:9136 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R9144:9144 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R9112:9130 ASMinCoq.progLog <> register_dupl_false thm
+prf 9163:9175 <> map_of_regs_1
+R9182:9189 ASMinCoq.AsmGen <> Register def
+binder 9178:9179 <> r1:126
+R9197:9200 ASMinCoq.AsmGen <> Word def
+binder 9193:9194 <> w1:127
+R9221:9231 iris.bi.interface <> ::stdpp_scope:x_'-∗'_x not
+R9276:9276 iris.bi.interface <> ::stdpp_scope:x_'-∗'_x not
+R9211:9218 ASMinCoq.progLog asm_lang_rules ::bi_scope:x_'↦ᵣ'_x not
+R9209:9210 ASMinCoq.progLog <> r1:126 var
+R9219:9220 ASMinCoq.progLog <> w1:127 var
+R9232:9241 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+R9243:9245 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+R9247:9251 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+R9264:9265 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+binder 9242:9242 <> k:128
+binder 9242:9242 <> k:129
+binder 9246:9246 <> y:130
+binder 9246:9246 <> y:131
+R9267:9274 ASMinCoq.progLog asm_lang_rules ::bi_scope:x_'↦ᵣ'_x not
+R9266:9266 ASMinCoq.progLog <> k:128 var
+R9275:9275 ASMinCoq.progLog <> y:130 var
+R9252:9253 stdpp.base <> ::stdpp_scope:'{['_x_':='_x_']}' not
+R9256:9259 stdpp.base <> ::stdpp_scope:'{['_x_':='_x_']}' not
+R9262:9263 stdpp.base <> ::stdpp_scope:'{['_x_':='_x_']}' not
+R9254:9255 ASMinCoq.progLog <> r1:126 var
+R9260:9261 ASMinCoq.progLog <> w1:127 var
+R9296:9313 iris.bi.big_op <> big_sepM_singleton thm
+R9296:9313 iris.bi.big_op <> big_sepM_singleton thm
+R9296:9313 iris.bi.big_op <> big_sepM_singleton thm
+prf 12574:12588 <> addr_dupl_false
+binder 12590:12590 <> a:132
+binder 12592:12593 <> w1:133
+binder 12595:12596 <> w2:134
+R12615:12620 iris.bi.interface <> ::stdpp_scope:x_'-∗'_x not
+R12605:12612 ASMinCoq.progLog asm_lang_rules ::bi_scope:x_'↦ₐ'_x not
+R12604:12604 ASMinCoq.progLog <> a:132 var
+R12613:12614 ASMinCoq.progLog <> w1:133 var
+R12632:12637 iris.bi.interface <> ::bi_scope:x_'-∗'_x not
+R12622:12629 ASMinCoq.progLog asm_lang_rules ::bi_scope:x_'↦ₐ'_x not
+R12621:12621 ASMinCoq.progLog <> a:132 var
+R12630:12631 ASMinCoq.progLog <> w2:134 var
+R12638:12642 iris.bi.interface <> ::bi_scope:'False' not
+R12691:12691 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R12706:12711 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R12721:12721 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R12692:12705 iris.base_logic.lib.gen_heap <> mapsto_valid_2 thm
+R12691:12691 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R12706:12711 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R12721:12721 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R12692:12705 iris.base_logic.lib.gen_heap <> mapsto_valid_2 thm
+R12764:12783 iris.algebra.dfrac <> dfrac_full_exclusive inst
+R12764:12783 iris.algebra.dfrac <> dfrac_full_exclusive inst
+prf 12818:12824 <> wp_halt
+binder 12826:12827 <> pc:135
+binder 12829:12832 <> prog:136
+binder 12834:12835 <> ll:137
+binder 12837:12837 <> E:138
+binder 12839:12840 <> Φ:139
+R12862:12869 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R12855:12857 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R12848:12851 ASMinCoq.progLog <> prog:136 var
+R12853:12854 ASMinCoq.progLog <> pc:135 var
+R12858:12861 ASMinCoq.AsmGen <> Halt constr
+R12887:12892 iris.bi.interface <> ::stdpp_scope:x_'-∗'_x not
+R12870:12881 ASMinCoq.progLog <> program_frag def
+R12883:12886 ASMinCoq.progLog <> prog:136 var
+R12903:12908 iris.bi.interface <> ::bi_scope:x_'-∗'_x not
+R12893:12899 ASMinCoq.progLog <> pc_frag def
+R12901:12902 ASMinCoq.progLog <> pc:135 var
+R12919:12928 iris.bi.interface <> ::bi_scope:x_'-∗'_x not
+R12909:12915 ASMinCoq.progLog <> tr_frag def
+R12917:12918 ASMinCoq.progLog <> ll:137 var
+R13010:13019 iris.bi.interface <> ::bi_scope:x_'-∗'_x not
+R12929:12933 iris.bi.interface <> ::bi_scope:'▷'_x not
+R13009:13009 iris.bi.interface <> ::bi_scope:'▷'_x not
+R12993:12998 iris.bi.interface <> ::bi_scope:x_'-∗'_x not
+R12951:12955 iris.bi.interface <> ::bi_scope:x_'∗'_x not
+R12934:12945 ASMinCoq.progLog <> program_frag def
+R12947:12950 ASMinCoq.progLog <> prog:136 var
+R12966:12970 iris.bi.interface <> ::bi_scope:x_'∗'_x not
+R12956:12962 ASMinCoq.progLog <> pc_frag def
+R12964:12965 ASMinCoq.progLog <> pc:135 var
+R12971:12977 ASMinCoq.progLog <> tr_frag def
+R12986:12989 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R12980:12985 ASMinCoq.AsmGen <> NoLeak constr
+R12990:12991 ASMinCoq.progLog <> ll:137 var
+R12999:13000 ASMinCoq.progLog <> Φ:139 var
+R13002:13008 ASMinCoq.AsmGen <> HaltedV constr
+R13020:13023 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_'{{'_x_','_x_'}'_'}' not
+R13040:13043 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_'{{'_x_','_x_'}'_'}' not
+R13045:13048 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_'{{'_x_','_x_'}'_'}' not
+R13050:13051 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_'{{'_x_','_x_'}'_'}' not
+R13056:13058 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_'{{'_x_','_x_'}'_'}' not
+R13044:13044 ASMinCoq.progLog <> E:138 var
+R13024:13028 ASMinCoq.AsmGen <> Instr constr
+R13030:13039 ASMinCoq.AsmGen <> Executable constr
+binder 13049:13049 <> v:140
+R13052:13053 ASMinCoq.progLog <> Φ:139 var
+R13055:13055 ASMinCoq.progLog <> v:140 var
+R13125:13156 ASMinCoq.progLog <> wp_lift_atomic_step_no_fork_fupd thm
+R13125:13156 ASMinCoq.progLog <> wp_lift_atomic_step_no_fork_fupd thm
+R13308:13308 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R13328:13333 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R13350:13350 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R13310:13327 ASMinCoq.progLog <> trace_full_frag_eq thm
+R13308:13308 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R13328:13333 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R13350:13350 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R13310:13327 ASMinCoq.progLog <> trace_full_frag_eq thm
+R13386:13386 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R13403:13408 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R13422:13422 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R13388:13402 ASMinCoq.progLog <> pc_full_frag_eq thm
+R13386:13386 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R13403:13408 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R13422:13422 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R13388:13402 ASMinCoq.progLog <> pc_full_frag_eq thm
+R13458:13458 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R13480:13485 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R13503:13503 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R13460:13479 ASMinCoq.progLog <> program_full_frag_eq thm
+R13458:13458 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R13480:13485 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R13503:13503 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R13460:13479 ASMinCoq.progLog <> program_full_frag_eq thm
+R13577:13599 ASMinCoq.AsmGen <> normal_always_reducible thm
+R13577:13599 ASMinCoq.AsmGen <> normal_always_reducible thm
+R13818:13818 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R13848:13853 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R13874:13874 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R13819:13830 ASMinCoq.progLog <> trace_update thm
+R13841:13844 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R13835:13840 ASMinCoq.AsmGen <> NoLeak constr
+R13818:13818 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R13848:13853 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R13874:13874 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R13819:13830 ASMinCoq.progLog <> trace_update thm
+R13841:13844 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R13835:13840 ASMinCoq.AsmGen <> NoLeak constr
+def 14078:14093 <> regs_from_inputs
+R14100:14102 Coq.Init.Datatypes <> nat ind
+binder 14096:14096 <> n:141
+R14115:14117 stdpp.vector <> vec abbrev
+R14124:14126 Coq.Init.Datatypes <> ::type_scope:x_'+'_x not
+R14120:14123 ASMinCoq.AsmGen <> Word def
+R14127:14134 ASMinCoq.AsmGen <> Register def
+R14137:14137 ASMinCoq.progLog <> n:141 var
+binder 14106:14111 <> inputs:142
+R14142:14145 stdpp.gmap <> gset def
+R14147:14154 ASMinCoq.AsmGen <> Register def
+R14169:14174 ASMinCoq.progLog <> inputs:142 var
+R14187:14190 stdpp.vector <> ::vector_scope:'[#'_']' not
+R14195:14197 stdpp.base <> ::stdpp_scope:'∅' not
+R14207:14211 stdpp.vector <> ::vector_scope:x_':::'_x not
+R14263:14265 Coq.Init.Datatypes <> inl constr
+R14272:14287 ASMinCoq.progLog <> regs_from_inputs:143 def
+R14323:14325 Coq.Init.Datatypes <> inr constr
+R14339:14343 stdpp.base <> ::stdpp_scope:x_'∪'_x not
+R14332:14334 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R14336:14338 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R14344:14359 ASMinCoq.progLog <> regs_from_inputs:143 def
+def 14418:14434 <> replace_in_inputs
+R14441:14443 Coq.Init.Datatypes <> nat ind
+binder 14437:14437 <> n:146
+R14455:14458 Coq.Init.Datatypes <> list ind
+R14460:14463 ASMinCoq.AsmGen <> Word def
+binder 14447:14451 <> words:147
+R14476:14478 stdpp.vector <> vec abbrev
+R14485:14487 Coq.Init.Datatypes <> ::type_scope:x_'+'_x not
+R14481:14484 ASMinCoq.AsmGen <> Word def
+R14488:14495 ASMinCoq.AsmGen <> Register def
+R14498:14498 ASMinCoq.progLog <> n:146 var
+binder 14467:14472 <> inputs:148
+R14507:14509 stdpp.vector <> vec abbrev
+R14511:14514 ASMinCoq.AsmGen <> Word def
+R14516:14516 ASMinCoq.progLog <> n:146 var
+R14539:14543 ASMinCoq.progLog <> words:147 var
+R14531:14536 ASMinCoq.progLog <> inputs:148 var
+R14556:14565 Coq.Vectors.Vector <> nil constr
+R14573:14582 Coq.Vectors.Vector <> nil constr
+R14590:14600 Coq.Vectors.Vector <> cons constr
+R14617:14618 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R14674:14676 Coq.Init.Datatypes <> inl constr
+R14686:14696 Coq.Vectors.Vector <> cons constr
+R14704:14720 ASMinCoq.progLog <> replace_in_inputs:149 def
+R14722:14726 ASMinCoq.progLog <> words:147 var
+R14771:14773 Coq.Init.Datatypes <> inr constr
+R14780:14790 Coq.Vectors.Vector <> cons constr
+R14795:14811 ASMinCoq.progLog <> replace_in_inputs:149 def
+R14813:14817 ASMinCoq.progLog <> words:147 var
+R14870:14880 Coq.Vectors.Vector <> cons constr
+R14902:14905 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R14967:14969 Coq.Init.Datatypes <> inl constr
+R14979:14989 Coq.Vectors.Vector <> cons constr
+R14997:15013 ASMinCoq.progLog <> replace_in_inputs:149 def
+R15015:15019 ASMinCoq.progLog <> words:147 var
+R15064:15066 Coq.Init.Datatypes <> inr constr
+R15073:15083 Coq.Vectors.Vector <> cons constr
+R15092:15108 ASMinCoq.progLog <> replace_in_inputs:149 def
+def 15185:15200 <> regs_of_argument
+R15212:15214 Coq.Init.Datatypes <> ::type_scope:x_'+'_x not
+R15208:15211 ASMinCoq.AsmGen <> Word def
+R15215:15222 ASMinCoq.AsmGen <> Register def
+binder 15203:15205 <> arg:154
+R15227:15230 stdpp.gmap <> gset def
+R15232:15239 ASMinCoq.AsmGen <> Register def
+R15252:15254 ASMinCoq.progLog <> arg:154 var
+R15265:15267 Coq.Init.Datatypes <> inl constr
+R15274:15276 stdpp.base <> ::stdpp_scope:'∅' not
+R15282:15284 Coq.Init.Datatypes <> inr constr
+R15291:15293 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R15295:15297 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+def 15318:15324 <> regs_of
+R15330:15334 ASMinCoq.AsmGen <> instr ind
+binder 15327:15327 <> i:156
+R15338:15341 stdpp.gmap <> gset def
+R15343:15350 ASMinCoq.AsmGen <> Register def
+R15361:15361 ASMinCoq.progLog <> i:156 var
+R15374:15384 ASMinCoq.AsmGen <> Computation constr
+R15420:15424 stdpp.base <> ::stdpp_scope:x_'∪'_x not
+R15410:15412 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R15417:15419 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R15425:15440 ASMinCoq.progLog <> regs_from_inputs def
+R15455:15465 ASMinCoq.AsmGen <> ControlFlow constr
+R15513:15517 stdpp.base <> ::stdpp_scope:x_'∪'_x not
+R15493:15508 ASMinCoq.progLog <> regs_of_argument def
+R15518:15533 ASMinCoq.progLog <> regs_from_inputs def
+R15548:15551 ASMinCoq.AsmGen <> Load constr
+R15566:15568 stdpp.base <> ::stdpp_scope:'{['_x_';'_x_';'_'..'_';'_x_']}' not
+R15573:15574 stdpp.base <> ::stdpp_scope:'{['_x_';'_x_';'_'..'_';'_x_']}' not
+R15579:15581 stdpp.base <> ::stdpp_scope:'{['_x_';'_x_';'_'..'_';'_x_']}' not
+R15589:15593 ASMinCoq.AsmGen <> Store constr
+R15617:15621 stdpp.base <> ::stdpp_scope:x_'∪'_x not
+R15607:15609 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R15614:15616 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R15622:15637 ASMinCoq.progLog <> regs_of_argument def
+R15654:15656 stdpp.base <> ::stdpp_scope:'∅' not
+prf 15670:15684 <> indom_regs_incl
+binder 15686:15686 <> D:158
+R15701:15703 ASMinCoq.AsmGen <> Reg def
+binder 15689:15692 <> regs:159
+binder 15694:15698 <> regs':160
+R15724:15730 Coq.Unicode.Utf8_core <> ::type_scope:x_'→'_x not
+R15711:15715 stdpp.base <> ::stdpp_scope:x_'⊆'_x not
+R15710:15710 ASMinCoq.progLog <> D:158 var
+R15716:15718 stdpp.base <> dom def
+R15720:15723 ASMinCoq.progLog <> regs:159 var
+R15745:15751 Coq.Unicode.Utf8_core <> ::type_scope:x_'→'_x not
+R15735:15739 stdpp.base <> ::stdpp_scope:x_'⊆'_x not
+R15731:15734 ASMinCoq.progLog <> regs:159 var
+R15740:15744 ASMinCoq.progLog <> regs':160 var
+R15752:15755 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+R15757:15758 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+binder 15756:15756 <> r:161
+R15766:15777 Coq.Unicode.Utf8_core <> ::type_scope:x_'→'_x not
+R15760:15764 stdpp.base <> ::stdpp_scope:x_'∈'_x not
+R15759:15759 ASMinCoq.progLog <> r:161 var
+R15765:15765 ASMinCoq.progLog <> D:158 var
+R15778:15782 Coq.Unicode.Utf8_core <> ::type_scope:'∃'_x_'..'_x_','_x not
+R15789:15791 Coq.Unicode.Utf8_core <> ::type_scope:'∃'_x_'..'_x_','_x not
+R15785:15788 ASMinCoq.AsmGen <> Word def
+binder 15783:15783 <> w:162
+R15792:15792 Coq.Unicode.Utf8_core <> ::type_scope:x_'∧'_x not
+R15811:15817 Coq.Unicode.Utf8_core <> ::type_scope:x_'∧'_x not
+R15837:15837 Coq.Unicode.Utf8_core <> ::type_scope:x_'∧'_x not
+R15802:15804 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R15797:15800 stdpp.base <> ::stdpp_scope:x_'!!'_x not
+R15801:15801 ASMinCoq.progLog <> r:161 var
+R15793:15796 ASMinCoq.progLog <> regs:159 var
+R15805:15808 Coq.Init.Datatypes <> Some constr
+R15810:15810 ASMinCoq.progLog <> w:162 var
+R15828:15830 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R15823:15826 stdpp.base <> ::stdpp_scope:x_'!!'_x not
+R15827:15827 ASMinCoq.progLog <> r:161 var
+R15818:15822 ASMinCoq.progLog <> regs':160 var
+R15831:15834 Coq.Init.Datatypes <> Some constr
+R15836:15836 ASMinCoq.progLog <> w:162 var
+R15884:15890 stdpp.option <> is_Some def
+R15897:15900 stdpp.base <> ::stdpp_scope:x_'!!'_x not
+R15884:15890 stdpp.option <> is_Some def
+R15897:15900 stdpp.base <> ::stdpp_scope:x_'!!'_x not
+R15952:15955 stdpp.gmap <> gset def
+R15957:15964 ASMinCoq.AsmGen <> Register def
+R15929:15939 stdpp.fin_map_dom <> elem_of_dom meth
+R15952:15955 stdpp.gmap <> gset def
+R15957:15964 ASMinCoq.AsmGen <> Register def
+R15929:15939 stdpp.fin_map_dom <> elem_of_dom meth
+R15998:16013 stdpp.sets <> elem_of_subseteq thm
+R15998:16013 stdpp.sets <> elem_of_subseteq thm
+R16057:16069 stdpp.fin_maps <> lookup_weaken thm
+R16057:16069 stdpp.fin_maps <> lookup_weaken thm
+prf 16091:16113 <> indom_regs_incl_default
+binder 16115:16115 <> D:163
+R16130:16132 ASMinCoq.AsmGen <> Reg def
+binder 16118:16121 <> regs:164
+binder 16123:16127 <> regs':165
+R16153:16159 Coq.Unicode.Utf8_core <> ::type_scope:x_'→'_x not
+R16140:16144 stdpp.base <> ::stdpp_scope:x_'⊆'_x not
+R16139:16139 ASMinCoq.progLog <> D:163 var
+R16145:16147 stdpp.base <> dom def
+R16149:16152 ASMinCoq.progLog <> regs:164 var
+R16174:16180 Coq.Unicode.Utf8_core <> ::type_scope:x_'→'_x not
+R16164:16168 stdpp.base <> ::stdpp_scope:x_'⊆'_x not
+R16160:16163 ASMinCoq.progLog <> regs:164 var
+R16169:16173 ASMinCoq.progLog <> regs':165 var
+R16181:16184 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+R16186:16187 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+binder 16185:16185 <> r:166
+R16195:16206 Coq.Unicode.Utf8_core <> ::type_scope:x_'→'_x not
+R16189:16193 stdpp.base <> ::stdpp_scope:x_'∈'_x not
+R16188:16188 ASMinCoq.progLog <> r:166 var
+R16194:16194 ASMinCoq.progLog <> D:163 var
+R16207:16211 Coq.Unicode.Utf8_core <> ::type_scope:'∃'_x_'..'_x_','_x not
+R16218:16220 Coq.Unicode.Utf8_core <> ::type_scope:'∃'_x_'..'_x_','_x not
+R16214:16217 ASMinCoq.AsmGen <> Word def
+binder 16212:16212 <> w:167
+R16221:16221 Coq.Unicode.Utf8_core <> ::type_scope:x_'∧'_x not
+R16236:16242 Coq.Unicode.Utf8_core <> ::type_scope:x_'∧'_x not
+R16258:16258 Coq.Unicode.Utf8_core <> ::type_scope:x_'∧'_x not
+R16232:16234 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R16226:16230 stdpp.base <> ::stdpp_scope:x_'!!!'_x not
+R16231:16231 ASMinCoq.progLog <> r:166 var
+R16222:16225 ASMinCoq.progLog <> regs:164 var
+R16235:16235 ASMinCoq.progLog <> w:167 var
+R16254:16256 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R16248:16252 stdpp.base <> ::stdpp_scope:x_'!!!'_x not
+R16253:16253 ASMinCoq.progLog <> r:166 var
+R16243:16247 ASMinCoq.progLog <> regs':165 var
+R16257:16257 ASMinCoq.progLog <> w:167 var
+R16309:16323 ASMinCoq.progLog <> indom_regs_incl thm
+R16309:16323 ASMinCoq.progLog <> indom_regs_incl thm
+R16373:16377 stdpp.base <> lookup_total def
+R16387:16402 stdpp.fin_maps <> map_lookup_total inst
+R16412:16418 stdpp.option <> from_option def
+R16474:16486 stdpp.fin_maps <> lookup_weaken thm
+R16474:16486 stdpp.fin_maps <> lookup_weaken thm
+R16474:16486 stdpp.fin_maps <> lookup_weaken thm
+prf 16532:16553 <> gen_heap_update_inSepM
+R16561:16565 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+R16727:16735 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+binder 16566:16566 <> L:168
+binder 16568:16568 <> V:169
+R16593:16602 stdpp.base <> EqDecision abbrev
+R16604:16604 ASMinCoq.progLog <> L:168 var
+binder 16579:16589 <> EqDecision0:170
+R16618:16626 stdpp.countable <> Countable class
+R16628:16628 ASMinCoq.progLog <> L:168 var
+binder 16614:16614 <> H:171
+R16637:16645 iris.base_logic.lib.iprop <> gFunctors rec
+binder 16632:16633 <> Σ:172
+R16668:16677 iris.base_logic.lib.gen_heap <> gen_heapGS class
+R16683:16684 ASMinCoq.progLog <> Σ:172 var
+R16681:16681 ASMinCoq.progLog <> V:169 var
+R16679:16679 ASMinCoq.progLog <> L:168 var
+binder 16655:16664 <> gen_heapG0:173
+R16703:16706 stdpp.gmap <> gmap rec
+R16710:16710 ASMinCoq.progLog <> V:169 var
+R16708:16708 ASMinCoq.progLog <> L:168 var
+binder 16694:16695 <> σ:174
+R16703:16706 stdpp.gmap <> gmap rec
+R16710:16710 ASMinCoq.progLog <> V:169 var
+R16708:16708 ASMinCoq.progLog <> L:168 var
+binder 16697:16699 <> σ':175
+R16718:16718 ASMinCoq.progLog <> L:168 var
+binder 16714:16714 <> l:176
+R16726:16726 ASMinCoq.progLog <> V:169 var
+binder 16722:16722 <> v:177
+R16754:16764 Coq.Unicode.Utf8_core <> ::type_scope:x_'→'_x not
+R16736:16742 stdpp.option <> is_Some def
+R16748:16751 stdpp.base <> ::stdpp_scope:x_'!!'_x not
+R16752:16752 ASMinCoq.progLog <> l:176 var
+R16745:16747 ASMinCoq.progLog <> σ':175 var
+R16783:16794 iris.bi.interface <> ::stdpp_scope:x_'-∗'_x not
+R16765:16779 iris.base_logic.lib.gen_heap <> gen_heap_interp def
+R16781:16782 ASMinCoq.progLog <> σ:174 var
+R16795:16795 iris.bi.updates <> ::bi_scope:x_'==∗'_x not
+R16844:16857 iris.bi.updates <> ::bi_scope:x_'==∗'_x not
+R16796:16805 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+R16807:16809 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+R16811:16815 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+R16819:16820 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+binder 16806:16806 <> k:178
+binder 16806:16806 <> k:179
+binder 16810:16810 <> y:180
+binder 16810:16810 <> y:181
+R16821:16826 iris.base_logic.lib.gen_heap <> mapsto def
+R16828:16828 ASMinCoq.progLog <> k:178 var
+R16831:16838 iris.algebra.dfrac <> DfracOwn constr
+R16843:16843 ASMinCoq.progLog <> y:180 var
+R16816:16818 ASMinCoq.progLog <> σ':175 var
+R16887:16901 iris.bi.interface <> ::bi_scope:x_'∗'_x not
+R16858:16872 iris.base_logic.lib.gen_heap <> gen_heap_interp def
+R16875:16876 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R16878:16879 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R16881:16885 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R16877:16877 ASMinCoq.progLog <> l:176 var
+R16880:16880 ASMinCoq.progLog <> v:177 var
+R16884:16885 ASMinCoq.progLog <> σ:174 var
+R16902:16911 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+R16913:16915 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+R16917:16922 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+R16935:16937 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+binder 16912:16912 <> k:182
+binder 16912:16912 <> k:183
+binder 16916:16916 <> y:184
+binder 16916:16916 <> y:185
+R16938:16943 iris.base_logic.lib.gen_heap <> mapsto def
+R16945:16945 ASMinCoq.progLog <> k:182 var
+R16948:16955 iris.algebra.dfrac <> DfracOwn constr
+R16960:16960 ASMinCoq.progLog <> y:184 var
+R16923:16924 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R16926:16927 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R16929:16934 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R16925:16925 ASMinCoq.progLog <> l:176 var
+R16928:16928 ASMinCoq.progLog <> v:177 var
+R16932:16934 ASMinCoq.progLog <> σ':175 var
+R17019:17033 iris.bi.big_op <> big_sepM_delete thm
+R17019:17033 iris.bi.big_op <> big_sepM_delete thm
+R17019:17033 iris.bi.big_op <> big_sepM_delete thm
+R17081:17081 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R17097:17102 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R17110:17110 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R17082:17096 iris.base_logic.lib.gen_heap <> gen_heap_update thm
+R17081:17081 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R17097:17102 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R17110:17110 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R17082:17096 iris.base_logic.lib.gen_heap <> gen_heap_update thm
+R17175:17189 iris.bi.big_op <> big_sepM_delete thm
+R17194:17195 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R17197:17198 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R17200:17205 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R17175:17189 iris.bi.big_op <> big_sepM_delete thm
+R17194:17195 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R17197:17198 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R17200:17205 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R17175:17189 iris.bi.big_op <> big_sepM_delete thm
+R17194:17195 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R17197:17198 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R17200:17205 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R17226:17245 stdpp.fin_maps <> delete_insert_delete thm
+R17226:17245 stdpp.fin_maps <> delete_insert_delete thm
+R17226:17245 stdpp.fin_maps <> delete_insert_delete thm
+R17270:17282 stdpp.fin_maps <> lookup_insert thm
+R17270:17282 stdpp.fin_maps <> lookup_insert thm
+R17270:17282 stdpp.fin_maps <> lookup_insert thm
+prf 17304:17325 <> gen_heap_valid_inSepM'
+R17332:17336 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+R17485:17493 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+binder 17337:17337 <> L:186
+binder 17339:17339 <> V:187
+R17364:17373 stdpp.base <> EqDecision abbrev
+R17375:17375 ASMinCoq.progLog <> L:186 var
+binder 17350:17360 <> EqDecision0:188
+R17383:17391 stdpp.countable <> Countable class
+R17393:17393 ASMinCoq.progLog <> L:186 var
+binder 17379:17379 <> H:189
+R17408:17416 iris.base_logic.lib.iprop <> gFunctors rec
+binder 17403:17404 <> Σ:190
+R17433:17442 iris.base_logic.lib.gen_heap <> gen_heapGS class
+R17448:17449 ASMinCoq.progLog <> Σ:190 var
+R17446:17446 ASMinCoq.progLog <> V:187 var
+R17444:17444 ASMinCoq.progLog <> L:186 var
+binder 17420:17429 <> gen_heapG0:191
+R17468:17471 stdpp.gmap <> gmap rec
+R17475:17475 ASMinCoq.progLog <> V:187 var
+R17473:17473 ASMinCoq.progLog <> L:186 var
+binder 17459:17460 <> σ:192
+R17468:17471 stdpp.gmap <> gmap rec
+R17475:17475 ASMinCoq.progLog <> V:187 var
+R17473:17473 ASMinCoq.progLog <> L:186 var
+binder 17462:17464 <> σ':193
+R17483:17484 stdpp.numbers <> Qp rec
+binder 17479:17479 <> q:194
+R17512:17523 iris.bi.interface <> ::stdpp_scope:x_'-∗'_x not
+R17494:17508 iris.base_logic.lib.gen_heap <> gen_heap_interp def
+R17510:17511 ASMinCoq.progLog <> σ:192 var
+R17524:17524 iris.bi.interface <> ::bi_scope:x_'-∗'_x not
+R17573:17585 iris.bi.interface <> ::bi_scope:x_'-∗'_x not
+R17525:17534 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+R17536:17538 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+R17540:17544 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+R17548:17549 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+binder 17535:17535 <> k:195
+binder 17535:17535 <> k:196
+binder 17539:17539 <> y:197
+binder 17539:17539 <> y:198
+R17550:17555 iris.base_logic.lib.gen_heap <> mapsto def
+R17557:17557 ASMinCoq.progLog <> k:195 var
+R17560:17567 iris.algebra.dfrac <> DfracOwn constr
+R17569:17569 ASMinCoq.progLog <> q:194 var
+R17572:17572 ASMinCoq.progLog <> y:197 var
+R17545:17547 ASMinCoq.progLog <> σ':193 var
+R17586:17588 iris.bi.interface <> ::bi_scope:'⌜'_x_'⌝' not
+R17649:17651 iris.bi.interface <> ::bi_scope:'⌜'_x_'⌝' not
+R17589:17596 stdpp.base <> ::type_scope:'forall'_x_'..'_x_','_x not
+R17608:17610 stdpp.base <> ::type_scope:'forall'_x_'..'_x_','_x not
+R17600:17600 ASMinCoq.progLog <> L:186 var
+binder 17597:17597 <> l:199
+R17607:17607 ASMinCoq.progLog <> V:187 var
+binder 17604:17604 <> v:200
+R17628:17632 Coq.Unicode.Utf8_core <> ::type_scope:x_'→'_x not
+R17619:17621 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R17614:17617 stdpp.base <> ::stdpp_scope:x_'!!'_x not
+R17618:17618 ASMinCoq.progLog <> l:199 var
+R17611:17613 ASMinCoq.progLog <> σ':193 var
+R17622:17625 Coq.Init.Datatypes <> Some constr
+R17627:17627 ASMinCoq.progLog <> v:200 var
+R17640:17642 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R17635:17638 stdpp.base <> ::stdpp_scope:x_'!!'_x not
+R17639:17639 ASMinCoq.progLog <> l:199 var
+R17633:17634 ASMinCoq.progLog <> σ:192 var
+R17643:17646 Coq.Init.Datatypes <> Some constr
+R17648:17648 ASMinCoq.progLog <> v:200 var
+R17719:17733 iris.bi.big_op <> big_sepM_delete thm
+R17719:17733 iris.bi.big_op <> big_sepM_delete thm
+R17719:17733 iris.bi.big_op <> big_sepM_delete thm
+R17788:17788 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R17803:17808 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R17814:17814 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R17789:17802 iris.base_logic.lib.gen_heap <> gen_heap_valid thm
+R17788:17788 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R17803:17808 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R17814:17814 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R17789:17802 iris.base_logic.lib.gen_heap <> gen_heap_valid thm
+prf 17840:17862 <> gen_heap_valid_inclSepM
+R17869:17873 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+R18022:18030 Coq.Unicode.Utf8_core <> ::type_scope:'∀'_x_'..'_x_','_x not
+binder 17874:17874 <> L:201
+binder 17876:17876 <> V:202
+R17901:17910 stdpp.base <> EqDecision abbrev
+R17912:17912 ASMinCoq.progLog <> L:201 var
+binder 17887:17897 <> EqDecision0:203
+R17920:17928 stdpp.countable <> Countable class
+R17930:17930 ASMinCoq.progLog <> L:201 var
+binder 17916:17916 <> H:204
+R17945:17953 iris.base_logic.lib.iprop <> gFunctors rec
+binder 17940:17941 <> Σ:205
+R17970:17979 iris.base_logic.lib.gen_heap <> gen_heapGS class
+R17985:17986 ASMinCoq.progLog <> Σ:205 var
+R17983:17983 ASMinCoq.progLog <> V:202 var
+R17981:17981 ASMinCoq.progLog <> L:201 var
+binder 17957:17966 <> gen_heapG0:206
+R18005:18008 stdpp.gmap <> gmap rec
+R18012:18012 ASMinCoq.progLog <> V:202 var
+R18010:18010 ASMinCoq.progLog <> L:201 var
+binder 17996:17997 <> σ:207
+R18005:18008 stdpp.gmap <> gmap rec
+R18012:18012 ASMinCoq.progLog <> V:202 var
+R18010:18010 ASMinCoq.progLog <> L:201 var
+binder 17999:18001 <> σ':208
+R18020:18021 stdpp.numbers <> Qp rec
+binder 18016:18016 <> q:209
+R18049:18060 iris.bi.interface <> ::stdpp_scope:x_'-∗'_x not
+R18031:18045 iris.base_logic.lib.gen_heap <> gen_heap_interp def
+R18047:18048 ASMinCoq.progLog <> σ:207 var
+R18061:18061 iris.bi.interface <> ::bi_scope:x_'-∗'_x not
+R18110:18122 iris.bi.interface <> ::bi_scope:x_'-∗'_x not
+R18062:18071 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+R18073:18075 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+R18077:18081 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+R18085:18086 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+binder 18072:18072 <> k:210
+binder 18072:18072 <> k:211
+binder 18076:18076 <> y:212
+binder 18076:18076 <> y:213
+R18087:18092 iris.base_logic.lib.gen_heap <> mapsto def
+R18094:18094 ASMinCoq.progLog <> k:210 var
+R18097:18104 iris.algebra.dfrac <> DfracOwn constr
+R18106:18106 ASMinCoq.progLog <> q:209 var
+R18109:18109 ASMinCoq.progLog <> y:212 var
+R18082:18084 ASMinCoq.progLog <> σ':208 var
+R18123:18125 iris.bi.interface <> ::bi_scope:'⌜'_x_'⌝' not
+R18136:18138 iris.bi.interface <> ::bi_scope:'⌜'_x_'⌝' not
+R18129:18133 stdpp.base <> ::stdpp_scope:x_'⊆'_x not
+R18126:18128 ASMinCoq.progLog <> σ':208 var
+R18134:18135 ASMinCoq.progLog <> σ:207 var
+R18198:18198 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R18221:18226 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R18237:18237 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R18199:18220 ASMinCoq.progLog <> gen_heap_valid_inSepM' thm
+R18198:18198 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R18221:18226 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R18237:18237 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R18199:18220 ASMinCoq.progLog <> gen_heap_valid_inSepM' thm
+R18309:18323 stdpp.option <> option_relation def
+R18343:18346 stdpp.base <> ::stdpp_scope:x_'!!'_x not
+R18371:18374 stdpp.base <> ::stdpp_scope:x_'!!'_x not
+R18343:18346 stdpp.base <> ::stdpp_scope:x_'!!'_x not
+R18371:18374 stdpp.base <> ::stdpp_scope:x_'!!'_x not
+R18371:18374 stdpp.base <> ::stdpp_scope:x_'!!'_x not
+prf 18414:18430 <> inputs_are_enough
+binder 18433:18433 <> B:214
+R18448:18450 Coq.Init.Datatypes <> nat ind
+binder 18444:18444 <> n:215
+binder 18453:18456 <> regs:216
+binder 18458:18462 <> regs':217
+R18486:18489 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R18476:18478 stdpp.vector <> vec abbrev
+R18480:18483 ASMinCoq.AsmGen <> Word def
+R18485:18485 ASMinCoq.progLog <> n:215 var
+R18490:18490 ASMinCoq.progLog <> B:214 var
+binder 18465:18472 <> f_result:218
+R18503:18505 stdpp.vector <> vec abbrev
+R18512:18514 Coq.Init.Datatypes <> ::type_scope:x_'+'_x not
+R18508:18511 ASMinCoq.AsmGen <> Word def
+R18515:18522 ASMinCoq.AsmGen <> Register def
+R18525:18525 ASMinCoq.progLog <> n:215 var
+binder 18494:18499 <> inputs:219
+R18571:18575 stdpp.base <> ::stdpp_scope:x_'⊆'_x not
+R18548:18563 ASMinCoq.progLog <> regs_from_inputs def
+R18565:18570 ASMinCoq.progLog <> inputs:219 var
+R18576:18578 stdpp.base <> dom def
+R18580:18583 ASMinCoq.progLog <> regs:216 var
+binder 18531:18544 <> inputs_in_regs:220
+R18609:18613 stdpp.base <> ::stdpp_scope:x_'⊆'_x not
+R18605:18608 ASMinCoq.progLog <> regs:216 var
+R18614:18618 ASMinCoq.progLog <> regs':217 var
+binder 18589:18601 <> regs_in_regs':221
+R18672:18674 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R18625:18632 ASMinCoq.progLog <> f_result:218 var
+R18635:18658 ASMinCoq.AsmGen <> inputs_from_inputnatregs def
+R18665:18670 ASMinCoq.progLog <> inputs:219 var
+R18660:18663 ASMinCoq.progLog <> regs:216 var
+R18675:18682 ASMinCoq.progLog <> f_result:218 var
+R18685:18708 ASMinCoq.AsmGen <> inputs_from_inputnatregs def
+R18716:18721 ASMinCoq.progLog <> inputs:219 var
+R18710:18714 ASMinCoq.progLog <> regs':217 var
+R18805:18820 ASMinCoq.progLog <> regs_from_inputs def
+binder 18893:18899 <> inputs':222
+R18915:18919 stdpp.vector <> ::vector_scope:x_':::'_x not
+R18920:18926 ASMinCoq.progLog <> inputs':222 var
+binder 18893:18899 <> inputs':223
+R18915:18919 stdpp.vector <> ::vector_scope:x_':::'_x not
+R18920:18926 ASMinCoq.progLog <> inputs':223 var
+R19003:19025 ASMinCoq.progLog <> indom_regs_incl_default thm
+R19003:19025 ASMinCoq.progLog <> indom_regs_incl_default thm
+R19211:19224 stdpp.sets <> union_subseteq thm
+R19211:19224 stdpp.sets <> union_subseteq thm
+binder 19273:19279 <> inputs':224
+R19295:19299 stdpp.vector <> ::vector_scope:x_':::'_x not
+R19300:19306 ASMinCoq.progLog <> inputs':224 var
+binder 19273:19279 <> inputs':225
+R19295:19299 stdpp.vector <> ::vector_scope:x_':::'_x not
+R19300:19306 ASMinCoq.progLog <> inputs':225 var
+prf 19378:19396 <> regs_of_computation
+R19403:19405 Coq.Init.Datatypes <> nat ind
+binder 19399:19399 <> n:226
+R19418:19420 stdpp.vector <> vec abbrev
+R19427:19429 Coq.Init.Datatypes <> ::type_scope:x_'+'_x not
+R19423:19426 ASMinCoq.AsmGen <> Word def
+R19430:19437 ASMinCoq.AsmGen <> Register def
+R19440:19440 ASMinCoq.progLog <> n:226 var
+binder 19409:19414 <> inputs:227
+R19455:19462 ASMinCoq.AsmGen <> Register def
+binder 19448:19451 <> rres:228
+R19487:19490 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R19477:19479 stdpp.vector <> vec abbrev
+R19481:19484 ASMinCoq.AsmGen <> Word def
+R19486:19486 ASMinCoq.progLog <> n:226 var
+R19491:19494 ASMinCoq.AsmGen <> Word def
+binder 19466:19473 <> f_result:229
+binder 19497:19497 <> i:230
+R19541:19548 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R19506:19508 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R19505:19505 ASMinCoq.progLog <> i:230 var
+R19509:19519 ASMinCoq.AsmGen <> Computation constr
+R19533:19540 ASMinCoq.progLog <> f_result:229 var
+R19528:19531 ASMinCoq.progLog <> rres:228 var
+R19521:19526 ASMinCoq.progLog <> inputs:227 var
+R19558:19560 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R19549:19555 ASMinCoq.progLog <> regs_of def
+R19557:19557 ASMinCoq.progLog <> i:230 var
+R19571:19575 stdpp.base <> ::stdpp_scope:x_'∪'_x not
+R19561:19563 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R19568:19570 stdpp.base <> ::stdpp_scope:'{['_x_']}' not
+R19564:19567 ASMinCoq.progLog <> rres:228 var
+R19576:19591 ASMinCoq.progLog <> regs_from_inputs def
+R19593:19598 ASMinCoq.progLog <> inputs:227 var
+ind 19656:19671 <> Computation_spec
+constr 19786:19809 <> Computation_spec_success
+R19678:19680 Coq.Init.Datatypes <> nat ind
+binder 19674:19674 <> n:231
+R19693:19695 stdpp.vector <> vec abbrev
+R19702:19704 Coq.Init.Datatypes <> ::type_scope:x_'+'_x not
+R19698:19701 ASMinCoq.AsmGen <> Word def
+R19705:19712 ASMinCoq.AsmGen <> Register def
+R19715:19715 ASMinCoq.progLog <> n:231 var
+binder 19684:19689 <> inputs:232
+R19726:19733 ASMinCoq.AsmGen <> Register def
+binder 19719:19722 <> rres:233
+binder 19736:19743 <> f_result:234
+R19753:19755 ASMinCoq.AsmGen <> Reg def
+binder 19746:19749 <> regs:235
+R19767:19769 ASMinCoq.AsmGen <> Reg def
+binder 19759:19763 <> regs':236
+binder 19811:19812 <> vn:239
+R19864:19873 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R19859:19861 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R19823:19846 ASMinCoq.AsmGen <> inputs_from_inputnatregs def
+R19853:19858 ASMinCoq.progLog <> inputs:232 var
+R19848:19851 ASMinCoq.progLog <> regs:235 var
+R19862:19863 ASMinCoq.progLog <> vn:239 var
+R19914:19923 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R19874:19874 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R19905:19908 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R19875:19877 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R19882:19885 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R19897:19904 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R19878:19881 ASMinCoq.progLog <> rres:233 var
+R19886:19893 ASMinCoq.progLog <> f_result:234 var
+R19895:19896 ASMinCoq.progLog <> vn:239 var
+R19901:19904 ASMinCoq.progLog <> regs:235 var
+R19909:19913 ASMinCoq.progLog <> regs':236 var
+R19924:19939 ASMinCoq.progLog <> Computation_spec:237 ind
+R19967:19971 ASMinCoq.progLog <> regs':236 var
+R19962:19965 ASMinCoq.progLog <> regs:235 var
+R19953:19960 ASMinCoq.progLog <> f_result:234 var
+R19948:19951 ASMinCoq.progLog <> rres:233 var
+R19941:19946 ASMinCoq.progLog <> inputs:232 var
+scheme 19656:19671 <> Computation_spec_ind
+scheme 19656:19671 <> Computation_spec_sind
+prf 19981:19994 <> wp_computation
+R20001:20003 Coq.Init.Datatypes <> nat ind
+binder 19997:19997 <> n:240
+binder 20006:20009 <> regs:241
+binder 20011:20015 <> regs':242
+binder 20017:20018 <> pc:243
+binder 20020:20023 <> prog:244
+binder 20025:20026 <> ll:245
+R20042:20044 stdpp.vector <> vec abbrev
+R20051:20053 Coq.Init.Datatypes <> ::type_scope:x_'+'_x not
+R20047:20050 ASMinCoq.AsmGen <> Word def
+R20054:20061 ASMinCoq.AsmGen <> Register def
+R20064:20064 ASMinCoq.progLog <> n:240 var
+binder 20033:20038 <> inputs:246
+binder 20067:20070 <> rres:247
+binder 20072:20079 <> f_result:248
+binder 20081:20082 <> Φ:249
+binder 20084:20084 <> E:250
+R20132:20137 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R20097:20099 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R20090:20093 ASMinCoq.progLog <> prog:244 var
+R20095:20096 ASMinCoq.progLog <> pc:243 var
+R20100:20110 ASMinCoq.AsmGen <> Computation constr
+R20124:20131 ASMinCoq.progLog <> f_result:248 var
+R20119:20122 ASMinCoq.progLog <> rres:247 var
+R20112:20117 ASMinCoq.progLog <> inputs:246 var
+R20193:20199 Coq.Unicode.Utf8_core <> ::type_scope:x_'→'_x not
+R20180:20184 stdpp.base <> ::stdpp_scope:x_'⊆'_x not
+R20138:20144 ASMinCoq.progLog <> regs_of def
+R20147:20157 ASMinCoq.AsmGen <> Computation constr
+R20171:20178 ASMinCoq.progLog <> f_result:248 var
+R20166:20169 ASMinCoq.progLog <> rres:247 var
+R20159:20164 ASMinCoq.progLog <> inputs:246 var
+R20185:20187 stdpp.base <> dom def
+R20189:20192 ASMinCoq.progLog <> regs:241 var
+R20257:20262 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R20200:20215 ASMinCoq.progLog <> Computation_spec ind
+R20252:20256 ASMinCoq.progLog <> regs':242 var
+R20247:20250 ASMinCoq.progLog <> regs:241 var
+R20238:20245 ASMinCoq.progLog <> f_result:248 var
+R20233:20236 ASMinCoq.progLog <> rres:247 var
+R20226:20231 ASMinCoq.progLog <> inputs:246 var
+R20223:20223 ASMinCoq.progLog <> n:240 var
+R20280:20285 iris.bi.interface <> ::stdpp_scope:x_'-∗'_x not
+R20263:20274 ASMinCoq.progLog <> program_frag def
+R20276:20279 ASMinCoq.progLog <> prog:244 var
+R20296:20303 iris.bi.interface <> ::bi_scope:x_'-∗'_x not
+R20286:20292 ASMinCoq.progLog <> pc_frag def
+R20294:20295 ASMinCoq.progLog <> pc:243 var
+R20314:20319 iris.bi.interface <> ::bi_scope:x_'-∗'_x not
+R20304:20310 ASMinCoq.progLog <> tr_frag def
+R20312:20313 ASMinCoq.progLog <> ll:245 var
+R20320:20320 iris.bi.interface <> ::bi_scope:x_'-∗'_x not
+R20357:20367 iris.bi.interface <> ::bi_scope:x_'-∗'_x not
+R20321:20330 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+R20332:20334 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+R20336:20340 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+R20345:20346 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+binder 20331:20331 <> k:251
+binder 20331:20331 <> k:252
+binder 20335:20335 <> y:253
+binder 20335:20335 <> y:254
+R20348:20355 ASMinCoq.progLog asm_lang_rules ::bi_scope:x_'↦ᵣ'_x not
+R20347:20347 ASMinCoq.progLog <> k:251 var
+R20356:20356 ASMinCoq.progLog <> y:253 var
+R20341:20344 ASMinCoq.progLog <> regs:241 var
+R20502:20511 iris.bi.interface <> ::bi_scope:x_'-∗'_x not
+R20368:20372 iris.bi.interface <> ::bi_scope:'▷'_x not
+R20501:20501 iris.bi.interface <> ::bi_scope:'▷'_x not
+R20373:20373 iris.bi.interface <> ::bi_scope:x_'-∗'_x not
+R20485:20491 iris.bi.interface <> ::bi_scope:x_'-∗'_x not
+R20391:20395 iris.bi.interface <> ::bi_scope:x_'∗'_x not
+R20374:20385 ASMinCoq.progLog <> program_frag def
+R20387:20390 ASMinCoq.progLog <> prog:244 var
+R20412:20416 iris.bi.interface <> ::bi_scope:x_'∗'_x not
+R20396:20402 ASMinCoq.progLog <> pc_frag def
+R20407:20409 Coq.Init.Peano <> ::nat_scope:x_'+'_x not
+R20405:20406 ASMinCoq.progLog <> pc:243 var
+R20439:20447 iris.bi.interface <> ::bi_scope:x_'∗'_x not
+R20417:20423 ASMinCoq.progLog <> tr_frag def
+R20432:20435 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R20426:20431 ASMinCoq.AsmGen <> NoLeak constr
+R20436:20437 ASMinCoq.progLog <> ll:245 var
+R20448:20457 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+R20459:20461 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+R20463:20467 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+R20473:20474 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+binder 20458:20458 <> k:255
+binder 20458:20458 <> k:256
+binder 20462:20462 <> y:257
+binder 20462:20462 <> y:258
+R20476:20483 ASMinCoq.progLog asm_lang_rules ::bi_scope:x_'↦ᵣ'_x not
+R20475:20475 ASMinCoq.progLog <> k:255 var
+R20484:20484 ASMinCoq.progLog <> y:257 var
+R20468:20472 ASMinCoq.progLog <> regs':242 var
+R20492:20493 ASMinCoq.progLog <> Φ:249 var
+R20495:20500 ASMinCoq.AsmGen <> NextIV constr
+R20512:20515 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_'{{'_x_','_x_'}'_'}' not
+R20532:20535 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_'{{'_x_','_x_'}'_'}' not
+R20537:20540 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_'{{'_x_','_x_'}'_'}' not
+R20542:20543 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_'{{'_x_','_x_'}'_'}' not
+R20548:20550 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_'{{'_x_','_x_'}'_'}' not
+R20536:20536 ASMinCoq.progLog <> E:250 var
+R20516:20520 ASMinCoq.AsmGen <> Instr constr
+R20522:20531 ASMinCoq.AsmGen <> Executable constr
+binder 20541:20541 <> v:259
+R20544:20545 ASMinCoq.progLog <> Φ:249 var
+R20547:20547 ASMinCoq.progLog <> v:259 var
+R20688:20719 ASMinCoq.progLog <> wp_lift_atomic_step_no_fork_fupd thm
+R20688:20719 ASMinCoq.progLog <> wp_lift_atomic_step_no_fork_fupd thm
+R20864:20864 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R20884:20889 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R20906:20906 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R20866:20883 ASMinCoq.progLog <> trace_full_frag_eq thm
+R20864:20864 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R20884:20889 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R20906:20906 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R20866:20883 ASMinCoq.progLog <> trace_full_frag_eq thm
+R20942:20942 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R20959:20964 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R20978:20978 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R20944:20958 ASMinCoq.progLog <> pc_full_frag_eq thm
+R20942:20942 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R20959:20964 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R20978:20978 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R20944:20958 ASMinCoq.progLog <> pc_full_frag_eq thm
+R21014:21014 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R21036:21041 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R21059:21059 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R21016:21035 ASMinCoq.progLog <> program_full_frag_eq thm
+R21014:21014 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R21036:21041 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R21059:21059 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R21016:21035 ASMinCoq.progLog <> program_full_frag_eq thm
+R21096:21096 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R21126:21131 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R21152:21152 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R21097:21108 ASMinCoq.progLog <> trace_update thm
+R21119:21122 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R21113:21118 ASMinCoq.AsmGen <> NoLeak constr
+R21096:21096 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R21126:21131 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R21152:21152 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R21097:21108 ASMinCoq.progLog <> trace_update thm
+R21119:21122 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R21113:21118 ASMinCoq.AsmGen <> NoLeak constr
+R21178:21178 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R21205:21210 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R21228:21228 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R21179:21187 ASMinCoq.progLog <> pc_update thm
+R21200:21202 Coq.Init.Peano <> ::nat_scope:x_'+'_x not
+R21192:21193 ASMinCoq.AsmGen <> PC def
+R21197:21198 stdpp.base <> :::x_'.2' not
+R21178:21178 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R21205:21210 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R21228:21228 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R21179:21187 ASMinCoq.progLog <> pc_update thm
+R21200:21202 Coq.Init.Peano <> ::nat_scope:x_'+'_x not
+R21192:21193 ASMinCoq.AsmGen <> PC def
+R21197:21198 stdpp.base <> :::x_'.2' not
+R21259:21259 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R21283:21288 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R21307:21307 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R21260:21282 ASMinCoq.progLog <> gen_heap_valid_inclSepM thm
+R21259:21259 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R21283:21288 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R21307:21307 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R21260:21282 ASMinCoq.progLog <> gen_heap_valid_inclSepM thm
+R21336:21350 ASMinCoq.progLog <> indom_regs_incl thm
+R21336:21350 ASMinCoq.progLog <> indom_regs_incl thm
+R21614:21636 ASMinCoq.AsmGen <> normal_always_reducible thm
+R21614:21636 ASMinCoq.AsmGen <> normal_always_reducible thm
+R21859:21865 ASMinCoq.AsmGen <> incr_PC def
+R21878:21900 ASMinCoq.AsmGen <> update_pc_no_change_reg thm
+R21878:21900 ASMinCoq.AsmGen <> update_pc_no_change_reg thm
+R21878:21900 ASMinCoq.AsmGen <> update_pc_no_change_reg thm
+R21918:21937 ASMinCoq.AsmGen <> reg_is_updated_value thm
+R21918:21937 ASMinCoq.AsmGen <> reg_is_updated_value thm
+R21918:21937 ASMinCoq.AsmGen <> reg_is_updated_value thm
+R21951:21952 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R21984:21990 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R22009:22009 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R21953:21974 ASMinCoq.progLog <> gen_heap_update_inSepM thm
+R21951:21952 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R21984:21990 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R22009:22009 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R21953:21974 ASMinCoq.progLog <> gen_heap_update_inSepM thm
+R22183:22199 ASMinCoq.progLog <> inputs_are_enough thm
+R22207:22209 ASMinCoq.AsmGen <> reg def
+R22183:22199 ASMinCoq.progLog <> inputs_are_enough thm
+R22207:22209 ASMinCoq.AsmGen <> reg def
+R22183:22199 ASMinCoq.progLog <> inputs_are_enough thm
+R22207:22209 ASMinCoq.AsmGen <> reg def
+R22235:22248 stdpp.sets <> union_subseteq thm
+R22235:22248 stdpp.sets <> union_subseteq thm
+prf 22301:22320 <> regs_of_control_flow
+R22327:22329 Coq.Init.Datatypes <> nat ind
+binder 22323:22323 <> n:260
+R22342:22344 stdpp.vector <> vec abbrev
+R22351:22353 Coq.Init.Datatypes <> ::type_scope:x_'+'_x not
+R22347:22350 ASMinCoq.AsmGen <> Word def
+R22354:22361 ASMinCoq.AsmGen <> Register def
+R22364:22364 ASMinCoq.progLog <> n:260 var
+binder 22333:22338 <> inputs:261
+R22382:22384 Coq.Init.Datatypes <> ::type_scope:x_'+'_x not
+R22378:22381 ASMinCoq.AsmGen <> Word def
+R22385:22392 ASMinCoq.AsmGen <> Register def
+binder 22372:22374 <> dst:262
+R22420:22423 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R22410:22412 stdpp.vector <> vec abbrev
+R22414:22417 ASMinCoq.AsmGen <> Word def
+R22419:22419 ASMinCoq.progLog <> n:260 var
+R22424:22427 Coq.Init.Datatypes <> bool ind
+binder 22396:22406 <> f_condition:263
+binder 22430:22430 <> i:264
+R22476:22483 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R22439:22441 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R22438:22438 ASMinCoq.progLog <> i:264 var
+R22442:22452 ASMinCoq.AsmGen <> ControlFlow constr
+R22465:22475 ASMinCoq.progLog <> f_condition:263 var
+R22461:22463 ASMinCoq.progLog <> dst:262 var
+R22454:22459 ASMinCoq.progLog <> inputs:261 var
+R22493:22495 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R22484:22490 ASMinCoq.progLog <> regs_of def
+R22492:22492 ASMinCoq.progLog <> i:264 var
+R22516:22520 stdpp.base <> ::stdpp_scope:x_'∪'_x not
+R22496:22511 ASMinCoq.progLog <> regs_of_argument def
+R22513:22515 ASMinCoq.progLog <> dst:262 var
+R22521:22536 ASMinCoq.progLog <> regs_from_inputs def
+R22538:22543 ASMinCoq.progLog <> inputs:261 var
+ind 22601:22617 <> Control_flow_spec
+constr 22743:22772 <> Control_flow_spec_true_success
+constr 22964:22994 <> Control_flow_spec_false_success
+R22624:22626 Coq.Init.Datatypes <> nat ind
+binder 22620:22620 <> n:265
+R22639:22641 stdpp.vector <> vec abbrev
+R22648:22650 Coq.Init.Datatypes <> ::type_scope:x_'+'_x not
+R22644:22647 ASMinCoq.AsmGen <> Word def
+R22651:22658 ASMinCoq.AsmGen <> Register def
+R22661:22661 ASMinCoq.progLog <> n:265 var
+binder 22630:22635 <> inputs:266
+R22675:22677 Coq.Init.Datatypes <> ::type_scope:x_'+'_x not
+R22671:22674 ASMinCoq.AsmGen <> Word def
+R22678:22685 ASMinCoq.AsmGen <> Register def
+binder 22665:22667 <> dst:267
+binder 22688:22698 <> f_condition:268
+R22708:22710 ASMinCoq.AsmGen <> Reg def
+binder 22701:22704 <> regs:269
+R22723:22726 ASMinCoq.AsmGen <> Word def
+binder 22714:22715 <> pc:270
+binder 22717:22719 <> pc':271
+binder 22774:22775 <> vn:274
+R22826:22835 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R22821:22823 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R22785:22808 ASMinCoq.AsmGen <> inputs_from_inputnatregs def
+R22815:22820 ASMinCoq.progLog <> inputs:266 var
+R22810:22813 ASMinCoq.progLog <> regs:269 var
+R22824:22825 ASMinCoq.progLog <> vn:274 var
+R22857:22866 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R22850:22852 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R22836:22846 ASMinCoq.progLog <> f_condition:268 var
+R22848:22849 ASMinCoq.progLog <> vn:274 var
+R22853:22856 Coq.Init.Datatypes <> true constr
+R22897:22906 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R22891:22893 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R22867:22881 ASMinCoq.AsmGen <> wordreg_to_word def
+R22883:22886 ASMinCoq.progLog <> regs:269 var
+R22888:22890 ASMinCoq.progLog <> dst:267 var
+R22894:22896 ASMinCoq.progLog <> pc':271 var
+R22907:22923 ASMinCoq.progLog <> Control_flow_spec:272 ind
+R22956:22958 ASMinCoq.progLog <> pc':271 var
+R22953:22954 ASMinCoq.progLog <> pc:270 var
+R22948:22951 ASMinCoq.progLog <> regs:269 var
+R22936:22946 ASMinCoq.progLog <> f_condition:268 var
+R22932:22934 ASMinCoq.progLog <> dst:267 var
+R22925:22930 ASMinCoq.progLog <> inputs:266 var
+binder 22996:22997 <> vn:275
+R23048:23057 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R23043:23045 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R23007:23030 ASMinCoq.AsmGen <> inputs_from_inputnatregs def
+R23037:23042 ASMinCoq.progLog <> inputs:266 var
+R23032:23035 ASMinCoq.progLog <> regs:269 var
+R23046:23047 ASMinCoq.progLog <> vn:275 var
+R23080:23089 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R23072:23074 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R23058:23068 ASMinCoq.progLog <> f_condition:268 var
+R23070:23071 ASMinCoq.progLog <> vn:275 var
+R23075:23079 Coq.Init.Datatypes <> false constr
+R23102:23111 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R23096:23098 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R23092:23094 Coq.Init.Peano <> ::nat_scope:x_'+'_x not
+R23090:23091 ASMinCoq.progLog <> pc:270 var
+R23099:23101 ASMinCoq.progLog <> pc':271 var
+R23112:23128 ASMinCoq.progLog <> Control_flow_spec:272 ind
+R23161:23163 ASMinCoq.progLog <> pc':271 var
+R23158:23159 ASMinCoq.progLog <> pc:270 var
+R23153:23156 ASMinCoq.progLog <> regs:269 var
+R23141:23151 ASMinCoq.progLog <> f_condition:268 var
+R23137:23139 ASMinCoq.progLog <> dst:267 var
+R23130:23135 ASMinCoq.progLog <> inputs:266 var
+scheme 22601:22617 <> Control_flow_spec_ind
+scheme 22601:22617 <> Control_flow_spec_sind
+prf 23173:23187 <> wp_control_flow
+R23194:23196 Coq.Init.Datatypes <> nat ind
+binder 23190:23190 <> n:276
+binder 23199:23202 <> regs:277
+binder 23204:23205 <> pc:278
+binder 23207:23209 <> pc':279
+binder 23211:23214 <> prog:280
+binder 23216:23217 <> ll:281
+R23229:23231 stdpp.vector <> vec abbrev
+R23238:23240 Coq.Init.Datatypes <> ::type_scope:x_'+'_x not
+R23234:23237 ASMinCoq.AsmGen <> Word def
+R23241:23248 ASMinCoq.AsmGen <> Register def
+R23251:23251 ASMinCoq.progLog <> n:276 var
+binder 23220:23225 <> inputs:282
+binder 23254:23256 <> dst:283
+binder 23258:23268 <> f_condition:284
+binder 23270:23270 <> E:285
+binder 23272:23273 <> Φ:286
+R23323:23328 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R23286:23288 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R23279:23282 ASMinCoq.progLog <> prog:280 var
+R23284:23285 ASMinCoq.progLog <> pc:278 var
+R23289:23299 ASMinCoq.AsmGen <> ControlFlow constr
+R23312:23322 ASMinCoq.progLog <> f_condition:284 var
+R23308:23310 ASMinCoq.progLog <> dst:283 var
+R23301:23306 ASMinCoq.progLog <> inputs:282 var
+R23381:23386 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R23329:23345 ASMinCoq.progLog <> Control_flow_spec ind
+R23378:23380 ASMinCoq.progLog <> pc':279 var
+R23375:23376 ASMinCoq.progLog <> pc:278 var
+R23370:23373 ASMinCoq.progLog <> regs:277 var
+R23358:23368 ASMinCoq.progLog <> f_condition:284 var
+R23354:23356 ASMinCoq.progLog <> dst:283 var
+R23347:23352 ASMinCoq.progLog <> inputs:282 var
+R23444:23450 Coq.Unicode.Utf8_core <> ::type_scope:x_'→'_x not
+R23431:23435 stdpp.base <> ::stdpp_scope:x_'⊆'_x not
+R23387:23393 ASMinCoq.progLog <> regs_of def
+R23396:23406 ASMinCoq.AsmGen <> ControlFlow constr
+R23419:23429 ASMinCoq.progLog <> f_condition:284 var
+R23415:23417 ASMinCoq.progLog <> dst:283 var
+R23408:23413 ASMinCoq.progLog <> inputs:282 var
+R23436:23438 stdpp.base <> dom def
+R23440:23443 ASMinCoq.progLog <> regs:277 var
+R23468:23473 iris.bi.interface <> ::stdpp_scope:x_'-∗'_x not
+R23451:23462 ASMinCoq.progLog <> program_frag def
+R23464:23467 ASMinCoq.progLog <> prog:280 var
+R23484:23489 iris.bi.interface <> ::bi_scope:x_'-∗'_x not
+R23474:23480 ASMinCoq.progLog <> pc_frag def
+R23482:23483 ASMinCoq.progLog <> pc:278 var
+R23500:23507 iris.bi.interface <> ::bi_scope:x_'-∗'_x not
+R23490:23496 ASMinCoq.progLog <> tr_frag def
+R23498:23499 ASMinCoq.progLog <> ll:281 var
+R23508:23508 iris.bi.interface <> ::bi_scope:x_'-∗'_x not
+R23545:23553 iris.bi.interface <> ::bi_scope:x_'-∗'_x not
+R23509:23518 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+R23520:23522 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+R23524:23528 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+R23533:23534 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+binder 23519:23519 <> k:287
+binder 23519:23519 <> k:288
+binder 23523:23523 <> y:289
+binder 23523:23523 <> y:290
+R23536:23543 ASMinCoq.progLog asm_lang_rules ::bi_scope:x_'↦ᵣ'_x not
+R23535:23535 ASMinCoq.progLog <> k:287 var
+R23544:23544 ASMinCoq.progLog <> y:289 var
+R23529:23532 ASMinCoq.progLog <> regs:277 var
+R23749:23758 iris.bi.interface <> ::bi_scope:x_'-∗'_x not
+R23554:23557 iris.bi.interface <> ::bi_scope:'▷'_x not
+R23748:23748 iris.bi.interface <> ::bi_scope:'▷'_x not
+R23733:23738 iris.bi.interface <> ::bi_scope:x_'-∗'_x not
+R23575:23579 iris.bi.interface <> ::bi_scope:x_'∗'_x not
+R23558:23569 ASMinCoq.progLog <> program_frag def
+R23571:23574 ASMinCoq.progLog <> prog:280 var
+R23591:23601 iris.bi.interface <> ::bi_scope:x_'∗'_x not
+R23580:23586 ASMinCoq.progLog <> pc_frag def
+R23588:23590 ASMinCoq.progLog <> pc':279 var
+R23686:23695 iris.bi.interface <> ::bi_scope:x_'∗'_x not
+R23732:23732 iris.bi.interface <> ::bi_scope:x_'∗'_x not
+R23602:23608 ASMinCoq.progLog <> tr_frag def
+R23679:23682 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R23611:23625 ASMinCoq.AsmGen <> ControlFlowLeak constr
+R23628:23638 ASMinCoq.progLog <> f_condition:284 var
+R23641:23664 ASMinCoq.AsmGen <> inputs_from_inputnatregs def
+R23671:23676 ASMinCoq.progLog <> inputs:282 var
+R23666:23669 ASMinCoq.progLog <> regs:277 var
+R23683:23684 ASMinCoq.progLog <> ll:281 var
+R23696:23705 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+R23707:23709 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+R23711:23715 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+R23720:23721 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+binder 23706:23706 <> k:291
+binder 23706:23706 <> k:292
+binder 23710:23710 <> y:293
+binder 23710:23710 <> y:294
+R23723:23730 ASMinCoq.progLog asm_lang_rules ::bi_scope:x_'↦ᵣ'_x not
+R23722:23722 ASMinCoq.progLog <> k:291 var
+R23731:23731 ASMinCoq.progLog <> y:293 var
+R23716:23719 ASMinCoq.progLog <> regs:277 var
+R23739:23740 ASMinCoq.progLog <> Φ:286 var
+R23742:23747 ASMinCoq.AsmGen <> NextIV constr
+R23759:23762 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_'{{'_x_','_x_'}'_'}' not
+R23779:23782 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_'{{'_x_','_x_'}'_'}' not
+R23784:23787 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_'{{'_x_','_x_'}'_'}' not
+R23789:23790 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_'{{'_x_','_x_'}'_'}' not
+R23795:23797 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_'{{'_x_','_x_'}'_'}' not
+R23783:23783 ASMinCoq.progLog <> E:285 var
+R23763:23767 ASMinCoq.AsmGen <> Instr constr
+R23769:23778 ASMinCoq.AsmGen <> Executable constr
+binder 23788:23788 <> v:295
+R23791:23792 ASMinCoq.progLog <> Φ:286 var
+R23794:23794 ASMinCoq.progLog <> v:295 var
+R23899:23930 ASMinCoq.progLog <> wp_lift_atomic_step_no_fork_fupd thm
+R23899:23930 ASMinCoq.progLog <> wp_lift_atomic_step_no_fork_fupd thm
+R24074:24074 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R24094:24099 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R24116:24116 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R24076:24093 ASMinCoq.progLog <> trace_full_frag_eq thm
+R24074:24074 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R24094:24099 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R24116:24116 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R24076:24093 ASMinCoq.progLog <> trace_full_frag_eq thm
+R24152:24152 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R24169:24174 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R24188:24188 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R24154:24168 ASMinCoq.progLog <> pc_full_frag_eq thm
+R24152:24152 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R24169:24174 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R24188:24188 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R24154:24168 ASMinCoq.progLog <> pc_full_frag_eq thm
+R24224:24224 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R24246:24251 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R24269:24269 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R24226:24245 ASMinCoq.progLog <> program_full_frag_eq thm
+R24224:24224 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R24246:24251 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R24269:24269 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R24226:24245 ASMinCoq.progLog <> program_full_frag_eq thm
+R24305:24305 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R24329:24334 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R24353:24353 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R24306:24328 ASMinCoq.progLog <> gen_heap_valid_inclSepM thm
+R24305:24305 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R24329:24334 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R24353:24353 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R24306:24328 ASMinCoq.progLog <> gen_heap_valid_inclSepM thm
+R24421:24443 ASMinCoq.AsmGen <> normal_always_reducible thm
+R24421:24443 ASMinCoq.AsmGen <> normal_always_reducible thm
+R24708:24721 stdpp.sets <> union_subseteq thm
+R24708:24721 stdpp.sets <> union_subseteq thm
+R24708:24721 stdpp.sets <> union_subseteq thm
+R24789:24805 ASMinCoq.progLog <> inputs_are_enough thm
+R24810:24812 ASMinCoq.AsmGen <> reg def
+R24789:24805 ASMinCoq.progLog <> inputs_are_enough thm
+R24810:24812 ASMinCoq.AsmGen <> reg def
+R24789:24805 ASMinCoq.progLog <> inputs_are_enough thm
+R24810:24812 ASMinCoq.AsmGen <> reg def
+R24789:24805 ASMinCoq.progLog <> inputs_are_enough thm
+R24810:24812 ASMinCoq.AsmGen <> reg def
+R24789:24805 ASMinCoq.progLog <> inputs_are_enough thm
+R24810:24812 ASMinCoq.AsmGen <> reg def
+R24866:24889 ASMinCoq.AsmGen <> inputs_from_inputnatregs def
+R24892:24894 ASMinCoq.AsmGen <> reg def
+R24866:24889 ASMinCoq.AsmGen <> inputs_from_inputnatregs def
+R24892:24894 ASMinCoq.AsmGen <> reg def
+R24866:24889 ASMinCoq.AsmGen <> inputs_from_inputnatregs def
+R24892:24894 ASMinCoq.AsmGen <> reg def
+R24970:24970 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R25066:25071 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R25092:25092 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R24971:24982 ASMinCoq.progLog <> trace_update thm
+R25059:25062 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R24987:25001 ASMinCoq.AsmGen <> ControlFlowLeak constr
+R25017:25040 ASMinCoq.AsmGen <> inputs_from_inputnatregs def
+R25043:25045 ASMinCoq.AsmGen <> reg def
+R24970:24970 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R25066:25071 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R25092:25092 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R24971:24982 ASMinCoq.progLog <> trace_update thm
+R25059:25062 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R24987:25001 ASMinCoq.AsmGen <> ControlFlowLeak constr
+R25017:25040 ASMinCoq.AsmGen <> inputs_from_inputnatregs def
+R25043:25045 ASMinCoq.AsmGen <> reg def
+R24970:24970 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R25066:25071 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R25092:25092 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R24971:24982 ASMinCoq.progLog <> trace_update thm
+R25059:25062 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R24987:25001 ASMinCoq.AsmGen <> ControlFlowLeak constr
+R25017:25040 ASMinCoq.AsmGen <> inputs_from_inputnatregs def
+R25043:25045 ASMinCoq.AsmGen <> reg def
+R25123:25123 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R25166:25171 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R25189:25189 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R25124:25132 ASMinCoq.progLog <> pc_update thm
+R25137:25151 ASMinCoq.AsmGen <> wordreg_to_word def
+R25154:25156 ASMinCoq.AsmGen <> reg def
+R25123:25123 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R25166:25171 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R25189:25189 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R25124:25132 ASMinCoq.progLog <> pc_update thm
+R25137:25151 ASMinCoq.AsmGen <> wordreg_to_word def
+R25154:25156 ASMinCoq.AsmGen <> reg def
+R25220:25220 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R25244:25249 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R25267:25267 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R25221:25229 ASMinCoq.progLog <> pc_update thm
+R25239:25241 Coq.Init.Peano <> ::nat_scope:x_'+'_x not
+R25234:25235 ASMinCoq.AsmGen <> PC def
+R25220:25220 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R25244:25249 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R25267:25267 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R25221:25229 ASMinCoq.progLog <> pc_update thm
+R25239:25241 Coq.Init.Peano <> ::nat_scope:x_'+'_x not
+R25234:25235 ASMinCoq.AsmGen <> PC def
+R25609:25611 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R25572:25595 ASMinCoq.AsmGen <> inputs_from_inputnatregs def
+R25625:25648 ASMinCoq.AsmGen <> inputs_from_inputnatregs def
+R25651:25653 ASMinCoq.AsmGen <> reg def
+R25702:25718 ASMinCoq.progLog <> inputs_are_enough thm
+R25726:25728 ASMinCoq.AsmGen <> reg def
+R25748:25761 stdpp.sets <> union_subseteq thm
+R25609:25611 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R25572:25595 ASMinCoq.AsmGen <> inputs_from_inputnatregs def
+R25625:25648 ASMinCoq.AsmGen <> inputs_from_inputnatregs def
+R25651:25653 ASMinCoq.AsmGen <> reg def
+R25609:25611 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R25572:25595 ASMinCoq.AsmGen <> inputs_from_inputnatregs def
+R25625:25648 ASMinCoq.AsmGen <> inputs_from_inputnatregs def
+R25651:25653 ASMinCoq.AsmGen <> reg def
+R25702:25718 ASMinCoq.progLog <> inputs_are_enough thm
+R25726:25728 ASMinCoq.AsmGen <> reg def
+R25702:25718 ASMinCoq.progLog <> inputs_are_enough thm
+R25726:25728 ASMinCoq.AsmGen <> reg def
+R25702:25718 ASMinCoq.progLog <> inputs_are_enough thm
+R25726:25728 ASMinCoq.AsmGen <> reg def
+R25702:25718 ASMinCoq.progLog <> inputs_are_enough thm
+R25726:25728 ASMinCoq.AsmGen <> reg def
+R25899:25921 ASMinCoq.progLog <> indom_regs_incl_default thm
+R25899:25921 ASMinCoq.progLog <> indom_regs_incl_default thm
+prf 26063:26069 <> wp_load
+R26076:26078 Coq.Init.Datatypes <> nat ind
+binder 26072:26072 <> n:296
+binder 26081:26082 <> pc:297
+binder 26084:26087 <> prog:298
+binder 26089:26090 <> ll:299
+binder 26092:26095 <> regs:300
+binder 26097:26100 <> rres:301
+binder 26102:26105 <> rsrc:302
+binder 26107:26107 <> v:303
+binder 26109:26109 <> E:304
+binder 26111:26112 <> Φ:305
+R26142:26147 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R26125:26127 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R26118:26121 ASMinCoq.progLog <> prog:298 var
+R26123:26124 ASMinCoq.progLog <> pc:297 var
+R26128:26131 ASMinCoq.AsmGen <> Load constr
+R26133:26136 ASMinCoq.progLog <> rres:301 var
+R26138:26141 ASMinCoq.progLog <> rsrc:302 var
+R26185:26191 Coq.Unicode.Utf8_core <> ::type_scope:x_'→'_x not
+R26172:26176 stdpp.base <> ::stdpp_scope:x_'⊆'_x not
+R26148:26154 ASMinCoq.progLog <> regs_of def
+R26157:26160 ASMinCoq.AsmGen <> Load constr
+R26162:26165 ASMinCoq.progLog <> rres:301 var
+R26167:26170 ASMinCoq.progLog <> rsrc:302 var
+R26177:26179 stdpp.base <> dom def
+R26181:26184 ASMinCoq.progLog <> regs:300 var
+R26209:26214 iris.bi.interface <> ::stdpp_scope:x_'-∗'_x not
+R26192:26203 ASMinCoq.progLog <> program_frag def
+R26205:26208 ASMinCoq.progLog <> prog:298 var
+R26225:26230 iris.bi.interface <> ::bi_scope:x_'-∗'_x not
+R26215:26221 ASMinCoq.progLog <> pc_frag def
+R26223:26224 ASMinCoq.progLog <> pc:297 var
+R26241:26252 iris.bi.interface <> ::bi_scope:x_'-∗'_x not
+R26231:26237 ASMinCoq.progLog <> tr_frag def
+R26239:26240 ASMinCoq.progLog <> ll:299 var
+R26253:26253 iris.bi.interface <> ::bi_scope:x_'-∗'_x not
+R26290:26302 iris.bi.interface <> ::bi_scope:x_'-∗'_x not
+R26254:26263 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+R26265:26267 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+R26269:26273 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+R26278:26279 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+binder 26264:26264 <> k:306
+binder 26264:26264 <> k:307
+binder 26268:26268 <> y:308
+binder 26268:26268 <> y:309
+R26281:26288 ASMinCoq.progLog asm_lang_rules ::bi_scope:x_'↦ᵣ'_x not
+R26280:26280 ASMinCoq.progLog <> k:306 var
+R26289:26289 ASMinCoq.progLog <> y:308 var
+R26274:26277 ASMinCoq.progLog <> regs:300 var
+R26340:26347 iris.bi.interface <> ::bi_scope:x_'-∗'_x not
+R26331:26338 ASMinCoq.progLog asm_lang_rules ::bi_scope:x_'↦ₐ'_x not
+R26303:26314 ASMinCoq.AsmGen <> word_to_addr def
+R26321:26325 stdpp.base <> ::stdpp_scope:x_'!!!'_x not
+R26326:26329 ASMinCoq.progLog <> rsrc:302 var
+R26317:26320 ASMinCoq.progLog <> regs:300 var
+R26339:26339 ASMinCoq.progLog <> v:303 var
+R26521:26528 iris.bi.interface <> ::bi_scope:x_'-∗'_x not
+R26348:26351 iris.bi.interface <> ::bi_scope:'▷'_x not
+R26520:26520 iris.bi.interface <> ::bi_scope:'▷'_x not
+R26505:26510 iris.bi.interface <> ::bi_scope:x_'-∗'_x not
+R26369:26373 iris.bi.interface <> ::bi_scope:x_'∗'_x not
+R26352:26363 ASMinCoq.progLog <> program_frag def
+R26365:26368 ASMinCoq.progLog <> prog:298 var
+R26390:26400 iris.bi.interface <> ::bi_scope:x_'∗'_x not
+R26374:26380 ASMinCoq.progLog <> pc_frag def
+R26385:26387 Coq.Init.Peano <> ::nat_scope:x_'+'_x not
+R26383:26384 ASMinCoq.progLog <> pc:297 var
+R26441:26452 iris.bi.interface <> ::bi_scope:x_'∗'_x not
+R26504:26504 iris.bi.interface <> ::bi_scope:x_'∗'_x not
+R26401:26407 ASMinCoq.progLog <> tr_frag def
+R26434:26437 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R26410:26417 ASMinCoq.AsmGen <> LoadLeak constr
+R26424:26428 stdpp.base <> ::stdpp_scope:x_'!!!'_x not
+R26429:26432 ASMinCoq.progLog <> rsrc:302 var
+R26420:26423 ASMinCoq.progLog <> regs:300 var
+R26438:26439 ASMinCoq.progLog <> ll:299 var
+R26453:26462 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+R26464:26466 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+R26468:26472 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+R26492:26493 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+binder 26463:26463 <> k:310
+binder 26463:26463 <> k:311
+binder 26467:26467 <> y:312
+binder 26467:26467 <> y:313
+R26495:26502 ASMinCoq.progLog asm_lang_rules ::bi_scope:x_'↦ᵣ'_x not
+R26494:26494 ASMinCoq.progLog <> k:310 var
+R26503:26503 ASMinCoq.progLog <> y:312 var
+R26473:26475 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R26480:26483 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R26485:26491 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R26476:26479 ASMinCoq.progLog <> rres:301 var
+R26484:26484 ASMinCoq.progLog <> v:303 var
+R26488:26491 ASMinCoq.progLog <> regs:300 var
+R26511:26512 ASMinCoq.progLog <> Φ:305 var
+R26514:26519 ASMinCoq.AsmGen <> NextIV constr
+R26529:26532 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_'{{'_x_','_x_'}'_'}' not
+R26549:26552 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_'{{'_x_','_x_'}'_'}' not
+R26554:26557 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_'{{'_x_','_x_'}'_'}' not
+R26559:26560 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_'{{'_x_','_x_'}'_'}' not
+R26565:26567 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_'{{'_x_','_x_'}'_'}' not
+R26553:26553 ASMinCoq.progLog <> E:304 var
+R26533:26537 ASMinCoq.AsmGen <> Instr constr
+R26539:26548 ASMinCoq.AsmGen <> Executable constr
+binder 26558:26558 <> v:314
+R26561:26562 ASMinCoq.progLog <> Φ:305 var
+R26564:26564 ASMinCoq.progLog <> v:314 var
+R26665:26696 ASMinCoq.progLog <> wp_lift_atomic_step_no_fork_fupd thm
+R26665:26696 ASMinCoq.progLog <> wp_lift_atomic_step_no_fork_fupd thm
+R26840:26840 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R26860:26865 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R26882:26882 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R26842:26859 ASMinCoq.progLog <> trace_full_frag_eq thm
+R26840:26840 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R26860:26865 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R26882:26882 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R26842:26859 ASMinCoq.progLog <> trace_full_frag_eq thm
+R26918:26918 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R26935:26940 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R26954:26954 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R26920:26934 ASMinCoq.progLog <> pc_full_frag_eq thm
+R26918:26918 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R26935:26940 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R26954:26954 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R26920:26934 ASMinCoq.progLog <> pc_full_frag_eq thm
+R26990:26990 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R27012:27017 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R27035:27035 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R26992:27011 ASMinCoq.progLog <> program_full_frag_eq thm
+R26990:26990 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R27012:27017 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R27035:27035 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R26992:27011 ASMinCoq.progLog <> program_full_frag_eq thm
+R27071:27071 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R27095:27100 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R27119:27119 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R27072:27094 ASMinCoq.progLog <> gen_heap_valid_inclSepM thm
+R27071:27071 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R27095:27100 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R27119:27119 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R27072:27094 ASMinCoq.progLog <> gen_heap_valid_inclSepM thm
+R27185:27207 ASMinCoq.AsmGen <> normal_always_reducible thm
+R27185:27207 ASMinCoq.AsmGen <> normal_always_reducible thm
+R27406:27406 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R27456:27461 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R27482:27482 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R27407:27418 ASMinCoq.progLog <> trace_update thm
+R27449:27452 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R27423:27430 ASMinCoq.AsmGen <> LoadLeak constr
+R27439:27443 stdpp.base <> ::stdpp_scope:x_'!!!'_x not
+R27433:27435 ASMinCoq.AsmGen <> reg def
+R27406:27406 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R27456:27461 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R27482:27482 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R27407:27418 ASMinCoq.progLog <> trace_update thm
+R27449:27452 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R27423:27430 ASMinCoq.AsmGen <> LoadLeak constr
+R27439:27443 stdpp.base <> ::stdpp_scope:x_'!!!'_x not
+R27433:27435 ASMinCoq.AsmGen <> reg def
+R27508:27508 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R27532:27537 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R27555:27555 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R27509:27517 ASMinCoq.progLog <> pc_update thm
+R27527:27529 Coq.Init.Peano <> ::nat_scope:x_'+'_x not
+R27522:27523 ASMinCoq.AsmGen <> PC def
+R27508:27508 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R27532:27537 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R27555:27555 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R27509:27517 ASMinCoq.progLog <> pc_update thm
+R27527:27529 Coq.Init.Peano <> ::nat_scope:x_'+'_x not
+R27522:27523 ASMinCoq.AsmGen <> PC def
+R27686:27692 ASMinCoq.AsmGen <> incr_PC def
+R27704:27726 ASMinCoq.AsmGen <> update_pc_no_change_reg thm
+R27704:27726 ASMinCoq.AsmGen <> update_pc_no_change_reg thm
+R27704:27726 ASMinCoq.AsmGen <> update_pc_no_change_reg thm
+R27737:27756 ASMinCoq.AsmGen <> reg_is_updated_value thm
+R27737:27756 ASMinCoq.AsmGen <> reg_is_updated_value thm
+R27737:27756 ASMinCoq.AsmGen <> reg_is_updated_value thm
+R27768:27769 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R27801:27807 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R27826:27826 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R27770:27791 ASMinCoq.progLog <> gen_heap_update_inSepM thm
+R27768:27769 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R27801:27807 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R27826:27826 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R27770:27791 ASMinCoq.progLog <> gen_heap_update_inSepM thm
+R27881:27884 stdpp.gmap <> gset def
+R27886:27893 ASMinCoq.AsmGen <> Register def
+R27858:27868 stdpp.fin_map_dom <> elem_of_dom meth
+R27881:27884 stdpp.gmap <> gset def
+R27886:27893 ASMinCoq.AsmGen <> Register def
+R27858:27868 stdpp.fin_map_dom <> elem_of_dom meth
+R27927:27942 stdpp.sets <> elem_of_subseteq thm
+R27927:27942 stdpp.sets <> elem_of_subseteq thm
+R27981:27981 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R27996:28001 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R28015:28015 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R27982:27995 iris.base_logic.lib.gen_heap <> gen_heap_valid thm
+R27981:27981 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R27996:28001 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R28015:28015 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R27982:27995 iris.base_logic.lib.gen_heap <> gen_heap_valid thm
+R28164:28186 ASMinCoq.progLog <> indom_regs_incl_default thm
+R28164:28186 ASMinCoq.progLog <> indom_regs_incl_default thm
+R28345:28356 ASMinCoq.AsmGen <> word_to_addr def
+R28392:28394 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R28386:28390 stdpp.base <> ::stdpp_scope:x_'!!!'_x not
+R28380:28382 ASMinCoq.AsmGen <> mem def
+R28392:28394 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R28386:28390 stdpp.base <> ::stdpp_scope:x_'!!!'_x not
+R28380:28382 ASMinCoq.AsmGen <> mem def
+R28418:28422 stdpp.base <> lookup_total def
+R28432:28447 stdpp.fin_maps <> map_lookup_total inst
+R28457:28463 stdpp.option <> from_option def
+prf 28536:28543 <> wp_store
+binder 28545:28546 <> pc:315
+binder 28548:28551 <> prog:316
+binder 28553:28554 <> ll:317
+binder 28556:28559 <> regs:318
+binder 28561:28564 <> rdst:319
+binder 28566:28568 <> src:320
+binder 28570:28570 <> v:321
+binder 28572:28572 <> E:322
+binder 28574:28575 <> Φ:323
+R28605:28610 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R28588:28590 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R28581:28584 ASMinCoq.progLog <> prog:316 var
+R28586:28587 ASMinCoq.progLog <> pc:315 var
+R28591:28595 ASMinCoq.AsmGen <> Store constr
+R28597:28600 ASMinCoq.progLog <> rdst:319 var
+R28602:28604 ASMinCoq.progLog <> src:320 var
+R28648:28654 Coq.Unicode.Utf8_core <> ::type_scope:x_'→'_x not
+R28635:28639 stdpp.base <> ::stdpp_scope:x_'⊆'_x not
+R28611:28617 ASMinCoq.progLog <> regs_of def
+R28620:28624 ASMinCoq.AsmGen <> Store constr
+R28626:28629 ASMinCoq.progLog <> rdst:319 var
+R28631:28633 ASMinCoq.progLog <> src:320 var
+R28640:28642 stdpp.base <> dom def
+R28644:28647 ASMinCoq.progLog <> regs:318 var
+R28672:28677 iris.bi.interface <> ::stdpp_scope:x_'-∗'_x not
+R28655:28666 ASMinCoq.progLog <> program_frag def
+R28668:28671 ASMinCoq.progLog <> prog:316 var
+R28688:28693 iris.bi.interface <> ::bi_scope:x_'-∗'_x not
+R28678:28684 ASMinCoq.progLog <> pc_frag def
+R28686:28687 ASMinCoq.progLog <> pc:315 var
+R28704:28715 iris.bi.interface <> ::bi_scope:x_'-∗'_x not
+R28694:28700 ASMinCoq.progLog <> tr_frag def
+R28702:28703 ASMinCoq.progLog <> ll:317 var
+R28716:28716 iris.bi.interface <> ::bi_scope:x_'-∗'_x not
+R28753:28765 iris.bi.interface <> ::bi_scope:x_'-∗'_x not
+R28717:28726 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+R28728:28730 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+R28732:28736 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+R28741:28742 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+binder 28727:28727 <> k:324
+binder 28727:28727 <> k:325
+binder 28731:28731 <> y:326
+binder 28731:28731 <> y:327
+R28744:28751 ASMinCoq.progLog asm_lang_rules ::bi_scope:x_'↦ᵣ'_x not
+R28743:28743 ASMinCoq.progLog <> k:324 var
+R28752:28752 ASMinCoq.progLog <> y:326 var
+R28737:28740 ASMinCoq.progLog <> regs:318 var
+R28803:28810 iris.bi.interface <> ::bi_scope:x_'-∗'_x not
+R28794:28801 ASMinCoq.progLog asm_lang_rules ::bi_scope:x_'↦ₐ'_x not
+R28766:28777 ASMinCoq.AsmGen <> word_to_addr def
+R28784:28788 stdpp.base <> ::stdpp_scope:x_'!!!'_x not
+R28789:28792 ASMinCoq.progLog <> rdst:319 var
+R28780:28783 ASMinCoq.progLog <> regs:318 var
+R28802:28802 ASMinCoq.progLog <> v:321 var
+R29056:29066 iris.bi.interface <> ::bi_scope:x_'-∗'_x not
+R28811:28814 iris.bi.interface <> ::bi_scope:'▷'_x not
+R29055:29055 iris.bi.interface <> ::bi_scope:'▷'_x not
+R29036:29045 iris.bi.interface <> ::bi_scope:x_'-∗'_x not
+R28832:28836 iris.bi.interface <> ::bi_scope:x_'∗'_x not
+R28815:28826 ASMinCoq.progLog <> program_frag def
+R28828:28831 ASMinCoq.progLog <> prog:316 var
+R28853:28863 iris.bi.interface <> ::bi_scope:x_'∗'_x not
+R28837:28843 ASMinCoq.progLog <> pc_frag def
+R28848:28850 Coq.Init.Peano <> ::nat_scope:x_'+'_x not
+R28846:28847 ASMinCoq.progLog <> pc:315 var
+R28916:28926 iris.bi.interface <> ::bi_scope:x_'∗'_x not
+R28864:28870 ASMinCoq.progLog <> tr_frag def
+R28909:28912 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R28873:28881 ASMinCoq.AsmGen <> StoreLeak constr
+R28884:28898 ASMinCoq.AsmGen <> wordreg_to_word def
+R28900:28903 ASMinCoq.progLog <> regs:318 var
+R28905:28907 ASMinCoq.progLog <> src:320 var
+R28913:28914 ASMinCoq.progLog <> ll:317 var
+R28927:28927 iris.bi.interface <> ::bi_scope:x_'∗'_x not
+R28964:28975 iris.bi.interface <> ::bi_scope:x_'∗'_x not
+R28928:28937 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+R28939:28941 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+R28943:28947 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+R28952:28953 iris.bi.big_op <> ::bi_scope:'[∗'_'map]'_x_'↦'_x_'∈'_x_','_x not
+binder 28938:28938 <> k:328
+binder 28938:28938 <> k:329
+binder 28942:28942 <> y:330
+binder 28942:28942 <> y:331
+R28955:28962 ASMinCoq.progLog asm_lang_rules ::bi_scope:x_'↦ᵣ'_x not
+R28954:28954 ASMinCoq.progLog <> k:328 var
+R28963:28963 ASMinCoq.progLog <> y:330 var
+R28948:28951 ASMinCoq.progLog <> regs:318 var
+R29004:29011 ASMinCoq.progLog asm_lang_rules ::bi_scope:x_'↦ₐ'_x not
+R28976:28987 ASMinCoq.AsmGen <> word_to_addr def
+R28994:28998 stdpp.base <> ::stdpp_scope:x_'!!!'_x not
+R28999:29002 ASMinCoq.progLog <> rdst:319 var
+R28990:28993 ASMinCoq.progLog <> regs:318 var
+R29012:29026 ASMinCoq.AsmGen <> wordreg_to_word def
+R29028:29031 ASMinCoq.progLog <> regs:318 var
+R29033:29035 ASMinCoq.progLog <> src:320 var
+R29046:29047 ASMinCoq.progLog <> Φ:323 var
+R29049:29054 ASMinCoq.AsmGen <> NextIV constr
+R29067:29070 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_'{{'_x_','_x_'}'_'}' not
+R29087:29090 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_'{{'_x_','_x_'}'_'}' not
+R29092:29095 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_'{{'_x_','_x_'}'_'}' not
+R29097:29098 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_'{{'_x_','_x_'}'_'}' not
+R29103:29105 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_'{{'_x_','_x_'}'_'}' not
+R29091:29091 ASMinCoq.progLog <> E:322 var
+R29071:29075 ASMinCoq.AsmGen <> Instr constr
+R29077:29086 ASMinCoq.AsmGen <> Executable constr
+binder 29096:29096 <> v:332
+R29099:29100 ASMinCoq.progLog <> Φ:323 var
+R29102:29102 ASMinCoq.progLog <> v:332 var
+R29203:29234 ASMinCoq.progLog <> wp_lift_atomic_step_no_fork_fupd thm
+R29203:29234 ASMinCoq.progLog <> wp_lift_atomic_step_no_fork_fupd thm
+R29378:29378 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R29398:29403 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R29420:29420 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R29380:29397 ASMinCoq.progLog <> trace_full_frag_eq thm
+R29378:29378 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R29398:29403 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R29420:29420 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R29380:29397 ASMinCoq.progLog <> trace_full_frag_eq thm
+R29456:29456 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R29473:29478 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R29492:29492 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R29458:29472 ASMinCoq.progLog <> pc_full_frag_eq thm
+R29456:29456 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R29473:29478 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R29492:29492 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R29458:29472 ASMinCoq.progLog <> pc_full_frag_eq thm
+R29528:29528 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R29550:29555 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R29573:29573 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R29530:29549 ASMinCoq.progLog <> program_full_frag_eq thm
+R29528:29528 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R29550:29555 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R29573:29573 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R29530:29549 ASMinCoq.progLog <> program_full_frag_eq thm
+R29609:29609 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R29633:29638 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R29657:29657 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R29610:29632 ASMinCoq.progLog <> gen_heap_valid_inclSepM thm
+R29609:29609 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R29633:29638 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R29657:29657 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R29610:29632 ASMinCoq.progLog <> gen_heap_valid_inclSepM thm
+R29723:29745 ASMinCoq.AsmGen <> normal_always_reducible thm
+R29723:29745 ASMinCoq.AsmGen <> normal_always_reducible thm
+R29944:29944 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R30004:30009 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R30030:30030 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R29945:29956 ASMinCoq.progLog <> trace_update thm
+R29997:30000 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R29961:29969 ASMinCoq.AsmGen <> StoreLeak constr
+R29972:29986 ASMinCoq.AsmGen <> wordreg_to_word def
+R29944:29944 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R30004:30009 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R30030:30030 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R29945:29956 ASMinCoq.progLog <> trace_update thm
+R29997:30000 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R29961:29969 ASMinCoq.AsmGen <> StoreLeak constr
+R29972:29986 ASMinCoq.AsmGen <> wordreg_to_word def
+R30056:30056 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R30080:30085 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R30103:30103 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R30057:30065 ASMinCoq.progLog <> pc_update thm
+R30075:30077 Coq.Init.Peano <> ::nat_scope:x_'+'_x not
+R30070:30071 ASMinCoq.AsmGen <> PC def
+R30056:30056 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R30080:30085 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R30103:30103 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R30057:30065 ASMinCoq.progLog <> pc_update thm
+R30075:30077 Coq.Init.Peano <> ::nat_scope:x_'+'_x not
+R30070:30071 ASMinCoq.AsmGen <> PC def
+R30234:30240 ASMinCoq.AsmGen <> incr_PC def
+R30252:30274 ASMinCoq.AsmGen <> update_pc_no_change_reg thm
+R30252:30274 ASMinCoq.AsmGen <> update_pc_no_change_reg thm
+R30252:30274 ASMinCoq.AsmGen <> update_pc_no_change_reg thm
+R30286:30309 ASMinCoq.AsmGen <> update_mem_no_change_reg thm
+R30286:30309 ASMinCoq.AsmGen <> update_mem_no_change_reg thm
+R30286:30309 ASMinCoq.AsmGen <> update_mem_no_change_reg thm
+R30327:30327 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R30342:30347 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R30361:30361 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R30328:30341 iris.base_logic.lib.gen_heap <> gen_heap_valid thm
+R30327:30327 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R30342:30347 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R30361:30361 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R30328:30341 iris.base_logic.lib.gen_heap <> gen_heap_valid thm
+R30390:30391 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R30425:30431 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R30445:30445 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R30392:30406 iris.base_logic.lib.gen_heap <> gen_heap_update thm
+R30415:30419 stdpp.base <> ::stdpp_scope:x_'!!!'_x not
+R30390:30391 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R30425:30431 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R30445:30445 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R30392:30406 iris.base_logic.lib.gen_heap <> gen_heap_update thm
+R30415:30419 stdpp.base <> ::stdpp_scope:x_'!!!'_x not
+R30479:30501 ASMinCoq.progLog <> indom_regs_incl_default thm
+R30479:30501 ASMinCoq.progLog <> indom_regs_incl_default thm
+R30828:30850 ASMinCoq.progLog <> indom_regs_incl_default thm
+R30828:30850 ASMinCoq.progLog <> indom_regs_incl_default thm
+R30828:30850 ASMinCoq.progLog <> indom_regs_incl_default thm
+def 30994:31020 <> test_prog_not_constant_time
+R31036:31038 Coq.Init.Datatypes <> nat ind
+binder 31023:31032 <> high_input:333
+R31046:31062 ASMinCoq.AsmGen <> list_prog_to_prog def
+R31064:31064 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R31104:31105 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R31125:31125 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R31065:31067 ASMinCoq.AsmGen <> Add def
+R31072:31074 Coq.Init.Datatypes <> inl constr
+R31076:31085 ASMinCoq.progLog <> high_input:333 var
+R31089:31091 Coq.Init.Datatypes <> inl constr
+R31093:31102 ASMinCoq.progLog <> high_input:333 var
+R31106:31108 ASMinCoq.AsmGen <> Jnz def
+R31111:31113 Coq.Init.Datatypes <> inr constr
+R31119:31121 Coq.Init.Datatypes <> inl constr
+def 31140:31146 <> loopify
+R31153:31156 ASMinCoq.AsmGen <> expr ind
+binder 31149:31149 <> e:334
+R31161:31164 ASMinCoq.AsmGen <> expr ind
+R31177:31177 ASMinCoq.progLog <> e:334 var
+R31188:31192 ASMinCoq.AsmGen <> Instr constr
+R31200:31203 ASMinCoq.AsmGen <> Loop constr
+R31212:31215 ASMinCoq.AsmGen <> Loop constr
+R31223:31226 ASMinCoq.AsmGen <> Loop constr
+inst 31258:31277 <> language_ctx_loopify
+R31281:31291 iris.program_logic.language <> LanguageCtx class
+R31293:31299 ASMinCoq.progLog <> loopify def
+R31594:31598 ASMinCoq.AsmGen <> Instr constr
+R31600:31609 ASMinCoq.AsmGen <> Executable constr
+R31594:31598 ASMinCoq.AsmGen <> Instr constr
+R31600:31609 ASMinCoq.AsmGen <> Executable constr
+R31634:31638 ASMinCoq.AsmGen <> Instr constr
+R31634:31638 ASMinCoq.AsmGen <> Instr constr
+R31666:31669 ASMinCoq.AsmGen <> Loop constr
+R31671:31680 ASMinCoq.AsmGen <> Executable constr
+R31666:31669 ASMinCoq.AsmGen <> Loop constr
+R31671:31680 ASMinCoq.AsmGen <> Executable constr
+R31705:31708 ASMinCoq.AsmGen <> Loop constr
+R31705:31708 ASMinCoq.AsmGen <> Loop constr
+def 31739:31761 <> wp_bind_loop_executable
+R31772:31780 iris.bi.weakestpre <> stuckness ind
+binder 31768:31768 <> s:336
+R31788:31793 stdpp.coPset <> coPset def
+binder 31784:31784 <> E:337
+R31829:31833 Coq.Unicode.Utf8_core <> ::type_scope:x_'→'_x not
+R31808:31819 iris.program_logic.language <> val proj
+R31821:31828 ASMinCoq.AsmGen <> asm_lang canonstruc
+R31834:31838 iris.base_logic.lib.iprop iProp_solution iProp abbrev
+R31840:31841 ASMinCoq.progLog <> asm_lang_rules.Σ var
+binder 31803:31804 <> Φ:338
+R31956:31966 iris.bi.interface <> ::stdpp_scope:x_'⊢'_x not
+R31852:31854 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_';'_x_'{{'_x_','_x_'}'_'}' not
+R31871:31873 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_';'_x_'{{'_x_','_x_'}'_'}' not
+R31875:31876 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_';'_x_'{{'_x_','_x_'}'_'}' not
+R31878:31881 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_';'_x_'{{'_x_','_x_'}'_'}' not
+R31883:31884 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_';'_x_'{{'_x_','_x_'}'_'}' not
+R31953:31955 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_';'_x_'{{'_x_','_x_'}'_'}' not
+R31874:31874 ASMinCoq.progLog <> s:336 var
+R31877:31877 ASMinCoq.progLog <> E:337 var
+R31855:31859 ASMinCoq.AsmGen <> Instr constr
+R31861:31870 ASMinCoq.AsmGen <> Executable constr
+binder 31882:31882 <> v:339
+R31885:31888 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_';'_x_'{{'_x_','_x_'}'_'}' not
+R31931:31934 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_';'_x_'{{'_x_','_x_'}'_'}' not
+R31936:31937 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_';'_x_'{{'_x_','_x_'}'_'}' not
+R31939:31942 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_';'_x_'{{'_x_','_x_'}'_'}' not
+R31944:31945 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_';'_x_'{{'_x_','_x_'}'_'}' not
+R31950:31952 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_';'_x_'{{'_x_','_x_'}'_'}' not
+R31935:31935 ASMinCoq.progLog <> s:336 var
+R31938:31938 ASMinCoq.progLog <> E:337 var
+binder 31894:31895 <> v':340
+R31900:31906 ASMinCoq.progLog <> loopify def
+R31909:31923 iris.program_logic.language <> of_val proj
+R31925:31926 ASMinCoq.progLog <> v':340 var
+R31930:31930 ASMinCoq.progLog <> v:339 var
+binder 31943:31943 <> v:341
+R31946:31947 ASMinCoq.progLog <> Φ:338 var
+R31949:31949 ASMinCoq.progLog <> v:341 var
+R31967:31969 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_';'_x_'{{'_x_'}'_'}' not
+R31985:31987 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_';'_x_'{{'_x_'}'_'}' not
+R31989:31990 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_';'_x_'{{'_x_'}'_'}' not
+R31992:31995 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_';'_x_'{{'_x_'}'_'}' not
+R31998:32000 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_';'_x_'{{'_x_'}'_'}' not
+R31988:31988 ASMinCoq.progLog <> s:336 var
+R31991:31991 ASMinCoq.progLog <> E:337 var
+R31970:31973 ASMinCoq.AsmGen <> Loop constr
+R31975:31984 ASMinCoq.AsmGen <> Executable constr
+R31996:31997 ASMinCoq.progLog <> Φ:338 var
+R32007:32013 iris.program_logic.weakestpre <> wp_bind thm
+R32046:32047 ASMinCoq.progLog <> Φ:338 var
+R32028:32032 ASMinCoq.AsmGen <> Instr constr
+R32034:32043 ASMinCoq.AsmGen <> Executable constr
+R32025:32025 ASMinCoq.progLog <> E:337 var
+R32023:32023 ASMinCoq.progLog <> s:336 var
+R32015:32021 ASMinCoq.progLog <> loopify def
+inst 32071:32089 <> inhabited_asm_state
+R32093:32101 stdpp.base <> Inhabited class
+R32104:32117 iris.program_logic.language <> state proj
+R32119:32126 ASMinCoq.AsmGen <> asm_lang canonstruc
+R32160:32160 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R32181:32182 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R32206:32207 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R32210:32210 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R32161:32177 ASMinCoq.AsmGen <> list_prog_to_prog def
+R32179:32180 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R32183:32183 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R32185:32186 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R32195:32196 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R32205:32205 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R32187:32194 ASMinCoq.AsmGen <> emptyReg def
+R32197:32204 ASMinCoq.AsmGen <> emptyMem def
+R32208:32209 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R32160:32160 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R32181:32182 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R32206:32207 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R32210:32210 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R32161:32177 ASMinCoq.AsmGen <> list_prog_to_prog def
+R32179:32180 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R32183:32183 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R32185:32186 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R32195:32196 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R32205:32205 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R32187:32194 ASMinCoq.AsmGen <> emptyReg def
+R32197:32204 ASMinCoq.AsmGen <> emptyMem def
+R32208:32209 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+prf 32225:32236 <> wp_loop_next
+binder 32238:32239 <> Φ:342
+binder 32241:32241 <> E:343
+R32278:32285 iris.bi.interface <> ::stdpp_scope:x_'-∗'_x not
+R32247:32249 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_'{{'_x_'}'_'}' not
+R32265:32267 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_'{{'_x_'}'_'}' not
+R32269:32272 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_'{{'_x_'}'_'}' not
+R32275:32277 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_'{{'_x_'}'_'}' not
+R32268:32268 ASMinCoq.progLog <> E:343 var
+R32250:32253 ASMinCoq.AsmGen <> Loop constr
+R32255:32264 ASMinCoq.AsmGen <> Executable constr
+R32273:32274 ASMinCoq.progLog <> Φ:342 var
+R32286:32288 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_'{{'_x_'}'_'}' not
+R32299:32301 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_'{{'_x_'}'_'}' not
+R32303:32306 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_'{{'_x_'}'_'}' not
+R32309:32311 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_'{{'_x_'}'_'}' not
+R32302:32302 ASMinCoq.progLog <> E:343 var
+R32289:32292 ASMinCoq.AsmGen <> Loop constr
+R32294:32298 ASMinCoq.AsmGen <> NextI constr
+R32307:32308 ASMinCoq.progLog <> Φ:342 var
+R32355:32379 iris.program_logic.lifting <> wp_lift_pure_step_no_fork thm
+R32355:32379 iris.program_logic.lifting <> wp_lift_pure_step_no_fork thm
+R32400:32425 ASMinCoq.AsmGen <> loop_next_always_reducible thm
+R32400:32425 ASMinCoq.AsmGen <> loop_next_always_reducible thm
+prf 32614:32627 <> wp_loop_halted
+binder 32629:32630 <> Φ:344
+binder 32632:32632 <> E:345
+R32652:32659 iris.bi.interface <> ::stdpp_scope:x_'-∗'_x not
+R32638:32639 ASMinCoq.progLog <> Φ:344 var
+R32641:32651 ASMinCoq.AsmGen <> LoopHaltedV constr
+R32660:32662 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_'{{'_x_'}'_'}' not
+R32674:32676 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_'{{'_x_'}'_'}' not
+R32678:32681 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_'{{'_x_'}'_'}' not
+R32684:32686 iris.bi.weakestpre <> ::bi_scope:'WP'_x_'@'_x_'{{'_x_'}'_'}' not
+R32677:32677 ASMinCoq.progLog <> E:345 var
+R32663:32666 ASMinCoq.AsmGen <> Loop constr
+R32668:32673 ASMinCoq.AsmGen <> Halted constr
+R32682:32683 ASMinCoq.progLog <> Φ:344 var
+R32729:32741 iris.program_logic.weakestpre <> wp_value_fupd thm
+R32751:32761 ASMinCoq.AsmGen <> LoopHaltedV constr
+R32729:32741 iris.program_logic.weakestpre <> wp_value_fupd thm
+R32751:32761 ASMinCoq.AsmGen <> LoopHaltedV constr
+prf 32825:32831 <> wp_test
+R32837:32840 iris.bi.weakestpre <> ::stdpp_scope:'{{{'_x_'}'_'}'_'}'_x_'{{{'_'RET'_x_';'_x_'}'_'}'_'}' not
+R32941:32952 iris.bi.weakestpre <> ::stdpp_scope:'{{{'_x_'}'_'}'_'}'_x_'{{{'_'RET'_x_';'_x_'}'_'}'_'}' not
+R32968:32979 iris.bi.weakestpre <> ::stdpp_scope:'{{{'_x_'}'_'}'_'}'_x_'{{{'_'RET'_x_';'_x_'}'_'}'_'}' not
+R32991:32992 iris.bi.weakestpre <> ::stdpp_scope:'{{{'_x_'}'_'}'_'}'_x_'{{{'_'RET'_x_';'_x_'}'_'}'_'}' not
+R33137:33145 iris.bi.weakestpre <> ::stdpp_scope:'{{{'_x_'}'_'}'_'}'_x_'{{{'_'RET'_x_';'_x_'}'_'}'_'}' not
+R32885:32895 iris.bi.interface <> ::bi_scope:x_'∗'_x not
+R32841:32852 ASMinCoq.progLog <> program_frag def
+R32855:32881 ASMinCoq.progLog <> test_prog_not_constant_time def
+R32905:32909 iris.bi.interface <> ::bi_scope:x_'∗'_x not
+R32896:32902 ASMinCoq.progLog <> pc_frag def
+R32920:32930 iris.bi.interface <> ::bi_scope:x_'∗'_x not
+R32910:32916 ASMinCoq.progLog <> tr_frag def
+R32918:32919 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R32932:32939 ASMinCoq.progLog asm_lang_rules ::bi_scope:x_'↦ᵣ'_x not
+R33037:33047 iris.bi.interface <> ::bi_scope:x_'∗'_x not
+R32993:33004 ASMinCoq.progLog <> program_frag def
+R33007:33033 ASMinCoq.progLog <> test_prog_not_constant_time def
+R33057:33067 iris.bi.interface <> ::bi_scope:x_'∗'_x not
+R33048:33054 ASMinCoq.progLog <> pc_frag def
+R33116:33126 iris.bi.interface <> ::bi_scope:x_'∗'_x not
+R33068:33074 ASMinCoq.progLog <> tr_frag def
+R33077:33077 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R33084:33085 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R33106:33107 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R33114:33114 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R33078:33083 ASMinCoq.AsmGen <> NoLeak constr
+R33086:33100 ASMinCoq.AsmGen <> ControlFlowLeak constr
+R33102:33105 Coq.Init.Datatypes <> true constr
+R33108:33113 ASMinCoq.AsmGen <> NoLeak constr
+R33128:33135 ASMinCoq.progLog asm_lang_rules ::bi_scope:x_'↦ᵣ'_x not
+R32980:32990 ASMinCoq.AsmGen <> LoopHaltedV constr
+R32953:32956 ASMinCoq.AsmGen <> Loop constr
+R32958:32967 ASMinCoq.AsmGen <> Executable constr
+R33212:33234 ASMinCoq.progLog <> wp_bind_loop_executable def
+R33212:33234 ASMinCoq.progLog <> wp_bind_loop_executable def
+R33246:33246 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R33280:33289 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R33311:33311 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R33247:33260 ASMinCoq.progLog <> wp_computation thm
+R33263:33264 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R33266:33269 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R33271:33278 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R33274:33278 stdpp.base <> empty def
+R33246:33246 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R33280:33289 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R33311:33311 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R33247:33260 ASMinCoq.progLog <> wp_computation thm
+R33263:33264 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R33266:33269 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R33271:33278 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R33274:33278 stdpp.base <> empty def
+R33379:33393 iris.bi.big_op <> big_sepM_insert thm
+R33379:33393 iris.bi.big_op <> big_sepM_insert thm
+R33435:33448 iris.bi.big_op <> big_sepM_empty thm
+R33435:33448 iris.bi.big_op <> big_sepM_empty thm
+R33513:33524 ASMinCoq.progLog <> wp_loop_next thm
+R33513:33524 ASMinCoq.progLog <> wp_loop_next thm
+R33536:33558 ASMinCoq.progLog <> wp_bind_loop_executable def
+R33536:33558 ASMinCoq.progLog <> wp_bind_loop_executable def
+R33570:33570 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R33601:33606 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R33636:33636 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R33571:33585 ASMinCoq.progLog <> wp_control_flow thm
+R33588:33589 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R33591:33592 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R33594:33599 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R33597:33599 stdpp.base <> ::stdpp_scope:'∅' not
+R33570:33570 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R33601:33606 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R33636:33636 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R33571:33585 ASMinCoq.progLog <> wp_control_flow thm
+R33588:33589 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R33591:33592 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R33594:33599 stdpp.base <> ::stdpp_scope:'<['_x_':='_x_']>' not
+R33597:33599 stdpp.base <> ::stdpp_scope:'∅' not
+R33753:33764 ASMinCoq.progLog <> wp_loop_next thm
+R33753:33764 ASMinCoq.progLog <> wp_loop_next thm
+R33776:33798 ASMinCoq.progLog <> wp_bind_loop_executable def
+R33776:33798 ASMinCoq.progLog <> wp_bind_loop_executable def
+R33810:33810 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R33818:33823 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R33848:33848 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R33811:33817 ASMinCoq.progLog <> wp_halt thm
+R33810:33810 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R33818:33823 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R33848:33848 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R33811:33817 ASMinCoq.progLog <> wp_halt thm
+R33924:33937 ASMinCoq.progLog <> wp_loop_halted thm
+R33924:33937 ASMinCoq.progLog <> wp_loop_halted thm
+R33962:33980 stdpp.fin_maps <> lookup_total_insert thm
+R33962:33980 stdpp.fin_maps <> lookup_total_insert thm
+R33962:33980 stdpp.fin_maps <> lookup_total_insert thm
+R34004:34004 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R34020:34025 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R34032:34032 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R34005:34019 iris.bi.big_op <> big_sepM_insert thm
+R34004:34004 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R34020:34025 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R34032:34032 iris.proofmode.ltac_tactics <> :::'('_x_'with'_x_')' not
+R34005:34019 iris.bi.big_op <> big_sepM_insert thm
+R34089:34102 ASMinCoq.progLog asm_lang_rules <> sec

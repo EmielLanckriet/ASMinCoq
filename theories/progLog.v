@@ -3,6 +3,7 @@ From iris.base_logic Require Export invariants gen_heap.
 From iris.program_logic Require Export weakestpre ectx_lifting.
 From iris.algebra Require Import frac auth gmap excl.
 From Coq.Lists Require Import List.
+From ASMinCoq Require Import CpdtTactics.
 
 Section wp'.
   Context {Λ : language} `{!irisGS_gen hlc Λ Σ}.
@@ -21,6 +22,7 @@ Section wp'.
     iMod ("H" $! v2 σ2 efs with "[# //] Hcred") as "H".
     iIntros "!> !>". iMod "H" as "(-> & ? & ?) /=". by iFrame.
   Qed.
+
 
 End wp'.
 
@@ -62,7 +64,7 @@ Proof. constructor. typeclasses eauto. Defined.
 Proof. solve_inG. Qed.
 
 Section S.
-  Context `{!trace_preG T Σ}.
+  Context `{!traceG T Σ}.
   Context (γ : gname). (* To allow using different gnames *)
 
   Definition tr_auth (t: T) : iProp Σ := own γ (● (Some (Excl (t: leibnizO T)))).
@@ -109,8 +111,8 @@ End S.
 
 (* Stuff for the PC *)
 Class pcG Σ := PcG {
-    PC_inG :: inG Σ (authR (optionUR (exclR (leibnizO Word))));
-    PC_name : gname
+    pc_inG :: inG Σ (authR (optionUR (exclR (leibnizO Word))));
+    pc_name : gname
 }.
 
 Definition PcPreΣ : gFunctors := #[GFunctor (authR (optionUR (exclR (leibnizO 
@@ -129,7 +131,7 @@ Proof. constructor. typeclasses eauto. Defined.
 Proof. solve_inG. Qed.
 
 Section S.
-  Context `{!PC_preG Σ}.
+  Context `{!pcG Σ}.
   Context (γ : gname). (* To allow using different gnames *)
 
   Definition pc_auth (w : Word) : iProp Σ := own γ (● (Some (Excl (w : leibnizO Word)))).
@@ -176,8 +178,8 @@ End S.
 
 (* Stuff for the prog *)
 Class programG Σ := ProgramG {
-    Program_inG :: inG Σ (authR (optionUR (exclR (leibnizO program))));
-    Program_name : gname
+    program_inG :: inG Σ (authR (optionUR (exclR (leibnizO program))));
+    program_name : gname
 }.
 
 Definition ProgramPreΣ : gFunctors := #[GFunctor (authR (optionUR (exclR (leibnizO program))))].
@@ -195,7 +197,7 @@ Proof. constructor. typeclasses eauto. Defined.
 Proof. solve_inG. Qed.
 
 Section S.
-  Context `{!Program_preG Σ}.
+  Context `{!programG Σ}.
   Context (γ : gname). (* To allow using different gnames *)
 
   Definition program_auth (p : program) : iProp Σ := own γ (● (Some (Excl (p : leibnizO program)))).
@@ -243,7 +245,11 @@ End S.
 (* invariants for memory, and a state interpretation for (mem,reg) *)
 Global Instance memG_irisG `{!invG Σ, !memG Σ, !regG Σ, !traceG (list leak) Σ, !pcG Σ, !programG Σ} : irisGS asm_lang Σ := {
   iris_invGS := inv_invG;
-  state_interp σ _ κs _ := ((gen_heap_interp (reg σ.1.2)) ∗ (gen_heap_interp (mem σ.1.2)) ∗ tr_auth trace_name σ.2 ∗ pc_auth PC_name (PC σ.1.2) ∗ program_auth Program_name σ.1.1)%I;
+  state_interp σ _ κs _ :=
+    ((gen_heap_interp (reg σ.1.2)) ∗ (gen_heap_interp (mem σ.1.2)) ∗
+    tr_auth trace_name σ.2 ∗
+    pc_auth pc_name (PC σ.1.2) ∗
+    program_auth program_name σ.1.1)%I;
   fork_post _ := False%I;
   num_laters_per_step _ := 0;
   state_interp_mono _ _ _ _ := fupd_intro _ _
@@ -283,6 +289,7 @@ Notation "a ↦ₐ w" := (mapsto (L:=Addr) (V:=Word) a (DfracOwn 1) w) (at level
     ([∗ map] k↦y ∈ {[r1 := w1]}, k ↦ᵣ y).
   Proof. rewrite big_sepM_singleton; auto. Qed.
 
+(*
   Lemma regs_of_map_1 (r1: Register) (w1: Word) :
     ([∗ map] k↦y ∈ {[r1 := w1]}, k ↦ᵣ y) -∗
     r1 ↦ᵣ w1.
@@ -354,6 +361,7 @@ Notation "a ↦ₐ w" := (mapsto (L:=Addr) (V:=Word) a (DfracOwn 1) w) (at level
     intros. iIntros "Hmap". rewrite !big_sepM_insert ?big_sepM_empty; simplify_map_eq; eauto.
     iDestruct "Hmap" as "(? & ? & ? & ? & _)"; iFrame.
   Qed.
+*)
 
   (* ------------------------- memory points-to --------------------------------- *)
 
@@ -366,13 +374,13 @@ Notation "a ↦ₐ w" := (mapsto (L:=Addr) (V:=Word) a (DfracOwn 1) w) (at level
     auto.
   Qed.
 
-  Lemma wp_halt pc prog ll E :
+  Lemma wp_halt pc prog ll E Φ :
     prog pc = Halt ->
-    {{{ program_frag Program_name prog ∗ pc_frag PC_name pc ∗ tr_frag trace_name ll }}}
-      (Instr Executable) @ E
-    {{{ RET HaltedV; program_frag Program_name prog ∗ pc_frag PC_name pc ∗ tr_frag trace_name (NoLeak :: ll) }}}.
+    program_frag program_name prog -∗ pc_frag pc_name pc -∗ tr_frag trace_name ll -∗
+    ▷ (program_frag program_name prog ∗ pc_frag pc_name pc ∗ tr_frag trace_name (NoLeak :: ll) -∗ Φ HaltedV) -∗
+    WP (Instr Executable) @ E {{ v, Φ v }}.
   Proof.
-    iIntros (prpcHalt Φ) "(Hprog & Hpc & Hll) HΦ".
+    iIntros (prpcHalt) "Hprog Hpc Hll HΦ".
     iApply wp_lift_atomic_step_no_fork_fupd; auto.
     iIntros (σ ns κ κs nt) "(Hauthreg & Hauthmem & Hauthtrace & Hauthpc & Hauthprog)".
     destruct σ as [s ll'].
@@ -392,8 +400,8 @@ Notation "a ↦ₐ w" := (mapsto (L:=Addr) (V:=Word) a (DfracOwn 1) w) (at level
       iMod "H". iModIntro. iNext. iModIntro.
       iDestruct "H" as "[Hauthll Hfragll]". iFrame.
       iSplitR.
-      + iPureIntro. reflexivity.
-      + iApply "HΦ". iFrame.
+      { iPureIntro; reflexivity. }
+      iApply "HΦ". iFrame.
   Qed.
 
   Fixpoint regs_from_inputs {n : nat} (inputs : vec (Word + Register) n) : gset Register :=
@@ -536,34 +544,34 @@ Proof.
   reflexivity.
 Qed.
 
-Inductive Computation_spec {n : nat} (i: instr) (regs : Reg) (regs' : Reg) : Prop :=
-  | Computation_spec_success vn (inputs : vec (Word + Register) n) f_result (rres : Register) :
+Inductive Computation_spec {n : nat} (inputs : vec (Word + Register) n) (rres : Register) f_result (regs : Reg) (regs' : Reg) : Prop :=
+  | Computation_spec_success vn  :
       inputs_from_inputnatregs regs inputs = vn ->
       (<[ rres := f_result vn ]> regs) = regs' ->
-      i = Computation inputs rres f_result ->
-      Computation_spec i regs regs'.
+      Computation_spec inputs rres f_result regs regs'.
 
-Lemma wp_computation {n : nat} pc prog ll E (inputs : vec (Word + Register) n) rres f_result regs :
+Lemma wp_computation {n : nat} regs regs' pc prog ll
+    (inputs : vec (Word + Register) n) rres f_result Φ E :
   prog pc = Computation inputs rres f_result ->
   regs_of (Computation inputs rres f_result) ⊆ dom regs →
-  {{{ program_frag Program_name prog ∗ pc_frag PC_name pc ∗ tr_frag trace_name ll ∗
-      [∗ map] k↦y ∈ regs, k ↦ᵣ y }}}
-      (Instr Executable) @ E
-  {{{ regs', RET NextIV; program_frag Program_name prog ∗ pc_frag PC_name (pc + 1) ∗ tr_frag trace_name (NoLeak :: ll) ∗
-    ⌜ Computation_spec (n := n) (Computation inputs rres f_result) regs regs' ⌝ ∗
-    [∗ map] k↦y ∈ regs', k ↦ᵣ y
-     }}}.
+  Computation_spec (n := n) inputs rres f_result regs regs' ->
+  program_frag program_name prog -∗ pc_frag pc_name pc -∗
+  tr_frag trace_name ll -∗ ([∗ map] k↦y ∈ regs, k ↦ᵣ y) -∗
+    ▷ ((program_frag program_name prog ∗ pc_frag pc_name (pc + 1) ∗ tr_frag trace_name (NoLeak :: ll) ∗
+    [∗ map] k↦y ∈ regs', k ↦ᵣ y) -∗ Φ NextIV) -∗
+    WP (Instr Executable) @ E {{ v, Φ v }}.
   Proof.
-    iIntros (prpcHalt regs_subset Φ) "(Hprog & Hpc & Hll & HlistOfRegs) HΦ".
+    iIntros (prpcHalt regs_subset Hcomp) "Hprog Hpc Hll HlistOfRegs HΦ".
+    inversion Hcomp; subst; clear Hcomp.
     iApply wp_lift_atomic_step_no_fork_fupd; auto.
     iIntros (σ ns κ κs nt) "(Hreg & Hmem & Hauthtrace & Hauthpc & Hauthprog)".
-    destruct σ as [s ll'].
+    destruct σ as [s ll']. 
     simpl.
     iDestruct (@trace_full_frag_eq with "Hauthtrace Hll") as %?; subst; auto.
     iDestruct (@pc_full_frag_eq with "Hauthpc Hpc") as %?; subst; auto.
     iDestruct (@program_full_frag_eq with "Hauthprog Hprog") as %?; subst; auto.
     iPoseProof (trace_update trace_name _ (NoLeak :: ll) with "[$Hauthtrace $Hll]") as "H1".
-    iPoseProof (pc_update PC_name _ (PC (s.2) + 1) with "[$Hauthpc $Hpc]") as "H2".
+    iPoseProof (pc_update pc_name _ (PC (s.2) + 1) with "[$Hauthpc $Hpc]") as "H2".
     
 
     iDestruct (gen_heap_valid_inclSepM with "Hreg HlistOfRegs") as %Hregs.
@@ -586,12 +594,10 @@ Lemma wp_computation {n : nat} pc prog ll E (inputs : vec (Word + Register) n) r
       { eauto.  }
       iModIntro. iNext. iModIntro.
       iFrame.
-      iSplitR.
-      { iPureIntro. reflexivity. }
-      iApply "HΦ". iFrame.
-      iPureIntro.
-      econstructor; try reflexivity.
-      rewrite (inputs_are_enough regs (reg φ)); auto. apply union_subseteq in regs_subset as [_ ->]. reflexivity.
+      iSplitR; try (iPureIntro; reflexivity).
+      iApply "HΦ"; iFrame.
+      rewrite (inputs_are_enough regs (reg φ)); auto.
+      apply union_subseteq in regs_subset as [_ ->]; reflexivity.
 Qed.
 
 Lemma regs_of_control_flow {n : nat} (inputs : vec (Word + Register) n)
@@ -603,32 +609,30 @@ Proof.
   reflexivity.
 Qed.
 
-Inductive Control_flow_spec {n : nat} (i : instr) (pc pc' : Word) : Prop :=
-  | Control_flow_spec_true_success vn (inputs : vec (Word + Register) n) (regs : Reg) f_condition (dst : Word + Register) :
+Inductive Control_flow_spec {n : nat} (inputs : vec (Word + Register) n) (dst : Word + Register) f_condition (regs : Reg) (pc pc' : Word) : Prop :=
+  | Control_flow_spec_true_success vn :
       inputs_from_inputnatregs regs inputs = vn ->
       f_condition vn = true ->
       wordreg_to_word regs dst = pc' ->
-      i = ControlFlow inputs dst f_condition ->
-      Control_flow_spec i pc pc'
-  | Control_flow_spec_false_success vn (inputs : vec (Word + Register) n) (regs : Reg) f_condition (dst : Word + Register) :
+      Control_flow_spec inputs dst f_condition regs pc pc'
+  | Control_flow_spec_false_success vn :
       inputs_from_inputnatregs regs inputs = vn ->
       f_condition vn = false ->
       pc + 1 = pc' ->
-      i = ControlFlow inputs dst f_condition ->
-      Control_flow_spec i pc pc'.
+      Control_flow_spec inputs dst f_condition regs pc pc'.
 
-Lemma wp_control_flow {n : nat} pc prog ll E (inputs : vec (Word + Register) n) dst f_condition regs :
+Lemma wp_control_flow {n : nat} regs pc pc' prog ll (inputs : vec (Word + Register) n) dst f_condition E Φ :
   prog pc = ControlFlow inputs dst f_condition ->
+  Control_flow_spec inputs dst f_condition regs pc pc' ->
   regs_of (ControlFlow inputs dst f_condition) ⊆ dom regs →
-  {{{ program_frag Program_name prog ∗ pc_frag PC_name pc ∗ tr_frag trace_name ll ∗
-      [∗ map] k↦y ∈ regs, k ↦ᵣ y }}}
-      (Instr Executable) @ E
-  {{{ pc', RET NextIV; program_frag Program_name prog ∗ pc_frag PC_name pc' ∗ tr_frag trace_name (ControlFlowLeak (f_condition (inputs_from_inputnatregs (regs) inputs)) :: ll) ∗
-    ⌜ Control_flow_spec (n := n) (ControlFlow inputs dst f_condition) pc pc' ⌝ ∗
-    [∗ map] k↦y ∈ regs, k ↦ᵣ y
-     }}}.
-  Proof.
-    iIntros (prpcHalt regs_subset Φ) "(Hprog & Hpc & Hll & HlistOfRegs) HΦ".
+  program_frag program_name prog -∗ pc_frag pc_name pc -∗ tr_frag trace_name ll -∗
+  ([∗ map] k↦y ∈ regs, k ↦ᵣ y) -∗
+  ▷(program_frag program_name prog ∗ pc_frag pc_name pc' ∗
+      tr_frag trace_name (ControlFlowLeak (f_condition (inputs_from_inputnatregs regs inputs)) :: ll) ∗
+    ([∗ map] k↦y ∈ regs, k ↦ᵣ y) -∗ Φ NextIV) -∗
+    WP (Instr Executable) @ E {{ v, Φ v }}.
+Proof.
+    iIntros (prpcHalt HcontrolFlow regs_subset) "Hprog Hpc Hll HlistOfRegs HΦ".
     iApply wp_lift_atomic_step_no_fork_fupd; auto.
     iIntros (σ ns κ κs nt) "(Hreg & Hmem & Hauthtrace & Hauthpc & Hauthprog)".
     destruct σ as [s ll'].
@@ -645,10 +649,13 @@ Lemma wp_control_flow {n : nat} pc prog ll E (inputs : vec (Word + Register) n) 
       inversion H; subst.
       simpl in *.
       rewrite prpcHalt in steps. rewrite prpcHalt. simpl in *.
-      destruct (f_condition (inputs_from_inputnatregs (reg φ) inputs)) as [|] eqn:Hcondition.
+      inversion HcontrolFlow; subst; clear HcontrolFlow.
+      all: apply union_subseteq in regs_subset as [dst_subset inputs_subset].
+      all: rewrite (inputs_are_enough _ (reg φ)) in H1; auto.
+      all: destruct (f_condition (inputs_from_inputnatregs (reg φ) inputs)) as [|] eqn:Hcondition; try congruence.
       all: iPoseProof (trace_update trace_name _ (ControlFlowLeak (f_condition (inputs_from_inputnatregs (reg φ) inputs)) :: ll) with "[$Hauthtrace $Hll]") as "H1".
-      1: iPoseProof (pc_update PC_name _ (wordreg_to_word (reg φ) dst) with "[$Hauthpc $Hpc]") as "H2".
-      2: iPoseProof (pc_update PC_name _ (PC φ + 1) with "[$Hauthpc $Hpc]") as "H2".
+      1: iPoseProof (pc_update pc_name _ (wordreg_to_word (reg φ) dst) with "[$Hauthpc $Hpc]") as "H2".
+      2: iPoseProof (pc_update pc_name _ (PC φ + 1) with "[$Hauthpc $Hpc]") as "H2".
       all: iMod "H1"; iMod "H2"; iDestruct "H1" as "[Hauthll Hfragll]"; iDestruct "H2" as "[Hauthpc Hfragpc]";
       rewrite Hcondition; iFrame.
       all: iModIntro; iNext; iModIntro.
@@ -657,24 +664,25 @@ Lemma wp_control_flow {n : nat} pc prog ll E (inputs : vec (Word + Register) n) 
       all: assert ((f_condition (inputs_from_inputnatregs regs inputs) = f_condition (inputs_from_inputnatregs (reg φ) inputs))) as Hreg_regφ;
       try (apply (inputs_are_enough regs (reg φ)); auto; apply union_subseteq in regs_subset as [_ ->]; reflexivity); rewrite Hreg_regφ Hcondition.
       all: iFrame.
-      all: iPureIntro.
-      + eapply Control_flow_spec_true_success; eauto.
-      + eapply Control_flow_spec_false_success; eauto.
+      destruct dst; iFrame.
+      specialize (indom_regs_incl_default _ _ _ dst_subset Hregs r) as Hri.
+      destruct Hri as [w [Hw Hw']]. {set_solver. }
+      simpl.
+      rewrite Hw Hw'. iFrame.
 Qed.
 
-Lemma wp_load {n : nat} pc prog ll E rres rsrc regs v :
+Lemma wp_load {n : nat} pc prog ll regs rres rsrc v E Φ :
   prog pc = Load rres rsrc ->
   regs_of (Load rres rsrc) ⊆ dom regs →
-  {{{ program_frag Program_name prog ∗ pc_frag PC_name pc ∗ tr_frag trace_name ll ∗
-      ([∗ map] k↦y ∈ regs, k ↦ᵣ y) ∗
-      word_to_addr (regs !!! rsrc) ↦ₐ v }}}
-      (Instr Executable) @ E
-  {{{ RET NextIV; program_frag Program_name prog ∗ pc_frag PC_name (pc + 1) ∗
+  program_frag program_name prog -∗ pc_frag pc_name pc -∗ tr_frag trace_name ll -∗
+      ([∗ map] k↦y ∈ regs, k ↦ᵣ y) -∗
+      word_to_addr (regs !!! rsrc) ↦ₐ v -∗
+  ▷(program_frag program_name prog ∗ pc_frag pc_name (pc + 1) ∗
       tr_frag trace_name (LoadLeak (regs !!! rsrc) :: ll) ∗
-      [∗ map] k↦y ∈ <[ rres := v ]>regs, k ↦ᵣ y
-     }}}.
+      ([∗ map] k↦y ∈ <[ rres := v ]>regs, k ↦ᵣ y) -∗ Φ NextIV) -∗
+  WP (Instr Executable) @ E {{ v, Φ v }}.
   Proof.
-    iIntros (prpcHalt regs_subset Φ) "(Hprog & Hpc & Hll & HlistOfRegs & Haddrv) HΦ".
+    iIntros (prpcHalt regs_subset) "Hprog Hpc Hll HlistOfRegs Haddrv HΦ".
     iApply wp_lift_atomic_step_no_fork_fupd; auto.
     iIntros (σ ns κ κs nt) "(Hreg & Hmem & Hauthtrace & Hauthpc & Hauthprog)".
     destruct σ as [s ll'].
@@ -694,7 +702,7 @@ Lemma wp_load {n : nat} pc prog ll E rres rsrc regs v :
     rewrite prpcHalt in steps. rewrite prpcHalt. simpl in *.
 
     iPoseProof (trace_update trace_name _ (LoadLeak (reg φ !!! rsrc) :: ll) with "[$Hauthtrace $Hll]") as "H1".
-    iPoseProof (pc_update PC_name _ (PC φ + 1) with "[$Hauthpc $Hpc]") as "H2".
+    iPoseProof (pc_update pc_name _ (PC φ + 1) with "[$Hauthpc $Hpc]") as "H2".
     iMod "H1"; iMod "H2"; iDestruct "H1" as "[Hauthll Hfragll]"; iDestruct "H2" as "[Hauthpc Hfragpc]".
     
     unfold incr_PC. rewrite -update_pc_no_change_reg. rewrite reg_is_updated_value.
@@ -715,20 +723,20 @@ Lemma wp_load {n : nat} pc prog ll E rres rsrc regs v :
     rewrite Hmem''. iFrame.
 Qed.
 
-Lemma wp_store {n : nat} pc prog ll E rdst src regs v :
+Lemma wp_store pc prog ll regs rdst src v E Φ :
   prog pc = Store rdst src ->
   regs_of (Store rdst src) ⊆ dom regs →
-  {{{ program_frag Program_name prog ∗ pc_frag PC_name pc ∗ tr_frag trace_name ll ∗
-      ([∗ map] k↦y ∈ regs, k ↦ᵣ y) ∗
-      word_to_addr (regs !!! rdst) ↦ₐ v }}}
-      (Instr Executable) @ E
-  {{{ RET NextIV; program_frag Program_name prog ∗ pc_frag PC_name (pc + 1) ∗
+  program_frag program_name prog -∗ pc_frag pc_name pc -∗ tr_frag trace_name ll -∗
+      ([∗ map] k↦y ∈ regs, k ↦ᵣ y) -∗
+      word_to_addr (regs !!! rdst) ↦ₐ v -∗
+  ▷(program_frag program_name prog ∗ pc_frag pc_name (pc + 1) ∗
       tr_frag trace_name (StoreLeak (wordreg_to_word regs src) :: ll) ∗
       ([∗ map] k↦y ∈ regs, k ↦ᵣ y) ∗
-      word_to_addr (regs !!! rdst) ↦ₐ wordreg_to_word regs src
-     }}}.
+      word_to_addr (regs !!! rdst) ↦ₐ wordreg_to_word regs src -∗
+    Φ NextIV) -∗
+     WP (Instr Executable) @ E {{ v, Φ v }}.
   Proof.
-    iIntros (prpcHalt regs_subset Φ) "(Hprog & Hpc & Hll & HlistOfRegs & Haddrv) HΦ".
+    iIntros (prpcHalt regs_subset) "Hprog Hpc Hll HlistOfRegs Haddrv HΦ".
     iApply wp_lift_atomic_step_no_fork_fupd; auto.
     iIntros (σ ns κ κs nt) "(Hreg & Hmem & Hauthtrace & Hauthpc & Hauthprog)".
     destruct σ as [s ll'].
@@ -748,7 +756,7 @@ Lemma wp_store {n : nat} pc prog ll E rdst src regs v :
     rewrite prpcHalt in steps. rewrite prpcHalt. simpl in *.
 
     iPoseProof (trace_update trace_name _ (StoreLeak (wordreg_to_word regs src) :: ll) with "[$Hauthtrace $Hll]") as "H1".
-    iPoseProof (pc_update PC_name _ (PC φ + 1) with "[$Hauthpc $Hpc]") as "H2".
+    iPoseProof (pc_update pc_name _ (PC φ + 1) with "[$Hauthpc $Hpc]") as "H2".
     iMod "H1"; iMod "H2"; iDestruct "H1" as "[Hauthll Hfragll]"; iDestruct "H2" as "[Hauthpc Hfragpc]".
     
     unfold incr_PC. rewrite -update_pc_no_change_reg. rewrite -update_mem_no_change_reg.
@@ -759,7 +767,7 @@ Lemma wp_store {n : nat} pc prog ll E rdst src regs v :
     destruct Hri as [w [Hw Hw']]. { set_solver. }
     rewrite Hw Hw'.
 
-    iModIntro. iNext. iModIntro. iFrame.
+    iModIntro. iNext. iModIntro. clear. iFrame.
     iSplitR.
     { iPureIntro. reflexivity. }
     
@@ -767,9 +775,108 @@ Lemma wp_store {n : nat} pc prog ll E rdst src regs v :
     all: destruct src; simpl; iFrame.
     all: try iApply "HΦ"; iFrame.
     all: specialize (indom_regs_incl_default _ _ _ regs_subset Hregs r) as Hri.
-    all: destruct Hri as [w1 [Hw1 Hw1']]; try set_solver; rewrite Hw1 Hw1'; iFrame.
+    all: destruct Hri as [w1 [Hw1 Hw1']]; try (rewrite Hw1 Hw1'; iFrame); try set_solver.
 Qed.
 
+Definition test_prog_not_constant_time (high_input : nat) :=
+  list_prog_to_prog [Add 0 (inl high_input) (inl high_input); Jnz (inr 0) (inl 3)].
+
+Definition loopify (e : expr) : expr :=
+  match e with
+  | Instr cf => Loop cf
+  | Loop cf => Loop cf
+  end.
+
+#[export] Instance language_ctx_loopify : LanguageCtx loopify.
+Proof.
+  constructor.
+  - intros e e_is_None.
+    destruct e; destruct c; simpl in *; try congruence.
+  - intros e1. intros. destruct e1; simpl; inversion H;
+    try constructor; try assumption.
+  - intros e1'. intros. destruct e1'; destruct c; simpl in *; inversion H0; subst.
+    + exists (Instr Executable). crush.
+    + exists (Instr cf). crush.
+    + exists (Loop Executable). crush.
+    + exists (Loop cf). crush.
+Qed.
+
+Definition wp_bind_loop_executable
+    (s : stuckness) (E : coPset)
+      (Φ : language.val asm_lang → iProp Σ) :
+      WP Instr Executable @ s; E {{ v, WP ((fun v' => loopify (language.of_val v')) v) @ s; E {{ v, Φ v }} }}
+      ⊢ WP Loop Executable @ s; E {{ Φ }} :=
+  wp_bind loopify s E (Instr Executable) Φ.
+
+
+#[export] Instance inhabited_asm_state : Inhabited (language.state asm_lang).
+Proof.
+  constructor.
+  exact (list_prog_to_prog [], (0, emptyReg, emptyMem), []).
+Qed.
+
+Lemma wp_loop_next Φ E :
+  WP Loop Executable @ E {{ Φ }} -∗
+  WP Loop NextI @ E {{ Φ }}.
+  Proof.
+    iIntros "HExec".
+    iApply wp_lift_pure_step_no_fork; auto.
+    { apply loop_next_always_reducible. }
+    { intros κ σ1 e2 σ2 efs steps. inversion steps. auto. }
+    
+    iModIntro. iNext. iModIntro.
+    
+    iIntros (κ e2 efs σ) "%steps _".
+    inversion steps; auto.
+Qed.
+
+Lemma wp_loop_halted Φ E :
+  Φ LoopHaltedV -∗
+  WP Loop Halted @ E {{ Φ }}.
+  Proof.
+    iIntros "HΦ".
+    iApply (wp_value_fupd _ _ _ _ LoopHaltedV).
+    { reflexivity. }
+    iModIntro.
+    done.
+Qed.
+
+
+
+Lemma wp_test :
+  {{{ program_frag program_name (test_prog_not_constant_time 2) ∗
+      pc_frag pc_name 0 ∗ tr_frag trace_name [] ∗
+      0 ↦ᵣ 0 }}}
+      (Loop Executable)
+  {{{ RET LoopHaltedV; program_frag program_name (test_prog_not_constant_time 2)
+      ∗ pc_frag pc_name 3 ∗
+      tr_frag trace_name ([NoLeak; ControlFlowLeak true; NoLeak]) ∗
+      0 ↦ᵣ 4
+     }}}.
+Proof.
+  iIntros (Φ) "(Hprog & Hpc & Hll & Hr0) HΦ".
+  iApply wp_bind_loop_executable.
+  iApply (wp_computation (<[0 := 0]> empty)
+    with "Hprog Hpc Hll [Hr0]"); try reflexivity.
+  { econstructor; try reflexivity. }
+  { iApply big_sepM_insert. { constructor. }
+    iFrame. by iApply big_sepM_empty. }
+  iNext. iIntros "(Hprog & Hpc & Hll & H)". simpl.
+  iApply wp_loop_next.
+  iApply wp_bind_loop_executable.
+  iApply (wp_control_flow (<[0:=4]> ∅) with "[$Hprog] [$Hpc] [$Hll] [$H]"); try reflexivity.
+  { econstructor; reflexivity. }
+
+  iNext. iIntros "(Hprog & Hpc & Hll & Hmap)".
+  simpl. iApply wp_loop_next.
+  iApply wp_bind_loop_executable.
+  iApply (wp_halt with "[$Hprog] [$Hpc] [$Hll]"); try reflexivity.
+  iNext. iIntros "(Hprog & Hpc & Hll)". simpl.
+  iApply wp_loop_halted. iApply "HΦ". rewrite lookup_total_insert. iFrame.
+  iPoseProof (big_sepM_insert with "Hmap") as "[H1 H2]".
+  { constructor. }
+  iFrame.
+Qed.
 
 
 

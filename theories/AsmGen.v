@@ -172,6 +172,8 @@ Inductive leak : Type :=
 | LoadLeak (a : Addr)
 | StoreLeak (a : Addr).
 
+Hint Constructors leak : core.
+
 (** Different constructor for instructions that only mention the general categories in which instructions are introduced in Waterman's thesis *)
 Inductive instr : Type :=
 (** Computational and control flow instructions can get their inputs from registers are words (called immediates) *)
@@ -182,6 +184,8 @@ Inductive instr : Type :=
 | Load (rdst rsrc: Register)
 | Store (rdst : Register) (src : Word + Register)
 | Halt.
+
+Hint Constructors instr : core.
 
 Definition inputs_from_inputnatregs {n : nat} (rs : Reg) (inputs : vec (Word + Register) n) :=
     vmap (wordreg_to_word (rs : Reg)) inputs.
@@ -243,6 +247,8 @@ Definition list_prog_to_prog (li : list instr) : program :=
 Inductive step_prog : ConfFlag -> state * list leak -> ConfFlag -> state * list leak -> Prop :=
     | step_PC_i (prog : program) (φ : ExecConf) (ll : list leak) :
         step_prog Executable (prog, φ, ll) (confflag_instr (prog (PC φ)) φ) (prog, exec_instr (prog (PC φ)) φ, leak_instr (prog (PC φ)) φ :: ll).
+
+Hint Constructors step_prog : core.
 
 Lemma estep_PC_i (prog : program) (φ φ' : ExecConf) (ll ll' : list leak) (c' : ConfFlag) (i : instr) (PC_i : prog (PC φ) = i) (result : state * list leak) :
     c' = confflag_instr i φ ->
@@ -468,16 +474,22 @@ Qed.
 
 Inductive val : Type :=
   | HaltedV : val
-  | NextIV : val.
+  | NextIV : val
+  | LoopHaltedV : val.
+
+Hint Constructors val : core.
 
 Inductive expr : Type :=
   | Instr (c : ConfFlag)
   | Loop (c : ConfFlag).
 
+Hint Constructors expr : core.
+
 Definition of_val (v : val) : expr :=
     match v with
     | HaltedV => Instr Halted
     | NextIV => Instr NextI
+    | LoopHaltedV => Loop Halted
     end.
 
 Definition to_val (e : expr): option val :=
@@ -487,7 +499,10 @@ Definition to_val (e : expr): option val :=
                     | NextI => Some NextIV
                     | Executable => None
                     end
-      | Loop _ => None
+      | Loop cf => match cf with
+                   | Halted => Some LoopHaltedV
+                   | _ => None
+                   end
     end.
 
 Lemma of_to_val:
@@ -504,9 +519,11 @@ Proof. destruct v; reflexivity. Qed.
 Inductive prim_step : expr → state * list leak → list Empty_set → expr → state * list leak → list expr → Prop :=
 | PS_no_fork_instr σ cf σ' :
         step_prog Executable σ cf σ' -> prim_step (Instr Executable) σ [] (Instr cf) σ' []
-| PS_no_fork_loop σ : prim_step (Loop NextI) σ [] (Loop Executable) σ []
-| PS_no_fork_halt σ : prim_step (Loop Halted) σ [] (Instr Halted) σ [].
+| PS_no_fork_loop_ex σ cf σ' :
+        step_prog Executable σ cf σ' -> prim_step (Loop Executable) σ [] (Loop cf) σ' []
+| PS_no_fork_loop σ : prim_step (Loop NextI) σ [] (Loop  Executable) σ [].
 
+Hint Constructors prim_step : core.
 
 Lemma val_stuck:
     forall e σ o e' σ' efs,
@@ -546,3 +563,65 @@ Proof.
   generalize (normal_always_step σ); intros (?&?&?).
   eapply reducible_from_step_prog. eauto.
 Qed.
+
+Lemma loop_next_always_reducible σ :
+  reducible (Loop NextI) σ.
+Proof. rewrite /reducible //=.
+       eexists [], _, σ, []. by constructor.
+Qed.
+
+
+
+
+(* Binary language for binary program logic *)
+
+Definition val2 : Type := (val * val)%type.
+
+Definition expr2 : Type := (expr * expr)%type.
+
+Definition of_val2 (v : val2) : expr2 :=
+    match v with
+        (v1, v2) => (of_val v1, of_val v2)
+    end.
+
+Definition to_val2 (e : expr2): option val2 :=
+    match e with
+        (e1, e2) => e1' ← to_val e1; e2' ← to_val e2; Some (e1', e2')
+    end.
+
+Lemma of_to_val2:
+    forall e v, to_val2 e = Some v →
+           of_val2 v = e.
+Proof.
+    intros * HH. destruct e; destruct e; destruct e0; try destruct c; try destruct c0; simpl in HH; inversion HH; auto.
+Qed.
+
+Lemma to_of_val2:
+    forall v, to_val2 (of_val2 v) = Some v.
+Proof. destruct v; destruct v; destruct v0; reflexivity. Qed.
+
+Inductive prim_step2 : expr2 → (state * list leak) * (state * list leak)
+    → list Empty_set → expr2 → (state * list leak) * (state * list leak)
+    → list expr2 → Prop :=
+| PS_lockstep e1 e2 σ1 σ2 e1' e2' σ1' σ2' : prim_step e1 σ1 [] e1' σ1' [] ->
+        prim_step e2 σ2 [] e2' σ2' [] ->
+        prim_step2 (e1, e2) (σ1, σ2) [] (e1', e2') (σ1', σ2') [].
+
+
+Hint Constructors prim_step2 : core.
+
+Lemma val_stuck2:
+    forall e σ o e' σ' efs,
+      prim_step2 e σ o e' σ' efs →
+      to_val2 e = None.
+Proof. intros * HH. inversion HH; subst; inversion H; subst; try reflexivity. 
+        all: destruct e1; destruct c; reflexivity.
+Qed.
+
+Lemma asm_lang_mixin2 : LanguageMixin of_val2 to_val2 prim_step2.
+Proof.
+    constructor;
+    apply _ || eauto using to_of_val2, of_to_val2, val_stuck2.
+Qed.
+
+Canonical Structure asm_lang2 := Language asm_lang_mixin2.
