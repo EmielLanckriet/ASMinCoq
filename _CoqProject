@@ -2,3 +2,5 @@
 theories/AsmGen.v
 theories/progLog.v
 theories/CpdtTactics.v
+theories/dwp.v
+theories/lifting.v
