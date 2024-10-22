@@ -10,50 +10,6 @@ Implicit Types σ : state Λ.
 Implicit Types P Q : iProp Σ.
 Implicit Types Φ : val Λ → val Λ → iProp Σ.
 
-Lemma dwp_lift_step_no_fork `{Inhabited (state Λ)} E1 E1' Φ e1 e2 :
-  (∀ σ1, reducible e1 σ1) →
-  (∀κ σ1 e1' σ1' efs1, prim_step e1 σ1 κ e1' σ1' efs1 → κ = [] ∧ efs1 = []) →
-  (∀ σ2, reducible e2 σ2) →
-  (∀ κ σ2 e2' σ2' efs2, prim_step e2 σ2 κ e2' σ2' efs2 → κ = [] ∧ efs2 = []) →
-  (|={E1}[E1']▷=> ∀ κ1 κ2 e1' σ1 σ1' efs1 e2' σ2 σ2' efs2,
-    ⌜prim_step e1 σ1 κ1 e1' σ1' efs1⌝ →
-    ⌜prim_step e2 σ2 κ2 e2' σ2' efs2⌝ →
-    dwp E1 e1' e2' Φ)
-  ⊢ dwp E1 e1 e2 Φ.
-Proof.
-    iIntros (Hsafe1 Hdet1 Hsafe2 Hdet2) "H".
-  rewrite (dwp_unfold _ e1 e2) /dwp_pre.
-  assert (language.to_val e1 = None) as ->.
-  { destruct (Hsafe1 inhabitant) as (?&?&?&?&?).
-    eapply val_stuck; eauto. }
-  assert (language.to_val e2 = None) as ->.
-  { destruct (Hsafe2 inhabitant) as (?&?&?&?&?).
-    eapply val_stuck; eauto. }
-  iIntros (σ1 σ2 κ1 κs1 κ2 κs2) "Hrel".
-  iMod "H" as "H".
-  iMod fupd_mask_subseteq as "Hclose"; last iModIntro; first by set_solver.
-  iSplit; first iPureIntro.
-  { destruct (Hsafe1 σ1) as (xxx&?&?&?&Hst).
-    assert (xxx = []) as ->. { by eapply Hdet1. }
-    do 3 eexists. eauto. }
-  iSplit; first iPureIntro.
-  { destruct (Hsafe2 σ2) as (xxx&?&?&?&Hst).
-    assert (xxx = []) as ->. { by eapply Hdet2. }
-    do 3 eexists. eauto. }
-  iIntros (e1' σ1' efs1 e2' σ2' efs2 Hstep1 Hstep2).
-  iModIntro. iNext. iMod "Hclose" as "_".
-  iMod "H" as "H".
-  specialize (Hdet1 _ _ _ _ _ Hstep1) as [_ ->].
-  specialize (Hdet2 _ _ _ _ _ Hstep2) as [_ ->].
-  simpl.
-  iSpecialize ("H" $! [] [] with "[//] [//]").
-  (* TODO: We need something like dwp_rel *)
-  iSpecialize ("H" $! [] [] _ _ [] _ _ [] Hstep1 Hstep2).
-  iModIntro. iFrame.
-Admitted.
-
-
-
 Lemma dwp_lift_pure_step `{Inhabited (state Λ)} E1 E1' Φ e1 e2 :
   (∀ σ1, reducible e1 σ1) →
   (∀ κ σ1 e1' σ1' efs1, prim_step e1 σ1 κ e1' σ1' efs1 → κ = [] ∧ σ1' = σ1) →
