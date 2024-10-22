@@ -4,11 +4,13 @@ From stdpp Require Import gmap fin_maps relations vector.
 From ASMinCoq Require Import CpdtTactics.
 From iris.program_logic Require Import language ectx_language ectxi_language.
 
-Definition Register := nat.
+Inductive Register :=
+  | register (n : nat) : Register.
 
 Global Instance reg_eq_dec : EqDecision Register.
 Proof. intros r1 r2.
-       destruct (Nat.eq_dec r1 r2).
+       destruct r1 as [n1]; destruct r2 as [n2].
+       destruct (Nat.eq_dec n1 n2).
        + subst. left. reflexivity.
        + right. congruence.
 Defined.
@@ -16,10 +18,10 @@ Defined.
 Global Instance reg_countable : Countable Register.
 Proof.
     refine {| encode r := encode (match r with
-                               | n => n
+                               | register n => n
                                end );
             decode n := match (decode n) with
-                        | Some n => Some n
+                        | Some n => Some (register n)
                         | _ => None
                         end ;
             decode_encode := _ |}.
@@ -28,34 +30,41 @@ Proof.
     reflexivity.
 Defined.
 
-Definition Word := nat.
+Inductive Word :=
+  | word (n : nat) : Word.
 
-Definition Addr := nat.
+#[export] Instance inhabited_word : Inhabited Word.
+Proof.
+  constructor.
+  exact (word 0).
+Qed.
 
-Definition word_to_addr (w : Word) : Addr := w.
+Definition word_to_nat (w : Word) : nat :=
+  match w with word n => n end.
+
+Inductive Addr :=
+  | addr (n : nat) : Addr.
+
+Definition word_to_addr (w : Word) : Addr :=
+  match w with
+    | word n => addr n
+  end.
+
+Global Instance word_eq_dec : EqDecision Word.
+Proof. intros w1 w2.
+       destruct w1 as [n1]; destruct w2 as [n2].
+       destruct (Nat.eq_dec n1 n2).
+       + subst. left. reflexivity.
+       + right. congruence.
+Defined.
 
 Global Instance word_countable : Countable Word.
 Proof.
     refine {| encode r := encode (match r with
-                               | n => n
+                               | word n => n
                                end );
             decode n := match (decode n) with
-                        | Some n => Some n
-                        | _ => None
-                        end ;
-            decode_encode := _ |}.
-    intro r. destruct r; auto.
-    rewrite decode_encode.
-    reflexivity.
-Defined.
-
-Global Instance addr_countable : Countable Addr.
-Proof.
-    refine {| encode r := encode (match r with
-                               | n => n
-                               end );
-            decode n := match (decode n) with
-                        | Some n => Some n
+                        | Some n => Some (word n)
                         | _ => None
                         end ;
             decode_encode := _ |}.
@@ -65,15 +74,43 @@ Proof.
 Defined.
 
 Global Instance addr_eq_dec : EqDecision Addr.
-Proof. intros r1 r2.
-       destruct (Nat.eq_dec r1 r2).
+Proof. intros a1 a2.
+       destruct a1 as [n1]; destruct a2 as [n2].
+       destruct (Nat.eq_dec n1 n2).
        + subst. left. reflexivity.
        + right. congruence.
 Defined.
 
+Global Instance addr_countable : Countable Addr.
+Proof.
+    refine {| encode r := encode (match r with
+                               | addr n => n
+                               end );
+            decode n := match (decode n) with
+                        | Some n => Some (addr n)
+                        | _ => None
+                        end ;
+            decode_encode := _ |}.
+    intro r. destruct r; auto.
+    rewrite decode_encode.
+    reflexivity.
+Defined.
+
+
 (** Memory and registers are gmaps which are partials maps, but because we don't want failure when something has not been initialized, we always use (!!!) which gives 0 as a default value. *)
 Definition Reg := gmap Register Word.
+
+#[export] Instance lookup_total_register : LookupTotal Register Word Reg.
+Proof.
+  eapply map_lookup_total.  
+Defined.
+
 Definition Mem := gmap Addr Word.
+
+#[export] Instance lookup_total_memory : LookupTotal Addr Word Mem.
+Proof.
+  eapply map_lookup_total.  
+Defined.
 
 Definition ExecConf := (Word * Reg * Mem)%type.
 
@@ -99,15 +136,18 @@ Definition update_mem (φ : ExecConf) (a : Addr) (w : Word): ExecConf :=
 Definition update_PC (φ : ExecConf) (w : Word) : ExecConf :=
     (w, reg φ, mem φ).
 
+Definition incr_word (w : Word) : Word :=
+  match w with word n => word (n + 1) end.
+
 Definition incr_PC (φ : ExecConf) : ExecConf :=
-    update_PC φ (PC φ + 1).
+    update_PC φ (incr_word (PC φ)).
 
 (* Some easy lemmas to easily let these things commute and stuff *)
 
 Lemma PC_is_updated_value (φ : ExecConf) (pc : Word) : PC (update_PC φ pc) = pc.
 Proof. reflexivity. Qed.
 
-Lemma PC_is_incr (φ : ExecConf) : PC (incr_PC φ) = (PC φ) + 1.
+Lemma PC_is_incr (φ : ExecConf) : PC (incr_PC φ) = incr_word (PC φ).
 Proof. reflexivity. Qed.
 
 Lemma reg_is_updated_value (φ : ExecConf) (r : Register) (w : Word) :
@@ -143,27 +183,31 @@ Lemma update_mem_no_change_reg (φ : ExecConf) (a : Addr) (w : Word) :
 Proof. reflexivity. Qed.
 
 Definition nonZero (w: Word): bool :=
-    negb (Nat.eqb w 0).
+  match w with
+    | word n => negb (Nat.eqb n 0)
+  end.
     
 Definition zero  (w: Word): bool :=
-    Nat.eqb w 0.
+  match w with
+  | word n => Nat.eqb n 0
+  end.
 
-Definition word_from_argument (φ: ExecConf) (src : nat + Register) : option Word :=
+Definition word_from_argument (φ : ExecConf) (src : Word + Register) : Word :=
     match src with
-    | inl n => Some n
-    | inr r => (reg φ) !! r
+    | inl w => w
+    | inr r => (reg φ) !!! r
     end.
 
 Definition wordreg_to_word (rs : Reg) (input : Word + Register) : Word :=
     match input with
-    | inl word => word
+    | inl w => w
     | inr reg => rs !!! reg
     end.
     
 Definition addrreg_to_addr (rs : Reg) (input : Addr + Register) : Addr :=
     match input with
-    | inl addr => addr
-    | inr reg => rs !!! reg
+    | inl a => a
+    | inr reg => (word_to_addr (rs !!! reg))
     end.
 
 Inductive leak : Type :=
@@ -208,14 +252,16 @@ Definition exec_instr (i : instr) (φ : ExecConf) : ExecConf :=
         | true => update_PC φ (wordreg_to_word (reg φ) dst)
         | false => incr_PC φ
         end
-    | Load rres rsrc =>
+    | Load rres rsrc => 
         let wsrc := (reg φ) !!! rsrc in
-        let asrc := (mem φ) !!! wsrc in
-        incr_PC (update_reg φ rres asrc)
+        let asrc := word_to_addr wsrc in
+        let res := (mem φ) !!! asrc in
+        incr_PC (update_reg φ rres res)
     | Store rdst src =>
         let wsrc := wordreg_to_word (reg φ) src in
         let wdst := (reg φ) !!! rdst in
-        incr_PC (update_mem φ wdst wsrc)
+        let adst := word_to_addr wdst in
+        incr_PC (update_mem φ adst wsrc)
     end.
 
 Definition leak_instr (i : instr) (φ : ExecConf) : leak :=
@@ -225,9 +271,11 @@ Definition leak_instr (i : instr) (φ : ExecConf) : leak :=
     | ControlFlow inputs dst f_condition =>
         ControlFlowLeak (f_condition (inputs_from_inputnatregs (reg φ) inputs))
     | Load rres rsrc =>
-        let wsrc := (reg φ) !!! rsrc in LoadLeak wsrc
+        let wsrc := (reg φ) !!! rsrc in
+        let asrc := word_to_addr wsrc in
+        LoadLeak asrc
     | Store rdst src =>
-        let asrc := wordreg_to_word (reg φ) src in StoreLeak asrc
+        let asrc := (word_to_addr (wordreg_to_word (reg φ) src)) in StoreLeak asrc
     end.
 
 
@@ -238,9 +286,9 @@ Definition emptyMem : Mem := empty.
 Definition program : Type := Word -> instr.
 
 Definition state : Type := program * ExecConf.
-
+Print nth_default.
 Definition list_prog_to_prog (li : list instr) : program :=
-    fun (w : Word) => nth_default Halt li w.
+    fun (w : Word) => nth_default Halt li (word_to_nat w).
 
 
 
@@ -312,13 +360,13 @@ Definition binaryOn2Vec {B : Type} (f_bin : Word -> Word -> B) (v : vec Word 2) 
       end
     end.
     
-Definition add_vec_2 := binaryOn2Vec (fun x y => x + y).
+Definition add_vec_2 := binaryOn2Vec (fun x y => word (word_to_nat x + word_to_nat y)).
     
 
 Definition Add (dst: Register) (r1 r2: Word + Register) : instr :=
     Computation [# r1; r2] dst add_vec_2.
 
-Lemma testExec_Prog : step_prog Executable (list_prog_to_prog [Add 0 (inl 1) (inr 0)], (0, <[0:=0]>(emptyReg), emptyMem), []) NextI (list_prog_to_prog [Add 0 (inl 1) (inr 0)], (1, <[0:=1]>(emptyReg), emptyMem), [NoLeak]).
+Lemma testExec_Prog : step_prog Executable (list_prog_to_prog [Add (register 0) (inl (word 1)) (inr (register 0))], (word 0, <[register 0:=word 0]>(emptyReg), emptyMem), []) NextI (list_prog_to_prog [Add (register 0) (inl (word 1)) (inr (register 0))], (word 1, <[register 0:= word 1]>(emptyReg), emptyMem), [NoLeak]).
 Proof.
     eapply estep_PC_i; try reflexivity.
 Qed.
@@ -375,19 +423,19 @@ Proof.
 Qed.
 *)
 
-Definition notzero_vec_1 := unaryOn1Vec (fun x => negb (Nat.eqb x 0)).
+Definition notzero_vec_1 := unaryOn1Vec (fun w => nonZero w).
     
 Definition Jnz (cond dst : Word + Register) : instr :=
     ControlFlow [# cond] dst notzero_vec_1.
 
 Lemma test_constant_time_cond_true :
     step_prog Executable
-    (list_prog_to_prog [Jnz (inr 0) (inl 2); Load 0 0],
-    (0, <[0:=1]>(emptyReg), emptyMem),
+    (list_prog_to_prog [Jnz (inr (register 0)) (inl (word 2)); Load (register 0) (register 0)],
+    (word 0, <[register 0:= word 1]>(emptyReg), emptyMem),
     [])
     NextI
-    (list_prog_to_prog [Jnz (inr 0) (inl 2); Load 0 0],
-    (2, <[0:=1]>(emptyReg), emptyMem),
+    (list_prog_to_prog [Jnz (inr (register 0)) (inl (word 2)); Load (register 0) (register 0)],
+    (word 2, <[register 0:= word 1]>(emptyReg), emptyMem),
     [ControlFlowLeak true]).
 Proof.
     eapply estep_PC_i; try reflexivity.
@@ -395,12 +443,12 @@ Qed.
     
 Lemma test_constant_time_cond_false :
     step_prog Executable
-    (list_prog_to_prog [Jnz (inr 0) (inl 2); Load 0 0],
-    (0, <[0:=0]>(emptyReg), emptyMem),
+    (list_prog_to_prog [Jnz (inr (register 0)) (inl (word 2)); Load (register 0) (register 0)],
+    (word 0, <[register 0:= word 0]>(emptyReg), emptyMem),
     [])
     NextI
-    (list_prog_to_prog [Jnz (inr 0) (inl 2); Load 0 0],
-    (1, <[0:=0]>(emptyReg), emptyMem),
+    (list_prog_to_prog [Jnz (inr (register 0)) (inl (word 2)); Load (register 0) (register 0)],
+    (word 1, <[register 0:= word 0]>(emptyReg), emptyMem),
     [ControlFlowLeak false]).
 Proof.
     eapply estep_PC_i; try reflexivity.
