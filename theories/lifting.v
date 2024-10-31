@@ -52,6 +52,32 @@ Proof.
   iModIntro. iFrame.
 Qed.
 
+
+Lemma dwp_lift_pure_step_no_fork `{Inhabited (state Λ)} E1 E1' Φ e1 e2 :
+  (∀ σ1, reducible e1 σ1) →
+  (∀ κ σ1 e1' σ1' efs1, prim_step e1 σ1 κ e1' σ1' efs1 → κ = [] ∧ σ1' = σ1 ∧ efs1 = []) →
+  (∀ σ2, reducible e2 σ2) →
+  (∀ κ σ2 e2' σ2' efs2, prim_step e2 σ2 κ e2' σ2' efs2 → κ = [] ∧ σ2' = σ2 ∧ efs2 = []) →
+  (|={E1}[E1']▷=> ∀ κ1 κ2 e1' σ1 efs1 e2' σ2 efs2,
+    ⌜prim_step e1 σ1 κ1 e1' σ1 efs1⌝ →
+    ⌜prim_step e2 σ2 κ2 e2' σ2 efs2⌝ →
+    dwp E1 e1' e2' Φ)
+  ⊢ dwp E1 e1 e2 Φ.
+Proof.
+  iIntros (redσ1 H1 redσ2 H2) "Hrest". iApply dwp_lift_pure_step; eauto.
+  - intros κ σ1 e1' σ1' efs1 H1'. specialize (H1 κ σ1 e1' σ1' efs1 H1') as (Hκ & Hσ1 & _). auto.
+  - intros κ σ2 e2' σ2' efs2 H2'. specialize (H2 κ σ2 e2' σ2' efs2 H2') as (Hκ & Hσ21 & _). auto.
+  - iApply (fupd_mono with "Hrest"). iIntros "Hrest". iModIntro.
+    iApply (fupd_mono with "Hrest").
+    iIntros "Hdwp" (κ1 κ2 e1' σ1 efs1 e2' σ2 efs2 Hstep1 Hstep2).
+    specialize (H1 κ1 σ1 e1' σ1 efs1 Hstep1) as (Hκ1 & Hσ1 & Hefs1).
+    specialize (H2 κ2 σ2 e2' σ2 efs2 Hstep2) as (Hκ2 & Hσ2 & Hefs2).
+    
+    iSpecialize ("Hdwp" $! κ1 κ2 e1' σ1 efs1 e2' σ2 efs2 Hstep1 Hstep2).
+    subst. iFrame "Hdwp".
+    done.
+Qed.
+
 Lemma dwp_lift_pure_det_step `{!Inhabited (state Λ)} {E1 E1' Φ}
       e1 e1' e2 e2' efs1 efs2 :
   (∀ σ1, reducible e1 σ1) →

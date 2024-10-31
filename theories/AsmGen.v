@@ -1,4 +1,5 @@
-From Coq Require Import Eqdep_dec. (* Needed to prove decidable equality on Register *)
+From Coq Require Import Eqdep_dec.
+(* Needed to prove decidable equality on Register *)
 From Coq Require Import ssreflect.
 From stdpp Require Import gmap fin_maps relations vector.
 From ASMinCoq Require Import CpdtTactics.
@@ -212,7 +213,9 @@ Definition addrreg_to_addr (rs : Reg) (input : Addr + Register) : Addr :=
 
 Inductive leak : Type :=
 | NoLeak
-| ControlFlowLeak (b : bool)
+| HaltLeak
+| ComputationLeak {n : nat} (f_result : vec Word n -> Word)
+| ControlFlowLeak (next_pc : Word)
 | LoadLeak (a : Addr)
 | StoreLeak (a : Addr).
 
@@ -262,14 +265,16 @@ Definition exec_instr (i : instr) (φ : ExecConf) : ExecConf :=
         let wdst := (reg φ) !!! rdst in
         let adst := word_to_addr wdst in
         incr_PC (update_mem φ adst wsrc)
-    end.
+    end. 
 
 Definition leak_instr (i : instr) (φ : ExecConf) : leak :=
     match i with
-    | Halt => NoLeak
-    | Computation inputs rres f_result => NoLeak
+    | Halt => HaltLeak
+    | Computation inputs rres f_result => ComputationLeak f_result
     | ControlFlow inputs dst f_condition =>
-        ControlFlowLeak (f_condition (inputs_from_inputnatregs (reg φ) inputs))
+        ControlFlowLeak (if f_condition (inputs_from_inputnatregs (reg φ) inputs)
+                         then wordreg_to_word (reg φ) dst
+                         else PC (incr_PC φ))
     | Load rres rsrc =>
         let wsrc := (reg φ) !!! rsrc in
         let asrc := word_to_addr wsrc in
@@ -277,7 +282,6 @@ Definition leak_instr (i : instr) (φ : ExecConf) : leak :=
     | Store rdst src =>
         let asrc := (word_to_addr (wordreg_to_word (reg φ) src)) in StoreLeak asrc
     end.
-
 
 Definition emptyReg : Reg := empty.
 Definition emptyMem : Mem := empty.
@@ -295,6 +299,7 @@ Definition list_prog_to_prog (li : list instr) : program :=
 Inductive step_prog : ConfFlag -> state * list leak -> ConfFlag -> state * list leak -> Prop :=
     | step_PC_i (prog : program) (φ : ExecConf) (ll : list leak) :
         step_prog Executable (prog, φ, ll) (confflag_instr (prog (PC φ)) φ) (prog, exec_instr (prog (PC φ)) φ, leak_instr (prog (PC φ)) φ :: ll).
+
 
 Hint Constructors step_prog : core.
 
@@ -366,62 +371,13 @@ Definition add_vec_2 := binaryOn2Vec (fun x y => word (word_to_nat x + word_to_n
 Definition Add (dst: Register) (r1 r2: Word + Register) : instr :=
     Computation [# r1; r2] dst add_vec_2.
 
-Lemma testExec_Prog : step_prog Executable (list_prog_to_prog [Add (register 0) (inl (word 1)) (inr (register 0))], (word 0, <[register 0:=word 0]>(emptyReg), emptyMem), []) NextI (list_prog_to_prog [Add (register 0) (inl (word 1)) (inr (register 0))], (word 1, <[register 0:= word 1]>(emptyReg), emptyMem), [NoLeak]).
+Definition AddLeak := ComputationLeak add_vec_2.
+
+Lemma testExec_Prog : step_prog Executable (list_prog_to_prog [Add (register 0) (inl (word 1)) (inr (register 0))], (word 0, <[register 0:=word 0]>(emptyReg), emptyMem), []) NextI (list_prog_to_prog [Add (register 0) (inl (word 1)) (inr (register 0))], (word 1, <[register 0:= word 1]>(emptyReg), emptyMem), [AddLeak]).
 Proof.
     eapply estep_PC_i; try reflexivity.
 Qed.
 
-(*
-Fixpoint exec_prog_ll (prog : program) (φ : ExecConf) (ll : list leak) (time : nat) : Conf * list leak :=
-    match time with
-        | 0 => (NextI, φ, ll)
-        | S time' => match (exec_step_prog prog φ) with
-                    | (NextI, φ', l) => exec_prog_ll prog φ' (l :: ll) time'
-                    | (x, l) => (x, l :: ll)
-                    end
-    end.
-
-Definition exec_prog (prog : program) (φ : ExecConf) (time : nat) : Conf * list leak :=
-    exec_prog_ll prog φ [] time.
-
-
-Lemma soundness_exec_step (prog : program) (φ : ExecConf) (ll : list leak) :
-    step_prog prog (NextI, φ, []) (exec_prog prog φ 1).
-Proof.
-    eapply estep_PC_i; try reflexivity.
-    unfold exec_prog. unfold exec_prog_ll. simpl.
-    destruct (prog (PC φ)) as [] eqn:HPC; try reflexivity.
-    simpl.
-    destruct (f_condition (inputs_from_inputnatregs (reg φ) inputs)); reflexivity.
-Qed.
-
-Lemma soundness_exec_ll (prog : program) (φ : ExecConf) (ll : list leak) :
-    forall time c, c = exec_prog_ll prog φ ll time ->
-    steps_prog prog (NextI, φ, ll) c.
-Proof.
-    intro time.
-    revert φ ll.    
-    induction time; intros φ.
-    - simpl. intros. subst. constructor.
-    - simpl. destruct (exec_step_prog prog φ) as [] eqn:Hexec. intros.
-      destruct c. destruct c.
-      + subst.
-        econstructor.
-        * constructor.
-        * unfold exec_step_prog in *. unfold exec_prog. simpl. injection Hexec as H0 H1. rewrite H0. rewrite H1. constructor.
-      + subst.
-        econstructor.
-        * constructor.
-        * unfold exec_step_prog in Hexec. unfold exec_prog. simpl. injection Hexec as H0 H1. rewrite H0. rewrite H1. apply IHtime. reflexivity.
-Qed.
-
-Lemma soundness_exec (prog : program) (φ : ExecConf) :
-    forall time c, c = exec_prog prog φ time ->
-    steps_prog prog (NextI, φ, []) c.
-Proof.
-    unfold exec_prog. apply soundness_exec_ll.
-Qed.
-*)
 
 Definition notzero_vec_1 := unaryOn1Vec (fun w => nonZero w).
     
@@ -436,7 +392,7 @@ Lemma test_constant_time_cond_true :
     NextI
     (list_prog_to_prog [Jnz (inr (register 0)) (inl (word 2)); Load (register 0) (register 0)],
     (word 2, <[register 0:= word 1]>(emptyReg), emptyMem),
-    [ControlFlowLeak true]).
+    [ControlFlowLeak (word 2)]).
 Proof.
     eapply estep_PC_i; try reflexivity.
 Qed.
@@ -449,76 +405,11 @@ Lemma test_constant_time_cond_false :
     NextI
     (list_prog_to_prog [Jnz (inr (register 0)) (inl (word 2)); Load (register 0) (register 0)],
     (word 1, <[register 0:= word 0]>(emptyReg), emptyMem),
-    [ControlFlowLeak false]).
+    [ControlFlowLeak (word 1)]).
 Proof.
     eapply estep_PC_i; try reflexivity.
 Qed.
 
-(*
-Definition halts_with (prog : program) (φ : ExecConf) (ll : list leak) :=
-    steps_prog prog (NextI, (0, emptyReg, emptyMem), []) (Halted, φ, ll).
-
-
-Definition non_interferent (prog : nat -> program) :=
-    forall (n m : nat), ∃ φ1 φ2 ll, halts_with (prog n) φ1 ll ∧ halts_with (prog m) φ2 ll.
-
-Definition test_prog_constant_time (high_input : nat) :=
-    list_prog_to_prog [Add 0 (inl high_input) (inl high_input)].
-
-Hint Resolve estep_PC_i : core.
-Hint Constructors rtc : core.
-
-Lemma test_prog_constant_time_non_interferent : non_interferent test_prog_constant_time.
-Proof.
-    intros n m.
-    eexists. eexists. eexists.
-    split.
-    - econstructor.
-        + eapply estep_PC_i; try reflexivity.
-        + econstructor; try apply rtc_refl. simpl. eapply estep_PC_i; try reflexivity.
-    - econstructor.
-        + eapply estep_PC_i; try reflexivity.
-        + econstructor; try apply rtc_refl. simpl. eapply estep_PC_i; try reflexivity.
-Qed.
-
-Definition test_prog_not_constant_time (high_input : nat) :=
-    list_prog_to_prog [Add 0 (inl high_input) (inl high_input); Jnz (inr 0) (inl 2)].
-
-Lemma test_prog_not_constant_time_not_non_interferent : ¬ non_interferent test_prog_not_constant_time.
-Proof.
-    intro contra.
-    specialize (contra 0 1) as (φ1 & φ2 & ll & [Hinput0 Hinput1]).
-    (** Hypothesis with input 0 is inverted until we reach halt and hence can find the leakage trace *)
-    inversion Hinput0; subst; clear Hinput0.
-    inversion H; subst; clear H.
-    inversion H0; subst; clear H0.
-    inversion H; subst; clear H. simpl in H1.
-    assert (reg (incr_PC (update_reg (0, emptyReg, emptyMem) 0 (add_vec_2 [#0; 0]))) !!! 0 = 0) as Hrew. { reflexivity. }
-    rewrite Hrew in H1. clear Hrew.
-    assert (notzero_vec_1 [#0] = false) as Hrew. { reflexivity. }
-    rewrite Hrew in H1. clear Hrew.
-    inversion H1; subst; clear H1.
-    inversion H; subst; clear H.
-    simpl in H0.
-    inversion H0; subst; clear H0.
-    2: inversion H.
-    (** Now, we invert hypothesis with input 1 until we find that the wrong leakage trace is assumed. *)
-    inversion Hinput1; subst; clear Hinput1.
-    inversion H; subst; clear H.
-    inversion H0; subst; clear H0.
-    inversion H; subst; clear H. simpl in H1.
-    assert (reg (incr_PC (update_reg (0, emptyReg, emptyMem) 0 (add_vec_2 [#1; 1]))) !!! 0 = 2) as Hrew. { reflexivity. }
-    rewrite Hrew in H1. clear Hrew.
-    assert (notzero_vec_1 [#2] = true) as Hrew. { reflexivity. }
-    rewrite Hrew in H1. clear Hrew.
-    inversion H1; subst; clear H1.
-    inversion H; subst; clear H.
-    simpl in H0.
-    unfold add_vec_2 in H0. unfold binaryOn2Vec in H0. simpl in H0.
-    inversion H0; subst; clear H0.
-    inversion H; subst; clear H.
-Qed.
-*)
 
 Inductive val : Type :=
   | HaltedV : val
@@ -585,13 +476,49 @@ Proof.
     apply _ || eauto using to_of_val, of_to_val, val_stuck.
 Qed.
 
-Canonical Structure asm_lang := Language asm_lang_mixin. 
+Module asm_lang.
+Canonical Structure asm_lang := Language asm_lang_mixin.
+
+
+Global Instance into_val_val {v : val} : @IntoVal asm_lang (of_val v) v.
+Proof.
+  destruct v; done.
+Qed.
+
+Class NotVal (e : expr) :=
+  not_val : to_val e = None.
+
+#[global] Hint Extern 1 (NotVal _) => fast_done : typeclass_instances.
+
+Class NoFork (e1 : expr) :=
+  nofork : (∀ σ1 κ σ1' e1' efs, prim_step e1 σ1 κ e1' σ1' efs → efs = []).
+
+Class NoObs (e1 : expr) :=
+  noobs : (∀ σ1 κ σ1' e1' efs, prim_step e1 σ1 κ e1' σ1' efs → κ = []).
+
+#[export] Instance instrExAtomic : @Atomic asm_lang StronglyAtomic (Instr Executable).
+Proof.
+  unfold Atomic. intros.
+  inversion H; subst.
+  inversion H0; subst.
+  destruct (prog (PC φ)); done.
+Qed.
+
+#[export] Instance no_fork_instr_ex : NoFork (Instr Executable).
+Proof.
+  unfold NoFork.
+  intros.
+  inversion H.
+  reflexivity.
+Qed.
+
 
 Lemma normal_always_step:
     forall sll, exists cf sll', step_prog Executable sll cf sll'.
   Proof.
     destruct sll as [[prog φ] ll].
-    intros. destruct (prog (PC φ)) as [] eqn:H.
+    intros.
+    destruct (prog (PC φ)) as [] eqn:H.
     (* Resolve the Halt case *)
     all: try solve [exists Halted; eexists; eapply estep_PC_i; auto; rewrite H; auto].
     all: try (exists NextI; eexists; eapply estep_PC_i; auto; rewrite H; reflexivity).
@@ -605,6 +532,13 @@ Proof. intros * HH. rewrite /reducible //=.
        eexists [], (Instr _), σ2, []. by constructor.
 Qed.
 
+Lemma reducible_no_obs_from_step_prog σ1 f2 σ2 :
+  step_prog Executable σ1 f2 σ2 →
+  reducible_no_obs (Instr Executable) σ1.
+Proof. intros * HH. rewrite /reducible_no_obs //=.
+       eexists (Instr _), σ2, []. by constructor.
+Qed.
+
 Lemma normal_always_reducible σ :
   reducible (Instr Executable) σ.
 Proof.
@@ -612,64 +546,238 @@ Proof.
   eapply reducible_from_step_prog. eauto.
 Qed.
 
+Lemma normal_always_reducible_no_obs σ :
+  reducible_no_obs (Instr Executable) σ.
+Proof.
+  generalize (normal_always_step σ); intros (?&?&?).
+  eapply reducible_no_obs_from_step_prog. eauto.
+Qed.
+
 Lemma loop_next_always_reducible σ :
   reducible (Loop NextI) σ.
 Proof. rewrite /reducible //=.
        eexists [], _, σ, []. by constructor.
 Qed.
+End asm_lang.
 
 
+Definition is_control_flow (i : instr) : bool :=
+  match i with
+  | ControlFlow _ _ _ => true
+  | _ => false
+  end.
+
+Inductive exec_step_AMI : expr * (state * list leak) -> expr * (state * list leak) -> Prop :=
+| step_control_flow_jmp_true {n : nat}
+    (prog : program) (φ φ' : ExecConf) (ll ll' : list leak)
+    (inputs : vec (Word + Register) n) dst f_condition cf
+    (i_is_control_flow : (prog (PC φ)) = ControlFlow inputs dst f_condition)
+    (jmp_true : f_condition (inputs_from_inputnatregs (reg φ) inputs) = true)
+    (jmp_is_reached : PC φ' = (wordreg_to_word (reg φ) dst))
+    (post_domination : (rtc exec_step_AMI) (Loop Executable, (prog, incr_PC φ, [])) (Loop cf, (prog, φ', ll'))) :
+        exec_step_AMI (Instr Executable, (prog, φ, ll)) (Instr NextI, (prog, update_PC φ (wordreg_to_word (reg φ) dst), ll' ++ ll))
+
+| step_control_flow_jmp_false {n : nat}
+    (prog : program) (φ φ' : ExecConf) (ll ll' : list leak)
+    (inputs : vec (Word + Register) n) dst f_condition
+      (i_is_control_flow : (prog (PC φ)) = ControlFlow inputs dst f_condition)
+      (jmp_true : f_condition (inputs_from_inputnatregs (reg φ) inputs) = false) :
+  exec_step_AMI (Instr Executable, (prog, φ, ll)) (Instr NextI, (prog, incr_PC φ, ControlFlowLeak (PC (incr_PC φ)) :: ll))
+
+| step_not_control_flow (prog : program) (φ : ExecConf) (ll : list leak) :
+  is_control_flow (prog (PC φ)) = false ->
+  exec_step_AMI
+    (Instr Executable, (prog, φ, ll))
+    (Instr (confflag_instr (prog (PC φ)) φ), (prog, exec_instr (prog (PC φ)) φ, leak_instr (prog (PC φ)) φ :: ll))
+| step_loop σ cf σ' :
+   exec_step_AMI (Instr Executable, σ) (Instr cf, σ') ->
+   exec_step_AMI (Loop Executable, σ) (Loop cf, σ')
+| step_loop_next σ : exec_step_AMI (Loop NextI, σ) (Loop Executable, σ).
 
 
-(* Binary language for binary program logic *)
-
-Definition val2 : Type := (val * val)%type.
-
-Definition expr2 : Type := (expr * expr)%type.
-
-Definition of_val2 (v : val2) : expr2 :=
-    match v with
-        (v1, v2) => (of_val v1, of_val v2)
-    end.
-
-Definition to_val2 (e : expr2): option val2 :=
-    match e with
-        (e1, e2) => e1' ← to_val e1; e2' ← to_val e2; Some (e1', e2')
-    end.
-
-Lemma of_to_val2:
-    forall e v, to_val2 e = Some v →
-           of_val2 v = e.
+Lemma estep_not_control_flow (prog : program) (φ : ExecConf) (ll : list leak) stuff1 stuff2 :
+  stuff1 = (Instr Executable, (prog, φ, ll)) ->
+  stuff2 = (Instr (confflag_instr (prog (PC φ)) φ), (prog, exec_instr (prog (PC φ)) φ, leak_instr (prog (PC φ)) φ :: ll)) ->
+  is_control_flow (prog (PC φ)) = false ->
+  exec_step_AMI stuff1 stuff2.
 Proof.
-    intros * HH. destruct e; destruct e; destruct e0; try destruct c; try destruct c0; simpl in HH; inversion HH; auto.
+  intros. subst. econstructor. assumption.
 Qed.
 
-Lemma to_of_val2:
-    forall v, to_val2 (of_val2 v) = Some v.
-Proof. destruct v; destruct v; destruct v0; reflexivity. Qed.
+Inductive prim_step_AMI : expr → state * list leak → list Empty_set → expr → state * list leak → list expr → Prop :=
+| prim_step_AMI_only e σ e' σ' :
+   exec_step_AMI (e, σ) (e', σ') -> prim_step_AMI e σ [] e' σ' [].
 
-Inductive prim_step2 : expr2 → (state * list leak) * (state * list leak)
-    → list Empty_set → expr2 → (state * list leak) * (state * list leak)
-    → list expr2 → Prop :=
-| PS_lockstep e1 e2 σ1 σ2 e1' e2' σ1' σ2' : prim_step e1 σ1 [] e1' σ1' [] ->
-        prim_step e2 σ2 [] e2' σ2' [] ->
-        prim_step2 (e1, e2) (σ1, σ2) [] (e1', e2') (σ1', σ2') [].
-
-
-Hint Constructors prim_step2 : core.
-
-Lemma val_stuck2:
-    forall e σ o e' σ' efs,
-      prim_step2 e σ o e' σ' efs →
-      to_val2 e = None.
-Proof. intros * HH. inversion HH; subst; inversion H; subst; try reflexivity. 
-        all: destruct e1; destruct c; reflexivity.
-Qed.
-
-Lemma asm_lang_mixin2 : LanguageMixin of_val2 to_val2 prim_step2.
+Lemma asm_lang_mixin_AMI : LanguageMixin of_val to_val prim_step_AMI.
 Proof.
-    constructor;
-    apply _ || eauto using to_of_val2, of_to_val2, val_stuck2.
+  constructor;
+     eauto using to_of_val, of_to_val, val_stuck.
+  intros e σ κ e' σ' efs Hstep.
+  inversion Hstep; subst.
+  inversion H; reflexivity.
 Qed.
 
-Canonical Structure asm_lang2 := Language asm_lang_mixin2.
+Module asm_lang_AMI.
+
+Canonical Structure asm_lang_AMI := Language asm_lang_mixin_AMI.
+
+Global Instance into_val_val_AMI {v : val} : @IntoVal asm_lang_AMI (of_val v) v.
+Proof.
+  destruct v; done.
+Qed.
+
+Class NoForkAMI (e1 : expr) :=
+  noforkAMI : (∀ σ1 κ σ1' e1' efs, prim_step_AMI e1 σ1 κ e1' σ1' efs → efs = []).
+
+Class NoObsAMI (e1 : expr) :=
+  noobsAMI : (∀ σ1 κ σ1' e1' efs, prim_step_AMI e1 σ1 κ e1' σ1' efs → κ = []).
+
+#[export] Instance instrExAtomicAMI : @Atomic asm_lang_AMI StronglyAtomic (Instr Executable).
+Proof.
+  unfold Atomic. intros;
+  inversion H;
+  inversion H0; subst;
+  destruct (prog (PC φ)); done.
+Qed.
+
+#[export] Instance no_fork_instr_ex_AMI : NoForkAMI (Instr Executable).
+Proof.
+  unfold NoForkAMI.
+  intros.
+  inversion H.
+  reflexivity.
+Qed.
+
+Lemma not_control_flow_always_step prog ϕ :
+    is_control_flow (prog (PC ϕ)) = false -> 
+    forall ll, exists e s' ll', prim_step_AMI (Instr Executable) (prog, ϕ, ll) [] e (prog, s', ll') [].
+  Proof.
+    intros.
+    destruct (prog (PC ϕ)) as [] eqn:Hi.
+    (* Resolve the Halt case *)
+    all: eexists; eexists; eexists; constructor; eapply estep_not_control_flow; try reflexivity; rewrite Hi; try reflexivity; try rewrite Hi; assumption.
+  Qed.
+
+
+Lemma reducible_from_prim_step_AMI σ1 e2 σ2 :
+  prim_step_AMI (Instr Executable) σ1 [] e2 σ2 [] →
+  reducible (Instr Executable) σ1.
+Proof. intros * HH. rewrite /reducible //=.
+       eexists [], _, σ2, []. exact HH.
+Qed.
+
+Lemma reducible_no_obs_from_prim_step_AMI σ1 e2 σ2 :
+  prim_step_AMI (Instr Executable) σ1 [] e2 σ2 [] →
+  reducible_no_obs (Instr Executable) σ1.
+Proof. intros * HH. rewrite /reducible_no_obs //=.
+       eexists _, σ2, []. exact HH.
+Qed.
+
+Lemma not_control_flow_always_reducible σ :
+  is_control_flow (σ.1.1 (PC σ.1.2)) = false ->
+  reducible (Instr Executable) σ.
+Proof.
+  intros.
+  specialize (not_control_flow_always_step _ _ H σ.2) as (e & s & ll' & H').
+  eapply reducible_from_prim_step_AMI.
+  assert ((σ.1.1, σ.1.2, σ.2) = σ) as Hσ.
+  { destruct σ. simpl. destruct p. reflexivity. }
+  rewrite Hσ in H'.
+  exact H'.
+Qed.
+
+Lemma not_control_flow_always_reducible_no_obs σ :
+  is_control_flow (σ.1.1 (PC σ.1.2)) = false ->
+  reducible_no_obs (Instr Executable) σ.
+Proof.
+  intros.
+  specialize (not_control_flow_always_step _ _ H σ.2) as (e & s & ll' & H').
+  eapply reducible_no_obs_from_prim_step_AMI.
+  assert ((σ.1.1, σ.1.2, σ.2) = σ) as Hσ.
+  { destruct σ. simpl. destruct p. reflexivity. }
+  rewrite Hσ in H'.
+  exact H'.
+Qed.
+
+Lemma control_flow_false_always_step {n : nat} prog ϕ (inputs : vec (Word + Register) n) dst f_condition :
+    prog (PC ϕ) = ControlFlow inputs dst f_condition ->
+    f_condition (inputs_from_inputnatregs (reg ϕ) inputs) = false ->
+    forall ll, exists e s' ll', prim_step_AMI (Instr Executable) (prog, ϕ, ll) [] e (prog, s', ll') [].
+  Proof.
+    intros.
+    destruct (prog (PC ϕ)) as [] eqn:Hi.
+    all: try congruence.
+    (* Resolve the ControlFlow case *)
+    do 3 eexists.
+    constructor.
+    rewrite H in Hi.
+    eapply step_control_flow_jmp_false; eauto.
+  Qed.
+
+Lemma control_flow_false_always_reducible {n : nat} σ
+  (inputs : vec (Word + Register) n) dst f_condition :
+    σ.1.1 (PC σ.1.2) = ControlFlow inputs dst f_condition ->
+    f_condition (inputs_from_inputnatregs (reg σ.1.2) inputs) = false ->
+  reducible (Instr Executable) σ.
+Proof.
+  intros.
+  specialize (control_flow_false_always_step _ _ inputs _ f_condition H H0 σ.2) as (e & s & ll' & H').
+  eapply reducible_from_prim_step_AMI.
+  assert ((σ.1.1, σ.1.2, σ.2) = σ) as Hσ.
+  { destruct σ. simpl. destruct p. reflexivity. }
+  rewrite Hσ in H'.
+  exact H'.
+Qed.
+
+Lemma econtrol_flow_false_always_reducible {n : nat} σ
+  (inputs : vec (Word + Register) n) dst f_condition ϕ prog :
+  ϕ = σ.1.2 ->
+  prog = σ.1.1 ->
+  prog (PC ϕ) = ControlFlow inputs dst f_condition ->
+  f_condition (inputs_from_inputnatregs (reg ϕ) inputs) = false ->
+  reducible (Instr Executable) σ.
+Proof.
+  intros.
+  eapply control_flow_false_always_reducible.
+  - rewrite -H. rewrite -H0. eassumption.
+  - rewrite -H. eassumption.
+Qed.
+
+Lemma control_flow_false_always_reducible_no_obs {n : nat} σ
+  (inputs : vec (Word + Register) n) dst f_condition :
+  σ.1.1 (PC σ.1.2) = ControlFlow inputs dst f_condition ->
+  f_condition (inputs_from_inputnatregs (reg σ.1.2) inputs) = false ->
+  reducible_no_obs (Instr Executable) σ.
+Proof.
+  intros.
+  specialize (control_flow_false_always_step _ _ inputs _ f_condition H H0 σ.2) as (e & s & ll' & H').
+  eapply reducible_no_obs_from_prim_step_AMI.
+  assert ((σ.1.1, σ.1.2, σ.2) = σ) as Hσ.
+  { destruct σ. simpl. destruct p. reflexivity. }
+  rewrite Hσ in H'.
+  exact H'.
+Qed.
+
+Lemma econtrol_flow_false_always_reducible_no_obs {n : nat} σ
+  (inputs : vec (Word + Register) n) dst f_condition ϕ prog :
+  ϕ = σ.1.2 ->
+  prog = σ.1.1 ->
+  prog (PC ϕ) = ControlFlow inputs dst f_condition ->
+  f_condition (inputs_from_inputnatregs (reg ϕ) inputs) = false ->
+  reducible_no_obs (Instr Executable) σ.
+Proof.
+  intros.
+  eapply control_flow_false_always_reducible_no_obs.
+  - rewrite -H. rewrite -H0. eassumption.
+  - rewrite -H. eassumption.
+Qed.
+
+Lemma loop_next_always_reducible σ :
+  reducible (Loop NextI) σ.
+Proof. rewrite /reducible //=.
+       eexists [], _, σ, [].
+       constructor.
+       constructor.
+Qed.
+
+End asm_lang_AMI.

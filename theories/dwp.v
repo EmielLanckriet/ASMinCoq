@@ -132,7 +132,7 @@ Qed.
 
 Lemma dwp_bind K1 K2 `{!LanguageCtx K1, !LanguageCtx K2} E1 e1 e2 Φ :
   dwp E1 e1 e2 (λ v1 v2,
-      dwp E1 (K1 (of_val v1)) (K2 (of_val v2)) Φ) -∗
+      dwp E1 (K1 (of_val v1)) (K2 (of_val v2)) Φ) ⊢
   dwp E1 (K1 e1) (K2 e2) Φ.
 Proof.
   iIntros "H". iLöb as "IH" forall (E1 e1 e2 Φ).
