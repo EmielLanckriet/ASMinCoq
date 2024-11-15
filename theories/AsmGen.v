@@ -226,10 +226,11 @@ Inductive instr : Type :=
 (** Computational and control flow instructions can get their inputs from registers are words (called immediates) *)
 | Computation {n : nat} (inputs : vec (Word + Register) n)
     (rres : Register) (f_result : vec Word n -> Word)
-| ControlFlow {n : nat} (inputs : vec (Word + Register) n)
+| ControlFlow {n : nat} (secret : bool) (inputs : vec (Word + Register) n)
     (dst : Word + Register) (f_condition : vec Word n -> bool)
 | Load (rdst rsrc: Register)
 | Store (rdst : Register) (src : Word + Register)
+| MimicLeak (i : instr)
 | Halt.
 
 Hint Constructors instr : core.
@@ -250,7 +251,7 @@ Definition exec_instr (i : instr) (φ : ExecConf) : ExecConf :=
         incr_PC (
                 update_reg φ rres (
                     f_result (inputs_from_inputnatregs (reg φ) inputs)))
-    | ControlFlow inputs dst f_condition =>
+    | ControlFlow secret inputs dst f_condition =>
         match (f_condition (inputs_from_inputnatregs (reg φ) inputs)) with
         | true => update_PC φ (wordreg_to_word (reg φ) dst)
         | false => incr_PC φ
@@ -265,22 +266,27 @@ Definition exec_instr (i : instr) (φ : ExecConf) : ExecConf :=
         let wdst := (reg φ) !!! rdst in
         let adst := word_to_addr wdst in
         incr_PC (update_mem φ adst wsrc)
+    | MimicLeak i => φ
     end. 
 
-Definition leak_instr (i : instr) (φ : ExecConf) : leak :=
+Fixpoint leak_instr (i : instr) (φ : ExecConf) : leak :=
     match i with
     | Halt => HaltLeak
     | Computation inputs rres f_result => ComputationLeak f_result
-    | ControlFlow inputs dst f_condition =>
-        ControlFlowLeak (if f_condition (inputs_from_inputnatregs (reg φ) inputs)
+    | ControlFlow secret inputs dst f_condition =>
+        match secret with
+        | false => ControlFlowLeak (if f_condition (inputs_from_inputnatregs (reg φ) inputs)
                          then wordreg_to_word (reg φ) dst
                          else PC (incr_PC φ))
+        | true => ControlFlowLeak (PC (incr_PC φ))
+        end
     | Load rres rsrc =>
         let wsrc := (reg φ) !!! rsrc in
         let asrc := word_to_addr wsrc in
         LoadLeak asrc
     | Store rdst src =>
         let asrc := (word_to_addr (wordreg_to_word (reg φ) src)) in StoreLeak asrc
+    | MimicLeak i => leak_instr i φ
     end.
 
 Definition emptyReg : Reg := empty.
@@ -382,7 +388,7 @@ Qed.
 Definition notzero_vec_1 := unaryOn1Vec (fun w => nonZero w).
     
 Definition Jnz (cond dst : Word + Register) : instr :=
-    ControlFlow [# cond] dst notzero_vec_1.
+    ControlFlow false [# cond] dst notzero_vec_1.
 
 Lemma test_constant_time_cond_true :
     step_prog Executable
