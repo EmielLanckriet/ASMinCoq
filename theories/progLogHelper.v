@@ -127,152 +127,8 @@ Section S.
   Qed.
 End S.
 
-Class asmGS Σ := AsmGS {
-                              asmGS_invGS : invGS Σ;
-                              asm_memGS :: gen_heapGS Addr Word Σ;
-                              asm_regGS :: gen_heapGS Register Word Σ;
-                              asm_llGS :: traceG (list leak) Σ;
-                              asm_pcGS :: traceG Word Σ;
-                              asm_progGS :: traceG program Σ;
-                            }.
-
-
-Class allDG Σ := AllDG {
-                      DG_invG :: invGS Σ;
-                      DG_memG :: gen_heapGS Addr Word Σ;
-                      DG_regG :: gen_heapGS Register Word Σ;
-                      DG_llG :: traceG (list leak) Σ;
-                      DG_pcG :: traceG Word Σ;
-                      DG_progG :: traceG program Σ;
-                    }.
-
-Definition prog_frag `{!asmGS Σ} := @tr_frag program Σ asm_progGS.
-Definition pc_frag `{!asmGS Σ} := @tr_frag Word Σ asm_pcGS.
-Definition ll_frag `{!asmGS Σ} := @tr_frag (list leak) Σ asm_llGS.
-
-Definition prog_auth `{!asmGS Σ} := @tr_auth program Σ asm_progGS.
-Definition pc_auth `{!asmGS Σ} := @tr_auth Word Σ asm_pcGS.
-Definition ll_auth `{!asmGS Σ} := @tr_auth (list leak) Σ asm_llGS.
-
-
-Section prog_log_helper.
-  Context `{!asmGS Σ}.
-  (* Points to predicates for registers *)
-  Print pointsto.
-  Notation "r ↦ᵣ{ q } w" := (pointsto (hG := asm_regGS) (L:=Register) (V:=Word) r q w)
-                              (at level 20, q at level 50, format "r  ↦ᵣ{ q }  w") : bi_scope.
-  Notation "r ↦ᵣ w" := (pointsto (hG := asm_regGS) (L:=Register) (V:=Word) r (DfracOwn 1) w) (at level 20) : bi_scope.
-
-  (* Points to predicates for memory *)
-  Notation "a ↦ₐ{ q } w" := (pointsto (hG := asm_memGS) (L:=Addr) (V:=Word) a q w)
-                              (at level 20, q at level 50, format "a  ↦ₐ{ q }  w") : bi_scope.
-  Notation "a ↦ₐ w" := (pointsto (hG := asm_memGS) (L:=Addr) (V:=Word) a (DfracOwn 1) w) (at level 20) : bi_scope.
 
 (* ------------------------- registers points-to --------------------------------- *)
-
-  Lemma register_dupl_false r w1 w2 :
-    r ↦ᵣ w1 -∗ r ↦ᵣ w2 -∗ False.
-  Proof.
-    iIntros "Hr1 Hr2".
-    iDestruct (pointsto_valid_2 with "Hr1 Hr2") as %H.
-    destruct H as [H1 H2]. eapply dfrac_full_exclusive in H1. auto.
-  Qed.
-
-  Lemma register_neq r1 r2 w1 w2 :
-    r1 ↦ᵣ w1 -∗ r2 ↦ᵣ w2 -∗ ⌜ r1 ≠ r2 ⌝.
-  Proof.
-    iIntros "H1 H2" (?). subst r1. iApply (register_dupl_false with "H1 H2").
-  Qed.
-
-  Lemma map_of_regs_1 (r1: Register) (w1: Word) :
-    r1 ↦ᵣ w1 -∗
-    ([∗ map] k↦y ∈ {[r1 := w1]}, k ↦ᵣ y).
-  Proof. rewrite big_sepM_singleton; auto. Qed.
-
-(*
-  Lemma regs_of_map_1 (r1: Register) (w1: Word) :
-    ([∗ map] k↦y ∈ {[r1 := w1]}, k ↦ᵣ y) -∗
-    r1 ↦ᵣ w1.
-  Proof. rewrite big_sepM_singleton; auto. Qed.
-
-  Lemma map_of_regs_2 (r1 r2: Register) (w1 w2: Word) :
-    r1 ↦ᵣ w1 -∗ r2 ↦ᵣ w2 -∗
-    ([∗ map] k↦y ∈ (<[r1:=w1]> (<[r2:=w2]> ∅)), k ↦ᵣ y) ∗ ⌜ r1 ≠ r2 ⌝.
-  Proof.
-    iIntros "H1 H2". iPoseProof (register_neq with "H1 H2") as "%".
-    rewrite !big_sepM_insert ?big_sepM_empty; eauto.
-    2: by apply lookup_insert_None; split; eauto.
-    iFrame. eauto.
-  Qed.
-
-  Lemma regs_of_map_2 (r1 r2: Register) (w1 w2: Word) :
-    r1 ≠ r2 →
-    ([∗ map] k↦y ∈ (<[r1:=w1]> (<[r2:=w2]> ∅)), k ↦ᵣ y) -∗
-    r1 ↦ᵣ w1 ∗ r2 ↦ᵣ w2.
-  Proof.
-    iIntros (?) "Hmap". rewrite !big_sepM_insert ?big_sepM_empty; eauto.
-    by iDestruct "Hmap" as "(? & ? & _)"; iFrame.
-    apply lookup_insert_None; split; eauto.
-  Qed.
-
-  Lemma map_of_regs_3 (r1 r2 r3: Register) (w1 w2 w3: Word) :
-    r1 ↦ᵣ w1 -∗ r2 ↦ᵣ w2 -∗ r3 ↦ᵣ w3 -∗
-    ([∗ map] k↦y ∈ (<[r1:=w1]> (<[r2:=w2]> (<[r3:=w3]> ∅))), k ↦ᵣ y) ∗
-     ⌜ r1 ≠ r2 ∧ r1 ≠ r3 ∧ r2 ≠ r3 ⌝.
-  Proof.
-    iIntros "H1 H2 H3".
-    iPoseProof (register_neq with "H1 H2") as "%".
-    iPoseProof (register_neq with "H1 H3") as "%".
-    iPoseProof (register_neq with "H2 H3") as "%".
-    rewrite !big_sepM_insert ?big_sepM_empty; simplify_map_eq; eauto.
-    iFrame. eauto.
-  Qed.
-
-  Lemma regs_of_map_3 (r1 r2 r3: Register) (w1 w2 w3: Word) :
-    r1 ≠ r2 → r1 ≠ r3 → r2 ≠ r3 →
-    ([∗ map] k↦y ∈ (<[r1:=w1]> (<[r2:=w2]> (<[r3:=w3]> ∅))), k ↦ᵣ y) -∗
-    r1 ↦ᵣ w1 ∗ r2 ↦ᵣ w2 ∗ r3 ↦ᵣ w3.
-  Proof.
-    iIntros (? ? ?) "Hmap". rewrite !big_sepM_insert ?big_sepM_empty; simplify_map_eq; eauto.
-    iDestruct "Hmap" as "(? & ? & ? & _)"; iFrame.
-  Qed.
-
-  Lemma map_of_regs_4 (r1 r2 r3 r4: Register) (w1 w2 w3 w4: Word) :
-    r1 ↦ᵣ w1 -∗ r2 ↦ᵣ w2 -∗ r3 ↦ᵣ w3 -∗ r4 ↦ᵣ w4 -∗
-    ([∗ map] k↦y ∈ (<[r1:=w1]> (<[r2:=w2]> (<[r3:=w3]> (<[r4:=w4]> ∅)))), k ↦ᵣ y) ∗
-     ⌜ r1 ≠ r2 ∧ r1 ≠ r3 ∧ r1 ≠ r4 ∧ r2 ≠ r3 ∧ r2 ≠ r4 ∧ r3 ≠ r4 ⌝.
-  Proof.
-    iIntros "H1 H2 H3 H4".
-    iPoseProof (register_neq with "H1 H2") as "%".
-    iPoseProof (register_neq with "H1 H3") as "%".
-    iPoseProof (register_neq with "H1 H4") as "%".
-    iPoseProof (register_neq with "H2 H3") as "%".
-    iPoseProof (register_neq with "H2 H4") as "%".
-    iPoseProof (register_neq with "H3 H4") as "%".
-    rewrite !big_sepM_insert ?big_sepM_empty; simplify_map_eq; eauto.
-    iFrame. eauto.
-  Qed.
-
-  Lemma regs_of_map_4 (r1 r2 r3 r4: Register) (w1 w2 w3 w4: Word) :
-    r1 ≠ r2 → r1 ≠ r3 → r1 ≠ r4 → r2 ≠ r3 → r2 ≠ r4 → r3 ≠ r4 →
-    ([∗ map] k↦y ∈ (<[r1:=w1]> (<[r2:=w2]> (<[r3:=w3]> (<[r4:=w4]> ∅)))), k ↦ᵣ y) -∗
-    r1 ↦ᵣ w1 ∗ r2 ↦ᵣ w2 ∗ r3 ↦ᵣ w3 ∗ r4 ↦ᵣ w4.
-  Proof.
-    intros. iIntros "Hmap". rewrite !big_sepM_insert ?big_sepM_empty; simplify_map_eq; eauto.
-    iDestruct "Hmap" as "(? & ? & ? & ? & _)"; iFrame.
-  Qed.
-*)
-
-  (* ------------------------- memory points-to --------------------------------- *)
-
-  Lemma addr_dupl_false a w1 w2 :
-    a ↦ₐ w1 -∗ a ↦ₐ w2 -∗ False.
-  Proof.
-    iIntros "Ha1 Ha2".
-    iDestruct (pointsto_valid_2 with "Ha1 Ha2") as %H.
-    destruct H as [H1 H2]. eapply dfrac_full_exclusive in H1.
-    auto.
-  Qed.
 
   Fixpoint regs_from_inputs {n : nat} (inputs : vec (Word + Register) n) : gset Register :=
     match inputs with
@@ -302,15 +158,6 @@ Section prog_log_helper.
   | inl _ => ∅
   | inr r => {[ r ]}
   end.
-
-Definition regs_of (i: instr): gset Register :=
-match i with
-    | Computation inputs rres f_result => {[ rres ]} ∪ regs_from_inputs inputs
-    | ControlFlow inputs dst f_condition => regs_of_argument dst ∪ regs_from_inputs inputs
-    | Load rres rsrc => {[ rres; rsrc ]}
-    | Store rdst src => {[ rdst ]} ∪ regs_of_argument src
-    | _ => ∅
-end.
 
 Lemma indom_regs_incl D (regs regs': Reg) :
   D ⊆ dom regs →
@@ -405,33 +252,9 @@ Proof.
       destruct inputs_in_regs as [_ ->]. reflexivity.
 Qed.
 
-Lemma regs_of_computation {n : nat} (inputs : vec (Word + Register) n)
-    (rres : Register) (f_result : vec Word n -> Word) i :
-    i = Computation inputs rres f_result ->
-    regs_of i = {[ rres ]} ∪ regs_from_inputs inputs.
-Proof.
-  intros. subst.
-  reflexivity.
-Qed.
-
-
-
-Lemma regs_of_control_flow {n : nat} (inputs : vec (Word + Register) n)
-    (dst : Word + Register) (f_condition : vec Word n -> bool) i :
-    i = ControlFlow inputs dst f_condition ->
-    regs_of i = regs_of_argument dst ∪ regs_from_inputs inputs.
-Proof.
-  intros. subst.
-  reflexivity.
-Qed.
-
-Definition test_prog_not_constant_time (high_input : nat) :=
-  list_prog_to_prog [Add (register 0) (inl (word high_input)) (inl (word high_input)); Jnz (inr (register 0)) (inl (word 3))].
 
 Definition loopify (e : expr) : expr :=
   match e with
   | Instr cf => Loop cf
   | Loop cf => Loop cf
   end.
-
-End prog_log_helper.
